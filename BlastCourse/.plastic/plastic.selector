@@ -1,0 +1,3 @@
+rep "BlastCourseV1@mickel_D@cloud"
+  path "/"
+    smartbranch "/main"

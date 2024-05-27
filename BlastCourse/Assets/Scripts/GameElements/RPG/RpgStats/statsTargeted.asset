@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f1f5cc965c4e1b48b1314d8968acda6, type: 3}
+  m_Name: statsTargeted
+  m_EditorClassIdentifier: 
+  <FireMode>k__BackingField: 2
+  Unlocked: 0
+  <ClipSize>k__BackingField: 0
+  <EnergyRecoveryMultiplier>k__BackingField: 0
+  <ActiveRocketCap>k__BackingField: 8
+  RocketPrefab: {fileID: 1343217460003336309, guid: 6d820d7aeb77308429a10138aaa32f16,
+    type: 3}
+  <RocketSpeed>k__BackingField: 20
+  Explosion:
+    g_explosionPrefab: {fileID: 4212445937318457161, guid: a1f9e7a62b475574fa9f62c88eec49be,
+      type: 3}
+    g_boomTextPrefab:
+    - {fileID: 8790979009465212854, guid: e41ea4ed30c55e14da49c30df8ab7ed1, type: 3}
+    BlastRadius: 2
+    BlastForce: 7
+    Damage: 10
+    Source: 0
+    SourcePos: {x: 0, y: 0, z: 0}
+    ExplosionRules: {fileID: 11400000, guid: 308b691c5fa88a64eb9992c41bd7b454, type: 2}
+    ExplosionSound:
+      SfxClip: []
+      Volume: 0
+      Pitch: 0
+      Loop: 0
+      Group: {fileID: 0}
+      SpatialBlend: 0
+  AssociatedVisuals:
+    LightColor: {r: 1, g: 0.6273585, b: 0.6273585, a: 1}
+    DarkColor: {r: 0.4339623, g: 0.21493414, b: 0.21493414, a: 1}
+    EmissiveColor: {r: 0, g: 0, b: 0, a: 0}
+    RpgIcon: {fileID: 21300000, guid: 27c9cd1ae62a6e04db5714f59ea856bc, type: 3}
+    RocketIcon: {fileID: 21300000, guid: 27c9cd1ae62a6e04db5714f59ea856bc, type: 3}
+  ShootingSound:
+    SfxClip:
+    - {fileID: 0}
+    Volume: 0
+    Pitch: 0
+    Loop: 0
+    Group: {fileID: 0}
+    SpatialBlend: 0

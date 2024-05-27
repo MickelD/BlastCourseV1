@@ -1,0 +1,365 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SSSHandMask
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: manorocketlouncher:hand_grp
+    m_Weight: 1
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:index1_l_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:index1_l_ctr_zero/manorocketlouncher:index1_l_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:index1_l_ctr_zero/manorocketlouncher:index1_l_ctr/manorocketlouncher:index2_l_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:index1_l_ctr_zero/manorocketlouncher:index1_l_ctr/manorocketlouncher:index2_l_ctr_zero/manorocketlouncher:index2_l_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:index1_l_ctr_zero/manorocketlouncher:index1_l_ctr/manorocketlouncher:index2_l_ctr_zero/manorocketlouncher:index2_l_ctr/manorocketlouncher:indexEND_l_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:index1_l_ctr_zero/manorocketlouncher:index1_l_ctr/manorocketlouncher:index2_l_ctr_zero/manorocketlouncher:index2_l_ctr/manorocketlouncher:indexEND_l_ctr_zero/manorocketlouncher:indexEND_l_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:middle1_l_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:middle1_l_ctr_zero/manorocketlouncher:middle1_l_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:middle1_l_ctr_zero/manorocketlouncher:middle1_l_ctr/manorocketlouncher:middle2_l_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:middle1_l_ctr_zero/manorocketlouncher:middle1_l_ctr/manorocketlouncher:middle2_l_ctr_zero/manorocketlouncher:middle2_l_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:middle1_l_ctr_zero/manorocketlouncher:middle1_l_ctr/manorocketlouncher:middle2_l_ctr_zero/manorocketlouncher:middle2_l_ctr/manorocketlouncher:middleEND_l_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:middle1_l_ctr_zero/manorocketlouncher:middle1_l_ctr/manorocketlouncher:middle2_l_ctr_zero/manorocketlouncher:middle2_l_ctr/manorocketlouncher:middleEND_l_ctr_zero/manorocketlouncher:middleEND_l_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:pinky1_l_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:pinky1_l_ctr_zero/manorocketlouncher:pinky1_l_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:pinky1_l_ctr_zero/manorocketlouncher:pinky1_l_ctr/manorocketlouncher:pinky2_l_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:pinky1_l_ctr_zero/manorocketlouncher:pinky1_l_ctr/manorocketlouncher:pinky2_l_ctr_zero/manorocketlouncher:pinky2_l_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:pinky1_l_ctr_zero/manorocketlouncher:pinky1_l_ctr/manorocketlouncher:pinky2_l_ctr_zero/manorocketlouncher:pinky2_l_ctr/manorocketlouncher:pinkyEND_l_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:pinky1_l_ctr_zero/manorocketlouncher:pinky1_l_ctr/manorocketlouncher:pinky2_l_ctr_zero/manorocketlouncher:pinky2_l_ctr/manorocketlouncher:pinkyEND_l_ctr_zero/manorocketlouncher:pinkyEND_l_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:ring1_l_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:ring1_l_ctr_zero/manorocketlouncher:ring1_l_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:ring1_l_ctr_zero/manorocketlouncher:ring1_l_ctr/manorocketlouncher:ring2_l_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:ring1_l_ctr_zero/manorocketlouncher:ring1_l_ctr/manorocketlouncher:ring2_l_ctr_zero/manorocketlouncher:ring2_l_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:ring1_l_ctr_zero/manorocketlouncher:ring1_l_ctr/manorocketlouncher:ring2_l_ctr_zero/manorocketlouncher:ring2_l_ctr/manorocketlouncher:ringEND_l_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:ring1_l_ctr_zero/manorocketlouncher:ring1_l_ctr/manorocketlouncher:ring2_l_ctr_zero/manorocketlouncher:ring2_l_ctr/manorocketlouncher:ringEND_l_ctr_zero/manorocketlouncher:ringEND_l_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:thumb1_l_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:thumb1_l_ctr_zero/manorocketlouncher:thumb1_l_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:thumb1_l_ctr_zero/manorocketlouncher:thumb1_l_ctr/manorocketlouncher:thumb2_l_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:thumb1_l_ctr_zero/manorocketlouncher:thumb1_l_ctr/manorocketlouncher:thumb2_l_ctr_zero/manorocketlouncher:thumb2_l_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:thumb1_l_ctr_zero/manorocketlouncher:thumb1_l_ctr/manorocketlouncher:thumb2_l_ctr_zero/manorocketlouncher:thumb2_l_ctr/manorocketlouncher:thumbEND_l_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:arm_l_ctr_zero/manorocketlouncher:arm_l_ctr/manorocketlouncher:hand_l_ctr_zero/manorocketlouncher:hand_l_ctr/manorocketlouncher:thumb1_l_ctr_zero/manorocketlouncher:thumb1_l_ctr/manorocketlouncher:thumb2_l_ctr_zero/manorocketlouncher:thumb2_l_ctr/manorocketlouncher:thumbEND_l_ctr_zero/manorocketlouncher:thumbEND_l_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:DO_NOT_TOUCH
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:handgeo_grp
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:handgeo_grp/manorocketlouncher:hand
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:armEND_l_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:armEND_l_skn/manorocketlouncher:arm_l_jnt
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:armEND_l_skn/manorocketlouncher:hand_l_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:armEND_l_skn/manorocketlouncher:hand_l_skn/manorocketlouncher:index1_l_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:armEND_l_skn/manorocketlouncher:hand_l_skn/manorocketlouncher:index1_l_skn/manorocketlouncher:index2_l_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:armEND_l_skn/manorocketlouncher:hand_l_skn/manorocketlouncher:index1_l_skn/manorocketlouncher:index2_l_skn/manorocketlouncher:indexEND_l_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:armEND_l_skn/manorocketlouncher:hand_l_skn/manorocketlouncher:middle1_l_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:armEND_l_skn/manorocketlouncher:hand_l_skn/manorocketlouncher:middle1_l_skn/manorocketlouncher:middle2_l_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:armEND_l_skn/manorocketlouncher:hand_l_skn/manorocketlouncher:middle1_l_skn/manorocketlouncher:middle2_l_skn/manorocketlouncher:middleEND_l_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:armEND_l_skn/manorocketlouncher:hand_l_skn/manorocketlouncher:pinky1_l_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:armEND_l_skn/manorocketlouncher:hand_l_skn/manorocketlouncher:pinky1_l_skn/manorocketlouncher:pink2_l_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:armEND_l_skn/manorocketlouncher:hand_l_skn/manorocketlouncher:pinky1_l_skn/manorocketlouncher:pink2_l_skn/manorocketlouncher:pinkEND_l_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:armEND_l_skn/manorocketlouncher:hand_l_skn/manorocketlouncher:ring1_l_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:armEND_l_skn/manorocketlouncher:hand_l_skn/manorocketlouncher:ring1_l_skn/manorocketlouncher:ring2_l_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:armEND_l_skn/manorocketlouncher:hand_l_skn/manorocketlouncher:ring1_l_skn/manorocketlouncher:ring2_l_skn/manorocketlouncher:ringEND_l_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:armEND_l_skn/manorocketlouncher:hand_l_skn/manorocketlouncher:thumb1_l_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:armEND_l_skn/manorocketlouncher:hand_l_skn/manorocketlouncher:thumb1_l_skn/manorocketlouncher:thumb2_l_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:hand_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:armEND_l_skn/manorocketlouncher:hand_l_skn/manorocketlouncher:thumb1_l_skn/manorocketlouncher:thumb2_l_skn/manorocketlouncher:thumbEND_l_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:antenabase_c_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:antenabase_c_ctr_zero/manorocketlouncher:antenabase_c_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:antenabase_c_ctr_zero/manorocketlouncher:antenabase_c_ctr/manorocketlouncher:antenajoint_c_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:antenabase_c_ctr_zero/manorocketlouncher:antenabase_c_ctr/manorocketlouncher:antenajoint_c_ctr_zero/manorocketlouncher:antenajoint_c_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:antenabase_c_ctr_zero/manorocketlouncher:antenabase_c_ctr/manorocketlouncher:antenajoint_c_ctr_zero/manorocketlouncher:antenajoint_c_ctr/manorocketlouncher:antena_c_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:antenabase_c_ctr_zero/manorocketlouncher:antenabase_c_ctr/manorocketlouncher:antenajoint_c_ctr_zero/manorocketlouncher:antenajoint_c_ctr/manorocketlouncher:antena_c_ctr_zero/manorocketlouncher:antena_c_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_ld_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_ld_ctr_zero/manorocketlouncher:cannon1_ld_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_ld_ctr_zero/manorocketlouncher:cannon1_ld_ctr/manorocketlouncher:cannon2_ld_skn_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_ld_ctr_zero/manorocketlouncher:cannon1_ld_ctr/manorocketlouncher:cannon2_ld_skn_zero/manorocketlouncher:cannon2_ld_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_ld_ctr_zero/manorocketlouncher:cannon1_ld_ctr/manorocketlouncher:cannon2_ld_skn_zero/manorocketlouncher:cannon2_ld_skn/manorocketlouncher:cannon3_ld_skn_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_ld_ctr_zero/manorocketlouncher:cannon1_ld_ctr/manorocketlouncher:cannon2_ld_skn_zero/manorocketlouncher:cannon2_ld_skn/manorocketlouncher:cannon3_ld_skn_zero/manorocketlouncher:cannon3_ld_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_ld_ctr_zero/manorocketlouncher:cannon1_ld_ctr/manorocketlouncher:cannon2_ld_skn_zero/manorocketlouncher:cannon2_ld_skn/manorocketlouncher:cannon3_ld_skn_zero/manorocketlouncher:cannon3_ld_skn/manorocketlouncher:cannonEND_ld_skn_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_ld_ctr_zero/manorocketlouncher:cannon1_ld_ctr/manorocketlouncher:cannon2_ld_skn_zero/manorocketlouncher:cannon2_ld_skn/manorocketlouncher:cannon3_ld_skn_zero/manorocketlouncher:cannon3_ld_skn/manorocketlouncher:cannonEND_ld_skn_zero/manorocketlouncher:cannonEND_ld_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_lu_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_lu_ctr_zero/manorocketlouncher:cannon1_lu_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_lu_ctr_zero/manorocketlouncher:cannon1_lu_ctr/manorocketlouncher:cannon2_lu_skn_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_lu_ctr_zero/manorocketlouncher:cannon1_lu_ctr/manorocketlouncher:cannon2_lu_skn_zero/manorocketlouncher:cannon2_lu_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_lu_ctr_zero/manorocketlouncher:cannon1_lu_ctr/manorocketlouncher:cannon2_lu_skn_zero/manorocketlouncher:cannon2_lu_skn/manorocketlouncher:cannon3_lu_skn_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_lu_ctr_zero/manorocketlouncher:cannon1_lu_ctr/manorocketlouncher:cannon2_lu_skn_zero/manorocketlouncher:cannon2_lu_skn/manorocketlouncher:cannon3_lu_skn_zero/manorocketlouncher:cannon3_lu_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_lu_ctr_zero/manorocketlouncher:cannon1_lu_ctr/manorocketlouncher:cannon2_lu_skn_zero/manorocketlouncher:cannon2_lu_skn/manorocketlouncher:cannon3_lu_skn_zero/manorocketlouncher:cannon3_lu_skn/manorocketlouncher:cannonEND_lu_skn_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_lu_ctr_zero/manorocketlouncher:cannon1_lu_ctr/manorocketlouncher:cannon2_lu_skn_zero/manorocketlouncher:cannon2_lu_skn/manorocketlouncher:cannon3_lu_skn_zero/manorocketlouncher:cannon3_lu_skn/manorocketlouncher:cannonEND_lu_skn_zero/manorocketlouncher:cannonEND_lu_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_rd_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_rd_ctr_zero/manorocketlouncher:cannon1_rd_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_rd_ctr_zero/manorocketlouncher:cannon1_rd_ctr/manorocketlouncher:cannon2_rd_skn_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_rd_ctr_zero/manorocketlouncher:cannon1_rd_ctr/manorocketlouncher:cannon2_rd_skn_zero/manorocketlouncher:cannon2_rd_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_rd_ctr_zero/manorocketlouncher:cannon1_rd_ctr/manorocketlouncher:cannon2_rd_skn_zero/manorocketlouncher:cannon2_rd_skn/manorocketlouncher:cannon3_rd_skn_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_rd_ctr_zero/manorocketlouncher:cannon1_rd_ctr/manorocketlouncher:cannon2_rd_skn_zero/manorocketlouncher:cannon2_rd_skn/manorocketlouncher:cannon3_rd_skn_zero/manorocketlouncher:cannon3_rd_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_rd_ctr_zero/manorocketlouncher:cannon1_rd_ctr/manorocketlouncher:cannon2_rd_skn_zero/manorocketlouncher:cannon2_rd_skn/manorocketlouncher:cannon3_rd_skn_zero/manorocketlouncher:cannon3_rd_skn/manorocketlouncher:cannonEND_rd_skn_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_rd_ctr_zero/manorocketlouncher:cannon1_rd_ctr/manorocketlouncher:cannon2_rd_skn_zero/manorocketlouncher:cannon2_rd_skn/manorocketlouncher:cannon3_rd_skn_zero/manorocketlouncher:cannon3_rd_skn/manorocketlouncher:cannonEND_rd_skn_zero/manorocketlouncher:cannonEND_rd_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_ru_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_ru_ctr_zero/manorocketlouncher:cannon1_ru_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_ru_ctr_zero/manorocketlouncher:cannon1_ru_ctr/manorocketlouncher:cannon2_ru_skn_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_ru_ctr_zero/manorocketlouncher:cannon1_ru_ctr/manorocketlouncher:cannon2_ru_skn_zero/manorocketlouncher:cannon2_ru_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_ru_ctr_zero/manorocketlouncher:cannon1_ru_ctr/manorocketlouncher:cannon2_ru_skn_zero/manorocketlouncher:cannon2_ru_skn/manorocketlouncher:cannon3_ru_skn_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_ru_ctr_zero/manorocketlouncher:cannon1_ru_ctr/manorocketlouncher:cannon2_ru_skn_zero/manorocketlouncher:cannon2_ru_skn/manorocketlouncher:cannon3_ru_skn_zero/manorocketlouncher:cannon3_ru_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_ru_ctr_zero/manorocketlouncher:cannon1_ru_ctr/manorocketlouncher:cannon2_ru_skn_zero/manorocketlouncher:cannon2_ru_skn/manorocketlouncher:cannon3_ru_skn_zero/manorocketlouncher:cannon3_ru_skn/manorocketlouncher:cannonEND_ru_skn_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:cannon1_ru_ctr_zero/manorocketlouncher:cannon1_ru_ctr/manorocketlouncher:cannon2_ru_skn_zero/manorocketlouncher:cannon2_ru_skn/manorocketlouncher:cannon3_ru_skn_zero/manorocketlouncher:cannon3_ru_skn/manorocketlouncher:cannonEND_ru_skn_zero/manorocketlouncher:cannonEND_ru_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:homing_c_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:homing_c_ctr_zero/manorocketlouncher:homing_c_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:homing_c_ctr_zero/manorocketlouncher:homing_c_ctr/manorocketlouncher:homing1_c_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:homing_c_ctr_zero/manorocketlouncher:homing_c_ctr/manorocketlouncher:homing1_c_ctr_zero/manorocketlouncher:homing1_c_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:homing_c_ctr_zero/manorocketlouncher:homing_c_ctr/manorocketlouncher:homing2_c_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:homing_c_ctr_zero/manorocketlouncher:homing_c_ctr/manorocketlouncher:homing2_c_ctr_zero/manorocketlouncher:homing2_c_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:manilla_c_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:manilla_c_ctr_zero/manorocketlouncher:manilla_c_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:mirilla_c_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:mirilla_c_ctr_zero/manorocketlouncher:mirilla_c_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:trigger_c_ctr_zero
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:control_grp/manorocketlouncher:general_c_ctr_zero/manorocketlouncher:general_c_ctr/manorocketlouncher:root_c_ctr_zero/manorocketlouncher:root_c_ctr/manorocketlouncher:trigger_c_ctr_zero/manorocketlouncher:trigger_c_ctr
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:root_c_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:root_c_skn/manorocketlouncher:antenabase_c_skn1
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:root_c_skn/manorocketlouncher:antenabase_c_skn1/manorocketlouncher:antenajoint_c_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:root_c_skn/manorocketlouncher:antenabase_c_skn1/manorocketlouncher:antenajoint_c_skn/manorocketlouncher:antena_c_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_ld_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_ld_skn/manorocketlouncher:cannon2_ld_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_ld_skn/manorocketlouncher:cannon2_ld_skn/manorocketlouncher:cannon3_ld_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_ld_skn/manorocketlouncher:cannon2_ld_skn/manorocketlouncher:cannon3_ld_skn/manorocketlouncher:cannonEND_ld_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_lu_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_lu_skn/manorocketlouncher:cannon2_lu_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_lu_skn/manorocketlouncher:cannon2_lu_skn/manorocketlouncher:cannon3_lu_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_lu_skn/manorocketlouncher:cannon2_lu_skn/manorocketlouncher:cannon3_lu_skn/manorocketlouncher:cannonEND_lu_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_rd_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_rd_skn/manorocketlouncher:cannon2_rd_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_rd_skn/manorocketlouncher:cannon2_rd_skn/manorocketlouncher:cannon3_rd_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_rd_skn/manorocketlouncher:cannon2_rd_skn/manorocketlouncher:cannon3_rd_skn/manorocketlouncher:cannonEND_rd_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_ru_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_ru_skn/manorocketlouncher:cannon2_ru_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_ru_skn/manorocketlouncher:cannon2_ru_skn/manorocketlouncher:cannon3_ru_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_ru_skn/manorocketlouncher:cannon2_ru_skn/manorocketlouncher:cannon3_ru_skn/manorocketlouncher:cannonEND_ru_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:root_c_skn/manorocketlouncher:homing_c_jnt
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:root_c_skn/manorocketlouncher:homing_c_jnt/manorocketlouncher:homing1_c_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:root_c_skn/manorocketlouncher:homing_c_jnt/manorocketlouncher:homing2_c_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:root_c_skn/manorocketlouncher:manilla_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:root_c_skn/manorocketlouncher:mirilla_c_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:joint_grp/manorocketlouncher:root_c_skn/manorocketlouncher:trigger_c_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:launchergeo_grp
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:launchergeo_grp/manorocketlouncher:rocketlauncher
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:UNITY
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:UNITY/manorocketlouncher:unity_skeleton_grp
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:UNITY/manorocketlouncher:unity_skeleton_grp/manorocketlouncher:root_c_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:UNITY/manorocketlouncher:unity_skeleton_grp/manorocketlouncher:root_c_skn/manorocketlouncher:antenabase_c_skn1
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:UNITY/manorocketlouncher:unity_skeleton_grp/manorocketlouncher:root_c_skn/manorocketlouncher:antenabase_c_skn1/manorocketlouncher:antenajoint_c_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:UNITY/manorocketlouncher:unity_skeleton_grp/manorocketlouncher:root_c_skn/manorocketlouncher:antenabase_c_skn1/manorocketlouncher:antenajoint_c_skn/manorocketlouncher:antena_c_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:UNITY/manorocketlouncher:unity_skeleton_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:UNITY/manorocketlouncher:unity_skeleton_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_ld_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:UNITY/manorocketlouncher:unity_skeleton_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_ld_skn/manorocketlouncher:cannon2_ld_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:UNITY/manorocketlouncher:unity_skeleton_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_ld_skn/manorocketlouncher:cannon2_ld_skn/manorocketlouncher:cannon3_ld_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:UNITY/manorocketlouncher:unity_skeleton_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_ld_skn/manorocketlouncher:cannon2_ld_skn/manorocketlouncher:cannon3_ld_skn/manorocketlouncher:cannonEND_ld_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:UNITY/manorocketlouncher:unity_skeleton_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_lu_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:UNITY/manorocketlouncher:unity_skeleton_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_lu_skn/manorocketlouncher:cannon2_lu_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:UNITY/manorocketlouncher:unity_skeleton_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_lu_skn/manorocketlouncher:cannon2_lu_skn/manorocketlouncher:cannon3_lu_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:UNITY/manorocketlouncher:unity_skeleton_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_lu_skn/manorocketlouncher:cannon2_lu_skn/manorocketlouncher:cannon3_lu_skn/manorocketlouncher:cannonEND_lu_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:UNITY/manorocketlouncher:unity_skeleton_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_rd_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:UNITY/manorocketlouncher:unity_skeleton_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_rd_skn/manorocketlouncher:cannon2_rd_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:UNITY/manorocketlouncher:unity_skeleton_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_rd_skn/manorocketlouncher:cannon2_rd_skn/manorocketlouncher:cannon3_rd_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:UNITY/manorocketlouncher:unity_skeleton_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_rd_skn/manorocketlouncher:cannon2_rd_skn/manorocketlouncher:cannon3_rd_skn/manorocketlouncher:cannonEND_rd_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:UNITY/manorocketlouncher:unity_skeleton_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_ru_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:UNITY/manorocketlouncher:unity_skeleton_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_ru_skn/manorocketlouncher:cannon2_ru_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:UNITY/manorocketlouncher:unity_skeleton_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_ru_skn/manorocketlouncher:cannon2_ru_skn/manorocketlouncher:cannon3_ru_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:UNITY/manorocketlouncher:unity_skeleton_grp/manorocketlouncher:root_c_skn/manorocketlouncher:cannonbase_c_jnt/manorocketlouncher:cannon1_ru_skn/manorocketlouncher:cannon2_ru_skn/manorocketlouncher:cannon3_ru_skn/manorocketlouncher:cannonEND_ru_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:UNITY/manorocketlouncher:unity_skeleton_grp/manorocketlouncher:root_c_skn/manorocketlouncher:homing_c_jnt
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:UNITY/manorocketlouncher:unity_skeleton_grp/manorocketlouncher:root_c_skn/manorocketlouncher:homing_c_jnt/manorocketlouncher:homing1_c_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:UNITY/manorocketlouncher:unity_skeleton_grp/manorocketlouncher:root_c_skn/manorocketlouncher:homing_c_jnt/manorocketlouncher:homing2_c_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:UNITY/manorocketlouncher:unity_skeleton_grp/manorocketlouncher:root_c_skn/manorocketlouncher:manilla_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:UNITY/manorocketlouncher:unity_skeleton_grp/manorocketlouncher:root_c_skn/manorocketlouncher:mirilla_c_skn
+    m_Weight: 0
+  - m_Path: manorocketlouncher:launcher_grp/manorocketlouncher:DO_NOT_TOUCH/manorocketlouncher:UNITY/manorocketlouncher:unity_skeleton_grp/manorocketlouncher:root_c_skn/manorocketlouncher:trigger_c_skn
+    m_Weight: 0

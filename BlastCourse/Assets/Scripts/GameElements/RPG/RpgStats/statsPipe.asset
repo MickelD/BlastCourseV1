@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f1f5cc965c4e1b48b1314d8968acda6, type: 3}
+  m_Name: statsPipe
+  m_EditorClassIdentifier: 
+  <FireMode>k__BackingField: 1
+  Unlocked: 0
+  <ClipSize>k__BackingField: 5
+  <EnergyRecoveryMultiplier>k__BackingField: 1
+  <ActiveRocketCap>k__BackingField: 5
+  RocketPrefab: {fileID: 1343217460003336309, guid: c66e25e4257d82a40aa1aab6b39daa9e,
+    type: 3}
+  <RocketSpeed>k__BackingField: 20
+  Explosion:
+    g_explosionPrefab: {fileID: 4212445937318457161, guid: a1f9e7a62b475574fa9f62c88eec49be,
+      type: 3}
+    g_boomTextPrefab:
+    - {fileID: 8790979009465212854, guid: e41ea4ed30c55e14da49c30df8ab7ed1, type: 3}
+    BlastRadius: 3
+    BlastForce: 8.5
+    Damage: 10
+    Source: 0
+    SourcePos: {x: -4.997232, y: 1.9356146, z: 1.401987}
+    ExplosionRules: {fileID: 11400000, guid: 308b691c5fa88a64eb9992c41bd7b454, type: 2}
+    ExplosionSound:
+      SfxClip:
+      - {fileID: 8300000, guid: 82e5c4d8daab28f469e17d5878bc432d, type: 3}
+      - {fileID: 8300000, guid: 5091dc9c540cc1d498a165d25bbaf157, type: 3}
+      Volume: 0.1
+      Pitch: 1
+      Loop: 0
+      Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
+        type: 2}
+      SpatialBlend: 0
+  AssociatedVisuals:
+    LightColor: {r: 0.8117647, g: 0.8862745, b: 0.8980392, a: 0.8}
+    DarkColor: {r: 0.11764706, g: 0.14509805, b: 0.14901961, a: 1}
+    EmissiveColor: {r: 1.5058824, g: 3.3882353, b: 5.992157, a: 1}
+    RpgIcon: {fileID: 21300000, guid: 1087c0086e7ee4441b861d27008a4728, type: 3}
+    RocketIcon: {fileID: 21300000, guid: f40102cdf85dacb48a09f5dd4441b4f7, type: 3}
+  ShootingSound:
+    SfxClip:
+    - {fileID: 8300000, guid: 305587d365d5d4a47bcb587df2893452, type: 3}
+    Volume: 0.3
+    Pitch: 1
+    Loop: 0
+    Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
+      type: 2}
+    SpatialBlend: 0

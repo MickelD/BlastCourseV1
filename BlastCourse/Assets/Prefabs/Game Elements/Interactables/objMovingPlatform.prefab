@@ -1,0 +1,165 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &340834915297404356
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 340834915297404355}
+  - component: {fileID: 340834915297404354}
+  - component: {fileID: 2408733060699467998}
+  - component: {fileID: 7442826812638366649}
+  m_Layer: 6
+  m_Name: objMovingPlatform
+  m_TagString: Untagged
+  m_Icon: {fileID: 2800000, guid: cd64cf608c0a9824a872169c9aa8bcef, type: 3}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &340834915297404355
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340834915297404356}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &340834915297404354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340834915297404356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc43c11c3df71fa4bb35fbc594f0e7de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 0
+  Active: 0
+  ActivateOnStart: 0
+  StartingAction:
+    UpdateSharedRegistry: 0
+    _receiver: {fileID: 0}
+    _sender: {fileID: 0}
+    SelectedIndex: 0
+    Style: 0
+    ToggleState: 0
+    Delay: 0
+  OverrideToggleBehaviour: 0
+  RegisteredTriggers: []
+  RegisteredActions: []
+  movements:
+  - destination: {x: 0, y: 0, z: 0}
+    speed: 1
+    waitTime: 0
+  - destination: {x: 0, y: 1, z: 0}
+    speed: 1
+    waitTime: 0
+  beginActive: 0
+  shouldReverseOnEnd: 0
+  MoveSound:
+    SfxClip: []
+    Volume: 0.05
+    Pitch: 1
+    Loop: 1
+    Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
+      type: 2}
+    SpatialBlend: 0
+  frameStep: {x: 0, y: 0, z: 0}
+--- !u!114 &2408733060699467998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340834915297404356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 471660e0ed79a3948a90459aac7264d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ManagedByScript: 0
+  is2D: 1
+  castShadows: 0
+  Lenght: 0
+  Area: {x: 4, y: 8}
+  lenghtDirection: 0
+  areaDirection: 1
+  OverrideCollider: 1
+  Collision: {fileID: 7442826812638366649}
+  OverrideTileControls: 0
+  MeshStart:
+    Prefab: {fileID: 0}
+    Size: 0
+    Offset: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0}
+  MeshSegment:
+    Prefab: {fileID: 0}
+    Size: 0
+    Offset: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0}
+  MeshEnd:
+    Prefab: {fileID: 0}
+    Size: 0
+    Offset: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0}
+  MeshCorner:
+    Prefab: {fileID: 919132149155446097, guid: 2a783303d7348794bbd865d0687ceea2, type: 3}
+    Size: 2
+    Offset: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 270, z: 0}
+  MeshBody:
+    Prefab: {fileID: 919132149155446097, guid: 76f98b5ee2f242d409cddb13093bf93c, type: 3}
+    Size: 2
+    Offset: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0}
+  MeshRim:
+    Prefab: {fileID: 919132149155446097, guid: c49c86c71fd510b4b8fc229cbb78de1c, type: 3}
+    Size: 2
+    Offset: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 270, z: 0}
+  TileControls:
+    CornerScale:
+    - {x: 1, y: 1}
+    - {x: 1, y: 1}
+    - {x: 1, y: 1}
+    - {x: 1, y: 1}
+    CornerAngle:
+    - 0
+    - 90
+    - 270
+    - 180
+    RimAngle:
+    - 0
+    - 90
+    - 270
+    - 180
+    SinglePrefab: {fileID: 0}
+    DifferentiateRims: 0
+    SideRim: {fileID: 0}
+    FrontRim: {fileID: 0}
+--- !u!65 &7442826812638366649
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340834915297404356}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6, y: 0.5, z: 6}
+  m_Center: {x: 0, y: 0.25, z: 0}

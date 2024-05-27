@@ -1,0 +1,19 @@
+﻿[*.{cs,vb}]
+
+# IDE0040: Agregar modificadores de accesibilidad
+dotnet_diagnostic.IDE0040.severity = silent
+
+# Default severity for all analyzer diagnostics
+dotnet_analyzer_diagnostic.severity = suggestion
+
+# IDE0044: Agregar modificador de solo lectura
+dotnet_diagnostic.IDE0044.severity = silent
+
+# IDE0011: Agregar llaves
+dotnet_diagnostic.IDE0011.severity = silent
+
+# IDE0011: Agregar llaves
+csharp_prefer_braces = true
+
+# IDE0055: Fijar formato
+dotnet_diagnostic.IDE0055.severity = silent

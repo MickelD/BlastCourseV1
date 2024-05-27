@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3282981561436678502
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BoxDeployMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: c6c336d8f7841eb4496ce6dcdb75fcb4,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _SampleTexture2D_0f079f89f6184ecb8cd24dff5965727a_Texture_1:
+        m_Texture: {fileID: 2800000, guid: b499ecfbaa9e3a245b0085b74e1b049b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Triplanar_173bb28063044560aeef31e5982b8706_Texture_1:
+        m_Texture: {fileID: 2800000, guid: b499ecfbaa9e3a245b0085b74e1b049b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Corners_Opacity: 1
+    - _Dot_Offset: 1.52
+    - _Dot_Tiling: 2.5
+    - _Dots_Brightness: 0.75
+    - _General_Opacity: 1
+    - _Horizontal_Corner_Length: 0.4
+    - _Lines_Opacity: 0.17
+    - _Lines_Pattern_Size: 0.4
+    - _Lines_Thickness: 0.03
+    - _Low_Opacity_Limit: 0.1
+    - _Opacity_Pulse_Speed: 6
+    - _Overall_Corner_Width: 0.2
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _Vertical_Corner_Length: 0.4
+    - _Width: -3.61
+    - _Width_Pulse_Multiplier: 1
+    - _Width_Pulse_Speed: 6
+    m_Colors:
+    - _Corners_Color: {r: 1, g: 0, b: 0, a: 1}
+    - _Outlines_Color: {r: 0.5660378, g: 0, b: 0, a: 1}
+  m_BuildTextureStacks: []

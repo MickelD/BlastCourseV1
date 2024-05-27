@@ -1,0 +1,138 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8697528817699412092
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8697528817699412093}
+  - component: {fileID: 8697528817699412083}
+  - component: {fileID: 731107385}
+  - component: {fileID: 8697528817699412082}
+  m_Layer: 0
+  m_Name: objLadder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8697528817699412093
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8697528817699412092}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8697528817699412083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8697528817699412092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b1616174bc64949becf41f81f0d675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _length: 4
+  _width: 1.3
+  ClimbingSpeed: 200
+  ExitSpeed: 10
+  _tiler: {fileID: 731107385}
+--- !u!114 &731107385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8697528817699412092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 471660e0ed79a3948a90459aac7264d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ManagedByScript: 1
+  is2D: 0
+  castShadows: 0
+  Lenght: 4
+  Area: {x: 0, y: 0}
+  lenghtDirection: 1
+  areaDirection: 0
+  OverrideCollider: 0
+  Collision: {fileID: 0}
+  OverrideTileControls: 0
+  MeshStart:
+    Prefab: {fileID: 919132149155446097, guid: ebdfa589a95781145ba798c28c5dc060, type: 3}
+    Size: 1
+    Offset: {x: 0, y: 0, z: 0.03587341}
+    Rotation: {x: 0, y: 90, z: 0}
+  MeshSegment:
+    Prefab: {fileID: 919132149155446097, guid: 55172b591a0c3834e8385a6f4b43e5d5, type: 3}
+    Size: 1
+    Offset: {x: 0, y: 0, z: 0.03587341}
+    Rotation: {x: 0, y: 90, z: 0}
+  MeshEnd:
+    Prefab: {fileID: 919132149155446097, guid: f232e37f3b87fb049a341f2b775f7ef6, type: 3}
+    Size: 1
+    Offset: {x: 0, y: 0, z: 0.03587341}
+    Rotation: {x: 0, y: 90, z: 0}
+  MeshCorner:
+    Prefab: {fileID: 0}
+    Size: 0
+    Offset: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0}
+  MeshBody:
+    Prefab: {fileID: 919132149155446097, guid: 55172b591a0c3834e8385a6f4b43e5d5, type: 3}
+    Size: 1
+    Offset: {x: 0, y: 0, z: 0.03587341}
+    Rotation: {x: 0, y: 90, z: 0}
+  MeshRim:
+    Prefab: {fileID: 0}
+    Size: 0
+    Offset: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0}
+  TileControls:
+    CornerScale:
+    - {x: 0, y: 0}
+    - {x: 0, y: 0}
+    - {x: 0, y: 0}
+    - {x: 0, y: 0}
+    CornerAngle:
+    - 0
+    - 0
+    - 0
+    - 0
+    RimAngle:
+    - 0
+    - 0
+    - 0
+    - 0
+    SinglePrefab: {fileID: 0}
+    DifferentiateRims: 0
+    SideRim: {fileID: 0}
+    FrontRim: {fileID: 0}
+--- !u!65 &8697528817699412082
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8697528817699412092}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3, y: 4.2, z: 0.5}
+  m_Center: {x: 0, y: 2.1, z: 0}

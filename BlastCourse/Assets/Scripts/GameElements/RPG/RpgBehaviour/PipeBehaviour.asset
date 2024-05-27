@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29f6f8b79469eff46b7ee052aa8c3f5b, type: 3}
+  m_Name: PipeBehaviour
+  m_EditorClassIdentifier: 
+  ExplodeOnPlayerUponReflection: 1
+  _stats: {fileID: 11400000, guid: c5b7e300c5ddb8640b6e524df95da39d, type: 2}
+  Cost: 0.2
+  rockets: []
+  VerticalForceMult: 0.5
+  PlayerInertiaMult: 0.65
+  BounceCount: 2
+  FuseTime: 20

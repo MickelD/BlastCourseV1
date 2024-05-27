@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ec7da4176d946949bd4bfab9f215757, type: 3}
+  m_Name: RemoteDetonatorExplosionRules
+  m_EditorClassIdentifier: 
+  <IgnoreVerticalAttenuation>k__BackingField: 1
+  <SphereCastDuration>k__BackingField: 0.4
+  <SurfaceNormalInfluence>k__BackingField: 0.25
+  <ObjectDirectionDistribution>k__BackingField: {x: 1.25, y: 1.75}
+  <PlayerDirectionDistribution>k__BackingField: {x: 0.05, y: 2.5}
+  <ExplosionLifetime>k__BackingField: 1
+  <ExplosionLayerMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 4297
+  <DeffuserMaterials>k__BackingField:
+  - {fileID: 2100000, guid: 135e6d17f4ec7ee40ab1a07aef12bfe5, type: 2}
+  - {fileID: 2100000, guid: 2dbb7cf2424acb641a3b57706d96cbe0, type: 2}
+  - {fileID: 2100000, guid: 5675140b7e65a934f96d2e5e76c91909, type: 2}
+  - {fileID: 2100000, guid: 158d89162c0a73741b771f63d3251794, type: 2}
+  - {fileID: 2100000, guid: 18856b7465f310e4280a89413ae909e2, type: 2}

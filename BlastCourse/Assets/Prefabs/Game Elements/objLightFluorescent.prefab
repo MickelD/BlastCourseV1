@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &786671566654236738
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 786671566654236739}
+  - component: {fileID: 786671566654236860}
+  m_Layer: 6
+  m_Name: objLightFluorescent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &786671566654236739
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786671566654236738}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &786671566654236860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786671566654236738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 471660e0ed79a3948a90459aac7264d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ManagedByScript: 0
+  is2D: 1
+  castShadows: 0
+  Lenght: 10
+  Area: {x: 1, y: 1}
+  lenghtDirection: 0
+  areaDirection: 1
+  OverrideCollider: 0
+  Collision: {fileID: 0}
+  OverrideTileControls: 1
+  MeshStart:
+    Prefab: {fileID: 919132149155446097, guid: 9d960dd8b54961f459d6decdb9de14d6, type: 3}
+    Size: 2
+    Offset: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 270, z: 0}
+  MeshSegment:
+    Prefab: {fileID: 919132149155446097, guid: 1409cd8681bb0e14589aa1398ddefd66, type: 3}
+    Size: 2
+    Offset: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 90, z: 0}
+  MeshEnd:
+    Prefab: {fileID: 919132149155446097, guid: 9d960dd8b54961f459d6decdb9de14d6, type: 3}
+    Size: 2
+    Offset: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 90, z: 0}
+  MeshCorner:
+    Prefab: {fileID: 919132149155446097, guid: 3934810424655114d9c74c10b69834e3, type: 3}
+    Size: 2
+    Offset: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0}
+  MeshBody:
+    Prefab: {fileID: 919132149155446097, guid: b032072c58ce9f1428c3d946408de937, type: 3}
+    Size: 2
+    Offset: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0}
+  MeshRim:
+    Prefab: {fileID: 919132149155446097, guid: ae1380a5e2fba2941b161c03a11e8e5f, type: 3}
+    Size: 2
+    Offset: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0}
+  TileControls:
+    CornerScale:
+    - {x: -1, y: 1}
+    - {x: 1, y: 1}
+    - {x: 1, y: 1}
+    - {x: 1, y: -1}
+    CornerAngle:
+    - 0
+    - 180
+    - 0
+    - 0
+    RimAngle:
+    - 180
+    - 0
+    - 180
+    - 0
+    SinglePrefab: {fileID: 919132149155446097, guid: b597e81e151003b4f9e647ce3caba9bc,
+      type: 3}
+    DifferentiateRims: 1
+    SideRim: {fileID: 919132149155446097, guid: bb1e5659a51c1da4fb26042ceec9049a,
+      type: 3}
+    FrontRim: {fileID: 919132149155446097, guid: ae1380a5e2fba2941b161c03a11e8e5f,
+      type: 3}

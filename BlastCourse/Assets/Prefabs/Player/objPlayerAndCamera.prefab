@@ -140,7 +140,7 @@ MonoBehaviour:
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
-    SpatialBlend: 0
+    SpatialBlend: 1
   rechargeSound:
     SfxClip:
     - {fileID: 8300000, guid: dad070caf832c0644baf089c2d1238cd, type: 3}
@@ -149,7 +149,7 @@ MonoBehaviour:
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
-    SpatialBlend: 0
+    SpatialBlend: 1
   _canDetonate: 1
 --- !u!1 &1531428103
 GameObject:

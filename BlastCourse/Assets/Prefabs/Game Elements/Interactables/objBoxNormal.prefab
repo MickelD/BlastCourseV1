@@ -67,7 +67,7 @@ MonoBehaviour:
   _grabRotationSpeed: 15
   _throwInertia: 0.25
   _minHoldDistance: 0.1
-  _maxHoldDistance: 4
+  _maxHoldDistance: 3
   _explosionMass: 1
   _rotationalInertia: 1
   _bouncePadMultiplier: 1

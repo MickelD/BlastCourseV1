@@ -115,7 +115,7 @@ public class PhysicsObject : ScaledTimeMonoBehaviour, IBounceable, IExplodable, 
 
     public virtual void OnDestroy()
     {
-        if (!_isQuitting && !SaveLoader.Instance._loading) //VERIFY THAT WE ARE NOT CHANGING SCENES
+        if (!_isQuitting && SaveLoader.Instance != null && !SaveLoader.Instance._loading) //VERIFY THAT WE ARE NOT CHANGING SCENES
         {
             OnObjectDestroyed?.Invoke();
 

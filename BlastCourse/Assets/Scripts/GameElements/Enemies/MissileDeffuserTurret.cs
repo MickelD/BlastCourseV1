@@ -79,8 +79,8 @@ public class MissileDeffuserTurret : GenericTurret
         if (_targetingRocket)
         {
             SetLaser();
-            _target.GetComponent<RocketBase>().Defuse();
             _posibleTargets.RemoveAt(_posibleTargets.IndexOf(_target));
+            if(_target != null && _target.GetComponent<RocketBase>() != null) _target.GetComponent<RocketBase>().Defuse();
             _target = null;
         }
         else
@@ -88,6 +88,15 @@ public class MissileDeffuserTurret : GenericTurret
             SetLaser();
             Vector3 direction = _target.transform.position - g_gunPoint.transform.position;
             _target.GetComponent<PhysicsObject>().Push(direction.normalized * _pushForce * 1000);
+
+            RocketBase[] attachedRockets = _target.GetComponentsInChildren<RocketBase>();
+            if (attachedRockets != null && attachedRockets.Length > 0)
+                foreach(RocketBase r in attachedRockets)
+                {
+                    if (_posibleTargets.Contains(r.transform)) _posibleTargets.RemoveAt(_posibleTargets.IndexOf(r.transform));
+
+                    if (r != null && r.GetComponent<RocketBase>() != null) r.Defuse();
+                }
         }
     }
 
@@ -159,6 +168,7 @@ public class MissileDeffuserTurret : GenericTurret
             && _posibleTargets.Contains(other.transform))
             {
             _posibleTargets.Remove(other.transform);
+            Debug.Log("Hey");
             }
         
     }

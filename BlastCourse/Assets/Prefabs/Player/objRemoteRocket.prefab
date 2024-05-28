@@ -188,6 +188,9 @@ MonoBehaviour:
   c_playerTrigger: {fileID: 5362936422528938794}
   rpg: {fileID: 0}
   c_col: {fileID: 4754293962106231375}
+  stickedLayer:
+    serializedVersion: 2
+    m_Bits: 4194304
 --- !u!54 &5705535953715931384
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -69,11 +69,13 @@ public class GenericTurret : ActivableBase
         //Checking for posible targets
         if(Active && _posibleTargets.Count > 0)
         {
+
             foreach(Transform t in _posibleTargets)
             {
                 //Visibility && Angle of Missile
                 if (t != null)
                 {
+
                     Vector3 distance = t.transform.position + _offset - g_head.transform.position;
                     if (distance.magnitude <= _range && Physics.Raycast(g_gunPoint.transform.position, t.transform.position + _offset - g_gunPoint.transform.position, out RaycastHit hit, _range, _aimingLayers, QueryTriggerInteraction.Ignore))
                     {

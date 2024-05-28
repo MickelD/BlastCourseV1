@@ -17,7 +17,7 @@ public class KeyObjManager : MonoBehaviour
     {
         _keyObjList = new Dictionary<string, KeyInteractable>();
 
-        if (_keyObj?.Count > 0)
+        if (_keyObj != null && _keyObj?.Count > 0)
             for (int i = 0; i < _keyObj?.Count; i++)
                 _keyObjList?.Add(_keyObj?[i]?._index, _keyObj?[i]);
     }

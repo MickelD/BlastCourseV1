@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: chevrones
+    second: {fileID: 2100000, guid: 3fad832b5b3a4cb48999c68cf6238d3c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: standardSurface1
     second: {fileID: 2100000, guid: 49923e291190a904b8ea61eade3bd98c, type: 2}
   materials:

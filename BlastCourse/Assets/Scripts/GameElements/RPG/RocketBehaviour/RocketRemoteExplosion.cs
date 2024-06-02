@@ -37,11 +37,12 @@ public class RocketRemoteExplosion : RocketBase
 
     private void Stick(Collision col)
     {
-        c_col.enabled = false;
+        //c_col.enabled = false;
+        gameObject.layer = LayerMask.NameToLayer("StickedRockets");
 
         Body.isKinematic = true;
         transform.forward = col.contacts[0].normal;
-        transform.position = col.contacts[0].point;
+        transform.position = col.contacts[0].point + col.contacts[0].normal * 0.1f;
 
         transform.parent = col.transform;
         _localPos = transform.localPosition;

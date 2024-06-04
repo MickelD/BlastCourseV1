@@ -80,19 +80,19 @@ MonoBehaviour:
   G_meshRenderer: {fileID: 8455971306003687909}
   OnMat: {fileID: 2100000, guid: 2dbb7cf2424acb641a3b57706d96cbe0, type: 2}
   OffMat: {fileID: 2100000, guid: 5675140b7e65a934f96d2e5e76c91909, type: 2}
-  OffSound:
+  OnSfx:
     SfxClip:
-    - {fileID: 8300000, guid: 9faec1dd068f9ff4f9c09acfeb43c052, type: 3}
+    - {fileID: 8300000, guid: 28e7650a6e96d13408269241411a799b, type: 3}
     Volume: 0.1
     Pitch: 1
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
     SpatialBlend: 0
-  OnSound:
+  OffSfx:
     SfxClip:
-    - {fileID: 8300000, guid: 7cb348d5ba285bd4eab5595d118a2d31, type: 3}
-    Volume: 0.15
+    - {fileID: 8300000, guid: 9faec1dd068f9ff4f9c09acfeb43c052, type: 3}
+    Volume: 0.1
     Pitch: 1
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,

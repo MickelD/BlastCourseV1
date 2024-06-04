@@ -72,6 +72,15 @@ MonoBehaviour:
   _areaSize: {x: 1, y: 1, z: 1}
   _shaderPlane: {fileID: 720761039696625248}
   _maxShaderSize: 5
+  _interactSfx:
+    SfxClip:
+    - {fileID: 8300000, guid: ae78dd3c3af44864d86af2161276a576, type: 3}
+    Volume: 0.1
+    Pitch: 1
+    Loop: 0
+    Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
+      type: 2}
+    SpatialBlend: 0
 --- !u!65 &720761039116204203
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -64,7 +64,8 @@ MonoBehaviour:
   InverseSignal: 0
   ResetOnUnpress: 0
   _interactSfx:
-    SfxClip: {fileID: 0}
+    SfxClip:
+    - {fileID: 0}
     Volume: 0
     Pitch: 0
     Loop: 0

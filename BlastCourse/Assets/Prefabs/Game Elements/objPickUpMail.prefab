@@ -79,9 +79,9 @@ MonoBehaviour:
   ResetOnUnpress: 0
   _interactSfx:
     SfxClip:
-    - {fileID: 0}
-    Volume: 0
-    Pitch: 0
+    - {fileID: 8300000, guid: ae78dd3c3af44864d86af2161276a576, type: 3}
+    Volume: 0.1
+    Pitch: 1
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}

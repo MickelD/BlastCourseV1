@@ -13,6 +13,7 @@ public class MailTrigger : ActivableBase
     [SerializeField] public Vector3 _areaSize = Vector3.one;
     [SerializeField] public Transform _shaderPlane;
     [SerializeField] public float _maxShaderSize;
+    [SerializeField] public AudioCue _interactSfx;
 
     #endregion
 
@@ -58,6 +59,7 @@ public class MailTrigger : ActivableBase
 
     public override void SendAllActivations(bool isActive)
     {
+        AudioManager.TryPlayCueAtPoint(_interactSfx, transform.position);
         _used = isActive;
         base.SendAllActivations(isActive);
 

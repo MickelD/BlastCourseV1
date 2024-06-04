@@ -56,6 +56,26 @@ MonoBehaviour:
   g_defuseParticles: {fileID: 3215386160078462545, guid: 683079c6720f8c948957e5624d1ec8ff,
     type: 3}
   c_playerTrigger: {fileID: 4179425137087931984}
+  _explodeSfx:
+    SfxClip:
+    - {fileID: 8300000, guid: 41f1d22fcbde52c4d9b674b04c4f131e, type: 3}
+    - {fileID: 8300000, guid: 82e5c4d8daab28f469e17d5878bc432d, type: 3}
+    - {fileID: 8300000, guid: 5091dc9c540cc1d498a165d25bbaf157, type: 3}
+    Volume: 0.2
+    Pitch: 1
+    Loop: 0
+    Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
+      type: 2}
+    SpatialBlend: 0
+  _defuseSfx:
+    SfxClip:
+    - {fileID: 8300000, guid: e4d8fd8e1d3c0514a9dda88b5ef7c569, type: 3}
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
+      type: 2}
+    SpatialBlend: 0
   rpg: {fileID: 0}
 --- !u!54 &8628192948947575913
 Rigidbody:

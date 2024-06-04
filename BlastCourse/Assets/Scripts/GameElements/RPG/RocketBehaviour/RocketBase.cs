@@ -10,6 +10,8 @@ public class RocketBase : ScaledTimeMonoBehaviour, IBounceable
     [SerializeField] protected ParticleSystem c_rocketParticles;
     [SerializeField] protected GameObject g_defuseParticles;
     [SerializeField] protected Collider c_playerTrigger;
+    [SerializeField] protected AudioCue _explodeSfx;
+    [SerializeField] protected AudioCue _defuseSfx;
 
     #endregion
 
@@ -102,6 +104,8 @@ public class RocketBase : ScaledTimeMonoBehaviour, IBounceable
         {
             Destroy(Instantiate(g_defuseParticles, transform.position, Quaternion.identity, AudioManager.Instance.transform), 4f);
 
+            AudioManager.TryPlayCueAtPoint(_defuseSfx, transform.position);
+
             c_rocketParticles.Stop();
             Destroy(c_rocketParticles.gameObject, 2f);
             c_rocketParticles.gameObject.transform.parent = null;
@@ -117,6 +121,8 @@ public class RocketBase : ScaledTimeMonoBehaviour, IBounceable
         if (!_alreadyExplodedOrDiffused)
         {
             rpg._stats.Explosion.Explode(center, direction, rpg._rpgHolder.g_camera.transform.position);
+
+            AudioManager.TryPlayCueAtPoint(_explodeSfx, transform.position);
 
             c_rocketParticles.Stop();
             Destroy(c_rocketParticles.gameObject, 2f);

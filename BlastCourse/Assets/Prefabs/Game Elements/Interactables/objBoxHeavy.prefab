@@ -158,6 +158,15 @@ MonoBehaviour:
   c_rb: {fileID: 1008788360633640050}
   c_collider: {fileID: 8166836772182335095}
   c_gravity: {fileID: 3896862892231618808}
+  _collisionSfx:
+    SfxClip:
+    - {fileID: 8300000, guid: 68422d1abfee2c747aae849158dd422b, type: 3}
+    Volume: 0.2
+    Pitch: 1
+    Loop: 0
+    Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
+      type: 2}
+    SpatialBlend: 0
   _stuckDrag: 15
 --- !u!114 &3896862892231618808
 MonoBehaviour:

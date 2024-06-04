@@ -155,6 +155,24 @@ MonoBehaviour:
   BlockObjectsLayer: OnlyCheckForBox
   playerMaterial: {fileID: 2100000, guid: 000d9ec7ccbbcb143936f0f032f63022, type: 2}
   objectsMaterial: {fileID: 2100000, guid: ff07d9e435ae3c9418db5f31efcd6fd1, type: 2}
+  OnSfx:
+    SfxClip:
+    - {fileID: 8300000, guid: d41d96dde03bdfb4ebdc352a61ebb358, type: 3}
+    Volume: 0.01
+    Pitch: 1
+    Loop: 0
+    Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
+      type: 2}
+    SpatialBlend: 0
+  OffSfx:
+    SfxClip:
+    - {fileID: 8300000, guid: 6c304566675e15747a7fadfce7ca786e, type: 3}
+    Volume: 0.05
+    Pitch: 1
+    Loop: 0
+    Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
+      type: 2}
+    SpatialBlend: 0
 --- !u!1 &4915770191560476540
 GameObject:
   m_ObjectHideFlags: 0

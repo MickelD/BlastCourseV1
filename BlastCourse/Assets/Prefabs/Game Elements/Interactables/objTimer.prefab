@@ -66,7 +66,8 @@ MonoBehaviour:
   CountdownStartAt: 3
   CountdownInterval: 1
   CountdownSound:
-    SfxClip: {fileID: 8300000, guid: 3e7082b7c3839b24fbb659bee41a3ead, type: 3}
+    SfxClip:
+    - {fileID: 8300000, guid: 5a0dce4d25017f44b81751daacfee62c, type: 3}
     Volume: 1
     Pitch: 1
     Loop: 0

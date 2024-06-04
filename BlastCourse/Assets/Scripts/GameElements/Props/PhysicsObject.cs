@@ -40,6 +40,7 @@ public class PhysicsObject : ScaledTimeMonoBehaviour, IBounceable, IExplodable, 
     [SerializeField] Rigidbody c_rb;
     [SerializeField] Collider c_collider;
     [SerializeField] GravityController c_gravity;
+    [SerializeField] AudioCue _collisionSfx;
 
     #endregion
 
@@ -133,6 +134,11 @@ public class PhysicsObject : ScaledTimeMonoBehaviour, IBounceable, IExplodable, 
     private void OnApplicationQuit()
     {
         _isQuitting = true;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        AudioManager.TryPlayCueAtPoint(_collisionSfx, transform.position);
     }
 
     #endregion

@@ -15,6 +15,8 @@ public class MagneticPlate : ActivableBase
     [SerializeField] public MeshRenderer G_meshRenderer;
     [SerializeField] public Material OnMat;
     [SerializeField] public Material OffMat;
+    [SerializeField] public AudioCue OnSfx;
+    [SerializeField] public AudioCue OffSfx;
 
     #endregion
 
@@ -69,6 +71,7 @@ public class MagneticPlate : ActivableBase
         C_hitbox.enabled = set;
 
         G_meshRenderer.material = set ? OnMat : OffMat;
+        AudioManager.TryPlayCueAtPoint(set ? OnSfx : OffSfx, transform.position);
 
         if (!set)
         {

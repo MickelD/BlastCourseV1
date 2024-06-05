@@ -16,6 +16,11 @@ public class SaveLoader : MonoBehaviour
     [HideInInspector] public List<string> CollectiblesFound;
     [HideInInspector] public List<string> KeysReached;
     [HideInInspector] public bool[] UnlockedRpgs;
+    [HideInInspector] public List<string> Boxes;
+    [HideInInspector] public List<float> BoxesX;
+    [HideInInspector] public List<float> BoxesY;
+    [HideInInspector] public List<float> BoxesZ;
+    [HideInInspector] public List<string> UsedBoxes;
     public int DefaultPlaySceneIndex;
 
     [HideInInspector] public bool _loading;
@@ -45,6 +50,7 @@ public class SaveLoader : MonoBehaviour
         SpawnPos[0] = spawn.x;
         SpawnPos[1] = spawn.y;
         SpawnPos[2] = spawn.z;
+        SceneIndex = SceneManager.GetActiveScene().buildIndex;
 
         Save();
     }
@@ -54,6 +60,36 @@ public class SaveLoader : MonoBehaviour
 
         return spawn;
     }
+
+    public Vector3 GetBoxPos(int i)
+    {
+        return new Vector3(BoxesX[i], BoxesY[i], BoxesZ[i]);
+    }
+    public void SetBoxPos(UraniumBox b)
+    {
+        if (Boxes.Contains(b.GetIndex()))
+        {
+            for(int i = 0; i < Boxes.Count; i++)
+            {
+                if(Boxes[i] == b.GetIndex())
+                {
+                    Boxes[i] = (b.GetIndex());
+                    BoxesX[i] = (b.transform.position.x);
+                    BoxesY[i] = (b.transform.position.y);
+                    BoxesZ[i] = (b.transform.position.z);
+                }
+            }
+        }
+        else
+        {
+            Boxes.Add(b.GetIndex());
+            BoxesX.Add(b.transform.position.x);
+            BoxesY.Add(b.transform.position.y);
+            BoxesZ.Add(b.transform.position.z);
+        }
+        Save();
+    }
+
     public int GetScene() { return SceneIndex; }
 
     public void NextScene(Vector3 spawnPosition, int sceneIndex)
@@ -69,7 +105,7 @@ public class SaveLoader : MonoBehaviour
     public void Save()
     {
         EventManager.OnSaveGame?.Invoke();
-        SaveSystem.DataSave(SceneIndex, SpawnPos, CollectiblesFound, KeysReached, UnlockedRpgs);
+        SaveSystem.DataSave(SceneIndex, SpawnPos, CollectiblesFound, KeysReached, UnlockedRpgs, Boxes, BoxesX, BoxesY, BoxesZ, UsedBoxes);
     }
     [ContextMenu("Load")]
     public void Load()
@@ -103,6 +139,31 @@ public class SaveLoader : MonoBehaviour
                 for (int i = 0; i < data._rpgs.Length; i++)
                     UnlockedRpgs[i] = data._rpgs[i];
 
+            Boxes = new List<string>();
+            if (data.Boxes.Count > 0)
+                for (int i = 0; i < data.Boxes.Count; i++)
+                    Boxes.Add(data.Boxes[i]);
+
+            BoxesX = new List<float>();
+            if (data.BoxesX.Count > 0)
+                for (int i = 0; i < data.BoxesX.Count; i++)
+                    BoxesX.Add(data.BoxesX[i]);
+
+            BoxesY = new List<float>();
+            if (data.BoxesY.Count > 0)
+                for (int i = 0; i < data.BoxesY.Count; i++)
+                    BoxesY.Add(data.BoxesY[i]);
+
+            BoxesZ = new List<float>();
+            if (data.BoxesZ.Count > 0)
+                for (int i = 0; i < data.BoxesZ.Count; i++)
+                    BoxesZ.Add(data.BoxesZ[i]);
+
+            UsedBoxes = new List<string>();
+            if (data.UsedBoxes.Count > 0)
+                for (int i = 0; i < data.UsedBoxes.Count; i++)
+                    UsedBoxes.Add(data.UsedBoxes[i]);
+
             if (LoadingScreenManager.instance != null) LoadingScreenManager.instance.LoadScene(SceneIndex);
             else SceneManager.LoadScene(SceneIndex);
         }
@@ -115,6 +176,11 @@ public class SaveLoader : MonoBehaviour
             CollectiblesFound = new List<string>();
             KeysReached = new List<string>();
             UnlockedRpgs = new bool[4];
+            Boxes = new List<string>();
+            BoxesX = new List<float>();
+            BoxesY = new List<float>();
+            BoxesZ = new List<float>();
+            UsedBoxes = new List<string>();
 
             if (LoadingScreenManager.instance != null) LoadingScreenManager.instance.LoadScene(SceneIndex);
             else SceneManager.LoadScene(SceneIndex);
@@ -128,6 +194,12 @@ public class SaveLoader : MonoBehaviour
         CollectiblesFound = new List<string>();
         KeysReached = new List<string>();
         UnlockedRpgs = null;
+        Boxes = new List<string>();
+        BoxesX = new List<float>();
+        BoxesY = new List<float>();
+        BoxesZ = new List<float>();
+        UsedBoxes = new List<string>();
+
 
         SaveSystem.DataDelete(); 
     }

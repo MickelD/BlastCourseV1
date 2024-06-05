@@ -7,19 +7,19 @@ public static class SaveSystem
 {
     #region Data
 
-    public static void DataSave(int scene, float[] spawnPoint, List<string> collectibles, List<string> keys, bool[] rpg)
+    public static void DataSave(int scene, float[] spawnPoint, List<string> collectibles, List<string> keys, bool[] rpg, List<string> boxes, List<float> boxesX, List<float> boxesY, List<float> boxesZ, List<string> usedBoxes)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/save.data";
         FileStream stream = new FileStream(path, FileMode.Create);
-        Debug.Log("xDataOpenS");
-        SaveData data = new SaveData(scene, spawnPoint, collectibles, keys, rpg);
+        //Debug.Log("xDataOpenS");
+        SaveData data = new SaveData(scene, spawnPoint, collectibles, keys, rpg, boxes, boxesX, boxesY, boxesZ, usedBoxes);
 
         Debug.Log("Saving data to " + path);
 
         formatter.Serialize(stream, data);
         stream.Close();
-        Debug.Log("xDataCloseS");
+        //Debug.Log("xDataCloseS");
     }
 
     public static SaveData DataLoad()
@@ -31,10 +31,10 @@ public static class SaveSystem
 
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
-            Debug.Log("xDataOpenL");
+            //Debug.Log("xDataOpenL");
             SaveData data = formatter.Deserialize(stream) as SaveData;
             stream.Close();
-            Debug.Log("xDataCloseL");
+            //Debug.Log("xDataCloseL");
 
             return data;
         }
@@ -72,14 +72,14 @@ public static class SaveSystem
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/options.data";
         FileStream stream = new FileStream(path, FileMode.Create);
-        Debug.Log("xOptionsOpenS");
+        //Debug.Log("xOptionsOpenS");
         OptionsData data = new OptionsData(sense, mstr, sfx, music, dial, fs, iK, hG);;
 
         Debug.Log("Saving data to " + path);
 
         formatter.Serialize(stream, data);
         stream.Close();
-        Debug.Log("xOptionsCloseS");
+        //Debug.Log("xOptionsCloseS");
     }
 
     public static OptionsData OptionsLoad()
@@ -91,13 +91,13 @@ public static class SaveSystem
 
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
-            Debug.Log("xOptionsOpenL");
+            //Debug.Log("xOptionsOpenL");
 
 
             OptionsData data = formatter.Deserialize(stream) as OptionsData;
 
             stream.Close();
-            Debug.Log("xOptionsCloseL");
+            //Debug.Log("xOptionsCloseL");
             return data;
         }
         else

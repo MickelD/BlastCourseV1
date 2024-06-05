@@ -10,6 +10,7 @@ public class UraniumBox : PhysicsObject
     #region Vars
 
     private bool _consuming;
+    public string id;
 
     #endregion
 
@@ -30,7 +31,15 @@ public class UraniumBox : PhysicsObject
     public void SetConsuming(bool consuming)
     {
         _consuming = consuming;
+        if (!SaveLoader.Instance.UsedBoxes.Contains(id))
+        {
+            SaveLoader.Instance.UsedBoxes.Add(id);
+            SaveLoader.Instance.Save();
+        }
     }
+
+    public string GetIndex() { return id; }
+    public void SetIndex(string i) { id = i; }
 
     #endregion
 }

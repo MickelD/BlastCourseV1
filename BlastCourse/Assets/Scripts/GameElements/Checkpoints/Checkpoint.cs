@@ -30,7 +30,6 @@ public class Checkpoint : MonoBehaviour
         if (SaveLoader.Instance != null)
         {
             SaveLoader.Instance.SetSpawn(transform.position);
-            SaveLoader.Instance.Save();
         }
     }
 }

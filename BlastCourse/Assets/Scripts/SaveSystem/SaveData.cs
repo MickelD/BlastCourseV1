@@ -25,9 +25,14 @@ public class SaveData
     public List<string> _collectiblesAquired;
     public List<string> _keyObjects;
     public bool[] _rpgs;
+    public List<string> Boxes;
+    public List<float> BoxesX;
+    public List<float> BoxesY;
+    public List<float> BoxesZ;
+    public List<string> UsedBoxes;
     //Strings that hold a pointer to the reference
 
-    public SaveData(int scn, float[] spP, List<string> clAq, List<string> kObj, bool[] rpg)
+    public SaveData(int scn, float[] spP, List<string> clAq, List<string> kObj, bool[] rpg, List<string> b, List<float> bx, List<float> by, List<float> bz, List<string> ub)
     {
         _scene = scn;
 
@@ -50,6 +55,16 @@ public class SaveData
             _rpgs[2] = rpg[2];
             _rpgs[3] = rpg[3];
         }
-        
+
+        Boxes = new List<string>();
+        if (b.Count > 0) for (int i = 0; i < b.Count; i++) Boxes.Add(b[i]);
+        BoxesX = new List<float>();
+        if (bx.Count > 0) for (int i = 0; i < bx.Count; i++) BoxesX.Add(bx[i]);
+        BoxesY = new List<float>();
+        if (by.Count > 0) for (int i = 0; i < by.Count; i++) BoxesY.Add(by[i]);
+        BoxesZ = new List<float>();
+        if (bz.Count > 0) for (int i = 0; i < bz.Count; i++) BoxesZ.Add(bz[i]);
+        UsedBoxes = new List<string>();
+        if (ub.Count > 0) for (int i = 0; i < ub.Count; i++) UsedBoxes.Add(ub[i]);
     }
 }

@@ -91,7 +91,7 @@ public class PlayerInteract : MonoBehaviour
             {
                 if (!OptionsLoader.TryGetValueFromInstance(nameof(OptionsLoader.HoldGrab), _continuousInteraction)) SetInteractWith(_currentInteractable, false);
             }
-            else if (_selectedInteractable != null && !transform.parent.Equals(_selectedInteractable.gameObject.transform)) //We are looking at a valid interactable
+            else if (_selectedInteractable != null && (transform.parent == null || !transform.parent.Equals(_selectedInteractable.gameObject.transform))) //We are looking at a valid interactable
             {
                 SetInteractWith(_selectedInteractable, true);
             }

@@ -734,8 +734,8 @@ MonoBehaviour:
   _airSpeed: 17
   _airDrag: 1
   _groundTraction: 20
-  _airTraction: 8
-  _rocketJumpTraction: 4
+  _airTraction: 10
+  _rocketJumpTraction: 6
   _magentizedSpeed: 30
   _magnetizedDrag: 1
   _magnetDeadAngle: 40

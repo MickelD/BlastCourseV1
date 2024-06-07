@@ -11,20 +11,19 @@ public class Unloader : MonoBehaviour
     [SerializeField] GameObject[] targetObjects;
     [SerializeField] Behaviour[] targetComponents;
 
-    private bool loaded;
-
     public enum UnloadMode
     {
+        LoadOnEntry,
+        LoadOnExit,
         UnloadOnEntry,
         UnloadOnExit,
         UnloadOnEntryLoadOnExit,
-        UnloadOnExitLoadOnEntry
+        UnloadOnExitLoadOnEntry,
+        LoadOnCrossing
     }
 
     private void Load(bool load)
     {
-        loaded = load;
-
         foreach (GameObject obj in targetObjects)
         {
             obj.SetActive(load);
@@ -45,15 +44,23 @@ public class Unloader : MonoBehaviour
     {
         if(other.GetComponent<PlayerMovement>() != null)
         {
-            if (loaded) //LOADED
+            if (isLoaded()) //LOADED
             {
                 if (unloadMode is UnloadMode.UnloadOnEntry or UnloadMode.UnloadOnEntryLoadOnExit)
                     Load(false);
+                else if((unloadMode is UnloadMode.LoadOnCrossing) && Vector3.Dot(other.attachedRigidbody.velocity.normalized, transform.forward) <= 0f)
+                {
+                    Load(false);
+                }
             }
             else //UNLOADED
             {
-                if(unloadMode is UnloadMode.UnloadOnExitLoadOnEntry)
+                if(unloadMode is UnloadMode.UnloadOnExitLoadOnEntry or UnloadMode.LoadOnEntry)
                     Load(true);
+                else if ((unloadMode is UnloadMode.LoadOnCrossing) && Vector3.Dot(other.attachedRigidbody.velocity.normalized, transform.forward) >= 0f)
+                {
+                    Load(true);
+                }
             }
         }
     }
@@ -62,17 +69,38 @@ public class Unloader : MonoBehaviour
     {
         if (other.GetComponent<PlayerMovement>() != null)
         {
-            if (loaded) //LOADED
+            if (isLoaded()) //LOADED
             {
                 if (unloadMode is UnloadMode.UnloadOnExit or UnloadMode.UnloadOnExitLoadOnEntry)
                     Load(false);
+                else if ((unloadMode is UnloadMode.LoadOnCrossing) && Vector3.Dot(other.attachedRigidbody.velocity.normalized, transform.forward) <= 0f)
+                {
+                    Load(false);
+                }
             }
             else //UNLOADED
             {
-                if (unloadMode is UnloadMode.UnloadOnEntryLoadOnExit)
+                if (unloadMode is UnloadMode.UnloadOnEntryLoadOnExit or UnloadMode.LoadOnExit)
                     Load(true);
+                else if ((unloadMode is UnloadMode.LoadOnCrossing) && Vector3.Dot(other.attachedRigidbody.velocity.normalized, transform.forward) >= 0f)
+                {
+                    Load(true);
+                }
             }
         }
+    }
+
+    private bool isLoaded()
+    {
+        if (targetObjects.Length > 0)
+        {
+            return targetObjects[0].activeInHierarchy;
+        }
+        else if (targetComponents.Length > 0)
+        {
+            return targetComponents[0].enabled;
+        }
+        else return false;
     }
     
 }

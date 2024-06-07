@@ -6,6 +6,16 @@ public class PressurePlate : ActivableButton
 {
     private int _loadedObjects;
 
+    private void OnDisable()
+    {
+        _loadedObjects = 0;
+
+        if (_loadedObjects <= 0)
+        {
+            _loadedObjects = 0;
+            Press(false);
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {

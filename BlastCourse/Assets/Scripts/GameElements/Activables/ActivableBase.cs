@@ -53,6 +53,11 @@ public abstract class ActivableBase : MonoBehaviour
             TrySendActivation(StartingAction, true);
         }
 
+        if (gameObject.TryGetComponent<Animator>(out Animator anim))
+        {
+            anim.keepAnimatorStateOnDisable = true;
+        }
+
     }
 
     #endregion

@@ -74,6 +74,7 @@ public class PhysicsObject : ScaledTimeMonoBehaviour, IBounceable, IExplodable, 
     private Vector3 _lastValidMagnetDir;
 
     public System.Action OnObjectDestroyed;
+    public System.Action<bool> OnObjectLoadState;
 
     #endregion
 
@@ -94,6 +95,9 @@ public class PhysicsObject : ScaledTimeMonoBehaviour, IBounceable, IExplodable, 
 
         SaveLoader.Instance._loading = false;
     }
+
+    private void OnEnable() => OnObjectLoadState?.Invoke(true);
+    private void OnDisable() => OnObjectLoadState?.Invoke(false);
 
     private void FixedUpdate()
     {

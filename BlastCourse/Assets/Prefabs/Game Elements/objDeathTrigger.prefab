@@ -14,7 +14,7 @@ GameObject:
   m_Layer: 0
   m_Name: objDeathTrigger
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2800000, guid: 65f0e363b74cf5845ab8c3fbc14f39ac, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7164c6ae72e6a3469f1b0af8c508460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _onlyKillPlayer: 1
+  _killPlayer: 1
+  _killObjects: 1
 --- !u!65 &137849312874880270
 BoxCollider:
   m_ObjectHideFlags: 0

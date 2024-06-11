@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Checkpoint : MonoBehaviour
+public class Checkpoint : BoxVisualizer
 {
     [SerializeField, Tooltip("Debug Only")] private bool _spawnHere;
     [SerializeField] private AudioCue _sfx;
@@ -18,7 +18,12 @@ public class Checkpoint : MonoBehaviour
             SaveLoader.Instance.SetSpawn(transform.position);
         }
     }
-    #endif  
+#endif
+
+    protected override Color GetColor()
+    {
+        return new Color(0, 1, 0, 0.5f);
+    }
 
     private void OnTriggerEnter(Collider other)
     {

@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider))]
-public class Unloader : MonoBehaviour
+
+public class Unloader : BoxVisualizer
 {
     [SerializeField] bool unloadOnStart;
     [SerializeField] UnloadMode unloadMode;
@@ -102,7 +102,11 @@ public class Unloader : MonoBehaviour
         }
         else return false;
     }
-    
+
+    protected override Color GetColor()
+    {
+        return new Color(0, 0, 1, 0.5f);
+    }
 }
 
 

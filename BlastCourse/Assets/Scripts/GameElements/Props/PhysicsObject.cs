@@ -375,7 +375,7 @@ public class PhysicsObject : ScaledTimeMonoBehaviour, IBounceable, IExplodable, 
                             ExtendedMathUtility.HorizontalDirection(exp.SourcePos, transform.position).normalized : 
                             ExtendedMathUtility.HorizontalDirection(origin, transform.position).normalized;
 
-        c_rb.velocity = Vector3.zero;
+        c_rb.velocity *= 0.5f;
 
         c_rb.AddForce(
             (exp.BlastForce / _explosionMass) *

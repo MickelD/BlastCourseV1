@@ -15,7 +15,7 @@ MonoBehaviour:
   <IgnoreVerticalAttenuation>k__BackingField: 1
   <SphereCastDuration>k__BackingField: 0.4
   <SurfaceNormalInfluence>k__BackingField: 0.25
-  <ObjectDirectionDistribution>k__BackingField: {x: 1.25, y: 1.75}
+  <ObjectDirectionDistribution>k__BackingField: {x: 0.75, y: 2}
   <PlayerDirectionDistribution>k__BackingField: {x: 0.05, y: 2.5}
   <ExplosionLifetime>k__BackingField: 1
   <ExplosionLayerMask>k__BackingField:

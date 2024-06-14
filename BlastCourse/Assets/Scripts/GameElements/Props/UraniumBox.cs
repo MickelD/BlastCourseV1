@@ -16,7 +16,7 @@ public class UraniumBox : PhysicsObject
 
     #region UnityFunctions
 
-    public override void OnDestroy()
+    protected override void OnDestroy()
     {
         if (!_consuming)
         {

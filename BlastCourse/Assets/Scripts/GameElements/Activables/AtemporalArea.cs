@@ -37,10 +37,17 @@ public class AtemporalArea : ActivableBase
     {
         ScaledTimeMonoBehaviour mono = other.GetComponent<ScaledTimeMonoBehaviour>();
 
-        if (mono != null && !_forceFieldMesh.activeInHierarchy)
+        if (mono != null)
         {
-            SetFreezeBody(mono, false);
-            if (FrozenBodies.Contains(mono)) FrozenBodies.Remove(mono);
+            if (mono is RocketBase)
+            {
+                mono.DOKill();
+            }
+            else
+            {
+                SetFreezeBody(mono, false);
+                if (FrozenBodies.Contains(mono)) FrozenBodies.Remove(mono);
+            }
         }
     }
 
@@ -75,12 +82,15 @@ public class AtemporalArea : ActivableBase
                 FrozenBodies.Add(mono);
                 mono.FreezeTime(true);
             }
+
+            FrozenBodies.RemoveAll(b => b == null);
         }
         else
         {
             if (FrozenBodies.Contains(mono))
             {
                 mono.FreezeTime(false);
+                FrozenBodies.Remove(mono);
             }
         }
     }

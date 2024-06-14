@@ -74,29 +74,14 @@ public class MissileDeffuserTurret : GenericTurret
 
     protected override void Shoot()
     {
-        base.Shoot();
-
-        if (_targetingRocket)
+        if (_targetingRocket && _posibleTargets.Count > 0)
         {
+            base.Shoot();
+
             SetLaser();
-            _posibleTargets.RemoveAt(_posibleTargets.IndexOf(_target));
+            _posibleTargets.Remove(_target);
             if(_target != null && _target.GetComponent<RocketBase>() != null) _target.GetComponent<RocketBase>().Defuse();
             _target = null;
-        }
-        else
-        {
-            SetLaser();
-            Vector3 direction = _target.transform.position - g_gunPoint.transform.position;
-            _target.GetComponent<PhysicsObject>().Push(direction.normalized * _pushForce * 1000);
-
-            RocketBase[] attachedRockets = _target.GetComponentsInChildren<RocketBase>();
-            if (attachedRockets != null && attachedRockets.Length > 0)
-                foreach(RocketBase r in attachedRockets)
-                {
-                    if (_posibleTargets.Contains(r.transform)) _posibleTargets.RemoveAt(_posibleTargets.IndexOf(r.transform));
-
-                    if (r != null && r.GetComponent<RocketBase>() != null) r.Defuse();
-                }
         }
     }
 
@@ -139,37 +124,20 @@ public class MissileDeffuserTurret : GenericTurret
     {
         
         var collidingRocket = other.GetComponent<RocketBase>();
-        var collidingBox = other.GetComponent<PhysicsObject>();
-        if (!_posibleTargets.Contains(other.transform)
-            && collidingRocket != null
-            && collidingRocket.GetComponent<RocketPipe>() == null)
+        if (!_posibleTargets.Contains(other.transform) && collidingRocket != null && collidingRocket is not RocketPipe)
         {
             //Checks for Rockets
-
             _posibleTargets.Add(other.transform);
             _targetingRocket = true;
-        }
-        else if (!_posibleTargets.Contains(other.transform)
-            && collidingBox != null)
-        {
-            //Checks for Box
-
-            _posibleTargets.Add(other.transform);
-            _targetingRocket = false;
         }
     }
 
     protected override void OnTriggerExit(Collider other)
     {
-        var collidingRocket = other.GetComponent<RocketBase>();
-        var collidingBox = other.GetComponent<PhysicsObject>();
-        if ((collidingRocket != null 
-            || collidingBox != null)
-            && _posibleTargets.Contains(other.transform))
-            {
+        if (other.GetComponent<RocketBase>() && _posibleTargets.Contains(other.transform))
+        {
             _posibleTargets.Remove(other.transform);
-            Debug.Log("Hey");
-            }
+        }
         
     }
 

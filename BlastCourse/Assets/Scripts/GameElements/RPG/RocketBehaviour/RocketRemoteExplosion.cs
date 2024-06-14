@@ -62,7 +62,7 @@ public class RocketRemoteExplosion : RocketBase
 
     private void OnDisable()
     {
-        EventManager.OnFireOrDetonateRemote(false);
+        EventManager.OnFireOrDetonateRemote?.Invoke(false);
     }
 
 }

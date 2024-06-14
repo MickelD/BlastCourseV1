@@ -118,8 +118,9 @@ public class PhysicsObject : ScaledTimeMonoBehaviour, IBounceable, IExplodable, 
         //if (Spawner != null) CheckBoundBox();
     }
 
-    public virtual void OnDestroy()
+    protected virtual void OnDestroy()
     {
+
         if (!_isQuitting && SaveLoader.Instance != null && !SaveLoader.Instance._loading) //VERIFY THAT WE ARE NOT CHANGING SCENES
         {
             OnObjectDestroyed?.Invoke();

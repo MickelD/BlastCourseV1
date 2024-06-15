@@ -1,5 +1,6 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD:BlastCourse/Assets/Prefabs/Game Elements/Signs/objInteractSign.prefab.meta
 <<<<<<<< Updated upstream:BlastCourse/Assets/Prefabs/Game Elements/Signs/objInteractSign.prefab.meta
 guid: 48b90d7b549d4974d8547167bfd6537b
@@ -23,6 +24,11 @@ DefaultImporter:
 >>>>>>> parent of 5bb107d (Salvando blast course pt.1)
   externalObjects: {}
   mainObjectFileID: 2100000
+=======
+guid: 9c6565d620e1e8943a2194cba93f2d27
+DefaultImporter:
+  externalObjects: {}
+>>>>>>> parent of 5bb107d (Salvando blast course pt.1)
   userData: 
   assetBundleName: 
   assetBundleVariant: 

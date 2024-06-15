@@ -1,5 +1,6 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD:BlastCourse/Assets/Prefabs/Game Elements/Signs.meta
 <<<<<<<< Updated upstream:BlastCourse/Assets/Prefabs/Game Elements/Signs.meta
 guid: 525549f2cae1e444c963ba6ac00b6336
@@ -23,6 +24,11 @@ DefaultImporter:
 >>>>>>>> parent of 5bb107d (Salvando blast course pt.1):BlastCourse/Assets/Dreamteck/Splines/Examples.unitypackage.meta
   externalObjects: {}
   mainObjectFileID: 2100000
+>>>>>>> parent of 5bb107d (Salvando blast course pt.1)
+=======
+guid: dd726bdc743dca44888d2627b27267c2
+DefaultImporter:
+  externalObjects: {}
 >>>>>>> parent of 5bb107d (Salvando blast course pt.1)
   userData: 
   assetBundleName: 

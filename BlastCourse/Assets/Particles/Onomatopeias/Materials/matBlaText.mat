@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: matBlaText
-  m_Shader: {fileID: -6465566751694194690, guid: 1c171e1f88c7c64429176d271f0b1f66,
+  m_Shader: {fileID: -6465566751694194690, guid: f210f9914b3311440884fe4dc399b295,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []

@@ -15,7 +15,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2050
+  m_CustomRenderQueue: 3050
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -142,7 +142,7 @@ Material:
     - _QueueOffset: 50
     - _ReceiveShadows: 1
     - _Second_Opacity: 0
-    - _Shadow_Shape_Opacity: 0.3
+    - _Shadow_Shape_Opacity: 0.5
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -153,9 +153,9 @@ Material:
     - _Specular_Softness: 0
     - _SrcBlend: 1
     - _Stripes_Offset: 0
-    - _Stripes_Opacity: 0.5
-    - _Stripes_Rotation: 90
-    - _Stripes_Tiling: 30
+    - _Stripes_Opacity: 0.75
+    - _Stripes_Rotation: 50
+    - _Stripes_Tiling: 7.5
     - _Stripes_Width: 0.5
     - _Surface: 0
     - _Transparent: 0

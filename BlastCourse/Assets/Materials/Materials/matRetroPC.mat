@@ -113,6 +113,7 @@ Material:
     - _GlossyReflections: 0
     - _Interior_Outline_Thickness: 2
     - _K_Rotation: 0
+    - _Light_Color: 0
     - _Lighting_Cutoff: 0.5
     - _M_Rotation: 0
     - _Metallic: 0
@@ -139,6 +140,7 @@ Material:
     - _Stripes_Width: 0.5
     - _Surface: 0
     - _Use_Diffuse_Texture: 1
+    - _Use_Emissive: 0
     - _WorkflowMode: 1
     - _Y_Rotation: 0
     - _ZWrite: 1

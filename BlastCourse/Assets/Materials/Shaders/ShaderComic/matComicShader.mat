@@ -174,7 +174,7 @@ Material:
     - _ReceiveShadows: 1
     - _SHADOWS_SOFT: 1
     - _Scene_Light_affect_Color: 0
-    - _Shadow_Shape_Opacity: 0.3
+    - _Shadow_Shape_Opacity: 0.5
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -185,10 +185,10 @@ Material:
     - _Specular_Softness: 0.15
     - _SrcBlend: 1
     - _Stripes_Offset: 0
-    - _Stripes_Opacity: 1
-    - _Stripes_Rotation: 138
-    - _Stripes_Tiling: 40
-    - _Stripes_Width: 0.4
+    - _Stripes_Opacity: 0.75
+    - _Stripes_Rotation: 95
+    - _Stripes_Tiling: 100
+    - _Stripes_Width: 0.606
     - _Surface: 0
     - _Use_Diffuse_Texture: 0
     - _Use_Emissive: 0

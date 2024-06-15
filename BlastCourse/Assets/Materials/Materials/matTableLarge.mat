@@ -120,7 +120,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Interior_Outline_Thickness: 2
+    - _Interior_Outline_Thickness: 3
     - _K_Rotation: 0
     - _Light_Color: 0
     - _Lighting_Cutoff: 0.5

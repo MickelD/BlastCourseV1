@@ -126,7 +126,8 @@ Material:
     - _GlossyReflections: 0
     - _Interior_Outline_Thickness: 2
     - _K_Rotation: 0
-    - _Lighting_Cutoff: 0.5
+    - _Light_Color: 0
+    - _Lighting_Cutoff: 6
     - _M_Rotation: 0
     - _Metallic: 0
     - _Normals_Sensitivity: 10
@@ -135,7 +136,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 50
     - _ReceiveShadows: 1
-    - _Shadow_Shape_Opacity: 0.3
+    - _Shadow_Shape_Opacity: 0.5
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -146,12 +147,13 @@ Material:
     - _Specular_Softness: 0
     - _SrcBlend: 1
     - _Stripes_Offset: 0
-    - _Stripes_Opacity: 0.5
-    - _Stripes_Rotation: 90
+    - _Stripes_Opacity: 0.75
+    - _Stripes_Rotation: 20
     - _Stripes_Tiling: 25
     - _Stripes_Width: 0.745
     - _Surface: 0
     - _Use_Diffuse_Texture: 1
+    - _Use_Emissive: 0
     - _WorkflowMode: 1
     - _Y_Rotation: 0
     - _ZWrite: 1

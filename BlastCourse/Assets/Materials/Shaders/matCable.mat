@@ -100,30 +100,30 @@ Material:
     - _Contrast: 1
     - _Cull: 2
     - _Cutoff: 0.5
-    - _Depth_Sensitivity: 0.1
+    - _Depth_Sensitivity: 0.01
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _Distance_Fade_Threshold: 10
     - _DstBlend: 0
     - _Emission_Intensity: 1
     - _EnvironmentReflections: 1
-    - _Exterior_Outline_Thickness: 0.1
+    - _Exterior_Outline_Thickness: 4
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Interior_Outline_Thickness: 3
+    - _Interior_Outline_Thickness: 4
     - _K_Rotation: 0
     - _Light_Color: 0
-    - _Lighting_Cutoff: 0
+    - _Lighting_Cutoff: 6
     - _M_Rotation: 0
     - _Metallic: 0
-    - _Normals_Sensitivity: 0.5
+    - _Normals_Sensitivity: 0.05
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Shadow_Shape_Opacity: 0.3
+    - _Shadow_Shape_Opacity: 0.5
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -134,9 +134,9 @@ Material:
     - _Specular_Softness: 0
     - _SrcBlend: 1
     - _Stripes_Offset: 0.8
-    - _Stripes_Opacity: 0.5
+    - _Stripes_Opacity: 0.75
     - _Stripes_Rotation: 90
-    - _Stripes_Tiling: 20
+    - _Stripes_Tiling: 15
     - _Stripes_Width: 0.5
     - _Surface: 0
     - _Use_Diffuse_Texture: 1

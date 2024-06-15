@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:BlastCourse/Assets/Materials/Materials/matAMORemote.mat.meta
 guid: 5f158cb1dfe31e848aa294b6b8f61332
 NativeFormatImporter:
+========
+guid: 9c6565d620e1e8943a2194cba93f2d27
+DefaultImporter:
+>>>>>>>> parent of 5bb107d (Salvando blast course pt.1):BlastCourse/Assets/Dreamteck/Splines/PlaymakerActions.unitypackage.meta
   externalObjects: {}
   mainObjectFileID: 2100000
   userData: 

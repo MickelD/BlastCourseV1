@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 <<<<<<< HEAD:BlastCourse/Assets/Prefabs/Game Elements/Signs.meta
 <<<<<<<< Updated upstream:BlastCourse/Assets/Prefabs/Game Elements/Signs.meta
 guid: 525549f2cae1e444c963ba6ac00b6336
@@ -12,6 +13,17 @@ guid: 60b8dcbe9f3fdce4898d55cf20f9c982
 PrefabImporter:
 >>>>>>>> Stashed changes:BlastCourse/Assets/objBarrier_backup.prefab.meta
   externalObjects: {}
+=======
+<<<<<<<< HEAD:BlastCourse/Assets/Materials/Materials/matAMOPipe.mat.meta
+guid: f1134edfc7a2b5c46afe069b2714652d
+NativeFormatImporter:
+========
+guid: dd726bdc743dca44888d2627b27267c2
+DefaultImporter:
+>>>>>>>> parent of 5bb107d (Salvando blast course pt.1):BlastCourse/Assets/Dreamteck/Splines/Examples.unitypackage.meta
+  externalObjects: {}
+  mainObjectFileID: 2100000
+>>>>>>> parent of 5bb107d (Salvando blast course pt.1)
   userData: 
   assetBundleName: 
   assetBundleVariant: 

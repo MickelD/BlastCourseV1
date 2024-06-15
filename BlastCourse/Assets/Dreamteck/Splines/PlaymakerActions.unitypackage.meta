@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 <<<<<<< HEAD:BlastCourse/Assets/Prefabs/Game Elements/Signs/objInteractSign.prefab.meta
 <<<<<<<< Updated upstream:BlastCourse/Assets/Prefabs/Game Elements/Signs/objInteractSign.prefab.meta
 guid: 48b90d7b549d4974d8547167bfd6537b
@@ -11,6 +12,15 @@ NativeFormatImporter:
 guid: 9c6565d620e1e8943a2194cba93f2d27
 DefaultImporter:
 >>>>>>> parent of 5bb107d (Salvando blast course pt.1):BlastCourse/Assets/Dreamteck/Splines/PlaymakerActions.unitypackage.meta
+=======
+<<<<<<<< HEAD:BlastCourse/Assets/Materials/Materials/matAMORemote.mat.meta
+guid: 5f158cb1dfe31e848aa294b6b8f61332
+NativeFormatImporter:
+========
+guid: 9c6565d620e1e8943a2194cba93f2d27
+DefaultImporter:
+>>>>>>>> parent of 5bb107d (Salvando blast course pt.1):BlastCourse/Assets/Dreamteck/Splines/PlaymakerActions.unitypackage.meta
+>>>>>>> parent of 5bb107d (Salvando blast course pt.1)
   externalObjects: {}
   mainObjectFileID: 2100000
   userData: 

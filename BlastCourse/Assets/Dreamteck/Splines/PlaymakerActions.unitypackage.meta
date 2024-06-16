@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+HEAD:BlastCourse/Assets/Prefabs/Game Elements/Signs/objInteractSign.prefab.meta
+Updated upstream:BlastCourse/Assets/Prefabs/Game Elements/Signs/objInteractSign.prefab.meta
+guid: 48b90d7b549d4974d8547167bfd6537b
+PrefabImporter:
+
+guid: 85c8c04a57a8a834fbe505fb5965d3d1
+NativeFormatImporter:
+ Stashed changes:BlastCourse/Assets/Materials/Materials/matAMOClassic.mat.meta
+
+guid: 9c6565d620e1e8943a2194cba93f2d27
+DefaultImporter:
+ parent of 5bb107d (Salvando blast course pt.1):BlastCourse/Assets/Dreamteck/Splines/PlaymakerActions.unitypackage.meta
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

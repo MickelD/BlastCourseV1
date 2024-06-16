@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 189f4d9f0ece8d741987d2deccf4e18b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: manorocketlouncher_lambert4
     second: {fileID: 2100000, guid: 585eb871963c0054ba4efc5b5b26c911, type: 2}
   materials:

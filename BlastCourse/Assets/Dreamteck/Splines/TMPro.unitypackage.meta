@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+ HEAD
 HEAD:BlastCourse/Assets/Prefabs/Game Elements/Signs/objShootSign.prefab.meta
  Updated upstream:BlastCourse/Assets/Prefabs/Game Elements/Signs/objShootSign.prefab.meta
 guid: e1b6ea1952f1b6543ab7c5b1eb79dbee
@@ -13,6 +14,34 @@ DefaultImporter:
  parent of 5bb107d (Salvando blast course pt.1):BlastCourse/Assets/Dreamteck/Splines/TMPro.unitypackage.meta
   externalObjects: {}
   mainObjectFileID: 2100000
+
+ HEAD
+ HEAD
+ HEAD:BlastCourse/Assets/Prefabs/Game Elements/Signs/objShootSign.prefab.meta
+ Updated upstream:BlastCourse/Assets/Prefabs/Game Elements/Signs/objShootSign.prefab.meta
+guid: e1b6ea1952f1b6543ab7c5b1eb79dbee
+PrefabImporter:
+
+guid: b91dd9d50689cb94fb08503c642e9ec2
+NativeFormatImporter:
+ Stashed changes:BlastCourse/Assets/Materials/Materials/matAMOHoming.mat.meta
+
+guid: 788565264feffe84799fca5597b76603
+DefaultImporter:
+ parent of 5bb107d (Salvando blast course pt.1):BlastCourse/Assets/Dreamteck/Splines/TMPro.unitypackage.meta
+  externalObjects: {}
+  mainObjectFileID: 2100000
+
+guid: 788565264feffe84799fca5597b76603
+DefaultImporter:
+  externalObjects: {}
+ parent of 5bb107d (Salvando blast course pt.1)
+
+guid: 788565264feffe84799fca5597b76603
+DefaultImporter:
+  externalObjects: {}
+ parent of 5bb107d (Salvando blast course pt.1)
+ a906fd19102042f6667f5123bfd5858889178c4a
   userData: 
   assetBundleName: 
   assetBundleVariant: 

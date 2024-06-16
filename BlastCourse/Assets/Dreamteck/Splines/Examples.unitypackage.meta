@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+HEAD
 HEAD:BlastCourse/Assets/Prefabs/Game Elements/Signs.meta
 Updated upstream:BlastCourse/Assets/Prefabs/Game Elements/Signs.meta
 guid: 525549f2cae1e444c963ba6ac00b6336
@@ -12,6 +13,22 @@ guid: 60b8dcbe9f3fdce4898d55cf20f9c982
 PrefabImporter:
  Stashed changes:BlastCourse/Assets/objBarrier_backup.prefab.meta
   externalObjects: {}
+
+ HEAD
+ HEAD
+ HEAD:BlastCourse/Assets/Prefabs/Game Elements/Signs.meta
+guid: dd726bdc743dca44888d2627b27267c2
+DefaultImporter:
+
+guid: 60b8dcbe9f3fdce4898d55cf20f9c982
+PrefabImporter:
+ Stashed changes:BlastCourse/Assets/objBarrier_backup.prefab.meta
+  externalObjects: {}
+
+guid: dd726bdc743dca44888d2627b27267c2
+DefaultImporter:
+  externalObjects: {}
+ a906fd19102042f6667f5123bfd5858889178c4a
   userData: 
   assetBundleName: 
   assetBundleVariant: 

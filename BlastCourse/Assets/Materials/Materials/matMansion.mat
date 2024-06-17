@@ -94,9 +94,9 @@ Material:
     - _C_Rotation: 0
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _Comic_Dot_Size: 0.43
-    - _Comic_Dots_Scale: 10.67
-    - _Comic_Opacity: 0.1
+    - _Comic_Dot_Size: 0.31
+    - _Comic_Dots_Scale: 126.62
+    - _Comic_Opacity: 0.005
     - _Contrast: 1
     - _Cull: 2
     - _Cutoff: 0.5

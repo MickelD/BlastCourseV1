@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 978624686484811310}
   - component: {fileID: 978624686484811311}
+  - component: {fileID: 6208586283483973040}
   - component: {fileID: 8654446653714783203}
   m_Layer: 9
   m_Name: objCheckpoint
@@ -54,6 +55,22 @@ MonoBehaviour:
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
     SpatialBlend: 0
+--- !u!114 &6208586283483973040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978624686484811308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3be9a3ce26f3054891882692a807bdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unloadOnStart: 0
+  unloadMode: 0
+  targetObjects: []
+  targetComponents: []
 --- !u!65 &8654446653714783203
 BoxCollider:
   m_ObjectHideFlags: 0

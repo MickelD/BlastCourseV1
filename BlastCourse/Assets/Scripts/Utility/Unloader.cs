@@ -37,12 +37,14 @@ public class Unloader : BoxVisualizer
 
     private void Start()
     {
-        Load(!unloadOnStart);
+        Debug.Log("start");
+        if (unloadOnStart)Load(false);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.GetComponent<PlayerMovement>() != null)
+        Debug.Log("enter");
+        if (other.GetComponent<PlayerMovement>() != null)
         {
             if (isLoaded()) //LOADED
             {

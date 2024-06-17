@@ -27,8 +27,10 @@ public class Checkpoint : BoxVisualizer
 
     private void OnTriggerEnter(Collider other)
     {
-        if (_passed) return;
-        _passed = true;
+        foreach (Collider col in gameObject.GetComponents<Collider>())
+        {
+            col.enabled = false;
+        }
 
         if (AudioManager.Instance != null && _sfx.SfxClip != null) AudioManager.TryPlayCueAtPoint(_sfx, transform.position);
 

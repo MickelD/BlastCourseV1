@@ -150,6 +150,7 @@ public class RpgHolder : MonoBehaviour
             RPGAnimator.Instance.SetHidden(true);
             SetFiringMode(FiringMode.Classic);
             HideWeapon(true);
+            RPGAnimator.Instance.RpgMesh.enabled = false;
         }
     }
 
@@ -249,6 +250,7 @@ public class RpgHolder : MonoBehaviour
 
     public void AcquireRpg(FiringMode mode)
     {
+        if(!RPGAnimator.Instance.RpgMesh.enabled) RPGAnimator.Instance.RpgMesh.enabled = true;
         HideWeapon(false);
         if (ExtendedDataUtility.CheckForValues(SaveLoader.Instance.UnlockedRpgs, true) == 0) RPGAnimator.Instance.SetHidden(false);
         _rpgCollection[mode]._rpgStats.Unlocked = true;

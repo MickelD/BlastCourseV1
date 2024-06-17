@@ -24,14 +24,13 @@ public class InteractablePickUpRPG : MonoBehaviour, IInteractable
 
     #region UnityFunctions
 
-    private void Awake()
+    private void Start()
     {
         if (SaveLoader.Instance != null
-            && SaveLoader.Instance.UnlockedRpgs == null
+            && SaveLoader.Instance.UnlockedRpgs != null
             && SaveLoader.Instance.UnlockedRpgs.Length == 4
             && SaveLoader.Instance.UnlockedRpgs[(int)RpgUnlocked])
             gameObject.SetActive(false);
-
     }
 
     #endregion

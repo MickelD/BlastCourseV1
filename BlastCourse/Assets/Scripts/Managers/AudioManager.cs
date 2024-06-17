@@ -46,7 +46,6 @@ public class AudioManager : MonoBehaviour
 
     public static AudioSource TryPlayCueAtPoint(AudioCue audioCue, Vector3 location)
     {
-
         //no Instance
         if (Instance == null) return null;
 
@@ -67,7 +66,6 @@ public class AudioManager : MonoBehaviour
             selectedAudioSource = newSource;
         }
         Instance.activeAudioSource = selectedAudioSource;
-
 
         //set source values
         selectedAudioSource.clip = audioCue.SfxClip[Random.Range(0, audioCue.SfxClip.Length)];

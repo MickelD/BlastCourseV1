@@ -50,7 +50,7 @@ public class SaveLoader : MonoBehaviour
         SpawnPos[0] = spawn.x;
         SpawnPos[1] = spawn.y;
         SpawnPos[2] = spawn.z;
-        SceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneIndex = LoadingScreenManager.instance.currentSceneIndex;
 
         Save();
     }

@@ -113,7 +113,6 @@ public class Explosion
     {
         foreach (IExplodable explodable in explodables)
         {
-            Debug.Log((explodable as MonoBehaviour).gameObject.name);
             explodable.ExplosionBehaviour(origin, this, normal);
         }
     }

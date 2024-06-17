@@ -46,7 +46,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.3, y: 0.5, z: 1.3}
+  m_Size: {x: 1.5, y: 0.5, z: 1.5}
   m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!114 &2938966638027483840
 MonoBehaviour:
@@ -90,7 +90,8 @@ MonoBehaviour:
   ExplosionBlockingMask:
     serializedVersion: 2
     m_Bits: 2129985
-  MaxRadius: 1.75
+  _MaxRadius: 1.75
+  _RayOrigin: {x: 0, y: 0, z: 0}
 --- !u!95 &2072813069818844858
 Animator:
   serializedVersion: 5

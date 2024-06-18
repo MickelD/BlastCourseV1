@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-public class BoxCheckpoint : MonoBehaviour
+public class BoxCheckpoint : BoxVisualizer
 {
     #region Fields
 
@@ -31,7 +31,10 @@ public class BoxCheckpoint : MonoBehaviour
 
     #region Methods
 
-
+    protected override Color GetColor()
+    {
+        return new Color(0f, 1f, 1f, 0.5f);
+    }
 
     #endregion
 

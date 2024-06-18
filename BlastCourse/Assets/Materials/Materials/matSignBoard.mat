@@ -89,7 +89,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _Blend: 0
-    - _Brightness: 1
+    - _Brightness: 10
     - _BumpScale: 1
     - _C_Rotation: 0
     - _ClearCoatMask: 0
@@ -103,21 +103,21 @@ Material:
     - _Depth_Sensitivity: 0.1
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _Distance_Fade_Threshold: 20
+    - _Distance_Fade_Threshold: 50
     - _DstBlend: 0
     - _Emission_Intensity: 1
     - _EnvironmentReflections: 1
-    - _Exterior_Outline_Thickness: 3
+    - _Exterior_Outline_Thickness: 0
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Interior_Outline_Thickness: 2
+    - _Interior_Outline_Thickness: 0
     - _K_Rotation: 0
     - _Light_Color: 0
     - _Lighting_Cutoff: 0.5
     - _M_Rotation: 0
     - _Metallic: 0
-    - _Normals_Sensitivity: 10
+    - _Normals_Sensitivity: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0

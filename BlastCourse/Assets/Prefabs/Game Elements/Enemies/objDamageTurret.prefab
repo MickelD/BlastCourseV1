@@ -4879,7 +4879,7 @@ MonoBehaviour:
   c_collider: {fileID: 2981365028400419281}
   _aimingLayers:
     serializedVersion: 2
-    m_Bits: 246345
+    m_Bits: 2343497
   _rotationSpeed: 15
   _backRotationSpeed: 10
   _shootAngle: 10

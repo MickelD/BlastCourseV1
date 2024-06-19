@@ -120,7 +120,6 @@ public class PhysicsObject : ScaledTimeMonoBehaviour, IBounceable, IExplodable, 
 
     protected virtual void OnDestroy()
     {
-
         if (!_isQuitting && SaveLoader.Instance != null && !SaveLoader.Instance._loading) //VERIFY THAT WE ARE NOT CHANGING SCENES
         {
             OnObjectDestroyed?.Invoke();
@@ -407,7 +406,6 @@ public class PhysicsObject : ScaledTimeMonoBehaviour, IBounceable, IExplodable, 
     public void DestroyObject()
     {
         ParentToGround(false);
-
         if (GetComponentInChildren<PlayerMovement>() != null)
         {
             GetComponentInChildren<PlayerMovement>().transform.parent = null;

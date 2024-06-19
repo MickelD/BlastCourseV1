@@ -762,10 +762,10 @@ MonoBehaviour:
   _maxSlopeAngle: 45
   _groundLayerMask:
     serializedVersion: 2
-    m_Bits: 3416640
+    m_Bits: 3449408
   _wallLayerMask:
     serializedVersion: 2
-    m_Bits: 65
+    m_Bits: 3186753
   c_rb: {fileID: 8610808883349483057}
   c_capsuleHitbox: {fileID: 8610808883349483058}
   c_cilinderHitbox: {fileID: 4461912506418248342}

@@ -113,6 +113,10 @@ public abstract class ActivableBase : MonoBehaviour
                     case ActivationStyle.False:
                         shouldSend = false;
                         break;
+
+                    case ActivationStyle.InverseDynamic:
+                        shouldSend = !isActive;
+                        break;
                 }
 
                 object[] methodParams = ExtendedDataUtility.Select(activation.CallingMethod.GetParameters().Length == 1, new object[] { shouldSend }, new object[] {shouldSend, activation});
@@ -234,7 +238,8 @@ public enum ActivationStyle
     Dynamic,
     Toggle,
     True,
-    False
+    False,
+    InverseDynamic
 }
 
 [System.Serializable]
@@ -364,6 +369,7 @@ public class Activation
         ActivationStyle.Toggle => "Toggle ",
         ActivationStyle.True => "Do ",
         ActivationStyle.False => "Do Not ",
+        ActivationStyle.InverseDynamic => "Unset ",
         _ => "StyleEnumError"
         };
     }

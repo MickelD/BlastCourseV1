@@ -78,10 +78,13 @@ public class ObjectSpawner : ActivableBase
 
     private void Spawn()
     {
+        Debug.Log("a");
+
         SpawnedObject = Instantiate(ObjectPrefab, transform.position + SpawnPos, Quaternion.identity, transform).GetComponent<PhysicsObject>();
 
         if (SpawnedObject != null)
         {
+            SpawnedObject.gameObject.SetActive(true);
             SpawnedObject.GravityController.EnableGravity = true;
             SpawnedObject.ShouldRespawn = true;
             SpawnedObject.Spawner = this;

@@ -15,8 +15,11 @@ public class GravityController : MonoBehaviour
         set
         {
             _enableGravity = value;
-
-            if (!enabled) _rb.useGravity = value;
+            if (!enabled) 
+            {
+                if (_rb == null) _rb = gameObject.GetComponent<Rigidbody>();
+                _rb.useGravity = value;
+            }
         }
     }
 

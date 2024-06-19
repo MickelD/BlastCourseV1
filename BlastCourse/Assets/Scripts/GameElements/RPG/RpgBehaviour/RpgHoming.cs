@@ -34,10 +34,10 @@ public class RpgHoming : RpgBase
 
         foreach (RocketHoming rocket in rockets)
         {
-            //Vector3 direction = Vector3.RotateTowards(rocket.transform.forward, (targetPos - rocket.transform.position).normalized, turnSpeed * Time.deltaTime, Mathf.Infinity);
-            //rocket.SetVelocity(direction.normalized * rocket.Body.velocity.magnitude);
+            Vector3 direction = Vector3.RotateTowards(rocket.transform.forward, (targetPos - rocket.transform.position).normalized, turnSpeed * Time.deltaTime, Mathf.Infinity);
+            rocket.SetVelocity(direction.normalized * _stats.RocketSpeed);
 
-            rocket.Body.velocity = Vector3.RotateTowards(rocket.Body.velocity, (targetPos - rocket.transform.position).normalized * rocket.Body.velocity.magnitude, turnSpeed * Time.deltaTime, Mathf.Infinity);
+            //rocket.Body.velocity = Vector3.RotateTowards(rocket.Body.velocity, (targetPos - rocket.transform.position).normalized * rocket.Body.velocity.magnitude, turnSpeed * Time.deltaTime, Mathf.Infinity);
         }
 
     }

@@ -131,7 +131,7 @@ Material:
     - _AlphaClip: 0
     - _Barrier_Dissipation: -0.1
     - _Blend: 0
-    - _Border_Height: 0.85
+    - _Border_Height: 0.8
     - _Border_Horizontal_Speed: 0.5
     - _Border_Noise: 0.01
     - _Border_Speed: 0.15

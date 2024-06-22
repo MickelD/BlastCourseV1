@@ -6,10 +6,9 @@ using UnityEngine;
 public class BouncePadHandle : MonoBehaviour
 {
     [SerializeField] BouncePad g_pad;
-    [SerializeField] PadSizeController g_size;
 
     private void Update()
     {
-        transform.up = g_size.DirectionalParticles(g_pad.Reload());
+        transform.up = g_pad.Reload();
     }
 }

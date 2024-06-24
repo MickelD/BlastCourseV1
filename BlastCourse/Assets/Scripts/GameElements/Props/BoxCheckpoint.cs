@@ -7,24 +7,19 @@ using UnityEditor;
 
 public class BoxCheckpoint : BoxVisualizer
 {
-    #region Fields
-
-
-
-    #endregion
-
-    #region Vars
-
-
-
-    #endregion
+    private List<string> _passedIds =  new List<string>();
 
     #region UnityFunctions
 
     private void OnTriggerEnter(Collider other)
     {
         UraniumBox b = other.GetComponent<UraniumBox>();
-        if (b != null) SaveLoader.Instance.SetBoxPos(b);
+
+        if (b == null) return;
+        //if (_passedIds.Count > 0 && _passedIds.Contains(b.id)) return;
+
+        //_passedIds.Add(b.id);
+        SaveLoader.Instance.SetBoxPos(b);
     }
 
     #endregion
@@ -38,11 +33,6 @@ public class BoxCheckpoint : BoxVisualizer
 
     #endregion
 
-#if UNITY_EDITOR
-
-
-
-#endif
 }
 
 

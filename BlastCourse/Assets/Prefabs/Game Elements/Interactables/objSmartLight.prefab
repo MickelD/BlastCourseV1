@@ -60,7 +60,7 @@ MonoBehaviour:
   RegisteredTriggers: []
   RegisteredActions: []
   _offColor: {r: 4.237095, g: 0, b: 0.70987976, a: 1}
-  _onColor: {r: 7.9895406, g: 23.968628, b: 0, a: 1}
+  _onColor: {r: 32.125492, g: 95.87451, b: 0, a: 1}
   _renderer: {fileID: 5606488128745894134}
   _emissiveMaterialIndex: 0
   _colorTransitionTime: 0.25

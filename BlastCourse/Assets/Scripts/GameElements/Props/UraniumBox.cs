@@ -9,6 +9,8 @@ public class UraniumBox : PhysicsObject
 {
     #region Vars
 
+    [SerializeField] Vector3 _recallPos;
+
     private bool _consuming;
     public string id;
 
@@ -41,7 +43,35 @@ public class UraniumBox : PhysicsObject
     public string GetIndex() { return id; }
     public void SetIndex(string i) { id = i; }
 
+    public void Recall()
+    {
+        transform.rotation = Quaternion.identity;
+        transform.position = _recallPos;
+        c_rb.velocity = Vector3.zero;
+
+        foreach (RocketRemoteExplosion rem in transform.GetComponentsInChildren<RocketRemoteExplosion>())
+        {
+            rem.Defuse();
+        }
+    }
+
+    [ContextMenu("ResetRecallPos")]
+    public void ResetRecallPos()
+    {
+        _recallPos = transform.position;
+    }
+
     #endregion
+
+#if UNITY_EDITOR
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(_recallPos, 0.75f);
+    }
+
+#endif
 }
 
 

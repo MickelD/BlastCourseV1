@@ -37,7 +37,7 @@ public class PhysicsObject : ScaledTimeMonoBehaviour, IBounceable, IExplodable, 
     [SerializeField] float _bouncePadMultiplier;
 
     [Space(5), Header("Components"), Space(3)]
-    [SerializeField] Rigidbody c_rb;
+    [SerializeField] protected Rigidbody c_rb;
     [SerializeField] Collider c_collider;
     [SerializeField] GravityController c_gravity;
     [SerializeField] AudioCue _collisionSfx;

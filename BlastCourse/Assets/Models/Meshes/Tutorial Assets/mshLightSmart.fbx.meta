@@ -7,7 +7,17 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: matgateway
+    second: {fileID: 2100000, guid: 989f8d5b8dc9bb9409f6efa7721ba4f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: standardSurface2
+    second: {fileID: 2100000, guid: 5baa0ee96fa63d849a3a51876ba9eced, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: standardSurface4
     second: {fileID: 2100000, guid: 5baa0ee96fa63d849a3a51876ba9eced, type: 2}
   materials:
     materialImportMode: 2

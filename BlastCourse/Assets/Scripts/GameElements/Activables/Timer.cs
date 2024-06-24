@@ -34,9 +34,12 @@ public class Timer : ActivableBase
         {
             _countDown = value;
 
-            int mm = Mathf.FloorToInt(_countDown / 60);
-            int ss = Mathf.FloorToInt(_countDown % 60);
-            DisplayText.text = string.Format("{0:00}:{1:00}", mm, ss);
+            if (DisplayText != null)
+            {
+                int mm = Mathf.FloorToInt(_countDown / 60);
+                int ss = Mathf.FloorToInt(_countDown % 60);
+                DisplayText.text = string.Format("{0:00}:{1:00}", mm, ss);
+            }
 
             //foreach (Timer timer in MimicTimers) timer.CountDown = value;
         }

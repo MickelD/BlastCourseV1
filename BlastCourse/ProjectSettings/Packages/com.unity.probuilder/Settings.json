@@ -286,12 +286,12 @@
             {
                 "type": "UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "ShapeBuilder.LastPivotPosition",
-                "value": "{\"m_Value\":{\"x\":0.34375,\"y\":-0.21875005960464478,\"z\":0.28125}}"
+                "value": "{\"m_Value\":{\"x\":-0.25,\"y\":-1.0,\"z\":0.75}}"
             },
             {
                 "type": "UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "ShapeBuilder.LastSize",
-                "value": "{\"m_Value\":{\"x\":-0.6875,\"y\":0.4375000596046448,\"z\":-0.5625}}"
+                "value": "{\"m_Value\":{\"x\":0.5,\"y\":2.0,\"z\":-1.5}}"
             },
             {
                 "type": "UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
@@ -401,7 +401,7 @@
             {
                 "type": "System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "BevelEdges.size",
-                "value": "{\"m_Value\":0.125}"
+                "value": "{\"m_Value\":0.5}"
             },
             {
                 "type": "System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",

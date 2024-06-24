@@ -14,16 +14,21 @@ public class ScaledTimeMonoBehaviour : MonoBehaviour
     private Tweener _tweener;
     private Vector3 _velocity;
 
+    private bool _animated;
+    private Animator _animator;
+
     protected virtual void Start()
     {
         Body = gameObject.GetComponent<Rigidbody>();
 
         _hasGravity = gameObject.TryGetComponent(out GravityController);
+        _animated = gameObject.TryGetComponent(out _animator);
     }
 
     protected virtual void LateUpdate()
     {
         if (_hasGravity) GravityController.Scale = LocalTimeScale;
+        if(_animated) _animator.speed = LocalTimeScale;
 
         Body.angularVelocity *= LocalTimeScale;
 

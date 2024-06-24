@@ -77,12 +77,16 @@ MonoBehaviour:
   _collisionSfx:
     SfxClip:
     - {fileID: 8300000, guid: 68422d1abfee2c747aae849158dd422b, type: 3}
-    Volume: 0.2
+    - {fileID: 8300000, guid: af2cac22c8d80f545a619076e76de3a8, type: 3}
+    - {fileID: 8300000, guid: e792fcbbacd065f4fbad99d8fa645972, type: 3}
+    - {fileID: 8300000, guid: aa6a038872ce4ad4f87cbb1c4adc6c6a, type: 3}
+    - {fileID: 8300000, guid: 46013d916baaed441b5fc1593a204fa2, type: 3}
+    Volume: 0.4
     Pitch: 1
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
-    SpatialBlend: 0
+    SpatialBlend: 1
   _stuckDrag: 20
 --- !u!114 &1613618501
 MonoBehaviour:

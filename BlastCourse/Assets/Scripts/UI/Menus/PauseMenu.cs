@@ -49,7 +49,11 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = open;
 
         g_pauseMenu.SetActive(open);
-        if (!open) g_confirmMenu.SetActive(false);
+        if (!open)
+        {
+            g_confirmMenu.SetActive(false);
+            if(g_optionsMenu.activeSelf)Options(false);
+        }
         Time.timeScale = open ? 0f : 1f;
     }
 

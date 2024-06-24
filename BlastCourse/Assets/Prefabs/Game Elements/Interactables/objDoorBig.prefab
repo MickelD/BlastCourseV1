@@ -1280,7 +1280,7 @@ MonoBehaviour:
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
-    SpatialBlend: 0
+    SpatialBlend: 1
   _closeSfx:
     SfxClip:
     - {fileID: 8300000, guid: 07764cda983e23845a6fed65d79bb96a, type: 3}

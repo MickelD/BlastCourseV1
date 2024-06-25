@@ -46,7 +46,9 @@ public class LevelLoader : MonoBehaviour
 
             case LoadStyle.ByIncrement:
             default:
-                int j = LoadingScreenManager.instance.currentSceneIndex + Increment;
+                int j = 0;
+                if (LoadingScreenManager.instance != null) j = LoadingScreenManager.instance.currentSceneIndex + Increment;
+                else j = SceneManager.GetActiveScene().buildIndex + 1;
                 if (SaveLoader.Instance != null) SaveLoader.Instance.NextScene(SpawnPosition, j);
                 else if (LoadingScreenManager.instance != null) LoadingScreenManager.instance.LoadScene(j);
                 else SceneManager.LoadScene(j);

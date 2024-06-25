@@ -78,8 +78,6 @@ public class ObjectSpawner : ActivableBase
 
     private void Spawn()
     {
-        Debug.Log("a");
-
         SpawnedObject = Instantiate(ObjectPrefab, transform.position + SpawnPos, Quaternion.identity, transform).GetComponent<PhysicsObject>();
 
         if (SpawnedObject != null)
@@ -88,6 +86,7 @@ public class ObjectSpawner : ActivableBase
             SpawnedObject.GravityController.EnableGravity = true;
             SpawnedObject.ShouldRespawn = true;
             SpawnedObject.Spawner = this;
+            SpawnedObject.transform.parent = transform.parent;
         }
         else
         {

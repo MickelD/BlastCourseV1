@@ -46,13 +46,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sound:
-    SfxClip: {fileID: 0}
+    SfxClip:
+    - {fileID: 0}
     Volume: 0
     Pitch: 0
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
-    SpatialBlend: 0
+    SpatialBlend: 1
 --- !u!65 &1797627937768319193
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -4931,7 +4931,7 @@ MonoBehaviour:
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
-    SpatialBlend: 0
+    SpatialBlend: 1
 --- !u!114 &6072421821851196952
 MonoBehaviour:
   m_ObjectHideFlags: 0

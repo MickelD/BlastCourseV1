@@ -12,6 +12,7 @@ public class DamageTurret : GenericTurret
     [Space(5), Header("Bullet"), Space(3)]
     [SerializeField] public ParticleSystem c_bullet;
     [SerializeField] public float _damage;
+    [SerializeField] public float _knockBack;
 
     #endregion
 
@@ -34,7 +35,11 @@ public class DamageTurret : GenericTurret
         base.Shoot();
 
         if(c_bullet != null) c_bullet.Play();
+
         _hp.SufferDamage(_damage, Health.Source.ENEMY);
+
+        if (_hp.TryGetComponent(out Rigidbody _rb)) _rb.AddForce(CustomMethods.ExtendedMathUtility.HorizontalDirection(transform.position, _hp.transform.position).normalized * _knockBack, ForceMode.VelocityChange);
+
         if(_hp.GetHealth() <= 0)
         {
             _posibleTargets.RemoveAt(_posibleTargets.IndexOf(_target));
@@ -63,8 +68,6 @@ public class DamageTurret : GenericTurret
         if (!_posibleTargets.Contains(other.transform)
             && collidingPlayer != null)
         {
-            Debug.Log("detected");
-
             _posibleTargets.Add(other.transform);
             _hp = collidingPlayer.GetComponent<Health>();
         }

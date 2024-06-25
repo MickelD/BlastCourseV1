@@ -90,7 +90,7 @@ public class AtemporalArea : ActivableBase
             if (FrozenBodies.Contains(mono))
             {
                 mono.FreezeTime(false);
-                FrozenBodies.Remove(mono);
+                //FrozenBodies.Remove(mono);
             }
         }
     }

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: OptionsData
   m_EditorClassIdentifier: 
   Sensitivity: 1
+  MasterVolume: 1
   SfxVolume: 1
   MusicVolume: 1
   DialogueVolume: 1

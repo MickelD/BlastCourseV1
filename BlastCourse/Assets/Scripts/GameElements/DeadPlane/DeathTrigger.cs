@@ -26,7 +26,14 @@ public class DeathTrigger : BoxVisualizer
         }
         else if (other.TryGetComponent(out PhysicsObject physics) && _killObjects)
         {
-            physics.DestroyObject();
+            if (physics is UraniumBox)
+            {
+                (physics as UraniumBox).Recall();
+            }
+            else
+            {
+                physics.DestroyObject();
+            }
         }
     }
 

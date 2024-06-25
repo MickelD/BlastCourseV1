@@ -20,7 +20,7 @@ MonoBehaviour:
   <ExplosionLifetime>k__BackingField: 1
   <ExplosionLayerMask>k__BackingField:
     serializedVersion: 2
-    m_Bits: 4297
+    m_Bits: 72
   <DeffuserMaterials>k__BackingField:
   - {fileID: 2100000, guid: 135e6d17f4ec7ee40ab1a07aef12bfe5, type: 2}
   - {fileID: 2100000, guid: 2dbb7cf2424acb641a3b57706d96cbe0, type: 2}

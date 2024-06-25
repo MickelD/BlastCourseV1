@@ -762,7 +762,7 @@ MonoBehaviour:
   _maxSlopeAngle: 45
   _groundLayerMask:
     serializedVersion: 2
-    m_Bits: 3449408
+    m_Bits: 3449409
   _wallLayerMask:
     serializedVersion: 2
     m_Bits: 3186753

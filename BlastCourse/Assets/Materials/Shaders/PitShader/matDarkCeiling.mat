@@ -48,8 +48,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Contrast: 1
-    - _Edge: 0.9
+    - _Contrast: 0.5
+    - _Edge: 0.73
     - _General_Opacity: 1
     - _Invert: 1
     - _Line_Opacity: 0.4

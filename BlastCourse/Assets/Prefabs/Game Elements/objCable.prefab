@@ -344,14 +344,14 @@ MonoBehaviour:
     useClippedPercent: 0
     keys: []
   _clipFromSample:
-    position: {x: 2.5, y: 4.375, z: 2.25}
+    position: {x: -40, y: 5.125, z: 199}
     up: {x: 1, y: 0, z: 0}
     forward: {x: 0, y: 0, z: 1}
     color: {r: 1, g: 1, b: 1, a: 1}
     size: 0.15
     percent: 0
   _clipToSample:
-    position: {x: 2.5, y: 2.875, z: 2.25}
+    position: {x: -40, y: 3.625, z: 199}
     up: {x: 0, y: 0, z: -1}
     forward: {x: 0, y: 0, z: -1}
     color: {r: 1, g: 1, b: 1, a: 1}

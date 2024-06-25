@@ -127,8 +127,6 @@ public abstract class RpgBase : ScriptableObject
 
 
             becomeIntangible = clearView && somethingInWay;
-
-            Debug.Log(becomeIntangible);
         }
 
         FireRocketAtPosition(targetPoint, becomeIntangible);

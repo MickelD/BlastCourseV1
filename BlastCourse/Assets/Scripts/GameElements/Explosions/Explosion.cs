@@ -48,7 +48,7 @@ public class Explosion
 
         _instantiatedExplosion.transform.localScale = Vector3.one * BlastRadius;
 
-        hitColliders = new Collider[10];
+        hitColliders = new Collider[25];
 
         RepeatedCollisionChecks(origin, normal);
     }
@@ -65,7 +65,7 @@ public class Explosion
 
         _instantiatedExplosion.transform.localScale = Vector3.one * BlastRadius;
 
-        hitColliders = new Collider[10];
+        hitColliders = new Collider[50];
 
         RepeatedCollisionChecks(origin, normal);
     }
@@ -85,7 +85,6 @@ public class Explosion
 
             for (int i = 0; i < numColliders; i++)
             {
-                Rigidbody hitRB = hitColliders[i].GetComponent<Rigidbody>();
                 IExplodable explodable = hitColliders[i].GetComponent<IExplodable>();
                 DestructibleObject destructible = hitColliders[i].GetComponent<DestructibleObject>();
 
@@ -93,13 +92,13 @@ public class Explosion
                     if(!_destructibleList.Contains(destructible)) _destructibleList.Add(destructible);
                 if (explodable != null)
                     if (!_explodablesList.Contains(explodable)) _explodablesList.Add(explodable);
-                else if (hitRB != null)
-                    if (!_rbList.Contains(hitRB)) _rbList.Add(hitRB);
+                //else if (hitRB != null)
+                //    if (!_rbList.Contains(hitRB)) _rbList.Add(hitRB);
             }
 
             if (_rbList.Count > 0 || _explodablesList.Count > 0 || _destructibleList.Count > 0)
             {
-                ApplyForce(_rbList, origin, normal);
+                //ApplyForce(_rbList, origin, normal);
                 ApplyExplosionBehaviour(_explodablesList, origin, normal);
                 ApplyDestruction(_destructibleList);
                 return;
@@ -132,12 +131,12 @@ public class Explosion
         {
             if(hitRB != null)
             {
-                Vector3 xzDir = ExtendedMathUtility.HorizontalDirection(origin, hitRB.worldCenterOfMass);
+                //Vector3 xzDir = ExtendedMathUtility.HorizontalDirection(origin, hitRB.worldCenterOfMass);
 
-                hitRB.AddForce(
-                    BlastForce * 
-                    ApplyDirectionModifier(xzDir + Vector3.up, ExplosionRules.ObjectDirectionDistribution)
-                    , ForceMode.Impulse);     
+                //hitRB.AddForce(
+                //    BlastForce * 
+                //    ApplyDirectionModifier(xzDir + Vector3.up, ExplosionRules.ObjectDirectionDistribution)
+                //    , ForceMode.Impulse);     
             }
         }
     }

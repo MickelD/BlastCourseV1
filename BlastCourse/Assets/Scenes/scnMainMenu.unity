@@ -5922,6 +5922,11 @@ MonoBehaviour:
   CollectiblesFound: []
   KeysReached: []
   UnlockedRpgs: 
+  Boxes: []
+  BoxesX: []
+  BoxesY: []
+  BoxesZ: []
+  UsedBoxes: []
   DefaultPlaySceneIndex: 1
   _loading: 0
 --- !u!4 &95707472
@@ -15968,7 +15973,7 @@ MonoBehaviour:
   Fullscreen: 0
   HoldGrab: 0
   _defaultOptions: {fileID: 11400000, guid: c37510f887b1bd141a6fc073d7a2070d, type: 2}
-  _audioMixer: {fileID: 0}
+  _audioMixer: {fileID: 24100000, guid: 9d4ff596c434beb4f9c85a5059f4d52a, type: 2}
 --- !u!4 &1454198439
 Transform:
   m_ObjectHideFlags: 0

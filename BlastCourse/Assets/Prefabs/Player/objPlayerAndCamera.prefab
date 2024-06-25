@@ -785,7 +785,7 @@ MonoBehaviour:
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
-    SpatialBlend: 0
+    SpatialBlend: 1
   walkSound:
     SfxClip:
     - {fileID: 8300000, guid: 7689b5c0b7538404590effd80f94aceb, type: 3}
@@ -808,7 +808,7 @@ MonoBehaviour:
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
-    SpatialBlend: 0
+    SpatialBlend: 1
   jumpSound:
     SfxClip:
     - {fileID: 8300000, guid: 444c71be077f83346881dbf421c1cf19, type: 3}
@@ -817,7 +817,7 @@ MonoBehaviour:
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
-    SpatialBlend: 0
+    SpatialBlend: 1
   timeBetweenSteps: 0.5
 --- !u!114 &8610808883349483069
 MonoBehaviour:
@@ -900,7 +900,7 @@ MonoBehaviour:
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
-    SpatialBlend: 0
+    SpatialBlend: 1
   sfxDeathSound:
     SfxClip: []
     Volume: 0
@@ -908,7 +908,7 @@ MonoBehaviour:
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
-    SpatialBlend: 0
+    SpatialBlend: 1
 --- !u!114 &2037397676978406994
 MonoBehaviour:
   m_ObjectHideFlags: 0

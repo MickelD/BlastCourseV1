@@ -102,6 +102,7 @@ MonoBehaviour:
     Loop: 0
     Group: {fileID: 0}
     SpatialBlend: 0
+  _zapVFX: {fileID: 2163578974269314323, guid: 9c480619e7f5545428c60112526bba4a, type: 3}
 --- !u!135 &4531377264277656796
 SphereCollider:
   m_ObjectHideFlags: 0

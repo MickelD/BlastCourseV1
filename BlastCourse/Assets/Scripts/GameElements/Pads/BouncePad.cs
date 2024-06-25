@@ -11,6 +11,10 @@ public class BouncePad : MonoBehaviour
     [SerializeField] private float _handleDistance;
     [SerializeField] private float _force;
 
+    [Space(5), Header("Handle"), Space(3)]
+    [SerializeField] private Vector2 _size;
+    [SerializeField] private MeshTiler _tiler;
+
     [Space(5), Header("Sounds"), Space(3)]
     [SerializeField] AudioCue bounceSound;
 
@@ -38,6 +42,15 @@ public class BouncePad : MonoBehaviour
         c_directionController.position = transform.position + _bounceDir;
 
         return _bounceDir;
+    }
+
+    private void OnValidate()
+    {
+        if (_tiler != null)
+        {
+            _tiler.ManagedByScript = true;
+            _tiler.Area = _size;
+        }
     }
 
     #endregion

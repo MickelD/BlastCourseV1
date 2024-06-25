@@ -12,6 +12,7 @@ public class MagneticPlate : ActivableBase
     [SerializeField] public float PullStrenght;
     [SerializeField] public BoxCollider C_hitbox;
     [SerializeField] public Transform G_meshTransform;
+    [SerializeField] public MeshTiler _tiler;
     [SerializeField] public MeshRenderer G_meshRenderer;
     [SerializeField] public Material OnMat;
     [SerializeField] public Material OffMat;
@@ -31,7 +32,11 @@ public class MagneticPlate : ActivableBase
 
     private void OnValidate()
     {
-        G_meshTransform.localScale = new Vector3(Size.x, Size.y, G_meshTransform.localScale.z);
+        if (_tiler != null)
+        {
+            _tiler.ManagedByScript = true;
+            _tiler.Area = Size;
+        }
 
         C_hitbox.size = new Vector3(Size.x, Size.y, Size.z);
         C_hitbox.center = new Vector3(0f, 0f, Size.z * 0.5f);

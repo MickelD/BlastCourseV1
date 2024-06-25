@@ -121,7 +121,14 @@ public abstract class RpgBase : ScriptableObject
             }
 
             //check if there is clear room in the space immediatley in front of the rocket
-            becomeIntangible = !Physics.Raycast(_camera.transform.position, _camera.transform.forward, _rpgHolder.IntangibleDistance, _rpgHolder.IntangibleMask, QueryTriggerInteraction.Ignore);
+
+            bool clearView = !Physics.SphereCast(new Ray(_camera.transform.position, _camera.transform.forward), 0.1f, _rpgHolder.IntangibleDistance, _rpgHolder.IntangibleMask, QueryTriggerInteraction.Ignore);
+            bool somethingInWay = Physics.SphereCast(new Ray(_fireOrigin.position, (targetPoint - _fireOrigin.position).normalized), 0.16f, _rpgHolder.IntangibleDistance, _rpgHolder.IntangibleMask, QueryTriggerInteraction.Ignore);
+
+
+            becomeIntangible = clearView && somethingInWay;
+
+            Debug.Log(becomeIntangible);
         }
 
         FireRocketAtPosition(targetPoint, becomeIntangible);
@@ -142,7 +149,7 @@ public abstract class RpgBase : ScriptableObject
         {
             collider.isTrigger = true;
 
-            instantiatedRocket.Invoke(() => { if (collider != null) collider.isTrigger = false; }, (_rpgHolder.IntangibleDistance * 0.5f) / _stats.RocketSpeed);
+            instantiatedRocket.Invoke(() => { if (collider != null) collider.isTrigger = false; }, (_rpgHolder.IntangibleDistance) / _stats.RocketSpeed);
         }
 
         instantiatedRocket.rpg = this;

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 473926134838969498}
   - component: {fileID: 473926134838969499}
   - component: {fileID: 473926134838969500}
-  m_Layer: 21
+  m_Layer: 6
   m_Name: objGlassFrame
   m_TagString: Untagged
   m_Icon: {fileID: 0}

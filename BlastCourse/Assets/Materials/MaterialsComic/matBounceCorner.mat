@@ -134,15 +134,15 @@ Material:
     - _Cull: 2
     - _CullMode: 0
     - _Cutoff: 0.5
-    - _Depth_Sensitivity: 0.1
+    - _Depth_Sensitivity: 0.05
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _Diffuse: 0.5
-    - _Distance_Fade_Threshold: 20
+    - _Distance_Fade_Threshold: 250
     - _DstBlend: 0
     - _Emission_Intensity: 1
     - _EnvironmentReflections: 1
-    - _Exterior_Outline_Thickness: 3
+    - _Exterior_Outline_Thickness: 2
     - _FaceDilate: 0
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
@@ -165,7 +165,7 @@ Material:
     - _MaskSoftnessY: 0
     - _Metallic: 0
     - _NormalMapKwToggle: 1
-    - _Normals_Sensitivity: 10
+    - _Normals_Sensitivity: 1
     - _OcclusionStrength: 1
     - _OldHueVarBehavior: 0
     - _OutlineSoftness: 0

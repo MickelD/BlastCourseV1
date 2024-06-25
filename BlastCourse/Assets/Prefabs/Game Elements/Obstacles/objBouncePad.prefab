@@ -4963,6 +4963,8 @@ MonoBehaviour:
   _force: 10
   _size: {x: 0, y: 0}
   _tiler: {fileID: 0}
+  _boingVFX: {fileID: 5738040285386162670, guid: ee1b7a33794dd7a4fafb2ffec5b3588c,
+    type: 3}
   bounceSound:
     SfxClip:
     - {fileID: 8300000, guid: 026c9dc7002fd9143b4631dfb6fda3b2, type: 3}

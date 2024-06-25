@@ -15,9 +15,6 @@ public class BouncePad : MonoBehaviour
     [SerializeField] private Vector2 _size;
     [SerializeField] private MeshTiler _tiler;
 
-    [Space(5), Header("VFX"), Space(3)]
-    [SerializeField] private GameObject _boingVFX;
-
     [Space(5), Header("Sounds"), Space(3)]
     [SerializeField] AudioCue bounceSound;
 
@@ -68,7 +65,6 @@ public class BouncePad : MonoBehaviour
         if(canInteractWithBouncePad != null)
         {
             AudioManager.TryPlayCueAtPoint(bounceSound, transform.position);
-            Destroy(Instantiate(_boingVFX, transform.position + _bounceDir * 0.5f, Quaternion.identity), 5);
             canInteractWithBouncePad.BouncePadInteraction(_bounceDir, _force);
         }
 

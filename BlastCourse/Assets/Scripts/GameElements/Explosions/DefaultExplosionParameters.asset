@@ -17,7 +17,7 @@ MonoBehaviour:
   <SurfaceNormalInfluence>k__BackingField: 0.25
   <ObjectDirectionDistribution>k__BackingField: {x: 1.5, y: 1.75}
   <PlayerDirectionDistribution>k__BackingField: {x: 1, y: 3.5}
-  <ExplosionLifetime>k__BackingField: 1
+  <ExplosionLifetime>k__BackingField: 3
   <ExplosionLayerMask>k__BackingField:
     serializedVersion: 2
     m_Bits: 72

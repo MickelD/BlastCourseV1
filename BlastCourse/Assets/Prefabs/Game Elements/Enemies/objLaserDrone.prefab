@@ -4897,7 +4897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeedX: 1
   _rotationSpeedY: 1
-  _amplitudeHeight: 50
+  _amplitudeHeight: 0
   _amplitudeSpeed: 1
   _detectionDistance: 15
   _detectionAngle: 200

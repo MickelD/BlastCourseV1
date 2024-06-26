@@ -16,6 +16,7 @@ public class ActivableButton : ActivableBase
 
     [Space(5), Header("Audio"), Space(3)]
     public AudioCue _interactSfx;
+    public ParticleSystem ClickVFX;
 
     public bool Locked { get; set; }
 
@@ -27,6 +28,7 @@ public class ActivableButton : ActivableBase
     protected override void Start()
     {
         _animator = gameObject.GetComponent<Animator>();
+        if (ClickVFX != null) ClickVFX.Stop();
 
         base.Start();
     }
@@ -34,8 +36,10 @@ public class ActivableButton : ActivableBase
     public virtual void Press(bool press)
     {
         if(_animator != null)_animator.SetBool("Press", press);
+        if (ClickVFX != null && press) ClickVFX.Play();
+        else if (ClickVFX != null) ClickVFX.Stop();
 
-        AudioManager.TryPlayCueAtPoint(_interactSfx, transform.position);
+            AudioManager.TryPlayCueAtPoint(_interactSfx, transform.position);
 
         if (press || ResetOnUnpress) SendAllActivations(ExtendedDataUtility.Select(InverseSignal, !press, press));
     }

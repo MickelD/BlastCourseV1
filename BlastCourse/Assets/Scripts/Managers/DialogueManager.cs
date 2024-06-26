@@ -34,6 +34,9 @@ public class DialogueManager : MonoBehaviour
 
     bool _dialoguePlaying;
 
+    public delegate void SpeakerDelegate(bool isSpeaking);
+    public SpeakerDelegate ActivateSpeakers;
+
     #endregion
 
     #region Methods
@@ -118,12 +121,15 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator PlayingAudio(float duration)
     {
+        ActivateSpeakers.Invoke(true);
+
         yield return new WaitForSeconds(duration);
 
         //Return to original location
         Source.transform.position = new Vector3(0, 0, 0);
         Source.gameObject.SetActive(false);
         _dialoguePlaying = false;
+        ActivateSpeakers.Invoke(false);
     }
 
     private IEnumerator PlayingInterruption(float duration, AudioCue savedDialogue)
@@ -162,6 +168,7 @@ public class DialogueManager : MonoBehaviour
         Source.transform.position = new Vector3(0, 0, 0);
         Source.gameObject.SetActive(false);
         _dialoguePlaying = false;
+        ActivateSpeakers.Invoke(false);
     }
 
     #endregion

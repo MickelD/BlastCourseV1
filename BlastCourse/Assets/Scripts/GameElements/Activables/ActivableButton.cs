@@ -28,7 +28,7 @@ public class ActivableButton : ActivableBase
     protected override void Start()
     {
         _animator = gameObject.GetComponent<Animator>();
-        ClickVFX.Stop();
+        if (ClickVFX != null) ClickVFX.Stop();
 
         base.Start();
     }

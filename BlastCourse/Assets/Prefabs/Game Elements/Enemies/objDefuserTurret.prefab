@@ -85,8 +85,8 @@ MonoBehaviour:
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
     SpatialBlend: 1
-  _deactivationAnimDuration: 0
-  _angleDown: 0
+  _deactivationAnimDuration: 0.3
+  _angleDown: 36
   c_lr: {fileID: 8523251708986285198}
   _laserDuration: 0.15
   _laserSteps: 0.1

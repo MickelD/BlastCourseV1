@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4a3fd62f31e932241a6318855094d3c4
+guid: 6532934defde10647beab2313d1ba8f1
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,13 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: BASE_TEXT
-    second: {fileID: 2100000, guid: de71347a6b452ef4c9d2d510415e19f0, type: 2}
+      name: rigTurret_GoodBaseTurret_SHD
+    second: {fileID: 2100000, guid: 192348ba441da91419f0d444809a0df2, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: CANON_TEXT
-    second: {fileID: 2100000, guid: 435135b2fb770ed4ca313f470d992f18, type: 2}
+      name: rigTurret_GoodCannonTurret_SHD1
+    second: {fileID: 2100000, guid: c26cdde835ab88a42b8cc7813edfc9d3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rigTurret_GoodHeadTurret_SHD1
+    second: {fileID: 2100000, guid: cd7701f2b95288f479f521d069681b6e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -98,7 +103,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.01
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

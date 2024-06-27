@@ -25,6 +25,8 @@ public class GenericTurret : ActivableBase
     [SerializeField] public float _instantRange;
     [SerializeField] public Vector3 _offset;
 
+    public Animator _animator;
+
     [Space(5), Header("Audio"), Space(3)]
     [SerializeField] public AudioCue shootSound;
 
@@ -110,6 +112,8 @@ public class GenericTurret : ActivableBase
             //The player is in Range
             if (_inRange)
             {
+                //_animator.enabled = false;
+
                 float currentRotationSpeed;
                 //In Front
                 if (_inSight)
@@ -142,7 +146,11 @@ public class GenericTurret : ActivableBase
             _shotTimer -= Time.deltaTime;
         }
         else if (!Active) DeactivateAnimation();
-        else if (Active) ActivateAnimation();
+        else if (Active)
+        {
+            //_animator.enabled = true;
+            ActivateAnimation();
+        }
 
         ////Draw Range
         //Debug.DrawLine(g_head.transform.position, Quaternion.Euler(0, _rotationAngle, 0) * g_head.transform.forward * _range + g_head.transform.position, Color.blue, 0.2f);
@@ -150,6 +158,11 @@ public class GenericTurret : ActivableBase
     }
 
     #endregion
+
+    public virtual void LateUpdate()
+    {
+
+    }
 
     #region Methods
 

@@ -75,7 +75,11 @@ public class RocketBase : ScaledTimeMonoBehaviour, IBounceable
     {
         //check material of collided Surface
 
-        if (col.collider.TryGetComponent(out MeshRenderer meshRenderer))
+        if(col.collider.gameObject.CompareTag("Defuse"))
+        {
+            return false;
+        }
+        else if (col.collider.TryGetComponent(out MeshRenderer meshRenderer))
         {
             MeshCollider meshCollider = col.collider as MeshCollider;
 
@@ -93,7 +97,6 @@ public class RocketBase : ScaledTimeMonoBehaviour, IBounceable
         }
         else
         {
-            //shoul implement layer behaviour
             return true;
         }  
     }

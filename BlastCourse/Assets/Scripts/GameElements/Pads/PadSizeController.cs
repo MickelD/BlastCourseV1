@@ -7,7 +7,6 @@ public class PadSizeController : MonoBehaviour
     #region Fields
     [Space(5), Header("Variables"), Space(3)]
     [SerializeField] Vector3 _padSize = Vector3.one;
-    [SerializeField] bool _invertedParticles;
 
     [Space(5), Header("Scaling Properties"), Space(3)]
     [SerializeField] private bool _shouldDrawGizmos;
@@ -18,7 +17,6 @@ public class PadSizeController : MonoBehaviour
     [Space(5), Header("Components"), Space(3)]
     [SerializeField] Transform g_base;
     [SerializeField] Transform g_pad;
-    [SerializeField] ParticleSystem c_particleField;
     [SerializeField] BoxCollider c_collider;
     #endregion
 
@@ -31,29 +29,7 @@ public class PadSizeController : MonoBehaviour
 
         //MESH RESCALING
         g_base.localScale = new Vector3(_padSize.x, g_base.localScale.y, _padSize.z);
-        g_pad.localScale = new Vector3(_padSize.x - _AreaOfEffectScaleDiff, g_pad.localScale.y, _padSize.z - _AreaOfEffectScaleDiff);
-
-        //PARTICLE RESCALING
-        //Remmeber that ParticleShape is most likely rotated 90-X to define particle direction, so vector components may be swapped
-        ParticleSystem.ShapeModule particleShape = c_particleField.shape;
-
-        
-        particleShape.scale = new Vector3(_padSize.x - _particleShapeScaleDiff, _padSize.z - _particleShapeScaleDiff, 0.1f);
-        if (_invertedParticles)
-        {
-            particleShape.position = new Vector3(0f, _padSize.y, 0f);
-            particleShape.rotation = Vector3.right * 90f;
-
-            ParticleSystem.MainModule particleMain = c_particleField.main;
-            //time equals distance over speed, these are very complex calculations (Now particles are sure to travel all the way to the pad)
-            particleMain.startLifetime = (_padSize.y - _particleShapeScaleDiff) / particleMain.startSpeed.constant;
-        }
-        else
-        {
-            particleShape.position = Vector3.zero;
-            particleShape.rotation = Vector3.right * -90f;
-        }
-        
+        g_pad.localScale = new Vector3(_padSize.x - _AreaOfEffectScaleDiff, g_pad.localScale.y, _padSize.z - _AreaOfEffectScaleDiff);    
 
         //TRIGGER RESCALING
         c_collider.size = new Vector3(_padSize.x - _AreaOfEffectScaleDiff, _padSize.y, _padSize.z - _AreaOfEffectScaleDiff);
@@ -63,15 +39,6 @@ public class PadSizeController : MonoBehaviour
 
     #region Methods
 
-    public Vector3 DirectionalParticles(Vector3 direction)
-    {
-        ParticleSystem.VelocityOverLifetimeModule particleVelocity = c_particleField.velocityOverLifetime;
-        particleVelocity.xMultiplier = direction.x * 2;
-        particleVelocity.yMultiplier = direction.y * 2;
-        particleVelocity.zMultiplier = direction.z * 2;
-
-        return direction.normalized;
-    }
 
     #endregion
 

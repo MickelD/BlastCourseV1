@@ -282,7 +282,7 @@ public class MeshTile
 
 #if UNITY_EDITOR
 
-[CustomEditor(typeof(MeshTiler)), CanEditMultipleObjects]
+[CustomEditor(typeof(MeshTiler), true), CanEditMultipleObjects]
 public class MeshTilerEditor : Editor
 {
     MeshTiler meshTiler;

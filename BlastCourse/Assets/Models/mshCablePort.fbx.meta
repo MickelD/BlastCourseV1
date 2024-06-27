@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: lambert1
-    second: {fileID: 2100000, guid: 8078bcbfe4fd08540a9a49ee4d1cb0b9, type: 2}
+    second: {fileID: 2100000, guid: f182b64c9c910fb44b02a0c8b51b5bca, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: standardSurface1
-    second: {fileID: 2100000, guid: f57c6558b1a033e4c9fedf6b1f509cc6, type: 2}
+    second: {fileID: 2100000, guid: 470724a1e9f0dd946828026aefabc9a0, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7db68297e2de3a447aceb75fbae94a2a
+guid: 869dc3e003cfe024588cab49283655d2
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,8 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert2
-    second: {fileID: 2100000, guid: f87e3f182fccceb41931ae02c48cea74, type: 2}
+      name: rigTurret_BASE_TEXT
+    second: {fileID: 2100000, guid: de71347a6b452ef4c9d2d510415e19f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rigTurret_CANON_TEXT
+    second: {fileID: 2100000, guid: 435135b2fb770ed4ca313f470d992f18, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

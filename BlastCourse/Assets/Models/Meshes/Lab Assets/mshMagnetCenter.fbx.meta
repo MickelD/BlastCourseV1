@@ -9,6 +9,31 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: iman_cenetr_shd
     second: {fileID: 2100000, guid: 1d9a34c0dc76778468e48de2c266659f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 1d9a34c0dc76778468e48de2c266659f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2
+    second: {fileID: 2100000, guid: 2937cd0327ce03844832afca5b201d67, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: matgateway
+    second: {fileID: 2100000, guid: 1d9a34c0dc76778468e48de2c266659f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: matgateway2
+    second: {fileID: 2100000, guid: 2937cd0327ce03844832afca5b201d67, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: standardSurface1
+    second: {fileID: 2100000, guid: 0fd8eeca2dfe7b04fa3222025a49b47d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

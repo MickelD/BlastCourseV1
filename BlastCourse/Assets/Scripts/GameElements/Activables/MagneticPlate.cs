@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 [RequireComponent(typeof(BoxCollider))]
 public class MagneticPlate : ActivableBase
@@ -10,10 +11,12 @@ public class MagneticPlate : ActivableBase
     [Space(5), Header("Magnetic Plate"), Space(3)]
     [SerializeField] public Vector3 Size;
     [SerializeField] public float PullStrenght;
-    [SerializeField] public BoxCollider C_hitbox;
-    [SerializeField] public Transform G_meshTransform;
+    [SerializeField] public BoxCollider _Trigger;
+    public BoxCollider _hitBox;
+    public Vector3 _hitBoxPadding;
     [SerializeField] public MeshTiler _tiler;
-    [SerializeField] public MeshRenderer G_meshRenderer;
+    public Transform _magLeft;
+    public Transform _magRight;
     [SerializeField] public Material OnMat;
     [SerializeField] public Material OffMat;
     [SerializeField] public AudioCue OnSfx;
@@ -24,11 +27,19 @@ public class MagneticPlate : ActivableBase
     #region Vars
 
     //Maybe consider turning this into a buffered array, but since it does not occur every frame, garbage collection should not be a concern
-    private List<IMagnetable> StuckObjects = new(); 
+    private List<IMagnetable> StuckObjects = new();
+    private MeshRenderer[] _meshes;
 
     #endregion
 
     #region UnityFunctions
+
+    protected override void Start()
+    {
+        _meshes = GetComponentsInChildren<MeshRenderer>().Where(obj => obj.name == "tempMesh").ToArray();
+
+        base.Start();
+    }
 
     private void OnValidate()
     {
@@ -38,8 +49,14 @@ public class MagneticPlate : ActivableBase
             _tiler.Area = Size;
         }
 
-        C_hitbox.size = new Vector3(Size.x, Size.y, Size.z);
-        C_hitbox.center = new Vector3(0f, 0f, Size.z * 0.5f);
+        _magLeft.transform.localPosition = new Vector3(Size.x*.5f, 0f, 0.125f);
+        _magRight.transform.localPosition = new Vector3(-Size.x*.5f, 0f, 0.125f);
+
+        _Trigger.size = new Vector3(Size.x, Size.y, Size.z);
+        _Trigger.center = new Vector3(0f, 0f, Size.z * 0.5f);
+
+        _hitBox.size = new Vector3(Size.x - _hitBoxPadding.x, Size.y - _hitBoxPadding.y, _hitBoxPadding.z);
+        _hitBox.center = new Vector3(0f, 0f, _hitBoxPadding.z * 0.5f);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -73,9 +90,14 @@ public class MagneticPlate : ActivableBase
     [ActivableAction]
     public void Magnetize(bool set)
     {
-        C_hitbox.enabled = set;
+        _Trigger.enabled = set;
 
-        G_meshRenderer.material = set ? OnMat : OffMat;
+        foreach (MeshRenderer mesh in _meshes)
+        {
+            mesh.material = set ? OnMat : OffMat;
+        }
+
+        //G_meshRenderer.material = set ? OnMat : OffMat;
         AudioManager.TryPlayCueAtPoint(set ? OnSfx : OffSfx, transform.position);
 
         if (!set)

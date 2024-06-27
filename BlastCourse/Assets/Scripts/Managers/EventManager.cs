@@ -37,6 +37,7 @@ public static class EventManager
 
     //Constant Value Updates
     public static Action<float> OnUpdateEnergy;
+    public static Action<float> OnUpdateHealth;
 
     #endregion
 

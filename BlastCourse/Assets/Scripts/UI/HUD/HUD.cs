@@ -18,6 +18,11 @@ public class HUD : MonoBehaviour
         public Color _notEnoughEnergyTint;
     }
 
+    [Space(5), Header("Health"), Space(2)]
+    public Image _healthTint;
+    public float _minimumTint;
+    public float _maximumTint;
+
     [Space(5), Header("Interaction"), Space(2)]
     [SerializeField] InteractableIconValues _actionIconValues;
     private float _actionIconBaseAlpha;
@@ -91,6 +96,7 @@ public class HUD : MonoBehaviour
         EventManager.OnChangeRpg += UpdateCurrentRpg;
         EventManager.OnSelectNewInteractable += SetInteractable;
         EventManager.OnSaveGame += NotifySave;
+        EventManager.OnUpdateHealth += UpdateTint;
     }
 
     private void OnDisable()
@@ -99,6 +105,7 @@ public class HUD : MonoBehaviour
         EventManager.OnChangeRpg -= UpdateCurrentRpg;
         EventManager.OnSelectNewInteractable -= SetInteractable;
         EventManager.OnSaveGame -= NotifySave;
+        EventManager.OnUpdateHealth -= UpdateTint;
         UnsusbsribeAllSpeedMeterUpdates();
     }
 
@@ -248,6 +255,15 @@ public class HUD : MonoBehaviour
         EventManager.OnUpdatePlayerSpeedXZ -= UpdateSpeedXZ;
         EventManager.OnUpdatePlayerSpeedY -= UpdateSpeedY;
     }
+    #endregion
+
+    #region Health
+
+    public void UpdateTint(float healthPercent)
+    {
+        _healthTint.material.SetFloat("_TintRadius", Mathf.Lerp(_minimumTint,_maximumTint,healthPercent));
+    }
+
     #endregion
 
     #endregion

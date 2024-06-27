@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Health : MonoBehaviour
 {
@@ -22,6 +23,12 @@ public class Health : MonoBehaviour
     [SerializeField] AudioCue damageSound;
     [SerializeField] AudioCue sfxDeathSound;
 
+    [Space(5), Header("PlayerVariables"), Space(3)]
+    [SerializeField] CinemachineVirtualCamera _cam;
+    [SerializeField] float _shakeDuration;
+    [SerializeField] float _timeUntilHeal;
+    [SerializeField] float _healRate;
+
     #endregion
 
     #region Variables
@@ -36,6 +43,9 @@ public class Health : MonoBehaviour
     protected float _invincibleTimer;
 
     protected bool _alive = true;
+
+    float _shakeTimer;
+    float _healTimer;
     
     #endregion
 
@@ -45,6 +55,11 @@ public class Health : MonoBehaviour
         _health = _maxHealth;
     }
 
+    public void Start()
+    {
+        EventManager.OnUpdateHealth.Invoke(_health / _maxHealth);
+    }
+
     //FOR TESTING PURPOSES
 
     protected void Update()
@@ -52,6 +67,21 @@ public class Health : MonoBehaviour
         if(_invincibleTimer > 0)
         {
             _invincibleTimer -= Time.deltaTime;
+        }
+
+        if(_shakeTimer > 0)
+        {
+            _shakeTimer -= Time.deltaTime;
+            if (_shakeTimer <= 0) Shake(false);
+        }
+
+        if(_health < _maxHealth && _healTimer > 0)
+        {
+            _healTimer -= Time.deltaTime;
+        }
+        else if(_health < _maxHealth)
+        {
+            Heal(_healRate*Time.deltaTime);
         }
     }
     #endregion
@@ -67,20 +97,27 @@ public class Health : MonoBehaviour
                 case Source.PLAYER:
                     damageRecieved *= _playerDamageMultiplier;
                     _health -= damageRecieved;
+                    HurtEffect();
                     if(damageRecieved > 0) _invincibleTimer = _invulnerability;
                     break;
                 case Source.ENEMY:
                     damageRecieved *= _enemyDamageMultiplier;
                     AudioManager.TryPlayCueAtPoint(damageSound, transform.position);
                     _health -= damageRecieved;
+                    HurtEffect();
                     if (damageRecieved > 0) _invincibleTimer = _invulnerability;
+                    
                     break;
                 case Source.ENVIRONMENT:
                     damageRecieved *= _environmentDamageMultiplier;
                     _health -= damageRecieved;
+                    HurtEffect();
                     if (damageRecieved > 0) _invincibleTimer = _invulnerability;
                     break;
                 case Source.HEAL:
+                    _health -= amount;
+                    HealEffect();
+                    break;
                 default:
                     _health -= amount;
                     break;
@@ -111,6 +148,16 @@ public class Health : MonoBehaviour
     {
         SaveLoader.Instance?.SetSpawn(position);
     }
+    public void HurtEffect()
+    {
+        Shake(true);
+        _healTimer = _timeUntilHeal;
+        EventManager.OnUpdateHealth.Invoke(_health/_maxHealth);
+    }
+    public void HealEffect()
+    {
+        EventManager.OnUpdateHealth.Invoke(_health / _maxHealth);
+    }
 
     private IEnumerator Respawn()
     {
@@ -121,6 +168,16 @@ public class Health : MonoBehaviour
         //GetComponent<Rigidbody>().velocity = Vector3.zero;
         //CreditManager.Instance.RespawnCredits();
         //_alive = true;
+    }
+
+    private void Shake(bool shake)
+    {
+        if(_cam != null)
+        {
+            _shakeTimer = shake ? _shakeDuration : 0;
+
+            _cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = shake ? 5 : 0;
+        }
     }
 
     #endregion

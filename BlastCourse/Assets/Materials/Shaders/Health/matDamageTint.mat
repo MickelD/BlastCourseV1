@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ScreenEffect
+  m_Name: matDamageTint
   m_Shader: {fileID: -6465566751694194690, guid: 370b1a2b5f1f53c4582f9e1d65fa1e75,
     type: 3}
   m_ValidKeywords: []

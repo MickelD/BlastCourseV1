@@ -55,6 +55,8 @@ public class BouncePad : MonoBehaviour
             _tiler.ManagedByScript = true;
             _tiler.Area = _size;
         }
+
+
     }
 
     #endregion

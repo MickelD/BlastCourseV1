@@ -18,6 +18,7 @@ public class GenericTurret : ActivableBase
     [Space(5), Header("Variables"), Space(3)]
     [SerializeField] public float _rotationSpeed;
     [SerializeField] public float _backRotationSpeed;
+    public float _idleRotSpeed;
     [SerializeField] public float _shootAngle;
     [SerializeField] public float _rotationAngle;
     [SerializeField] public float _shootDelay;
@@ -106,63 +107,59 @@ public class GenericTurret : ActivableBase
             }
         }
 
-        //It has a target
-        if (_target != null && Active)
+
+        if (Active)
         {
-            //The player is in Range
-            if (_inRange)
+            float currentRotSpeed = 0f;
+
+
+            if (_target != null) //shooting
             {
-                //_animator.enabled = false;
-
-                float currentRotationSpeed;
-                //In Front
-                if (_inSight)
+                if (_inRange)
                 {
-                    currentRotationSpeed = _rotationSpeed;
+                    _animator.SetInteger("state", 1);
+                    currentRotSpeed = _inSight ? _rotationSpeed : _backRotationSpeed;
+
+                    //Rotate Y Axis (Head)
+                    _headOrientation = (_target.transform.position + _offset - g_head.transform.position);
+                    _headOrientation.y = 0f;
+
+                    //Rotate X Axis (Cannon)
+                    _cannonOrientation = (_target.transform.position + _offset - g_cannon.transform.position);
+
+                    //Apply rotations
+                    g_head.transform.rotation = Quaternion.Slerp(g_head.transform.rotation, Quaternion.LookRotation(_headOrientation, transform.up), currentRotSpeed * Time.deltaTime);
+                    g_cannon.transform.localRotation = Quaternion.Euler(Vector3.Angle(_headOrientation, _cannonOrientation) * -Vector3.right);
+
+                    //Shoot
+                    if (_shotTimer <= 0f && Mathf.Abs(Vector3.Angle(g_head.transform.forward, _headOrientation)) <= _shootAngle)
+                    {
+                        Shoot();
+                    }
                 }
-                //Behind
-                else
+                _shotTimer -= Time.deltaTime;
+            }
+            else
+            {
+                _animator.SetInteger("state", 0);
+
+                //revert canon to neutral position
+                if (g_cannon.transform.localEulerAngles.x != 0f)
                 {
-                    currentRotationSpeed = _backRotationSpeed;
-                }
+                    currentRotSpeed = _idleRotSpeed;
+                    g_cannon.transform.localRotation = Quaternion.Slerp(g_cannon.transform.localRotation, Quaternion.identity, currentRotSpeed * Time.deltaTime);
 
-
-                //Rotate Y Axis (Head)
-                _headOrientation = (_target.transform.position + _offset - g_head.transform.position);
-                _headOrientation.y = 0;
-                Quaternion headRotation = Quaternion.LookRotation(_headOrientation, transform.up);
-                g_head.transform.rotation = Quaternion.Slerp(g_head.transform.rotation, headRotation, currentRotationSpeed * Time.deltaTime);
-                //Rotate X Axis (Cannon)
-                _cannonOrientation = (_target.transform.position + _offset - g_cannon.transform.position);
-                g_cannon.transform.localRotation = Quaternion.Euler(Vector3.Angle(_headOrientation, _cannonOrientation) * -Vector3.right);
-
-
-                //Shoot
-                if (_shotTimer <= 0 && Mathf.Abs(Vector3.Angle(g_head.transform.forward, _headOrientation)) <= _shootAngle)
-                {
-                    Shoot();
+                    if (g_cannon.transform.localEulerAngles.x <= 3f) g_cannon.transform.localEulerAngles = Vector3.zero;
                 }
             }
-            _shotTimer -= Time.deltaTime;
         }
-        else if (!Active) DeactivateAnimation();
-        else if (Active)
+        else //deactivated
         {
-            //_animator.enabled = true;
-            ActivateAnimation();
+            _animator.SetInteger("state", 2);
         }
-
-        ////Draw Range
-        //Debug.DrawLine(g_head.transform.position, Quaternion.Euler(0, _rotationAngle, 0) * g_head.transform.forward * _range + g_head.transform.position, Color.blue, 0.2f);
-        //Debug.DrawLine(g_head.transform.position, Quaternion.Euler(0, -_rotationAngle, 0) * g_head.transform.forward * _range + g_head.transform.position, Color.blue, 0.2f);
     }
 
     #endregion
-
-    public virtual void LateUpdate()
-    {
-
-    }
 
     #region Methods
 

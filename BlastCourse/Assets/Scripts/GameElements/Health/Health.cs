@@ -25,6 +25,7 @@ public class Health : MonoBehaviour
 
     [Space(5), Header("PlayerVariables"), Space(3)]
     [SerializeField] CinemachineVirtualCamera _cam;
+    [SerializeField] float _shakeForce;
     [SerializeField] float _shakeDuration;
     [SerializeField] float _timeUntilHeal;
     [SerializeField] float _healRate;
@@ -82,6 +83,11 @@ public class Health : MonoBehaviour
         else if(_health < _maxHealth)
         {
             Heal(_healRate*Time.deltaTime);
+        }
+
+        if(Input.GetKeyDown(KeyCode.L) && GetComponent<PlayerMovement>() != null)
+        {
+            SufferDamage(10,Source.ENEMY);
         }
     }
     #endregion
@@ -176,7 +182,7 @@ public class Health : MonoBehaviour
         {
             _shakeTimer = shake ? _shakeDuration : 0;
 
-            _cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = shake ? 5 : 0;
+            _cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = shake ? _shakeForce : 0;
         }
     }
 

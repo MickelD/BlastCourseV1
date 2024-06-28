@@ -4913,7 +4913,7 @@ MonoBehaviour:
     m_Bits: 2343497
   _rotationSpeed: 15
   _backRotationSpeed: 10
-  _idleRotSpeed: 0
+  _idleRotSpeed: 2.5
   _shootAngle: 10
   _rotationAngle: 80
   _shootDelay: 0.1

@@ -300,7 +300,7 @@ Material:
     - _ReceivesSSR: 1
     - _ReceivesSSRTransparent: 0
     - _RefractionModel: 0
-    - _Shadow_Shape_Opacity: 0.3
+    - _Shadow_Shape_Opacity: 0.5
     - _Smoothness: 0.501
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
@@ -324,10 +324,10 @@ Material:
     - _StencilWriteMaskGBuffer: 14
     - _StencilWriteMaskMV: 40
     - _Stripes_Offset: 0
-    - _Stripes_Opacity: 1
-    - _Stripes_Rotation: 1
-    - _Stripes_Tiling: 1
-    - _Stripes_Width: 0
+    - _Stripes_Opacity: 0.75
+    - _Stripes_Rotation: 180
+    - _Stripes_Tiling: 0.2
+    - _Stripes_Width: 0.607
     - _SubsurfaceMask: 1
     - _SupportDecals: 1
     - _Surface: 0

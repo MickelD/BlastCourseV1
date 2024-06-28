@@ -96,7 +96,7 @@ Material:
     - _ClearCoatSmoothness: 0
     - _Comic_Dot_Size: 1.2
     - _Comic_Dots_Scale: 128
-    - _Comic_Opacity: 0.005
+    - _Comic_Opacity: 0.002
     - _Contrast: 1
     - _Cull: 2
     - _Cutoff: 0.5
@@ -135,8 +135,8 @@ Material:
     - _SrcBlend: 1
     - _Stripes_Offset: 0
     - _Stripes_Opacity: 0.5
-    - _Stripes_Rotation: 90
-    - _Stripes_Tiling: 30
+    - _Stripes_Rotation: 0
+    - _Stripes_Tiling: 0.2
     - _Stripes_Width: 0.5
     - _Surface: 0
     - _Use_Diffuse_Texture: 1

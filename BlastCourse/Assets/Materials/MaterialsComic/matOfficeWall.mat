@@ -116,9 +116,9 @@ Material:
     - _C_Rotation: 0
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _Comic_Dot_Size: 1.5
-    - _Comic_Dots_Scale: 15
-    - _Comic_Opacity: 0.002
+    - _Comic_Dot_Size: 0.36
+    - _Comic_Dots_Scale: 9.45
+    - _Comic_Opacity: 0.001
     - _Contrast: 0.75
     - _Cull: 2
     - _Cutoff: 0.5
@@ -148,7 +148,7 @@ Material:
     - _QueueOffset: 50
     - _ReceiveShadows: 1
     - _SHADOWS_SOFT: 1
-    - _Shadow_Shape_Opacity: 0.4
+    - _Shadow_Shape_Opacity: 0.5
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -159,9 +159,9 @@ Material:
     - _Specular_Softness: 5
     - _SrcBlend: 1
     - _Stripes_Offset: 0
-    - _Stripes_Opacity: 0.4
-    - _Stripes_Rotation: 25
-    - _Stripes_Tiling: 6
+    - _Stripes_Opacity: 0.75
+    - _Stripes_Rotation: 90
+    - _Stripes_Tiling: 4
     - _Stripes_Width: 0.6
     - _Surface: 0
     - _Use_Diffuse_Texture: 1

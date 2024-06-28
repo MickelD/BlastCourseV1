@@ -136,7 +136,7 @@ Material:
     - _Interior_Outline_Thickness: 3
     - _Invert_Mask: 1
     - _K_Rotation: 0
-    - _Light_Color: 1
+    - _Light_Color: 0
     - _Lighting_Cutoff: 0
     - _M_Rotation: 0
     - _Metallic: 0

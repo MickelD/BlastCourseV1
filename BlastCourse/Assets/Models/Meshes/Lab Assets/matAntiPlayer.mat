@@ -135,8 +135,8 @@ Material:
     - _SrcBlend: 1
     - _Stripes_Offset: 0
     - _Stripes_Opacity: 0.75
-    - _Stripes_Rotation: 90
-    - _Stripes_Tiling: 0.6
+    - _Stripes_Rotation: 110
+    - _Stripes_Tiling: 10
     - _Stripes_Width: 0.63
     - _Surface: 0
     - _Use_Diffuse_Texture: 1

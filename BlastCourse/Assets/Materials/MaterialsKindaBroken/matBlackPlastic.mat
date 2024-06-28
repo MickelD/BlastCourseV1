@@ -287,7 +287,7 @@ Material:
     - _ReceivesSSR: 1
     - _ReceivesSSRTransparent: 0
     - _RefractionModel: 0
-    - _Shadow_Shape_Opacity: 0.3
+    - _Shadow_Shape_Opacity: 0.5
     - _Smoothness: 0.651
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
@@ -297,9 +297,9 @@ Material:
     - _SpecularHighlights: 1
     - _SpecularOcclusionMode: 1
     - _Specular_Dot_Rotation: 0
-    - _Specular_Dots_Tiling: 850
-    - _Specular_Opacity: 0.5
-    - _Specular_Size: 2
+    - _Specular_Dots_Tiling: 400
+    - _Specular_Opacity: 0.035
+    - _Specular_Size: 0.9
     - _Specular_Softness: 0.4
     - _SrcBlend: 1
     - _StencilRef: 0

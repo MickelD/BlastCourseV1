@@ -13,7 +13,7 @@ public class PressurePlate : ActivableButton
         if (_loadedObjects <= 0)
         {
             _loadedObjects = 0;
-            Press(false);
+            //Press(false);
         }
     }
 

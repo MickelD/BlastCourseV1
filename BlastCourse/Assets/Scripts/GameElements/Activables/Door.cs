@@ -9,12 +9,15 @@ public class Door : ActivableBase
     public AudioCue _openSfx;
     public AudioCue _closeSfx;
 
-    public GameObject _openVFX1;
-    public GameObject _openVFX2;
+    public ParticleSystem _openVFX1;
+    public ParticleSystem _openVFX2;
+    public float ActiveTime;
+    private WaitForSeconds VfxActiveTime;
 
     private void Awake()
     {
-        _animator = GetComponent<Animator>();   
+        _animator = GetComponent<Animator>();
+        VfxActiveTime = new WaitForSeconds(ActiveTime);
     }
 
     [ActivableAction]
@@ -24,9 +27,8 @@ public class Door : ActivableBase
         {
             AudioManager.TryPlayCueAtPoint(set ? _openSfx : _closeSfx,transform.position);
             _animator.SetBool("Open", set);
-
-            Destroy(Instantiate(Random.Range(0, 2) == 1 ? _openVFX1 : _openVFX2, transform.position + Vector3.up, Quaternion.identity), 5);
-
+            
+            StartCoroutine(VFX());
             if (Type != ActivableType.Action) SendAllActivations(set);
         }
     }
@@ -35,5 +37,15 @@ public class Door : ActivableBase
     public void LockState(bool set)
     {
         _isLockedState = set;
+    }
+
+    public IEnumerator VFX()
+    {
+        ParticleSystem ps = Random.Range(0, 2) == 1 ? _openVFX1 : _openVFX2;
+        ps.gameObject.SetActive(true);
+        ps.Play();
+        yield return VfxActiveTime;
+        ps.Stop();
+        ps.gameObject.SetActive(false);
     }
 }

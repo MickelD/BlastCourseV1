@@ -39,7 +39,7 @@ public class ActivableButton : ActivableBase
         if (ClickVFX != null && press) ClickVFX.Play();
         else if (ClickVFX != null) ClickVFX.Stop();
 
-            AudioManager.TryPlayCueAtPoint(_interactSfx, transform.position);
+        if(press)AudioManager.TryPlayCueAtPoint(_interactSfx, transform.position);
 
         if (press || ResetOnUnpress) SendAllActivations(ExtendedDataUtility.Select(InverseSignal, !press, press));
     }

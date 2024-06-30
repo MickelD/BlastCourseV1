@@ -127,9 +127,12 @@ public class RocketBase : ScaledTimeMonoBehaviour, IBounceable
 
             AudioManager.TryPlayCueAtPoint(_explodeSfx, transform.position);
 
-            c_rocketParticles.Stop();
-            Destroy(c_rocketParticles.gameObject, 2f);
-            c_rocketParticles.gameObject.transform.parent = null;
+            if(c_rocketParticles != null)
+            {
+                c_rocketParticles.Stop();
+                Destroy(c_rocketParticles.gameObject, 2f);
+                c_rocketParticles.gameObject.transform.parent = null;
+            }
 
             _alreadyExplodedOrDiffused = true;
 

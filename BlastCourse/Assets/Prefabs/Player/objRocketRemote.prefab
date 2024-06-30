@@ -184,7 +184,7 @@ MonoBehaviour:
   LocalTimeScale: 1
   Body: {fileID: 5705535953715931384}
   GravityController: {fileID: 0}
-  c_rocketParticles: {fileID: 78351405207702884}
+  c_rocketParticles: {fileID: 549184236647754649}
   g_defuseParticles: {fileID: 3215386160078462545, guid: 683079c6720f8c948957e5624d1ec8ff,
     type: 3}
   c_playerTrigger: {fileID: 5362936422528938794}
@@ -5302,6 +5302,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbd187cea870a7d4b80a3b7f4ebbba29, type: 3}
+--- !u!198 &549184236647754649 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3414561733164373519, guid: fbd187cea870a7d4b80a3b7f4ebbba29,
+    type: 3}
+  m_PrefabInstance: {fileID: 2953778517441363350}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &549184236647754663 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3414561733164373553, guid: fbd187cea870a7d4b80a3b7f4ebbba29,

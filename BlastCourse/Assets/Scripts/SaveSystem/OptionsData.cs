@@ -28,8 +28,9 @@ public class OptionsData
 
     public bool _fullscreen;
     public bool _holdGrab;
+    public float _camShake;
 
-    public OptionsData(float sense, float mstr, float sfx, float music, float dial, bool fs, KeyCode[] iK, bool hG)
+    public OptionsData(float sense, float mstr, float sfx, float music, float dial, bool fs, KeyCode[] iK, bool hG, float cS)
     {
         _sensitivity = sense;
         _masterVolume = mstr;
@@ -38,6 +39,7 @@ public class OptionsData
         _fullscreen = fs;
         _holdGrab = hG;
         _dialogueVolume = dial;
+        _camShake = cS;
 
         _inputKeys = new KeyCode[Enum.GetValues(typeof(InputActions)).Length];
         if (iK != null)

@@ -24,6 +24,12 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private Slider _senseSlider;
     [SerializeField] private TextMeshProUGUI _senseValue;
 
+    [Space(3), Header("Shake"), Space(3)]
+    [SerializeField] private float _minShake = 0;
+    [SerializeField] private float _maxShake = 200;
+    [SerializeField] private Slider _shakeSlider;
+    [SerializeField] private TextMeshProUGUI _shakeValue;
+
     [Space(3), Header("Master"), Space(3)]
     [SerializeField] private float _minMasterVolume = 0;
     [SerializeField] private float _maxMasterVolume = 100;
@@ -87,6 +93,9 @@ public class OptionsMenu : MonoBehaviour
 
         _maxDialogueVolume = _maxDialogueVolume > 100 ? _maxDialogueVolume : 100;
         _minDialogueVolume = _minDialogueVolume < 100 ? _minDialogueVolume : 100;
+
+        _maxShake = _maxShake > 100 ? _maxShake : 100;
+        _minShake = _minShake < 100 ? _minShake : 100;
     }
 
     private void OnEnable()
@@ -145,6 +154,16 @@ public class OptionsMenu : MonoBehaviour
         {
             _dialogueValue.text = ((int)_dialogueSlider.value).ToString() + "%";
             if (OptionsLoader.Instance != null) OptionsLoader.Instance.DialogueVolume = _dialogueSlider.value / 100;
+        }
+    }
+
+    public void Shake()
+    {
+        if (_shakeSlider != null
+            && _shakeValue != null)
+        {
+            _shakeValue.text = ((int)_shakeSlider.value).ToString() + "%";
+            if (OptionsLoader.Instance != null) OptionsLoader.Instance.CameraShake = _shakeSlider.value / 100;
         }
     }
 
@@ -228,6 +247,8 @@ public class OptionsMenu : MonoBehaviour
             if (_musicValue != null) _musicValue.text = ((int)_musicSlider.value).ToString() + "%";
             if (_dialogueSlider != null) _dialogueSlider.value = OptionsLoader.Instance.DialogueVolume * 100;
             if (_dialogueValue != null) _dialogueValue.text = ((int)_dialogueSlider.value).ToString() + "%";
+            if (_shakeSlider != null) _shakeSlider.value = OptionsLoader.Instance.CameraShake * 100;
+            if (_shakeValue != null) _shakeValue.text = ((int)_shakeSlider.value).ToString() + "%";
 
             if (_fullscreen != null) _fullscreen.isOn = OptionsLoader.Instance.Fullscreen;
 

@@ -74,6 +74,17 @@ public class OptionsLoader : MonoBehaviour
     }
     private float _dialogueVolume;
 
+    [HideInInspector]
+    public float CameraShake
+    {
+        get { return _camShake; }
+        set
+        {
+            _camShake = Mathf.Clamp(value, 0, 2);
+        }
+    }
+    private float _camShake;
+
     [HideInInspector] public bool Fullscreen;
     [HideInInspector] public bool HoldGrab;
 
@@ -116,7 +127,7 @@ public class OptionsLoader : MonoBehaviour
     [ContextMenu("Save")]
     public void Save()
     {
-        SaveSystem.OptionsSave(Sensitivity,MasterVolume,SfxVolume,MusicVolume,DialogueVolume,Fullscreen,Keys,HoldGrab);
+        SaveSystem.OptionsSave(Sensitivity,MasterVolume,SfxVolume,MusicVolume,DialogueVolume,Fullscreen,Keys,HoldGrab,CameraShake);
         UpdateConfig();
     }
 
@@ -135,6 +146,7 @@ public class OptionsLoader : MonoBehaviour
             DialogueVolume = data._dialogueVolume;
             Fullscreen = data._fullscreen;
             HoldGrab = data._holdGrab;
+            CameraShake = data._camShake;
 
 
             Keys = new KeyCode[Enum.GetValues(typeof(InputActions)).Length];
@@ -169,6 +181,7 @@ public class OptionsLoader : MonoBehaviour
             DialogueVolume = _defaultOptions.DialogueVolume;
             Fullscreen = _defaultOptions.Fullscreen;
             HoldGrab = _defaultOptions.HoldToGrab;
+            CameraShake = _defaultOptions.CameraShake;
 
 
             Keys = new KeyCode[Enum.GetValues(typeof(InputActions)).Length];

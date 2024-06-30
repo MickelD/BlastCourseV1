@@ -121,7 +121,7 @@ Material:
     - _StepLength: 0.1
     - _StepOpacity: 0.05
     - _Surface: 0
-    - _TintRadius: 0.9
+    - _TintRadius: 0.6536437
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:

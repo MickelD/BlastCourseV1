@@ -84,11 +84,6 @@ public class Health : MonoBehaviour
         {
             Heal(_healRate*Time.deltaTime);
         }
-
-        if(Input.GetKeyDown(KeyCode.L) && GetComponent<PlayerMovement>() != null)
-        {
-            SufferDamage(10,Source.ENEMY);
-        }
     }
     #endregion
 
@@ -182,7 +177,7 @@ public class Health : MonoBehaviour
         {
             _shakeTimer = shake ? _shakeDuration : 0;
 
-            _cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = shake ? _shakeForce : 0;
+            _cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = shake ? _shakeForce * (OptionsLoader.Instance != null ? OptionsLoader.Instance.CameraShake : 1 ): 0;
         }
     }
 

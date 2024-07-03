@@ -128,8 +128,8 @@ Material:
     - _ClearCoatSmoothness: 0
     - _ColorMask: 15
     - _Comic_Dot_Size: 1.2
-    - _Comic_Dots_Scale: 128
-    - _Comic_Opacity: 0.005
+    - _Comic_Dots_Scale: 30
+    - _Comic_Opacity: 0
     - _Contrast: 1
     - _Cull: 2
     - _CullMode: 0
@@ -160,7 +160,7 @@ Material:
     - _LightAngle: 3.1416
     - _Light_Color: 0
     - _Lighting_Cutoff: 0.5
-    - _M_Rotation: 0
+    - _M_Rotation: 1.27
     - _MaskSoftnessX: 0
     - _MaskSoftnessY: 0
     - _Metallic: 0

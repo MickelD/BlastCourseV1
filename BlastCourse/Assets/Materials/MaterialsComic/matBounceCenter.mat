@@ -127,9 +127,9 @@ Material:
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _ColorMask: 15
-    - _Comic_Dot_Size: 1.2
-    - _Comic_Dots_Scale: 128
-    - _Comic_Opacity: 0.005
+    - _Comic_Dot_Size: 0.75
+    - _Comic_Dots_Scale: 28.5
+    - _Comic_Opacity: 0
     - _Contrast: 1
     - _Cull: 2
     - _CullMode: 0
@@ -156,11 +156,11 @@ Material:
     - _GradientScale: 5
     - _HueVariationKwToggle: 1
     - _Interior_Outline_Thickness: 2
-    - _K_Rotation: 0
+    - _K_Rotation: 2.07
     - _LightAngle: 3.1416
     - _Light_Color: 0
     - _Lighting_Cutoff: 0.5
-    - _M_Rotation: 0
+    - _M_Rotation: 1.25
     - _MaskSoftnessX: 0
     - _MaskSoftnessY: 0
     - _Metallic: 0
@@ -224,7 +224,7 @@ Material:
     - _WeightNormal: 0
     - _WindQuality: 1
     - _WorkflowMode: 1
-    - _Y_Rotation: 0
+    - _Y_Rotation: -1.44
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}

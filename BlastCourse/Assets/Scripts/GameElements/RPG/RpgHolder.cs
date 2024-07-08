@@ -79,6 +79,7 @@ public class RpgHolder : MonoBehaviour
         EventManager.OnSelectNewRpg += SetFiringMode;
         EventManager.RocketCount = 0;
         EventManager.GameRpgHolder = this;
+        EventManager.OnPlayerDeath += () => EnableShooting(false);
     }
 
     private void OnDisable()

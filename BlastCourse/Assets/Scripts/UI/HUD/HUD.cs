@@ -20,8 +20,6 @@ public class HUD : MonoBehaviour
 
     [Space(5), Header("Health"), Space(2)]
     public Image _healthTint;
-    public float _minimumTint;
-    public float _maximumTint;
 
     [Space(5), Header("Interaction"), Space(2)]
     [SerializeField] InteractableIconValues _actionIconValues;
@@ -97,6 +95,7 @@ public class HUD : MonoBehaviour
         EventManager.OnSelectNewInteractable += SetInteractable;
         EventManager.OnSaveGame += NotifySave;
         EventManager.OnUpdateHealth += UpdateTint;
+        EventManager.OnPlayerDeath += PlayerFuckingDies;
     }
 
     private void OnDisable()
@@ -106,6 +105,7 @@ public class HUD : MonoBehaviour
         EventManager.OnSelectNewInteractable -= SetInteractable;
         EventManager.OnSaveGame -= NotifySave;
         EventManager.OnUpdateHealth -= UpdateTint;
+        EventManager.OnPlayerDeath -= PlayerFuckingDies;
         UnsusbsribeAllSpeedMeterUpdates();
     }
 
@@ -261,7 +261,27 @@ public class HUD : MonoBehaviour
 
     public void UpdateTint(float healthPercent)
     {
-        _healthTint.material.SetFloat("_TintRadius", Mathf.Lerp(_minimumTint,_maximumTint,healthPercent));
+        if(healthPercent >= 0.99f) _healthTint.gameObject.SetActive(false);
+        else
+        {
+            if (!_healthTint.gameObject.activeSelf) _healthTint.gameObject.SetActive(true);
+            _healthTint.material.SetFloat("_Health", healthPercent);
+        }
+    }
+
+    public void PlayerFuckingDies()
+    {
+        //close weapon wheel and prevent it from opening again
+        _weaponWheelValues._onCloseWeaponWheel?.Invoke();
+        EventManager.OnCloseWeaponWheel?.Invoke();
+        _weaponWheelValues._weaponSelectButtonName = "";
+
+        //disable all HUD effects except damage
+        foreach (Transform child in transform)
+        {
+            if (child.gameObject.Equals(_healthTint.gameObject)) continue;
+            child.gameObject.SetActive(false);
+        }
     }
 
     #endregion

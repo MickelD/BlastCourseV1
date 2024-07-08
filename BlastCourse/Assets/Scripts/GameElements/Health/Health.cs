@@ -15,18 +15,21 @@ public class Health : MonoBehaviour
     [SerializeField] protected float _maxHealth;
     [SerializeField] protected float _health;
 
-    [Space(5), Header("Values"), Space(3)]
-    [SerializeField] protected float _invulnerability = 0.5f;
-    [SerializeField] protected float _respawnTime = 0.3f;
+    [Space(5), Header("Death"), Space(3)]
+    [SerializeField] protected float _deathYScale;
+    [SerializeField] protected float _respawnTime;
+    [SerializeField] protected Vector3 _deathImpulse;
+    [SerializeField] protected float _deathRot;
+    [SerializeField] protected float _deathDrag;
+    [SerializeField] protected float _deathAngularDrag;
 
     [Space(5), Header("Audio"), Space(3)]
     [SerializeField] AudioCue damageSound;
     [SerializeField] AudioCue sfxDeathSound;
 
     [Space(5), Header("PlayerVariables"), Space(3)]
-    [SerializeField] CinemachineVirtualCamera _cam;
+    [SerializeField] CinemachineImpulseSource _camShake;
     [SerializeField] float _shakeForce;
-    [SerializeField] float _shakeDuration;
     [SerializeField] float _timeUntilHeal;
     [SerializeField] float _healRate;
 
@@ -41,12 +44,11 @@ public class Health : MonoBehaviour
         HEAL
     }
 
-    protected float _invincibleTimer;
-
     protected bool _alive = true;
 
-    float _shakeTimer;
     float _healTimer;
+
+    private WaitForSeconds _respawnTimer;
     
     #endregion
 
@@ -59,22 +61,13 @@ public class Health : MonoBehaviour
     public void Start()
     {
         EventManager.OnUpdateHealth.Invoke(_health / _maxHealth);
+        _respawnTimer = new WaitForSeconds(_respawnTime);
     }
 
     //FOR TESTING PURPOSES
 
     protected void Update()
     {
-        if(_invincibleTimer > 0)
-        {
-            _invincibleTimer -= Time.deltaTime;
-        }
-
-        if(_shakeTimer > 0)
-        {
-            _shakeTimer -= Time.deltaTime;
-            if (_shakeTimer <= 0) Shake(false);
-        }
 
         if(_health < _maxHealth && _healTimer > 0)
         {
@@ -91,58 +84,82 @@ public class Health : MonoBehaviour
     public virtual void SufferDamage(float amount, Source source)
     {
         float damageRecieved = amount;
-        if(_invincibleTimer <= 0)
+
+        switch (source)
         {
-            switch (source)
-            {
-                case Source.PLAYER:
-                    damageRecieved *= _playerDamageMultiplier;
-                    _health -= damageRecieved;
-                    HurtEffect();
-                    if(damageRecieved > 0) _invincibleTimer = _invulnerability;
-                    break;
-                case Source.ENEMY:
-                    damageRecieved *= _enemyDamageMultiplier;
-                    AudioManager.TryPlayCueAtPoint(damageSound, transform.position);
-                    _health -= damageRecieved;
-                    HurtEffect();
-                    if (damageRecieved > 0) _invincibleTimer = _invulnerability;
+            case Source.PLAYER:
+                damageRecieved *= _playerDamageMultiplier;
+                _health -= damageRecieved;
+                HurtEffect();
+                break;
+            case Source.ENEMY:
+                damageRecieved *= _enemyDamageMultiplier;
+                AudioManager.TryPlayCueAtPoint(damageSound, transform.position);
+                _health -= damageRecieved;
+                HurtEffect();
                     
-                    break;
-                case Source.ENVIRONMENT:
-                    damageRecieved *= _environmentDamageMultiplier;
-                    _health -= damageRecieved;
-                    HurtEffect();
-                    if (damageRecieved > 0) _invincibleTimer = _invulnerability;
-                    break;
-                case Source.HEAL:
-                    _health -= amount;
-                    HealEffect();
-                    break;
-                default:
-                    _health -= amount;
-                    break;
-            }
-            _health = Mathf.Clamp(_health, 0, _maxHealth);
-
-
-            if (_health <= 0 && _alive)
-            {
-                _alive = false;
-                Die();
-            }
+                break;
+            case Source.ENVIRONMENT:
+                damageRecieved *= _environmentDamageMultiplier;
+                _health -= damageRecieved;
+                HurtEffect();
+                break;
+            case Source.HEAL:
+                _health -= amount;
+                HealEffect();
+                break;
+            default:
+                _health -= amount;
+                break;
         }
+        _health = Mathf.Clamp(_health, 0, _maxHealth);
+
+
+        if (_health <= 0 && _alive)
+        {
+            _alive = false;
+            Die();
+        }
+        
         
     }
     public void Heal(float amount)
     {
-        _invincibleTimer = 0;
         SufferDamage(-amount, Source.HEAL);
     }
     public virtual void Die()
     {
         AudioManager.TryPlayCueAtPoint(sfxDeathSound, transform.position);
+
+        gameObject.transform.localScale = new Vector3(1f, _deathYScale, 1f);
+        EventManager.OnPlayerDeath?.Invoke();
+
+        foreach (MonoBehaviour mono in gameObject.GetComponents<MonoBehaviour>())
+        {
+            if (mono is Health) continue;
+
+            if (mono is PlayerInteract) (mono as PlayerInteract).SetCanInteract(false);
+
+            mono.enabled = false;
+        }
+
+        if (gameObject.TryGetComponent(out Rigidbody rb))
+        {
+            rb.drag = _deathDrag;
+            rb.angularDrag = _deathAngularDrag;
+            rb.useGravity = true;
+            rb.constraints = RigidbodyConstraints.None;
+            rb.AddForce(_deathImpulse, ForceMode.VelocityChange);
+            rb.AddTorque(Vector3.up * Random.Range(-_deathRot, _deathRot));
+        }
+
         StartCoroutine(Respawn());
+    }
+
+    private IEnumerator Respawn()
+    {
+        yield return _respawnTimer;
+        SaveLoader.Instance?.Load();
     }
 
     public void SetRespawn(Vector3 position)
@@ -151,34 +168,13 @@ public class Health : MonoBehaviour
     }
     public void HurtEffect()
     {
-        Shake(true);
+        _camShake.GenerateImpulse((OptionsLoader.Instance ? OptionsLoader.Instance.CameraShake : 1f ) * _shakeForce);
         _healTimer = _timeUntilHeal;
         EventManager.OnUpdateHealth.Invoke(_health/_maxHealth);
     }
     public void HealEffect()
     {
         EventManager.OnUpdateHealth.Invoke(_health / _maxHealth);
-    }
-
-    private IEnumerator Respawn()
-    {
-        yield return new WaitForSeconds(_respawnTime);
-        SaveLoader.Instance?.Load();
-        //_health = _maxHealth;
-        //transform.position = _respawnPosition;
-        //GetComponent<Rigidbody>().velocity = Vector3.zero;
-        //CreditManager.Instance.RespawnCredits();
-        //_alive = true;
-    }
-
-    private void Shake(bool shake)
-    {
-        if(_cam != null)
-        {
-            _shakeTimer = shake ? _shakeDuration : 0;
-
-            _cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = shake ? _shakeForce * (OptionsLoader.Instance != null ? OptionsLoader.Instance.CameraShake : 1 ): 0;
-        }
     }
 
     #endregion

@@ -107,36 +107,34 @@ public class GenericTurret : ActivableBase
             }
         }
 
-
         if (Active)
         {
             float currentRotSpeed = 0f;
 
 
-            if (_target != null) //shooting
+            if (_target != null && _inRange) //shooting
             {
-                if (_inRange)
+
+                _animator.SetInteger("state", 1);
+                currentRotSpeed = _inSight ? _rotationSpeed : _backRotationSpeed;
+
+                //Rotate Y Axis (Head)
+                _headOrientation = (_target.transform.position + _offset - g_head.transform.position);
+                _headOrientation.y = 0f;
+
+                //Rotate X Axis (Cannon)
+                _cannonOrientation = (_target.transform.position + _offset - g_cannon.transform.position);
+
+                //Apply rotations
+                g_head.transform.rotation = Quaternion.Slerp(g_head.transform.rotation, Quaternion.LookRotation(_headOrientation, transform.up), currentRotSpeed * Time.deltaTime);
+                g_cannon.transform.localRotation = Quaternion.Euler(Vector3.Angle(_headOrientation, _cannonOrientation) * -Vector3.right);
+
+                //Shoot
+                if (_shotTimer <= 0f && Mathf.Abs(Vector3.Angle(g_head.transform.forward, _headOrientation)) <= _shootAngle)
                 {
-                    _animator.SetInteger("state", 1);
-                    currentRotSpeed = _inSight ? _rotationSpeed : _backRotationSpeed;
-
-                    //Rotate Y Axis (Head)
-                    _headOrientation = (_target.transform.position + _offset - g_head.transform.position);
-                    _headOrientation.y = 0f;
-
-                    //Rotate X Axis (Cannon)
-                    _cannonOrientation = (_target.transform.position + _offset - g_cannon.transform.position);
-
-                    //Apply rotations
-                    g_head.transform.rotation = Quaternion.Slerp(g_head.transform.rotation, Quaternion.LookRotation(_headOrientation, transform.up), currentRotSpeed * Time.deltaTime);
-                    g_cannon.transform.localRotation = Quaternion.Euler(Vector3.Angle(_headOrientation, _cannonOrientation) * -Vector3.right);
-
-                    //Shoot
-                    if (_shotTimer <= 0f && Mathf.Abs(Vector3.Angle(g_head.transform.forward, _headOrientation)) <= _shootAngle)
-                    {
-                        Shoot();
-                    }
+                    Shoot();
                 }
+
                 _shotTimer -= Time.deltaTime;
             }
             else

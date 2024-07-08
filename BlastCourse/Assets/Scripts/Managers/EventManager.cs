@@ -22,6 +22,7 @@ public static class EventManager
     //action events
     public static Action<IInteractable> OnSelectNewInteractable;
     public static Action<bool> OnIsInteracting;
+    public static Action OnPlayerDeath;
 
     //RPG events
     public static Action<float> OnFireRocketNotifyFireSpeed;

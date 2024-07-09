@@ -127,6 +127,8 @@ public class HUD : MonoBehaviour
 
     private void Update()
     {
+        if (EventManager.IsDead) return;
+
         if (OptionsLoader.TryGetKeyDown(InputActions.Weapon_Wheel,_weaponWheelValues._weaponSelectButtonName) && 
             ExtendedDataUtility.CheckForValues(SaveLoader.Instance.UnlockedRpgs.ToList(),true) >= 2)
         {
@@ -271,11 +273,6 @@ public class HUD : MonoBehaviour
 
     public void PlayerFuckingDies()
     {
-        //close weapon wheel and prevent it from opening again
-        _weaponWheelValues._onCloseWeaponWheel?.Invoke();
-        EventManager.OnCloseWeaponWheel?.Invoke();
-        _weaponWheelValues._weaponSelectButtonName = "";
-
         //disable all HUD effects except damage
         foreach (Transform child in transform)
         {

@@ -61,6 +61,7 @@ public class Health : MonoBehaviour
     public void Start()
     {
         EventManager.OnUpdateHealth.Invoke(_health / _maxHealth);
+        EventManager.IsDead = false;
         _respawnTimer = new WaitForSeconds(_respawnTime);
     }
 
@@ -133,11 +134,16 @@ public class Health : MonoBehaviour
 
         gameObject.transform.localScale = new Vector3(1f, _deathYScale, 1f);
         EventManager.OnPlayerDeath?.Invoke();
+        EventManager.IsDead = true;
 
         foreach (MonoBehaviour mono in gameObject.GetComponents<MonoBehaviour>())
         {
             if (mono is Health) continue;
-
+            if (mono is GravityController)
+            {
+                (mono as GravityController).LockState(true);
+                continue;
+            }
             if (mono is PlayerInteract) (mono as PlayerInteract).SetCanInteract(false);
 
             mono.enabled = false;
@@ -147,7 +153,6 @@ public class Health : MonoBehaviour
         {
             rb.drag = _deathDrag;
             rb.angularDrag = _deathAngularDrag;
-            rb.useGravity = true;
             rb.constraints = RigidbodyConstraints.None;
             rb.AddForce(_deathImpulse, ForceMode.VelocityChange);
             rb.AddTorque(Vector3.up * Random.Range(-_deathRot, _deathRot));

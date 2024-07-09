@@ -53,6 +53,8 @@ public class WeaponWheel : MonoBehaviour
 
     private void OnEnable()
     {
+        if (EventManager.IsDead) return;
+
         UpdateRealItems();
         UpdateVisuals(true);
 
@@ -66,6 +68,8 @@ public class WeaponWheel : MonoBehaviour
 
     private void OnDisable()
     {
+        if (EventManager.IsDead) return;
+
         UpdateVisuals(false);
         RPGAnimator.Instance.SetRocket(_realItems[_currentSelection].fireMode);
 

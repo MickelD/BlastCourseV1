@@ -46,6 +46,8 @@ public static class EventManager
 
     public static RpgHolder GameRpgHolder;
 
+    public static bool IsDead;
+
     private static int _rocketCount;
     public static int RocketCount
     {

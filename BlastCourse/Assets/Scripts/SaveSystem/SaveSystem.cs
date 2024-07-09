@@ -15,8 +15,6 @@ public static class SaveSystem
         //Debug.Log("xDataOpenS");
         SaveData data = new SaveData(scene, spawnPoint, collectibles, keys, rpg, boxes, boxesX, boxesY, boxesZ, usedBoxes);
 
-        Debug.Log("Saving data to " + path);
-
         formatter.Serialize(stream, data);
         stream.Close();
         //Debug.Log("xDataCloseS");
@@ -27,8 +25,6 @@ public static class SaveSystem
         string path = Application.persistentDataPath + "/save.data";
         if (File.Exists(path))
         {
-            Debug.Log("Loading data from " + path);
-
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
             //Debug.Log("xDataOpenL");
@@ -40,7 +36,7 @@ public static class SaveSystem
         }
         else
         {
-            Debug.Log("Saved Data not found at " + path);
+            Debug.LogWarning("Saved Data not found at " + path);
             return null;
         }
     }
@@ -87,8 +83,6 @@ public static class SaveSystem
         string path = Application.persistentDataPath + "/options.data";
         if (File.Exists(path))
         {
-            Debug.Log("Loading data from " + path);
-
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
             //Debug.Log("xOptionsOpenL");

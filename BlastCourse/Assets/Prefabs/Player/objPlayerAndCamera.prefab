@@ -916,11 +916,10 @@ MonoBehaviour:
   _health: 0
   _deathYScale: 0.5
   _respawnTime: 2
-  _deathImpulse: {x: 0, y: 10, z: 0}
+  _deathImpulse: {x: 0, y: 12.5, z: 0}
   _deathRot: 15
   _deathDrag: 4
   _deathAngularDrag: 2
-  _rpg: {fileID: 8694860781482955814}
   damageSound:
     SfxClip: []
     Volume: 0

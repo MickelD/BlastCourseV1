@@ -154,6 +154,14 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
         else SaveLoader.Instance.SetSpawn(transform.position);
         //SaveLoader.Instance.SetSpawn(transform.position);
 
+        //stick To Ground
+        if (Physics.Raycast(transform.position + Vector3.up, Vector3.down, out RaycastHit hit, 3f, _groundLayerMask, QueryTriggerInteraction.Ignore))
+        {
+            transform.position = hit.point;
+        }
+        c_rb.velocity = Vector3.zero;
+        c_rb.Sleep();
+
         //StartCoroutine(SetCapsuleCollider(true));
         Time.timeScale = 1f;
         StartCoroutine(NotifyUpdateSpeed());

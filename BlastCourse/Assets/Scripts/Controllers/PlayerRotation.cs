@@ -16,6 +16,20 @@ public class PlayerRotation : MonoBehaviour
     float _xRot;
     float _yRot;
 
+    private bool _enableRot;
+
+    private IEnumerator Start()
+    {
+        _enableRot = false;
+
+        _playerOrientation.rotation = Quaternion.identity;
+        _targetCamera.eulerAngles = Vector3.zero;
+
+        yield return new WaitForSecondsRealtime(0.25f);
+
+        _enableRot = true;
+    }
+
     private void Update()
     {
         CalculateDesiredRotation();
@@ -25,8 +39,8 @@ public class PlayerRotation : MonoBehaviour
     private void CalculateDesiredRotation()
     {
         float configSens = OptionsLoader.TryGetValueFromInstance(nameof(OptionsLoader.Sensitivity), 1f);
-        float mouseX = Input.GetAxisRaw("Mouse X") * _horSensitivity * Time.deltaTime * configSens;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * _verVensitivity * Time.deltaTime * configSens;
+        float mouseX = Input.GetAxisRaw("Mouse X") * _horSensitivity * Time.deltaTime * configSens * _enableRot.GetHashCode();
+        float mouseY = Input.GetAxisRaw("Mouse Y") * _verVensitivity * Time.deltaTime * configSens * _enableRot.GetHashCode();
 
         _yRot = Mathf.Repeat(mouseX, 360f);
 

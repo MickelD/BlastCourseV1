@@ -41,7 +41,7 @@ public class ActivableButton : ActivableBase
 
         if(press)AudioManager.TryPlayCueAtPoint(_interactSfx, transform.position);
 
-        if (press || ResetOnUnpress) SendAllActivations(ExtendedDataUtility.Select(InverseSignal, !press, press));
+        if (press || ( !press && ResetOnUnpress)) SendAllActivations(ExtendedDataUtility.Select(InverseSignal, !press, press));
     }
 
     protected void SetActiveAnim(bool state)

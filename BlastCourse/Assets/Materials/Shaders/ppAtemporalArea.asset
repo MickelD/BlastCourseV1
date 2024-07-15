@@ -35,14 +35,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: ppTimelessArea
+  m_Name: ppAtemporalArea
   m_EditorClassIdentifier: 
   components:
   - {fileID: 172373342968016702}
   - {fileID: 635515459570720434}
   - {fileID: 7441737123568926901}
   - {fileID: 669044137420935477}
-  - {fileID: 3661664262565829751}
   - {fileID: -8684278009831677846}
   - {fileID: 3215787465755272425}
 --- !u!114 &172373342968016702
@@ -63,7 +62,7 @@ MonoBehaviour:
     m_Value: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 10
+    m_Value: 1.5
   scatter:
     m_OverrideState: 1
     m_Value: 0.5
@@ -71,8 +70,8 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 65472
   tint:
-    m_OverrideState: 1
-    m_Value: {r: 0.72690463, g: 0.8706832, b: 0.9339623, a: 1}
+    m_OverrideState: 0
+    m_Value: {r: 1, g: 0.8637417, b: 0.23113209, a: 1}
   highQualityFiltering:
     m_OverrideState: 0
     m_Value: 0
@@ -135,7 +134,7 @@ MonoBehaviour:
     m_Value: -10
   colorFilter:
     m_OverrideState: 1
-    m_Value: {r: 0.741011, g: 0.82698464, b: 0.8679245, a: 1}
+    m_Value: {r: 0.8666667, g: 0.8096056, b: 0.7411765, a: 1}
   hueShift:
     m_OverrideState: 0
     m_Value: 115
@@ -169,40 +168,6 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   scale:
     m_OverrideState: 0
-    m_Value: 1
---- !u!114 &3661664262565829751
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 558a8e2b6826cf840aae193990ba9f2e, type: 3}
-  m_Name: ShadowsMidtonesHighlights
-  m_EditorClassIdentifier: 
-  active: 1
-  shadows:
-    m_OverrideState: 1
-    m_Value: {x: 0.9996617, y: 1, z: 0.9940858, w: -0.017740985}
-  midtones:
-    m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0.070963934}
-  highlights:
-    m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: -0.059136614}
-  shadowsStart:
-    m_OverrideState: 1
-    m_Value: 0
-  shadowsEnd:
-    m_OverrideState: 1
-    m_Value: 0.5
-  highlightsStart:
-    m_OverrideState: 1
-    m_Value: 1
-  highlightsEnd:
-    m_OverrideState: 1
     m_Value: 1
 --- !u!114 &7441737123568926901
 MonoBehaviour:

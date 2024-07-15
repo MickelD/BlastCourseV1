@@ -9,6 +9,7 @@ public class AtemporalArea : ActivableBase
 
     [Space(5), Header("Atenporal Area"), Space(3)]
     public GameObject _forceFieldMesh;
+    public Animator _animator;
     public AudioCue OnSound;
     public AudioCue OffSound;
 
@@ -60,7 +61,7 @@ public class AtemporalArea : ActivableBase
     {
         _forceFieldMesh.SetActive(freeze);
         AudioManager.TryPlayCueAtPoint(freeze ? OnSound : OffSound, transform.position);
-
+        _animator.SetBool("Freeze", freeze);
 
         if (freeze)
         {

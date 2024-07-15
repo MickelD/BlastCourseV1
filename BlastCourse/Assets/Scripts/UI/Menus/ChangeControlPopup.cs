@@ -33,7 +33,7 @@ public class ChangeControlPopup : MonoBehaviour
             }
         else gameObject.SetActive(false);
 
-        text.text = "Press any key to set to " + ((InputActions)currentInput).ToString() + "\nor Eac to go back. \nCurrent key using: " + OptionsLoader.Instance.Keys[currentInput].ToString();
+        text.text = "Press any key to set to " + ((InputActions)currentInput).ToString() + "\nor Esc to go back. \nCurrent key using: " + OptionsLoader.Instance.Keys[currentInput].ToString();
     }
 
     #endregion

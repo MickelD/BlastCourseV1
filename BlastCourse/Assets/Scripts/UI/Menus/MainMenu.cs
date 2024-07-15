@@ -20,6 +20,7 @@ public class MainMenu : MonoBehaviour
     [Space(3), Header("Menus"), Space(5)]
     [SerializeField] private GameObject g_warningMenu;
     [SerializeField] private GameObject g_optionsMenu;
+    [SerializeField] private OptionsMenu _options;
 
     [Space(3), Header("Buttons"), Space(5)]
     [SerializeField] private RectTransform g_continue;
@@ -118,8 +119,8 @@ public class MainMenu : MonoBehaviour
         _particleStartTime = Time.time;
 
         g_optionsMenu.SetActive(true);
-        if (open) g_optionsMenu.GetComponent<OptionsMenu>().UpdateSliders();
-        else g_optionsMenu.GetComponent<OptionsMenu>().Back();
+        if (open) _options.UpdateSliders();
+        else _options.Back();
     }
 
     #endregion

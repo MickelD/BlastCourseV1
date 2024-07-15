@@ -14,6 +14,11 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject g_pauseMenu;
     [SerializeField] private GameObject g_confirmMenu;
     [SerializeField] private GameObject g_optionsMenu;
+    [SerializeField] private OptionsMenu _options;
+
+    [Space(3), Header("Visuals"), Space(5)]
+    [SerializeField] private GameObject g_background;
+    [SerializeField] private GameObject g_side;
 
     #endregion
 
@@ -32,7 +37,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape) && !EventManager.IsDead)
+        if (Input.GetKeyDown(KeyCode.Escape) && !EventManager.IsDead)
         {
             OpenMenu(!_opened);
         }
@@ -62,9 +67,10 @@ public class PauseMenu : MonoBehaviour
         OpenMenu(false);
     }
 
-    public void ExitButton()
+    public void ExitButton(bool openConfirm)
     {
-        g_confirmMenu.SetActive(true);
+        g_confirmMenu.SetActive(openConfirm);
+        g_side.SetActive(!openConfirm);
     }
 
     public void Restart()
@@ -81,8 +87,10 @@ public class PauseMenu : MonoBehaviour
     public void Options(bool open)
     {
         g_optionsMenu.SetActive(true);
-        if (open) g_optionsMenu.GetComponent<OptionsMenu>().UpdateSliders();
-        else g_optionsMenu.GetComponent<OptionsMenu>().Back();
+        g_background.SetActive(!open);
+        if (open) _options.UpdateSliders();
+        else _options.Back();
+
     }
 
     #endregion

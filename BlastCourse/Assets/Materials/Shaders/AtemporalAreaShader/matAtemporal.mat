@@ -45,6 +45,7 @@ Material:
     - _Base_Opacity: 0.65
     - _Dissapaearance_Amount: 1.5
     - _Dissapearance_Amount: -5.5
+    - _Dissolve_Noise_Appearance: 1
     - _Distance_Min: -5.5
     - _Dither_Tiling: 1
     - _Height: 0.55

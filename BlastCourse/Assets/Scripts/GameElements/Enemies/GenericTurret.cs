@@ -171,6 +171,7 @@ public class GenericTurret : ActivableBase
     public void Activate(bool active)
     {
         Active = active;
+        if (!active && _target != null) _target = null;
 
         _startDeacRotation = g_cannon.transform.localEulerAngles.x;
         _startTime = Time.time;

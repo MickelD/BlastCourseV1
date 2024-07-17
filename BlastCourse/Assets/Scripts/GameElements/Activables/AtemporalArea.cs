@@ -8,9 +8,12 @@ public class AtemporalArea : ActivableBase
     #region Fields
 
     [Space(5), Header("Atenporal Area"), Space(3)]
-    public GameObject _forceFieldMesh;
+    public Collider _forcefield;
+    public Animator _animator;
     public AudioCue OnSound;
     public AudioCue OffSound;
+
+    private bool _active;
 
     #endregion
 
@@ -25,6 +28,8 @@ public class AtemporalArea : ActivableBase
 
     public void OnTriggerEnter(Collider other)
     {
+        if (!_active) return;
+
         ScaledTimeMonoBehaviour mono = other.GetComponent<ScaledTimeMonoBehaviour>();
 
         if (mono != null)
@@ -35,6 +40,8 @@ public class AtemporalArea : ActivableBase
 
     public void OnTriggerExit(Collider other)
     {
+        if (!_active) return;
+
         ScaledTimeMonoBehaviour mono = other.GetComponent<ScaledTimeMonoBehaviour>();
 
         if (mono != null)
@@ -58,9 +65,9 @@ public class AtemporalArea : ActivableBase
     [ActivableAction]
     public void FreezeTime(bool freeze)
     {
-        _forceFieldMesh.SetActive(freeze);
+        _active = freeze;
         AudioManager.TryPlayCueAtPoint(freeze ? OnSound : OffSound, transform.position);
-
+        _animator.SetBool("Freeze", freeze);
 
         if (freeze)
         {

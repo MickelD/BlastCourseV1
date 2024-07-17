@@ -25,7 +25,7 @@ public class PlayerRotation : MonoBehaviour
         _playerOrientation.rotation = Quaternion.identity;
         _targetCamera.eulerAngles = Vector3.zero;
 
-        yield return new WaitForSecondsRealtime(0.25f);
+        yield return new WaitForSecondsRealtime(0.5f);
 
         _enableRot = true;
     }

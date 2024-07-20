@@ -29,7 +29,6 @@ public class LoadingScreenManager : MonoBehaviour
     }
     private List<AsyncOperation> loaders;
     private float loadersPercent;
-    private WaitForSeconds _extraDelay;
 
     #region UnityFunctions
 
@@ -41,7 +40,6 @@ public class LoadingScreenManager : MonoBehaviour
         SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
         loaders = new List<AsyncOperation>();
         //StartCoroutine(Test());
-        _extraDelay = new WaitForSeconds(1);
     }
 
     #endregion
@@ -72,15 +70,13 @@ public class LoadingScreenManager : MonoBehaviour
                     loadersPercent += o.progress;
                 }
 
-                loadersPercent = (loadersPercent / loaders.Count) * 0.95f;
+                loadersPercent = (loadersPercent / loaders.Count);
 
                 g_bar.fillAmount = loadersPercent;
 
                 yield return null;
             }
         }
-        yield return _extraDelay;
-        loadersPercent = 1;
         g_LoadingScreen.SetActive(false);
     }
 

@@ -54,7 +54,7 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _fill: 0.721512
+    - _fill: 1
     - _radius: 0.25
     - _removedSegments: 0
     - _rotation: 180

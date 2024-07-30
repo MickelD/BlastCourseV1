@@ -184,7 +184,7 @@ Material:
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
-    - _Shadow_Shape_Opacity: 0.3
+    - _Shadow_Shape_Opacity: 0.4
     - _Sharpness: 0
     - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
@@ -202,9 +202,9 @@ Material:
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
     - _Stripes_Offset: 0
-    - _Stripes_Opacity: 0.092
-    - _Stripes_Rotation: 90
-    - _Stripes_Tiling: 2
+    - _Stripes_Opacity: 0.6
+    - _Stripes_Rotation: 0
+    - _Stripes_Tiling: 6
     - _Stripes_Width: 0.347
     - _SubsurfaceIndirect: 0.25
     - _SubsurfaceKwToggle: 0

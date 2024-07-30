@@ -4932,7 +4932,7 @@ MonoBehaviour:
     SpatialBlend: 1
   _deactivationAnimDuration: 0.3
   _angleDown: 36
-  c_bullet: {fileID: 0}
+  c_bullet: {fileID: 1935281083}
   _damage: 15
   _knockBack: 5
 --- !u!135 &2981365028400419281

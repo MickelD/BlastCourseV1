@@ -22,6 +22,7 @@ public static class EventManager
     //action events
     public static Action<IInteractable> OnSelectNewInteractable;
     public static Action<bool> OnIsInteracting;
+    public static Action OnPlayerDeath;
 
     //RPG events
     public static Action<float> OnFireRocketNotifyFireSpeed;
@@ -44,6 +45,8 @@ public static class EventManager
     #region values
 
     public static RpgHolder GameRpgHolder;
+
+    public static bool IsDead;
 
     private static int _rocketCount;
     public static int RocketCount

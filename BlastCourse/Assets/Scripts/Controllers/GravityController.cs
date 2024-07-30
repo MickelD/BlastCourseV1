@@ -9,11 +9,15 @@ public class GravityController : MonoBehaviour
 
     public float Scale = 1f;
 
+    bool _lock;
+
     public bool EnableGravity 
     {
-        get { return _enableGravity; }
+        get { return _enableGravity;  }
         set
         {
+            if (_lock) return;
+
             _enableGravity = value;
             if (!enabled) 
             {
@@ -38,10 +42,14 @@ public class GravityController : MonoBehaviour
         InitializeRigidBody();
     }
 
+    public void LockState(bool set)
+    {
+        enabled = EnableGravity = set;
+        _lock = true;
+    }
 
     private void FixedUpdate()
     {
-        //_rb.AddForce(Vector3.down * GravityScale * EnableGravity.GetHashCode(), ForceMode.Acceleration);
         _rb.velocity += (100f * Acceleration * Scale) * EnableGravity.GetHashCode() * Time.deltaTime * Time.deltaTime * Vector3.down;
     }
 

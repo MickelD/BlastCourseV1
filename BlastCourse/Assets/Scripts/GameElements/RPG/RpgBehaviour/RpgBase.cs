@@ -37,8 +37,14 @@ public abstract class RpgBase : ScriptableObject
 
     public virtual void ReceivePrimaryInput()
     {
-        if (_allowPrimaryFire && _energy >= Cost) PrimaryFire();
-        else _rpgHolder.FailShoot();
+        if (!_allowPrimaryFire) return;
+
+        if (_energy < Cost)
+        {
+            _rpgHolder.FailShoot();
+            return;
+        }
+        PrimaryFire();
     }
 
     public virtual void ReceiveSecondaryInput()

@@ -13,7 +13,7 @@ Material:
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -35,25 +35,28 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Amount: 1
     - _Apaearance_Amount: -5.5
-    - _Apearance_Noise_Strength: 1.5
-    - _Appearance_Amount: 2.5
+    - _Apearance_Noise_Strength: 12.2
+    - _Appearance_Amount: 0.483
     - _Appearance_Max: 2.5
     - _Appearance_Min: -5.5
-    - _Appearance_Noise_Scale: 75
-    - _Appearance_Noise_Speed: 0.2
-    - _Base_Opacity: 0.65
+    - _Appearance_Noise_Scale: 5
+    - _Appearance_Noise_Speed: 0
+    - _Base_Opacity: 0.672
     - _Dissapaearance_Amount: 1.5
-    - _Dissapearance_Amount: -5.5
+    - _Dissapearance_Amount: -3.8
+    - _Dissolve_Noise_Appearance: 1
     - _Distance_Min: -5.5
     - _Dither_Tiling: 1
     - _Height: 0.55
-    - _Line_Opacity: 0.5
-    - _Line_Rotation: 270
-    - _Line_Tiling: 75
+    - _Line_Opacity: 0.7
+    - _Line_Rotation: 60
+    - _Line_Speed: 1
+    - _Line_Tiling: 5
     - _Line_Width: 0.65
     - _Noise: 0.06
-    - _Noise_Opacity: 0.75
+    - _Noise_Opacity: 0.2
     - _Noise_Pattern_Intensity: 0.134
     - _Noise_Pattern_Tiling: 1.67
     - _Noise_Speed: 1.5
@@ -65,6 +68,7 @@ Material:
     - _Use_Nothing: 0
     m_Colors:
     - _Base_Color: {r: 0.99215686, g: 0.30980393, b: 0.09019608, a: 1}
+    - _Color: {r: 0.75686276, g: 0.42745098, b: 0.18431373, a: 0}
     - _Noise_Color: {r: 0.7397338, g: 0.382476, b: 0.10927886, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6255041562817641539

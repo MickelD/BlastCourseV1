@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78202443e3671984ea82cb990221184a, type: 3}
+  m_Name: Tips&Texts
+  m_EditorClassIdentifier: 
+  Tips:
+  - '[TIP] Holding Shift will automatically aim downwards.'
+  - The Interesting Company appreciates your compliance.
+  - "The Interestng Company is not responsible for any injuries caused by the unregulated
+    use of the Hyperboom\u2122."
+  - '[TIP] Defuser Turrets only target rockets.'
+  - The Interesting Company expects great things from you.
+  - '[TIP] Avoid falling into pits you can''t see the bottom off, you''ll die.'
+  - "[TIP] The Hyperboom\u2122 is designed to not hurt the user."
+  - '[TIP] It is not recommended to climb walls vertically with just explosions.'
+  - '[TIP] If you can''t reach your goal from where you are, try another path.'
+  - The Interesting Company want to remind you that you are part of the family.

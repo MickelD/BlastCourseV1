@@ -140,16 +140,16 @@ MonoBehaviour:
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
-    SpatialBlend: 1
+    SpatialBlend: 0
   rechargeSound:
     SfxClip:
     - {fileID: 8300000, guid: dad070caf832c0644baf089c2d1238cd, type: 3}
-    Volume: 0.2
-    Pitch: 1
+    Volume: 0.5
+    Pitch: 1.25
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
-    SpatialBlend: 1
+    SpatialBlend: 0
   _canDetonate: 1
 --- !u!1 &1531428103
 GameObject:
@@ -384,6 +384,7 @@ GameObject:
   - component: {fileID: 8610808883230334180}
   - component: {fileID: 8610808883230334203}
   - component: {fileID: 8610808883230334181}
+  - component: {fileID: 5388946643777690788}
   m_Layer: 0
   m_Name: 'cmFirstPerson '
   m_TagString: Untagged
@@ -546,6 +547,29 @@ MonoBehaviour:
   m_Offset: {x: 0, y: 0, z: 0}
   m_ApplyAfter: 0
   m_PreserveComposition: 1
+--- !u!114 &5388946643777690788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8610808883230334200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b2d199b96b516448144ab30fb26aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ApplyAfter: 2
+  m_ChannelMask: 1
+  m_Gain: 0.1
+  m_Use2DDistance: 0
+  m_UseCameraSpace: 0
+  m_ReactionSettings:
+    m_SecondaryNoise: {fileID: 11400000, guid: 20a705aea2d80e0478fb89b6f43d8530, type: 2}
+    m_AmplitudeGain: 0.5
+    m_FrequencyGain: 2
+    m_Duration: 0.5
+    m_NoiseOffsets: {x: 650.66724, y: -274.95447, z: -632.2854}
 --- !u!1 &8610808883277436659
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,12 +709,11 @@ GameObject:
   - component: {fileID: 419155525937807089}
   - component: {fileID: 1943595930228079621}
   - component: {fileID: 8610808883349483068}
+  - component: {fileID: 2896192993473509781}
   - component: {fileID: 2037397676978406994}
   - component: {fileID: 9190845180902205997}
   - component: {fileID: 8610808883349483057}
-  - component: {fileID: 4461912506418248342}
   - component: {fileID: 8610808883349483058}
-  - component: {fileID: 1648106746}
   m_Layer: 3
   m_Name: objPlayer
   m_TagString: Player
@@ -768,7 +791,7 @@ MonoBehaviour:
     m_Bits: 3186753
   c_rb: {fileID: 8610808883349483057}
   c_capsuleHitbox: {fileID: 8610808883349483058}
-  c_cilinderHitbox: {fileID: 4461912506418248342}
+  c_cilinderHitbox: {fileID: 0}
   g_orientation: {fileID: 8610808882919677175}
   g_centerOfGravity: {fileID: 8610808883660193713}
   g_cam: {fileID: 8610808884281464390}
@@ -891,8 +914,12 @@ MonoBehaviour:
   _environmentDamageMultiplier: 1
   _maxHealth: 100
   _health: 0
-  _invulnerability: 0.1
-  _respawnTime: 0.3
+  _deathYScale: 0.5
+  _respawnTime: 2
+  _deathImpulse: {x: 0, y: 12.5, z: 0}
+  _deathRot: 15
+  _deathDrag: 4
+  _deathAngularDrag: 2
   damageSound:
     SfxClip: []
     Volume: 0
@@ -909,11 +936,63 @@ MonoBehaviour:
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
     SpatialBlend: 1
-  _cam: {fileID: 8610808883230334203}
+  _camShake: {fileID: 2896192993473509781}
   _shakeForce: 4
-  _shakeDuration: 0.2
-  _timeUntilHeal: 5
+  _timeUntilHeal: 2.5
   _healRate: 20
+--- !u!114 &2896192993473509781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8610808883349483063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_ImpulseShape: 2
+    m_CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_ImpulseDuration: 0.2
+    m_ImpulseType: 0
+    m_DissipationRate: 0.25
+    m_RawSignal: {fileID: 0}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.2
+      m_DecayTime: 0.7
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 100
+    m_PropagationSpeed: 343
+  m_DefaultVelocity: {x: 0, y: -1, z: 0}
 --- !u!114 &2037397676978406994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -969,20 +1048,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!64 &4461912506418248342
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8610808883349483063}
-  m_Material: {fileID: 13400000, guid: db5ec7c58b69867439cb2a9cdfb26da5, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -9165743305363368106, guid: 8b2df25837bc5884c838465ca74e1148, type: 3}
 --- !u!136 &8610808883349483058
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -997,18 +1062,6 @@ CapsuleCollider:
   m_Height: 2.1
   m_Direction: 1
   m_Center: {x: 0, y: 1.05, z: 0}
---- !u!114 &1648106746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8610808883349483063}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9303b43e200adc4fb8cf2d421895ae4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8610808883660193718
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,7 +1136,6 @@ GameObject:
   - component: {fileID: 8610808884153853423}
   - component: {fileID: 8610808884153853420}
   - component: {fileID: 8610808884153853421}
-  - component: {fileID: 6682368649001540782}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -1144,23 +1196,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Damping: 0.1
---- !u!114 &6682368649001540782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8610808884153853411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
-  m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0
-  m_FrequencyGain: 1
-  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &8610808884281464389
 GameObject:
   m_ObjectHideFlags: 0

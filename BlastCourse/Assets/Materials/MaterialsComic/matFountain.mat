@@ -94,9 +94,9 @@ Material:
     - _C_Rotation: 0
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _Comic_Dot_Size: 1.2
+    - _Comic_Dot_Size: 0.32
     - _Comic_Dots_Scale: 128
-    - _Comic_Opacity: 0.005
+    - _Comic_Opacity: 0.1
     - _Contrast: 1
     - _Cull: 2
     - _Cutoff: 0.5
@@ -115,7 +115,7 @@ Material:
     - _K_Rotation: 0
     - _Light_Color: 0
     - _Lighting_Cutoff: 0.5
-    - _M_Rotation: 0
+    - _M_Rotation: 8.26
     - _Metallic: 0
     - _Normals_Sensitivity: 1
     - _OcclusionStrength: 1
@@ -123,7 +123,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 50
     - _ReceiveShadows: 1
-    - _Shadow_Shape_Opacity: 0.5
+    - _Shadow_Shape_Opacity: 0.4
     - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -134,15 +134,15 @@ Material:
     - _Specular_Softness: 0
     - _SrcBlend: 1
     - _Stripes_Offset: 0
-    - _Stripes_Opacity: 0.5
-    - _Stripes_Rotation: 90
-    - _Stripes_Tiling: 30
+    - _Stripes_Opacity: 0.6
+    - _Stripes_Rotation: 0
+    - _Stripes_Tiling: 0.1
     - _Stripes_Width: 0.5
     - _Surface: 0
     - _Use_Diffuse_Texture: 1
     - _Use_Emissive: 0
     - _WorkflowMode: 1
-    - _Y_Rotation: 0
+    - _Y_Rotation: 4.11
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}

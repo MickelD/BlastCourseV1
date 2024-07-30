@@ -16,34 +16,34 @@ public class PushButton : ActivableButton, IInteractable
         {
             _interactor = interactor;
             Press(true);
+            TryCancelInteraction();
+            Locked = true;
 
-            if (!ResetOnUnpress)
+            if (!LockAfterFirstPress)
             {
-                TryCancelInteraction();
-                Locked = true;
+                this.Invoke(() => {
+                    Locked = false;
+                    Press(false);
 
-                if (!LockAfterFirstPress)
-                {
-                    this.Invoke(() => Press(false), Cooldown * 0.5f);
-                    this.Invoke(() => Locked = false, Cooldown);
-                }
+                }, Cooldown);
             }
+            
         }
         else
         {
             TryCancelInteraction();
             _interactor = null;
-            if(ResetOnUnpress && !LockAfterFirstPress) Press(false);
+            //if(ResetOnUnpress && !LockAfterFirstPress) Press(false);
         }
     }
 
     public void OnInteractButtonUp()
     {
-        if (ResetOnUnpress)
-        {
-            TryCancelInteraction();
-            if (!LockAfterFirstPress) Press(false);
-        }
+        //if (ResetOnUnpress)
+        //{
+        //    TryCancelInteraction();
+        //    //if (!LockAfterFirstPress) Press(false);
+        //}
     }
 
     public void TryCancelInteraction()
@@ -57,20 +57,20 @@ public class PushButton : ActivableButton, IInteractable
         Press(false);
     }
 
-    public override void Press(bool press)
-    {
-        base.Press(press);
+    //public override void Press(bool press)
+    //{
+    //    base.Press(press);
 
-        if (LockAfterFirstPress)
-        {
-            Locked = true;
-            return;
-        }
+    //    if (LockAfterFirstPress)
+    //    {
+    //        Locked = true;
+    //        return;
+    //    }
 
-        if (!press)
-        {
-            Locked = true;
-            this.Invoke(() => Locked = false, Cooldown);
-        }
-    }
+    //    if (!press)
+    //    {
+    //        Locked = true;
+    //        this.Invoke(() => Locked = false, Cooldown);
+    //    }
+    //}
 }

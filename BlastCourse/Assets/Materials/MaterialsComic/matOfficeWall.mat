@@ -160,7 +160,7 @@ Material:
     - _SrcBlend: 1
     - _Stripes_Offset: 0
     - _Stripes_Opacity: 0.75
-    - _Stripes_Rotation: 90
+    - _Stripes_Rotation: 135
     - _Stripes_Tiling: 4
     - _Stripes_Width: 0.6
     - _Surface: 0

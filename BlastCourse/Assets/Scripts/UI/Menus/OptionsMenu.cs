@@ -13,9 +13,10 @@ public class OptionsMenu : MonoBehaviour
     #region Fields
 
     [Space(3), Header("Menu"), Space(3)]
-    [SerializeField] private GameObject _gameplayMenu;
-    [SerializeField] private GameObject _musicMenu;
-    [SerializeField] private GameObject _controlMenu;
+    //[SerializeField] private GameObject _gameplayMenu;
+    //[SerializeField] private GameObject _musicMenu;
+    //[SerializeField] private GameObject _controlMenu;
+    [SerializeField] private GameObject _optionsHolder;
     [SerializeField] private ChangeControlPopup _changeControlPopUp;
 
     [Space(3), Header("Sensitivity"), Space(3)]
@@ -65,13 +66,13 @@ public class OptionsMenu : MonoBehaviour
     #endregion
 
     #region Variables
-    public enum MenuScreen
-    {
-        Gameplay,
-        Music,
-        Controls
-    }
-    private MenuScreen _currentMenu;
+    //public enum MenuScreen
+    //{
+    //    Gameplay,
+    //    Music,
+    //    Controls
+    //}
+    //private MenuScreen _currentMenu;
 
     #endregion
 
@@ -98,10 +99,10 @@ public class OptionsMenu : MonoBehaviour
         _minShake = _minShake < 100 ? _minShake : 100;
     }
 
-    private void OnEnable()
-    {
-        GameplayScreen();
-    }
+    //private void OnEnable()
+    //{
+    //    GameplayScreen();
+    //}
 
     #endregion
 
@@ -189,7 +190,7 @@ public class OptionsMenu : MonoBehaviour
 
     public void Back()
     {
-        gameObject.SetActive(false);
+        _optionsHolder.SetActive(false);
         if (OptionsLoader.Instance != null) OptionsLoader.Instance.Load();
     }
 
@@ -199,32 +200,32 @@ public class OptionsMenu : MonoBehaviour
         Debug.Log("Apply");
     }
 
-    public void ChangeScreen(MenuScreen screen)
-    {
-        _currentMenu = screen;
-        switch (_currentMenu)
-        {
-            case MenuScreen.Controls:
-                _controlMenu.SetActive(true);
-                _musicMenu.SetActive(false);
-                _gameplayMenu.SetActive(false);
-                break;
-            case MenuScreen.Gameplay:
-                _controlMenu.SetActive(false);
-                _musicMenu.SetActive(false);
-                _gameplayMenu.SetActive(true);
-                break;
-            case MenuScreen.Music:
-                _controlMenu.SetActive(false);
-                _musicMenu.SetActive(true);
-                _gameplayMenu.SetActive(false);
-                break;
-        }
-        UpdateSliders();
-    }
-    public void GameplayScreen() { ChangeScreen(MenuScreen.Gameplay); }
-    public void AudioScreen() { ChangeScreen(MenuScreen.Music); }
-    public void ControlScreen() { ChangeScreen(MenuScreen.Controls); }
+    //public void ChangeScreen(MenuScreen screen)
+    //{
+    //    _currentMenu = screen;
+    //    switch (_currentMenu)
+    //    {
+    //        case MenuScreen.Controls:
+    //            _controlMenu.SetActive(true);
+    //            _musicMenu.SetActive(false);
+    //            _gameplayMenu.SetActive(false);
+    //            break;
+    //        case MenuScreen.Gameplay:
+    //            _controlMenu.SetActive(false);
+    //            _musicMenu.SetActive(false);
+    //            _gameplayMenu.SetActive(true);
+    //            break;
+    //        case MenuScreen.Music:
+    //            _controlMenu.SetActive(false);
+    //            _musicMenu.SetActive(true);
+    //            _gameplayMenu.SetActive(false);
+    //            break;
+    //    }
+    //    UpdateSliders();
+    //}
+    //public void GameplayScreen() { ChangeScreen(MenuScreen.Gameplay); }
+    //public void AudioScreen() { ChangeScreen(MenuScreen.Music); }
+    //public void ControlScreen() { ChangeScreen(MenuScreen.Controls); }
 
     public void OpenControlPopUp(int changeControl)
     {

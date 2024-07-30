@@ -137,7 +137,7 @@ Material:
     - _Stripes_Opacity: 0.5
     - _Stripes_Rotation: 90
     - _Stripes_Tiling: 20
-    - _Stripes_Width: 0.5
+    - _Stripes_Width: 0
     - _Surface: 0
     - _Use_Diffuse_Texture: 1
     - _Use_Emissive: 1

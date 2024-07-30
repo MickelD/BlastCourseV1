@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1402777344393207984}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3659845442392819809
 MonoBehaviour:
@@ -1242,9 +1242,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7157290887127365119}
+  - {fileID: 5207195550399028246}
   - {fileID: 6162780910934123884}
-  - {fileID: 6679527969459776552}
-  - {fileID: 2987672845995000429}
+  - {fileID: 2008932982199591800}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1292,8 +1292,10 @@ MonoBehaviour:
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
     SpatialBlend: 0
-  _openVFX1: {fileID: 4424977331957136398}
-  _openVFX2: {fileID: 8570126171014187097}
+  _openVFX1: {fileID: 1847087817509275452, guid: 08cdf9c009b7292428f152e5fea47792,
+    type: 3}
+  _openVFX2: {fileID: 7771389540950804632, guid: f3e93c2b2272b3c4e8d8d5bae2c03d82,
+    type: 3}
   ActiveTime: 2
 --- !u!95 &6310768225894981918
 Animator:
@@ -1383,17 +1385,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4693831392219142528, guid: f3e93c2b2272b3c4e8d8d5bae2c03d82,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3e93c2b2272b3c4e8d8d5bae2c03d82, type: 3}
---- !u!4 &2987672845995000429 stripped
+--- !u!4 &5207195550399028246 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 2312073478353127419, guid: f3e93c2b2272b3c4e8d8d5bae2c03d82,
-    type: 3}
-  m_PrefabInstance: {fileID: 675674135548642710}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &8570126171014187097 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 9191651484870086095, guid: f3e93c2b2272b3c4e8d8d5bae2c03d82,
+  m_CorrespondingSourceObject: {fileID: 4693831392219142528, guid: f3e93c2b2272b3c4e8d8d5bae2c03d82,
     type: 3}
   m_PrefabInstance: {fileID: 675674135548642710}
   m_PrefabAsset: {fileID: 0}
@@ -1464,17 +1465,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'LtoRSwooshFX  '
       objectReference: {fileID: 0}
+    - target: {fileID: 6732689093671021764, guid: 08cdf9c009b7292428f152e5fea47792,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08cdf9c009b7292428f152e5fea47792, type: 3}
---- !u!198 &4424977331957136398 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8928058160733696946, guid: 08cdf9c009b7292428f152e5fea47792,
-    type: 3}
-  m_PrefabInstance: {fileID: 5084133969305980860}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &6679527969459776552 stripped
+--- !u!4 &2008932982199591800 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 1890398742861144980, guid: 08cdf9c009b7292428f152e5fea47792,
+  m_CorrespondingSourceObject: {fileID: 6732689093671021764, guid: 08cdf9c009b7292428f152e5fea47792,
     type: 3}
   m_PrefabInstance: {fileID: 5084133969305980860}
   m_PrefabAsset: {fileID: 0}

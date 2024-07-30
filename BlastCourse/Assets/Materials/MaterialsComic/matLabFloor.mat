@@ -55,7 +55,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Diffuse_Texture:
-        m_Texture: {fileID: 2800000, guid: f0d933b1420f1c24388521bbd76deb5c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 21429c4263b9ea440ad39ad07e407d9f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -168,5 +168,5 @@ Material:
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Specular_Color: {r: 1, g: 1, b: 1, a: 0}
     - _Stripes_Color: {r: 0, g: 0, b: 0, a: 0}
-    - _Tiling: {r: 0.1, g: 0.1, b: 0, a: 0}
+    - _Tiling: {r: 0.2, g: 0.2, b: 0, a: 0}
   m_BuildTextureStacks: []

@@ -39,6 +39,19 @@ public class DialogueManager : MonoBehaviour
 
     #endregion
 
+    #region UnityFunctions
+
+    public void Start()
+    {
+        PauseMenu.Instance.OnPause += Pause;
+    }
+    public void OnDestroy()
+    {
+        PauseMenu.Instance.OnPause -= Pause;
+    }
+
+    #endregion
+
     #region Methods
 
     public void TryPlayCueAtPoint(AudioCue audioCue, Vector3 location)
@@ -118,7 +131,6 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-
     private IEnumerator PlayingAudio(float duration)
     {
         ActivateSpeakers.Invoke(true);
@@ -169,6 +181,12 @@ public class DialogueManager : MonoBehaviour
         Source.gameObject.SetActive(false);
         _dialoguePlaying = false;
         ActivateSpeakers.Invoke(false);
+    }
+
+    private void Pause(bool pause)
+    {
+        if (pause) Source.Pause();
+        else Source.Play();
     }
 
     #endregion

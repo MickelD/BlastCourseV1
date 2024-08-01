@@ -12,6 +12,7 @@ public class InteractablePickUpRPG : MonoBehaviour, IInteractable
 
     [Space(5), Header("Components"), Space(3)]
     public RpgHolder Rpgs;
+    public AudioCue Audio;
 
     #endregion
 
@@ -47,6 +48,7 @@ public class InteractablePickUpRPG : MonoBehaviour, IInteractable
             interactor.SetInteractWith(this, false);
 
             if(SaveLoader.Instance != null) SaveLoader.Instance.Save();
+            if(Audio.SfxClip != null)AudioManager.TryPlayCueAtPoint(Audio, transform.position);
 
             Destroy(gameObject);
         }

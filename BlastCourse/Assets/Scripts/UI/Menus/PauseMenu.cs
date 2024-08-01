@@ -8,6 +8,22 @@ using UnityEditor;
 
 public class PauseMenu : MonoBehaviour
 {
+    #region Singleton Framework
+    public static PauseMenu Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+    #endregion
+
     #region Fields
 
     [Space(3), Header("Components"), Space(5)]
@@ -19,6 +35,9 @@ public class PauseMenu : MonoBehaviour
     [Space(3), Header("Visuals"), Space(5)]
     [SerializeField] private GameObject g_background;
     [SerializeField] private GameObject g_side;
+
+    public delegate void PauseDelegate(bool isPaused);
+    public PauseDelegate OnPause;
 
     #endregion
 
@@ -60,6 +79,7 @@ public class PauseMenu : MonoBehaviour
             if(g_optionsMenu.activeSelf)Options(false);
         }
         Time.timeScale = open ? 0f : 1f;
+        OnPause?.Invoke(open);
     }
 
     public void ContinueButton()

@@ -45,7 +45,6 @@ public class RocketRemoteExplosion : RocketBase
         Body.isKinematic = true;
         if(Mathf.Abs(Vector3.Angle(-col.contacts[0].normal, transform.forward)) > 75)transform.forward = -col.contacts[0].normal;
         transform.position = col.contacts[0].point + col.contacts[0].normal * 0.1f + transform.forward * (Mathf.Abs(Vector3.Angle(-col.contacts[0].normal, transform.forward)/420) + 0.1f);
-        Debug.Log(Mathf.Abs(Vector3.Angle(-col.contacts[0].normal, transform.forward) / 180));
 
         transform.parent = col.transform;
         _localPos = transform.localPosition;

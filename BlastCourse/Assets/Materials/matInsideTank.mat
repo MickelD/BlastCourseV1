@@ -113,7 +113,7 @@ Material:
     - _Interior_Outline_Thickness: 2
     - _K_Rotation: 0
     - _Light_Color: 0
-    - _Lighting_Cutoff: 0
+    - _Lighting_Cutoff: 10
     - _M_Rotation: 0
     - _Metallic: 0
     - _Normals_Sensitivity: 1
@@ -127,7 +127,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _Specular_Dot_Rotation: 0
-    - _Specular_Dots_Tiling: 850
+    - _Specular_Dots_Tiling: 0
     - _Specular_Opacity: 0
     - _Specular_Size: 0
     - _Specular_Softness: 0

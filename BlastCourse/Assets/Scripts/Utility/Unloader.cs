@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 
 public class Unloader : BoxVisualizer
@@ -9,8 +10,8 @@ public class Unloader : BoxVisualizer
     [SerializeField] UnloadMode unloadMode;
 
     [SerializeField] GameObject[] targetObjects;
-    [SerializeField] Behaviour[] targetComponents;
-
+    [SerializeField] GameObject[] targetRenderers;
+    private List<Component> targetComponents;
     public enum UnloadMode
     {
         LoadOnEntry,
@@ -29,14 +30,25 @@ public class Unloader : BoxVisualizer
             obj.SetActive(load);
         }
 
-        foreach (Behaviour comp in targetComponents)
+        foreach (Component rend in targetComponents)
         {
-            comp.enabled = load;
+            if (rend is Behaviour) (rend as Behaviour).enabled = load;
+            else if (rend is Renderer) (rend as Renderer).enabled = load;
         }
     }
 
     private void Start()
     {
+        targetComponents = new();
+
+        foreach (GameObject rend in targetRenderers)
+        {
+            foreach (Component childRend in rend.GetComponentsInChildren<Component>().Where((x) => (x is Behaviour or Renderer)))
+            {
+                targetComponents.Add(childRend);
+            }
+        }
+
         if (unloadOnStart)Load(false);
     }
 
@@ -96,9 +108,11 @@ public class Unloader : BoxVisualizer
         {
             return targetObjects[0].activeInHierarchy;
         }
-        else if (targetComponents.Length > 0)
+        else if (targetRenderers.Length > 0)
         {
-            return targetComponents[0].enabled;
+            Behaviour rend = targetRenderers[0].GetComponentInChildren<Behaviour>();
+            if (rend != null) { return rend.enabled; }
+            else return false;
         }
         else return false;
     }

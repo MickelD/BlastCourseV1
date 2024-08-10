@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1315274350381825689
 Transform:
@@ -201,6 +201,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: triggerAutomaticDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 9085390042139371365, guid: c6187fcc362854a4ca4d085d18ce4c2c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 9085390042139371366, guid: c6187fcc362854a4ca4d085d18ce4c2c,
         type: 3}

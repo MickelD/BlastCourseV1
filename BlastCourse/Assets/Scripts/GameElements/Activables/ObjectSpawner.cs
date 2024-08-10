@@ -46,7 +46,6 @@ public class ObjectSpawner : ActivableBase
            && SpawnedObject != null
            && !CustomMethods.ExtendedDataUtility.IsPointInArea(SpawnedObject.transform.position, Center + transform.position, Size))
         {
-            Debug.Log("secs");
             SpawnedObject.ShouldRespawn = false;
             SpawnedObject.DestroyObject();
             _spawnAction();

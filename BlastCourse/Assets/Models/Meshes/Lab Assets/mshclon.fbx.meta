@@ -12,7 +12,17 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: clon_bubbles_shd2
+    second: {fileID: 2100000, guid: 59acc76405c68f044ae51f8447cf4561, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: clon_character_shd
+    second: {fileID: 2100000, guid: 46a170842b77b2f4e9f7956dca414909, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: clon_character_shd2
     second: {fileID: 2100000, guid: 46a170842b77b2f4e9f7956dca414909, type: 2}
   - first:
       type: UnityEngine:Material
@@ -22,7 +32,17 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: clon_glass_shd2
+    second: {fileID: 2100000, guid: 61573b8338cf7ab4095e8e338aa19d47, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: clon_rings_shd
+    second: {fileID: 2100000, guid: ab51d8326c1beea429d96190940b6512, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: clon_rings_shd2
     second: {fileID: 2100000, guid: ab51d8326c1beea429d96190940b6512, type: 2}
   - first:
       type: UnityEngine:Material
@@ -32,7 +52,17 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: clon_screens_shd2
+    second: {fileID: 2100000, guid: 5f4006f23efe73b4b8cb576e164d836b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: clon_tubebase_shd
+    second: {fileID: 2100000, guid: ec7396a7cf30fb940bbb6f8004140b57, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: clon_tubebase_shd2
     second: {fileID: 2100000, guid: ec7396a7cf30fb940bbb6f8004140b57, type: 2}
   - first:
       type: UnityEngine:Material
@@ -42,12 +72,27 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: clon_tubecharacter_shd2
+    second: {fileID: 2100000, guid: 043aef8f417ba864d9c18ffa6e472188, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: clon_tubedown_shd
     second: {fileID: 2100000, guid: 6691d40cec8c47d4c91b81884f98e7b5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: clon_tubedown_shd2
+    second: {fileID: 2100000, guid: 6691d40cec8c47d4c91b81884f98e7b5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: clon_tubeup_shd
+    second: {fileID: 2100000, guid: 216db3c8826dbf9498b9941e0133b2b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: clon_tubeup_shd2
     second: {fileID: 2100000, guid: 216db3c8826dbf9498b9941e0133b2b8, type: 2}
   materials:
     materialImportMode: 2

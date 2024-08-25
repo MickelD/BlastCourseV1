@@ -65,7 +65,7 @@ public class AtemporalArea : ActivableBase
     [ActivableAction]
     public void FreezeTime(bool freeze)
     {
-        _active = freeze;
+        _active = _forcefield.enabled =  freeze;
         AudioManager.TryPlayCueAtPoint(freeze ? OnSound : OffSound, transform.position);
         _animator.SetBool("Freeze", freeze);
 
@@ -82,6 +82,7 @@ public class AtemporalArea : ActivableBase
 
     private void SetFreezeBody(ScaledTimeMonoBehaviour mono, bool freeze)
     {
+
         if (freeze)
         {
             if (!FrozenBodies.Contains(mono))

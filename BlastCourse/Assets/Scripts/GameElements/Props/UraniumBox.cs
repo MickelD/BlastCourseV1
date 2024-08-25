@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -29,6 +31,22 @@ public class UraniumBox : PhysicsObject
     #endregion
 
     #region Methods
+
+    public void Consume(Transform feeder)
+    {
+        if (_Grabbed && _CurrentInteractor != null) 
+        {
+            _CurrentInteractor.CancelCurrentInteraction();
+            Locked = true;
+        }
+
+        GravityController.EnableGravity = false;
+        C_collider.enabled = false;
+        c_rb.isKinematic = true;
+
+        transform.parent = feeder;
+        transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+    }
 
     public void SetConsuming(bool consuming)
     {

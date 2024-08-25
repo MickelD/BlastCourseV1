@@ -11,55 +11,38 @@ public class UraniumConsumer : ActivableBase
     #region Fields
 
     [Space(5), Header("Variables"), Space(3)]
-    [SerializeField, Tooltip("The amount of Uranium Boxes that must be inputed for it to activate")] public int _chargesRequired;
-    [SerializeField, Tooltip("The amount of force with which the unnecesary PhysicsObjects are pushed out")] public float _extractForce;
+    public FinalFan _FinalFan;
+    public Transform _BoxPos;
+    public Animator _Animator;
 
     [Space(5), Header("Audio"), Space(3)]
     public AudioCue _consumeSfx;
-    public AudioCue _rejectSfx;
+
+    
+    bool _fed = false;
 
     #endregion
 
-    #region Variables
-
-    private int _currentCharges = 0; //Manslaughter, Armed Robery, and Aggravated Assault
-    private bool _full = false;
-
-    #endregion
-
-    #region Methods
-
-    public override void SendAllActivations(bool isActive)
+    protected override void Start()
     {
-        _full = isActive;
-        base.SendAllActivations(isActive);
-    }
+        base.Start();
 
-    #endregion
+        _Animator.speed = 0f;
+    }
 
     #region Collisions && Triggers
 
     private void OnTriggerEnter(Collider other)
     {
-        UraniumBox u = other.GetComponent<UraniumBox>();
-        if(u != null && !_full )
+        if (!_fed && other.TryGetComponent(out UraniumBox box))
         {
+            _fed = true;
 
-            _currentCharges++;
-            u.SetConsuming(true);
-            Destroy(u.gameObject);
+            AudioManager.TryPlayCueAtPoint(_consumeSfx, transform.position);
+            box.Consume(_BoxPos);
+            _Animator.speed = 1f;
 
-            if (_consumeSfx.SfxClip != null && AudioManager.Instance != null) AudioManager.TryPlayCueAtPoint(_consumeSfx, transform.position);
-            if (_currentCharges >= _chargesRequired)
-            {
-                SendAllActivations(true);
-            }
-        }
-        else
-        {
-            if (_rejectSfx.SfxClip != null && AudioManager.Instance != null) AudioManager.TryPlayCueAtPoint(_rejectSfx, transform.position);
-            PhysicsObject box = other.GetComponent<PhysicsObject>();
-            if (box != null) box.Push(transform.up * 100 * _extractForce);
+            SendAllActivations(true);
         }
     }
 

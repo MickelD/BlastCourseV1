@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Threading.Tasks;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -24,15 +25,13 @@ public class Timer : ActivableBase
     #endregion
 
     #region Vars
-
-    private Coroutine _timerRoutine;
     private float _countDown;
     public float CountDown
     {
         get { return _countDown; }
         set
         {
-            _countDown = value;
+            _countDown = Mathf.Max(0f, value);
 
             if (DisplayText != null)
             {
@@ -45,8 +44,9 @@ public class Timer : ActivableBase
         }
     }
 
-    private bool _paused;
+    private bool _paused = true;
     private float _nextCountDownFlag;
+    private bool _activeTimerFunc;
 
     #endregion
 
@@ -76,23 +76,15 @@ public class Timer : ActivableBase
     [ActivableAction]
     public void Play(bool play)
     {
-        if (play)
-        {
-            TryStartTimer();
-            _paused = false;
-        }
-        else
-        {
-            _paused = true;
-        }
+        if (play && !_activeTimerFunc) TimerFunction();
+        _paused = !play;
     }
 
     [ActivableAction]
     public void Reset(bool playAfter)
     {
         CountDown = Delay;
-        StartTimer();
-        _paused = !playAfter;
+        Play(playAfter);
     }
 
     #endregion
@@ -102,22 +94,9 @@ public class Timer : ActivableBase
         AudioManager.TryPlayCueAtPoint(CountdownSound, transform.position);
     }
 
-    private void TryStartTimer()
+    private async void TimerFunction()
     {
-        if (_timerRoutine == null) StartTimer();
-    }
-
-    private void StartTimer()
-    {
-        StopAllCoroutines();
-        _timerRoutine = StartCoroutine(TimerRoutine());
-    }
-
-    private IEnumerator TimerRoutine()
-    {
-        CountDown = Delay;
-        _paused = false;
-
+        _activeTimerFunc = true;
         _nextCountDownFlag = CountdownStartAt + CountdownInterval;
 
         while (CountDown > 0f)
@@ -130,11 +109,13 @@ public class Timer : ActivableBase
                 _nextCountDownFlag -= CountdownInterval;
             }
 
-            yield return null;
+            if (gameObject == null) return;
+
+            await Task.Yield();
         }
 
-        CountDown = 0f;
-
+        CountDown = Delay;
+        _activeTimerFunc = false;
         SendAllActivations(true);
     }
 

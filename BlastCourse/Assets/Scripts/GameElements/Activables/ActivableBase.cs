@@ -73,7 +73,6 @@ public abstract class ActivableBase : MonoBehaviour
     public virtual void SendAllActivations(bool isActive)
     {
         if (Type == ActivableType.Action) return;
-
         foreach (Activation activation in RegisteredActions)
         {
             if (activation.Delay == 0)
@@ -107,10 +106,12 @@ public abstract class ActivableBase : MonoBehaviour
                         break;
 
                     case ActivationStyle.True:
+                        if (!isActive) return;
                         shouldSend = true;
                         break;
 
                     case ActivationStyle.False:
+                        if (!isActive) return;
                         shouldSend = false;
                         break;
 

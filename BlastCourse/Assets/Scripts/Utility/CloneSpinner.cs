@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Unity.VisualScripting;
+using UnityEngine.UIElements;
+
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -14,102 +18,87 @@ public class CloneSpinner : MonoBehaviour
     [SerializeField] float _resetValue;
     [SerializeField, Range(0f,1f)] float _emptyChance;
 
+    private void IterateCloneParts(Transform cloneGO, System.Action<MeshRenderer> del)
+    {
+        foreach (MeshRenderer child in cloneGO.GetComponentsInChildren<MeshRenderer>().Where(obj => obj.name.Contains("char") || obj.name.Contains("wires"))) 
+            del.Invoke(child);
+    }
+
+    private void ForAll(System.Action<Transform> del)
+    {
+        foreach (Transform cloneGO in FindObjectsOfType<Transform>().Where(obj => obj.name.Contains("mshclon")))
+        {
+            del.Invoke(cloneGO);
+        }
+    }
+
+    private void ForEachChild(System.Action<Transform> del)
+    {
+        foreach (Transform child in transform)
+        {
+            if (!child.name.Contains("mshclon")) continue;
+            del.Invoke(child);
+        }
+    }
+
+
     [ContextMenu("Rotate Children")]
     public void RotateChildren()
     {
-        foreach (Transform child  in transform)
+        ForEachChild((child) =>
         {
-            Transform person = child.Find("clon_character");
-            Transform tubes = child.Find("clon_tube_character");
-
             float angleAB = Random.Range(_rotRange.x, _rotRange.y);
-
-            if (person != null) person.localEulerAngles = new Vector3(person.localEulerAngles.x, angleAB, person.localEulerAngles.z);
-            if (tubes != null) tubes.localEulerAngles = new Vector3(tubes.localEulerAngles.x, angleAB, tubes.localEulerAngles.z);
-
-            Transform bubbles = child.Find("clon_bubbles");
-            if (bubbles != null) bubbles.localEulerAngles = new Vector3(bubbles.localEulerAngles.x, Random.Range(_rotRange.x, _rotRange.y), bubbles.localEulerAngles.z);
-        }
+            IterateCloneParts(child, (obj) => obj.transform.localEulerAngles = new Vector3(obj.transform.localEulerAngles.x, angleAB, obj.transform.localEulerAngles.z));
+        });
     }
 
     [ContextMenu("Rotate All")]
     public void RotateAll()
     {
-        foreach (Transform person in FindObjectsOfType<Transform>().Where(obj => obj.gameObject.name == "clon_character"))
+        ForAll((cloneGO) =>
         {
             float angleAB = Random.Range(_rotRange.x, _rotRange.y);
-
-            person.localEulerAngles = new Vector3(person.localEulerAngles.x, angleAB, person.localEulerAngles.z);
-
-            Transform tubes = person.parent.Find("clon_tube_character");
-            if (tubes != null) tubes.localEulerAngles = new Vector3(tubes.localEulerAngles.x, angleAB, tubes.localEulerAngles.z);
-
-            Transform bubbles = person.parent.Find("clon_bubbles");
-            if (bubbles != null) bubbles.localEulerAngles = new Vector3(bubbles.localEulerAngles.x, Random.Range(_rotRange.x, _rotRange.y), bubbles.localEulerAngles.z);
-        }
+            IterateCloneParts(cloneGO, (obj) => obj.transform.localEulerAngles = new Vector3(obj.transform.localEulerAngles.x, angleAB, obj.transform.localEulerAngles.z));
+        });
     }
 
     [ContextMenu("Reset Children")]
     public void ResetChildren()
     {
-        foreach (Transform child in transform)
+        ForEachChild((child) =>
         {
-            Transform person = child.Find("clon_character");
-            Transform tubes = child.Find("clon_tube_character");
-
-            if (person != null) person.localEulerAngles = new Vector3(person.localEulerAngles.x, _resetValue, person.localEulerAngles.z);
-            if (tubes != null) tubes.localEulerAngles = new Vector3(tubes.localEulerAngles.x, _resetValue, tubes.localEulerAngles.z);
-
-            Transform bubbles = child.Find("clon_bubbles");
-            if (bubbles != null) bubbles.localEulerAngles = new Vector3(bubbles.localEulerAngles.x, _resetValue, bubbles.localEulerAngles.z);
-        }
+            IterateCloneParts(child, (obj) => obj.transform.localEulerAngles = new Vector3(obj.transform.localEulerAngles.x, _resetValue, obj.transform.localEulerAngles.z));
+        });
     }
 
     [ContextMenu("Reset All")]
     public void ResetAll()
     {
-        foreach (Transform person in FindObjectsOfType<Transform>().Where(obj => obj.gameObject.name == "clon_character"))
+        ForAll((cloneGO) =>
         {
-            person.localEulerAngles = new Vector3(person.localEulerAngles.x, _resetValue, person.localEulerAngles.z);
-
-            Transform tubes = person.parent.Find("clon_tube_character");
-            if (tubes != null) tubes.localEulerAngles = new Vector3(tubes.localEulerAngles.x, _resetValue, tubes.localEulerAngles.z);
-
-            Transform bubbles = person.parent.Find("clon_bubbles");
-            if (bubbles != null) bubbles.localEulerAngles = new Vector3(bubbles.localEulerAngles.x, _resetValue, bubbles.localEulerAngles.z);
-        }
+            IterateCloneParts(cloneGO, (obj) => obj.transform.localEulerAngles = new Vector3(obj.transform.localEulerAngles.x, _resetValue, obj.transform.localEulerAngles.z));
+        });
     }
 
 
     [ContextMenu("Try Empty All")]
     public void TryEmptyAll()
     {
-        foreach (MeshRenderer person in FindObjectsOfType<MeshRenderer>().Where(obj => obj.gameObject.name == "clon_character"))
+        ForAll((cloneGO) =>
         {
             bool show = Random.value > _emptyChance;
-
-            person.enabled = show;
-
-            Transform tubes = person.transform.parent.Find("clon_tube_character");
-            if (tubes != null && (tubes.TryGetComponent(out MeshRenderer tubeRend))) tubeRend.enabled = show;
-
-        }
+            IterateCloneParts(cloneGO, (obj) => obj.enabled = show);
+        });
     }
 
     [ContextMenu("Try Empty Children")]
     public void TryEmptyChildren()
     {
-        foreach (Transform child in transform)
+        ForEachChild((child) =>
         {
             bool show = Random.value > _emptyChance;
-
-            Transform person = child.Find("clon_character");
-            Transform tubes = child.Find("clon_tube_character");
-
-            if (person != null && person.TryGetComponent(out MeshRenderer personRend)) personRend.enabled = show;
-            if (tubes != null && tubes.TryGetComponent(out MeshRenderer tubesRend)) tubesRend.enabled = show;
-
-        }
+            IterateCloneParts(child, (obj) => obj.enabled = show);
+        });
     }
 }
 

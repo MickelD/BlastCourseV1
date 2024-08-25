@@ -72,7 +72,7 @@ MonoBehaviour:
   _rotationalInertia: 0.5
   _bouncePadMultiplier: 0
   c_rb: {fileID: 6498528417312192005}
-  c_collider: {fileID: 2776161612719442944}
+  C_collider: {fileID: 2776161612719442944}
   c_gravity: {fileID: 7045026910080639631}
   _collisionSfx:
     SfxClip:
@@ -87,6 +87,8 @@ MonoBehaviour:
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
     SpatialBlend: 1
+  _Grabbed: 0
+  _CurrentInteractor: {fileID: 0}
   _stuckDrag: 10
   _recallPos: {x: 0, y: 0, z: 0}
   id: 

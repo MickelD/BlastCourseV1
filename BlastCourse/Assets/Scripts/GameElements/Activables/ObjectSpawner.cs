@@ -60,7 +60,7 @@ public class ObjectSpawner : ActivableBase
 
     public void TrySpawn(bool spawn)
     {
-        if (ObjectPrefab != null)
+        if (spawn && ObjectPrefab != null)
         {
             if(SpawnedObject == null)
             {
@@ -78,7 +78,6 @@ public class ObjectSpawner : ActivableBase
     private void Spawn()
     {
         SpawnedObject = Instantiate(ObjectPrefab, transform.position + SpawnPos, Quaternion.identity, transform).GetComponent<PhysicsObject>();
-
         if (SpawnedObject != null)
         {
             SpawnedObject.gameObject.SetActive(true);

@@ -27,12 +27,22 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: clon_character_shd3
+    second: {fileID: 2100000, guid: 46a170842b77b2f4e9f7956dca414909, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: clon_glass_shd
     second: {fileID: 2100000, guid: 61573b8338cf7ab4095e8e338aa19d47, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: clon_glass_shd2
+    second: {fileID: 2100000, guid: 61573b8338cf7ab4095e8e338aa19d47, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: clon_glass_shd3
     second: {fileID: 2100000, guid: 61573b8338cf7ab4095e8e338aa19d47, type: 2}
   - first:
       type: UnityEngine:Material
@@ -77,6 +87,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: clon_tubecharacter_shd3
+    second: {fileID: 2100000, guid: 043aef8f417ba864d9c18ffa6e472188, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: clon_tubedown_shd
     second: {fileID: 2100000, guid: 6691d40cec8c47d4c91b81884f98e7b5, type: 2}
   - first:
@@ -94,6 +109,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: clon_tubeup_shd2
     second: {fileID: 2100000, guid: 216db3c8826dbf9498b9941e0133b2b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: standardSurface1
+    second: {fileID: 2100000, guid: 6691d40cec8c47d4c91b81884f98e7b5, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -124,7 +144,10 @@ ModelImporter:
     clipAnimations: []
     isReadable: 0
   meshes:
-    lODScreenPercentages: []
+    lODScreenPercentages:
+    - 0.5
+    - 0.25
+    - 0.01
     globalScale: 1
     meshCompression: 0
     addColliders: 0

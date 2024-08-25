@@ -13,6 +13,7 @@ public class Door : ActivableBase
     public ParticleSystem _openVFX2;
     public float ActiveTime;
     private WaitForSeconds VfxActiveTime;
+    private bool _open;
 
     private void Awake()
     {
@@ -23,12 +24,13 @@ public class Door : ActivableBase
     [ActivableAction]
     public void Open(bool set)
     {
-        if (!_isLockedState)
+        if (!_isLockedState && set != _open)
         {
             AudioManager.TryPlayCueAtPoint(set ? _openSfx : _closeSfx,transform.position);
             _animator.SetBool("Open", set);
+            _open = set;
             
-            StartCoroutine(VFX());
+            if (gameObject.activeInHierarchy) StartCoroutine(VFX());
             if (Type != ActivableType.Action) SendAllActivations(set);
         }
     }

@@ -168,10 +168,6 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
     }
     private void Update()
     {
-        Debug.DrawLine(g_orientation.position, g_orientation.position + g_orientation.up, Color.green);
-        Debug.DrawLine(g_orientation.position, g_orientation.position + g_orientation.right, Color.red);
-        Debug.DrawLine(g_orientation.position, g_orientation.position + g_orientation.forward, Color.blue);
-
         GroundCheck();
         ReadMovementInput();
         JumpInput();
@@ -182,7 +178,7 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
 
         if (Input.GetKeyDown(KeyCode.V)) _isNoclip = !_isNoclip;
         c_gravity.enabled = !_isNoclip;
-        c_capsuleHitbox.enabled = !_isNoclip;
+        c_capsuleHitbox.isTrigger = _isNoclip;
 
         //else if (Input.GetKeyDown(KeyCode.Alpha1)) {SaveLoader.Instance.SetSpawn(new Vector3(-3,0.5f,-12)); SceneManager.LoadScene(1); }
         //else if (Input.GetKeyDown(KeyCode.Alpha2)) { SaveLoader.Instance.SetSpawn(new Vector3(-16, 0, -4)); SceneManager.LoadScene(2); }

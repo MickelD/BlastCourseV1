@@ -38,7 +38,7 @@ public class PhysicsObject : ScaledTimeMonoBehaviour, IBounceable, IExplodable, 
 
     [Space(5), Header("Components"), Space(3)]
     [SerializeField] protected Rigidbody c_rb;
-    [SerializeField] Collider c_collider;
+    public Collider C_collider;
     [SerializeField] GravityController c_gravity;
     [SerializeField] AudioCue _collisionSfx;
 
@@ -48,12 +48,12 @@ public class PhysicsObject : ScaledTimeMonoBehaviour, IBounceable, IExplodable, 
     public bool Locked { get { return !_canBeGrabbed; } set { _canBeGrabbed = !value; } }
 
     private bool _alreadyRespawned;
-    private bool _grabbed;
+    public bool _Grabbed;
     private bool _magnetized;
     float _angleOffset;
     float _distanceFromPlayer;
     private MagneticPlate _currentMagnet;
-    private PlayerInteract _currentInteractor;
+    public PlayerInteract _CurrentInteractor;
     private float _normalDrag;
     public float _stuckDrag = 10f;
     private PhysicMaterial _phyMat;
@@ -73,7 +73,7 @@ public class PhysicsObject : ScaledTimeMonoBehaviour, IBounceable, IExplodable, 
     private Vector3 _localScale;
     private Vector3 _lastValidMagnetDir;
 
-    public System.Action OnObjectDestroyed;
+    public System.Action<GameObject> OnObjectDestroyed;
     public System.Action<bool> OnObjectLoadState;
 
     #endregion
@@ -87,7 +87,7 @@ public class PhysicsObject : ScaledTimeMonoBehaviour, IBounceable, IExplodable, 
         if (ShouldRespawn && Spawner != null) Spawner.SpawnedObject = this;
 
         _normalDrag = c_rb.drag;
-        _phyMat = c_collider.material;
+        _phyMat = C_collider.material;
         _transformDirections = new Vector3[] { transform.right, transform.up, transform.forward};
 
         _realScale = transform.lossyScale;
@@ -102,9 +102,9 @@ public class PhysicsObject : ScaledTimeMonoBehaviour, IBounceable, IExplodable, 
     private void FixedUpdate()
     {
         if (_magnetized && _currentMagnet != null) MagnetAction();
-        else if (_grabbed && _currentInteractor != null) GrabAction();
+        else if (_Grabbed && _CurrentInteractor != null) GrabAction();
         
-        if(_currentInteractor == null
+        if(_CurrentInteractor == null
             && !_grounded && Physics.Raycast(transform.position,
                                             Vector3.down,
                                             out _ground,
@@ -122,9 +122,9 @@ public class PhysicsObject : ScaledTimeMonoBehaviour, IBounceable, IExplodable, 
     {
         if (!_isQuitting && SaveLoader.Instance != null && !SaveLoader.Instance._loading) //VERIFY THAT WE ARE NOT CHANGING SCENES
         {
-            OnObjectDestroyed?.Invoke();
+            OnObjectDestroyed?.Invoke(gameObject);
 
-            if (_currentInteractor != null) _currentInteractor.SetInteractWith(this, false);
+            if (_CurrentInteractor != null) _CurrentInteractor.SetInteractWith(this, false);
 
             if (ShouldRespawn && Spawner != null && !_alreadyRespawned)
             {
@@ -158,11 +158,11 @@ public class PhysicsObject : ScaledTimeMonoBehaviour, IBounceable, IExplodable, 
 
     private void GrabAction()
     {
-        _distanceFromPlayer = Vector3.Distance(transform.position, _currentInteractor.GrabAnchor.position);
+        _distanceFromPlayer = Vector3.Distance(transform.position, _CurrentInteractor.GrabAnchor.position);
         if (_distanceFromPlayer > _minHoldDistance)
         {
-            Vector3 moveDir = (_currentInteractor.GrabAnchor.position - transform.position);
-            c_rb.AddForce(_currentInteractor.GrabForce * _grabForceMultiplier * _stuckDrag * moveDir, ForceMode.Acceleration);
+            Vector3 moveDir = (_CurrentInteractor.GrabAnchor.position - transform.position);
+            c_rb.AddForce(_CurrentInteractor.GrabForce * _grabForceMultiplier * _stuckDrag * moveDir, ForceMode.Acceleration);
 
             //transform.Rotate(Vector3.up, _angleOffset, Space.World);
 
@@ -174,13 +174,13 @@ public class PhysicsObject : ScaledTimeMonoBehaviour, IBounceable, IExplodable, 
 
             transform.localRotation = Quaternion.Euler(transform.localEulerAngles.x,
                                                        Mathf.LerpAngle(transform.localEulerAngles.y,
-                                                                       _currentInteractor.PointerTransform.localEulerAngles.y + _angleOffset,
+                                                                       _CurrentInteractor.PointerTransform.localEulerAngles.y + _angleOffset,
                                                                        _grabRotationSpeed * Time.deltaTime),
                                                        transform.localEulerAngles.z);
 
-            if (_distanceFromPlayer > _maxHoldDistance || Physics.Linecast(transform.position, _currentInteractor.transform.position + Vector3.up * 1.75f, _obstacleLayerMask, QueryTriggerInteraction.Ignore))
+            if (_distanceFromPlayer > _maxHoldDistance || Physics.Linecast(transform.position, _CurrentInteractor.transform.position + Vector3.up * 1.75f, _obstacleLayerMask, QueryTriggerInteraction.Ignore))
             {
-                _currentInteractor.CancelCurrentInteraction();
+                _CurrentInteractor.CancelCurrentInteraction();
             }
         }
     }
@@ -205,7 +205,7 @@ public class PhysicsObject : ScaledTimeMonoBehaviour, IBounceable, IExplodable, 
         if (magnet != null) _lastValidMagnetDir = magnet.transform.forward;
 
         _currentMagnet = magnet;
-        if (_currentInteractor != null) 
+        if (_CurrentInteractor != null) 
         { 
             if (!set)
             {
@@ -223,13 +223,13 @@ public class PhysicsObject : ScaledTimeMonoBehaviour, IBounceable, IExplodable, 
     //Set Magnetized Behaviour (override Grab behaviour if it was occurring)
     private void Magnetize(bool set)
     {
-        if (!set && !_grabbed) { 
+        if (!set && !_Grabbed) { 
             c_rb.AddForce(_lastValidMagnetDir * _demagnetizationImpulse, ForceMode.VelocityChange);
             c_rb.AddTorque(_lastValidMagnetDir * _demagnetizationImpulse, ForceMode.VelocityChange);
         }
 
         //override current interaction
-        if (_grabbed && _currentInteractor != null) _currentInteractor.CancelCurrentInteraction();
+        if (_Grabbed && _CurrentInteractor != null) _CurrentInteractor.CancelCurrentInteraction();
         Locked = set && !_canBeGrabbedIfMagnetized;
 
         //change movement behaviour
@@ -239,7 +239,7 @@ public class PhysicsObject : ScaledTimeMonoBehaviour, IBounceable, IExplodable, 
         c_rb.drag = set ? _stuckDrag : _normalDrag;
 
         //disable bounciness
-        c_collider.material = set ? null : _phyMat;
+        C_collider.material = set ? null : _phyMat;
 
         //DetermineOrientation
         if (_currentMagnet != null)
@@ -279,7 +279,7 @@ public class PhysicsObject : ScaledTimeMonoBehaviour, IBounceable, IExplodable, 
     {
         if (interactor != null && interactor.transform.parent == transform) return;
 
-        _currentInteractor = interactor;
+        _CurrentInteractor = interactor;
         if (!set && _currentMagnet != null) 
         { 
             Magnetize(true); 
@@ -293,10 +293,10 @@ public class PhysicsObject : ScaledTimeMonoBehaviour, IBounceable, IExplodable, 
 
     public void Grab(bool set)
     {
-        if (_currentInteractor != null)
+        if (_CurrentInteractor != null)
         {
             //Store and Array of All Dot products
-            float[] dirDotProducts = (from dir in _transformDirections let myDot = Vector3.Dot(dir, _currentInteractor.PointerTransform.forward) select myDot).ToArray();
+            float[] dirDotProducts = (from dir in _transformDirections let myDot = Vector3.Dot(dir, _CurrentInteractor.PointerTransform.forward) select myDot).ToArray();
 
             //Find Infex of closest Dot product
             int i = dirDotProducts.ToList().IndexOf(dirDotProducts.OrderBy(dot => Mathf.Abs(dot)).LastOrDefault());
@@ -320,7 +320,7 @@ public class PhysicsObject : ScaledTimeMonoBehaviour, IBounceable, IExplodable, 
         if (_magnetized) Magnetize(false);
 
         //change movement behaviour
-        _grabbed = set;
+        _Grabbed = set;
         if(c_rb.velocity != null) c_rb.velocity *= _throwInertia;
         if(c_gravity !=  null) c_gravity.EnableGravity = !set;
 
@@ -356,7 +356,7 @@ public class PhysicsObject : ScaledTimeMonoBehaviour, IBounceable, IExplodable, 
     //BOUNCE 
     public void BouncePadInteraction(Vector3 dir, float force)
     {
-        if (!_grabbed) 
+        if (!_Grabbed) 
         {
             c_rb.velocity = _bouncePadMultiplier * force * dir.normalized;
             c_rb.angularVelocity = Mathf.Sign(c_rb.angularVelocity.y) * force * 0.5f * _rotationalInertia * Vector3.up;
@@ -368,10 +368,10 @@ public class PhysicsObject : ScaledTimeMonoBehaviour, IBounceable, IExplodable, 
     //EXPLODE
     public void ExplosionBehaviour(Vector3 origin, Explosion exp, Vector3 normal)
     {
-        if (_magnetized || _grabbed) return;
+        if (_magnetized || _Grabbed) return;
 
         //we need to check if the explosion originated on the surface of this object
-        Vector3 xzDir = c_collider.bounds.Contains(origin) ? 
+        Vector3 xzDir = C_collider.bounds.Contains(origin) ? 
                             ExtendedMathUtility.HorizontalDirection(exp.SourcePos, transform.position).normalized : 
                             ExtendedMathUtility.HorizontalDirection(origin, transform.position).normalized;
 
@@ -395,8 +395,8 @@ public class PhysicsObject : ScaledTimeMonoBehaviour, IBounceable, IExplodable, 
     protected override void OnFreezeTime(bool freeze)
     {
         _frozen = freeze;
-        LocalTimeScale = _grabbed ? 1f : _frozen ? 0f : 1f;
-        Body.constraints = _grabbed ? RigidbodyConstraints.FreezeRotation : _frozen ? RigidbodyConstraints.FreezeAll : RigidbodyConstraints.None;
+        LocalTimeScale = _Grabbed ? 1f : _frozen ? 0f : 1f;
+        Body.constraints = _Grabbed ? RigidbodyConstraints.FreezeRotation : _frozen ? RigidbodyConstraints.FreezeAll : RigidbodyConstraints.None;
 
         if(freeze) ParentToGround(false);
     }
@@ -415,7 +415,7 @@ public class PhysicsObject : ScaledTimeMonoBehaviour, IBounceable, IExplodable, 
 
     public void Push(Vector3 direction)
     {
-        if (_grabbed) Grab(false);
+        if (_Grabbed) Grab(false);
         if(!_magnetized && !_frozen)
         {
             c_rb.AddForce(direction, ForceMode.Force);

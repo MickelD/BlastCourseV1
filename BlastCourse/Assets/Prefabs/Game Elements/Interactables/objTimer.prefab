@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 2
   Active: 0
-  ActivateOnStart: 1
+  ActivateOnStart: 0
   StartingAction:
     UpdateSharedRegistry: 0
     _receiver: {fileID: 8555204561050584034}

@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Linq;
 
 
-public class Unloader : BoxVisualizer
+public class Unloader : MonoBehaviour
 {
     [SerializeField] bool unloadOnStart;
     [SerializeField] UnloadMode unloadMode;
@@ -12,6 +12,9 @@ public class Unloader : BoxVisualizer
     [SerializeField] GameObject[] targetObjects;
     [SerializeField] GameObject[] targetRenderers;
     private List<Component> targetComponents;
+
+    int _playerEntries;
+
     public enum UnloadMode
     {
         LoadOnEntry,
@@ -37,7 +40,7 @@ public class Unloader : BoxVisualizer
         }
     }
 
-    private void Start()
+    private IEnumerator Start()
     {
         targetComponents = new();
 
@@ -49,13 +52,18 @@ public class Unloader : BoxVisualizer
             }
         }
 
-        if (unloadOnStart)Load(false);
+        yield return null;
+
+        if (unloadOnStart && _playerEntries <= 0) Load(false);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<PlayerMovement>() != null)
         {
+            _playerEntries++;
+            if(_playerEntries != 1) return;
+
             if (isLoaded()) //LOADED
             {
                 if (unloadMode is UnloadMode.UnloadOnEntry or UnloadMode.UnloadOnEntryLoadOnExit)
@@ -81,6 +89,9 @@ public class Unloader : BoxVisualizer
     {
         if (other.GetComponent<PlayerMovement>() != null)
         {
+            _playerEntries--;
+            if (_playerEntries != 0) return;
+
             if (isLoaded()) //LOADED
             {
                 if (unloadMode is UnloadMode.UnloadOnExit or UnloadMode.UnloadOnExitLoadOnEntry)
@@ -117,10 +128,19 @@ public class Unloader : BoxVisualizer
         else return false;
     }
 
-    protected override Color GetColor()
+
+#if UNITY_EDITOR
+    private void OnDrawGizmosSelected()
     {
-        return new Color(0, 0, 1, 0.5f);
+        Gizmos.color = new Color(0, 0, 1, 0.5f);
+        Gizmos.matrix = Matrix4x4.TRS(transform.position, transform.rotation, transform.lossyScale);
+
+        foreach (BoxCollider col in gameObject.GetComponents<BoxCollider>())
+        {
+            Gizmos.DrawCube(col.center, col.size);
+        }
     }
+#endif
 }
 
 

@@ -64,6 +64,7 @@ MonoBehaviour:
   _renderer: {fileID: 5606488128745894134}
   _emissiveMaterialIndex: 0
   _colorTransitionTime: 0.25
+  _killTime: 0
 --- !u!1001 &6489593185624747122
 PrefabInstance:
   m_ObjectHideFlags: 0

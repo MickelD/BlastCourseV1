@@ -35,7 +35,6 @@ public class SaveData
     public SaveData(int scn, float[] spP, List<string> clAq, List<string> kObj, bool[] rpg, List<string> b, List<float> bx, List<float> by, List<float> bz, List<string> ub)
     {
         _scene = scn;
-
         _spawnPosition = new float[3];
         _spawnPosition[0] = spP[0];
         _spawnPosition[1] = spP[1];

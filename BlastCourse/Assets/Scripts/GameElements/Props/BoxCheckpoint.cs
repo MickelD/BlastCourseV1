@@ -7,19 +7,23 @@ using UnityEditor;
 
 public class BoxCheckpoint : BoxVisualizer
 {
-    private List<string> _passedIds =  new List<string>();
+    [SerializeField] bool _onlyOnce;
+    [SerializeField] bool _alsoSetSpawn;
+    [SerializeField, DrawIf(nameof(_alsoSetSpawn), true)] Vector3 _spawn;
+
+    [SerializeField] List<string> _ignoreIds = new();
 
     #region UnityFunctions
 
     private void OnTriggerEnter(Collider other)
     {
-        UraniumBox b = other.GetComponent<UraniumBox>();
+        if (other.TryGetComponent(out UraniumBox b) && !_ignoreIds.Contains(b.id))
+        {
+            if (_onlyOnce) _ignoreIds.Add(b.id);
 
-        if (b == null) return;
-        //if (_passedIds.Count > 0 && _passedIds.Contains(b.id)) return;
-
-        //_passedIds.Add(b.id);
-        SaveLoader.Instance.SetBoxPos(b);
+            if (SaveLoader.Instance.SetBoxPos(b, transform.position) && _alsoSetSpawn) 
+                SaveLoader.Instance.SetSpawn(_spawn);
+        }
     }
 
     #endregion
@@ -33,6 +37,12 @@ public class BoxCheckpoint : BoxVisualizer
 
     #endregion
 
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.cyan;
+        if (_alsoSetSpawn) Gizmos.DrawSphere(_spawn, 0.25f);
+    }
 }
 
 

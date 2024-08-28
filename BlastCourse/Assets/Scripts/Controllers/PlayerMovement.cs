@@ -155,7 +155,7 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
         //SaveLoader.Instance.SetSpawn(transform.position);
 
         //stick To Ground
-        if (Physics.Raycast(transform.position + Vector3.up, Vector3.down, out RaycastHit hit, 3f, _groundLayerMask, QueryTriggerInteraction.Ignore))
+        if (Physics.Raycast(transform.position + Vector3.up * 0.25f, Vector3.down, out RaycastHit hit, 5f, _groundLayerMask, QueryTriggerInteraction.Ignore))
         {
             transform.position = hit.point;
         }
@@ -172,7 +172,6 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
         ReadMovementInput();
         JumpInput();
         SlideInput();
-        UpdateDrag();
 
         _stepsTimer += Time.deltaTime;
 
@@ -192,6 +191,8 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
         if (!_isOnLadder && (!_isMagnetized || _isGrounded)) HorizontalMovement();
         else if (_isOnLadder) LadderMovement();
         else MagnetMovement();
+
+        UpdateDrag();
     }
 
     #endregion
@@ -513,7 +514,6 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
     public void ExplosionBehaviour(Vector3 origin, Explosion exp, Vector3 normal)
     {
         _isRocketJumping = true;
-
         //DETERMINE Y FORCE MAGNITUDE
         float velY = c_rb.velocity.y;
 

@@ -28,7 +28,7 @@ public class HealthExplosiveBarrel : Health
         base.SufferDamage(amount, source);
     }
 
-    public override void Die()
+    public override void Die(bool n)
     {
         StartCoroutine(Explode());
     }

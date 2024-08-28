@@ -33,10 +33,19 @@ public class Unloader : MonoBehaviour
             obj.SetActive(load);
         }
 
-        foreach (Component rend in targetComponents)
+        //foreach (Component rend in targetComponents)
+        //{
+        //    if (rend is Behaviour) (rend as Behaviour).enabled = load;
+        //    else if (rend is Renderer) (rend as Renderer).enabled = load;
+        //}
+
+        foreach (GameObject rend in targetRenderers)
         {
-            if (rend is Behaviour) (rend as Behaviour).enabled = load;
-            else if (rend is Renderer) (rend as Renderer).enabled = load;
+            foreach (Component childRend in rend.GetComponentsInChildren<Component>().Where((x) => (x is Behaviour or Renderer)))
+            {
+                if (childRend is Behaviour) (childRend as Behaviour).enabled = load;
+                else if (childRend is Renderer) (childRend as Renderer).enabled = load;
+            }
         }
     }
 

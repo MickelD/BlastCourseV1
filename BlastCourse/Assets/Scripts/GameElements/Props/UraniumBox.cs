@@ -46,6 +46,8 @@ public class UraniumBox : PhysicsObject
 
         transform.parent = feeder;
         transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+
+        SetConsuming(true);
     }
 
     public void SetConsuming(bool consuming)

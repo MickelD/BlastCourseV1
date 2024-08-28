@@ -17,11 +17,17 @@ public class UraniumConsumer : ActivableBase
 
     [Space(5), Header("Audio"), Space(3)]
     public AudioCue _consumeSfx;
+    public Animation _anim;
 
     
     bool _fed = false;
 
     #endregion
+
+    private void OnEnable()
+    {
+        if (_fed) _Animator.Play("anFeeder", 0, 1f);
+    }
 
     protected override void Start()
     {
@@ -41,9 +47,16 @@ public class UraniumConsumer : ActivableBase
             AudioManager.TryPlayCueAtPoint(_consumeSfx, transform.position);
             box.Consume(_BoxPos);
             _Animator.speed = 1f;
-
+            _FinalFan.FeedFan();
             SendAllActivations(true);
         }
+    }
+
+    public void MarkAsFed()
+    {
+        _fed = true;
+        _FinalFan.FeedFan();
+        if (gameObject.activeInHierarchy) _Animator.Play("anFeeder", 0, 1f);
     }
 
     #endregion

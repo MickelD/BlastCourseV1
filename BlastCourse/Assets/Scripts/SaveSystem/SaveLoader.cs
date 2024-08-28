@@ -66,29 +66,36 @@ public class SaveLoader : MonoBehaviour
     {
         return new Vector3(BoxesX[i], BoxesY[i], BoxesZ[i]);
     }
-    public void SetBoxPos(UraniumBox b)
+    public bool SetBoxPos(UraniumBox b, Vector3 pos)
     {
         if (Boxes.Contains(b.GetIndex()))
         {
-            for(int i = 0; i < Boxes.Count; i++)
+            for (int i = 0; i < Boxes.Count; i++)
             {
                 if(Boxes[i] == b.GetIndex())
                 {
+                    if (Vector3.Distance(pos, new Vector3(BoxesX[i], BoxesY[i], BoxesZ[i])) <= 0.125f)
+                        return false;
+
                     Boxes[i] = (b.GetIndex());
-                    BoxesX[i] = (b.transform.position.x);
-                    BoxesY[i] = (b.transform.position.y);
-                    BoxesZ[i] = (b.transform.position.z);
+                    BoxesX[i] = (pos.x);
+                    BoxesY[i] = (pos.y);
+                    BoxesZ[i] = (pos.z);
+                    Save();
+                    return true;
                 }
             }
+            return false;
         }
         else
         {
             Boxes.Add(b.GetIndex());
-            BoxesX.Add(b.transform.position.x);
-            BoxesY.Add(b.transform.position.y);
-            BoxesZ.Add(b.transform.position.z);
+            BoxesX.Add(pos.x);
+            BoxesY.Add(pos.y);
+            BoxesZ.Add(pos.z);
+            Save();
+            return true;
         }
-        Save();
     }
 
     public int GetScene() { return SceneIndex; }

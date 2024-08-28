@@ -29,10 +29,15 @@ public class BoxManager : MonoBehaviour
             for (int i = 0; i < SaveLoader.Instance.Boxes.Count; i++)
             {
                 foreach (UraniumBox b in Boxes)
-                    if (
-                        !SaveLoader.Instance.UsedBoxes.Contains(SaveLoader.Instance.Boxes[i])
-                        && SaveLoader.Instance.Boxes[i] == b.GetIndex())
-                        b.transform.position = SaveLoader.Instance.GetBoxPos(i);
+                {
+                    if (!SaveLoader.Instance.UsedBoxes.Contains(SaveLoader.Instance.Boxes[i])
+                    && SaveLoader.Instance.Boxes[i] == b.GetIndex())
+                    {
+                        b.transform.position = SaveLoader.Instance.GetBoxPos(i) + Vector3.up * 0.0625f;
+                        b.transform.localEulerAngles = new Vector3(0f, Random.value * 360f, 0f);
+                        if (b.TryGetComponent(out GravityController g)) g.EnableGravity = true;
+                    }
+                }
             }
 
             for (int i = 0; i < SaveLoader.Instance.UsedBoxes.Count; i++)
@@ -40,7 +45,6 @@ public class BoxManager : MonoBehaviour
                 foreach (UraniumBox b in Boxes)
                     if (SaveLoader.Instance.UsedBoxes[i] == b.GetIndex())
                     {
-                        Debug.Log(b.GetIndex());
                         b.SetConsuming(true);
                         Destroy(b.gameObject,Time.deltaTime);
                     }

@@ -41,7 +41,14 @@ public class KeyInteractable : ActivableBase
         yield return new WaitForFixedUpdate();
         _keyTrigger.SendAllActivations(true);
 
-        Debug.Log("Send from " + gameObject.name + " " + _index + " to " + _keyTrigger.name);
+        if (_keyTrigger is PushButton)
+        {
+            if ((_keyTrigger as PushButton).LockAfterFirstPress) (_keyTrigger as PushButton).Locked = true;
+        }
+        else if (_keyTrigger is UraniumConsumer)
+        {
+            (_keyTrigger as UraniumConsumer).MarkAsFed();
+        }
     }
 
     #endregion

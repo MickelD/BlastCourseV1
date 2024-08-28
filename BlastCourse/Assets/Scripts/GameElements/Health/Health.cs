@@ -128,13 +128,28 @@ public class Health : MonoBehaviour
     {
         SufferDamage(-amount, Source.HEAL);
     }
-    public virtual void Die()
+    public virtual void Die(bool noAnim = false)
     {
         AudioManager.TryPlayCueAtPoint(sfxDeathSound, transform.position);
-
-        gameObject.transform.localScale = new Vector3(1f, _deathYScale, 1f);
         EventManager.OnPlayerDeath?.Invoke();
         EventManager.IsDead = true;
+
+        if (!noAnim)
+        {
+            gameObject.transform.localScale = new Vector3(1f, _deathYScale, 1f);
+
+            if (gameObject.TryGetComponent(out Rigidbody rb))
+            {
+                rb.drag = _deathDrag;
+                rb.angularDrag = _deathAngularDrag;
+                rb.constraints = RigidbodyConstraints.None;
+                rb.AddForce(_deathImpulse, ForceMode.VelocityChange);
+                rb.AddTorque(Vector3.up * Random.Range(-_deathRot, _deathRot));
+            }
+        }
+        else if (gameObject.TryGetComponent(out Rigidbody rb))
+            rb.isKinematic = true;
+
 
         foreach (MonoBehaviour mono in gameObject.GetComponents<MonoBehaviour>())
         {
@@ -149,21 +164,13 @@ public class Health : MonoBehaviour
             mono.enabled = false;
         }
 
-        if (gameObject.TryGetComponent(out Rigidbody rb))
-        {
-            rb.drag = _deathDrag;
-            rb.angularDrag = _deathAngularDrag;
-            rb.constraints = RigidbodyConstraints.None;
-            rb.AddForce(_deathImpulse, ForceMode.VelocityChange);
-            rb.AddTorque(Vector3.up * Random.Range(-_deathRot, _deathRot));
-        }
-
-        StartCoroutine(Respawn());
+        StartCoroutine(Respawn(noAnim));
     }
 
-    private IEnumerator Respawn()
+    private IEnumerator Respawn(bool quickRes)
     {
-        yield return _respawnTimer;
+        if (quickRes) yield return null;
+        else yield return _respawnTimer;
         SaveLoader.Instance?.Load();
     }
 

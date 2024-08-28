@@ -22,7 +22,7 @@ public class DeathTrigger : BoxVisualizer
     {
         if(other.TryGetComponent(out Health player) && _killPlayer)
         {
-            player.Die();
+            player.Die(true);
         }
         else if (other.TryGetComponent(out PhysicsObject physics) && _killObjects)
         {

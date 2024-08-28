@@ -29,7 +29,7 @@ MonoBehaviour:
     BlastForce: 7
     Damage: 10
     Source: 0
-    SourcePos: {x: -30.229715, y: 2.7154717, z: 91.625}
+    SourcePos: {x: -18.132984, y: 15.650055, z: 229.43503}
     ExplosionRules: {fileID: 11400000, guid: 308b691c5fa88a64eb9992c41bd7b454, type: 2}
     ExplosionSound:
       SfxClip:

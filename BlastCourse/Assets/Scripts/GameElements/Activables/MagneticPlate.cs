@@ -17,8 +17,12 @@ public class MagneticPlate : ActivableBase
     [SerializeField] public MeshTiler _tiler;
     public Transform _magLeft;
     public Transform _magRight;
-    [SerializeField] public Material OnMat;
-    [SerializeField] public Material OffMat;
+    [SerializeField] public Material OnBaseMat;
+    [SerializeField] public Material OffBaseMat;
+    [SerializeField] public MeshRenderer RingsRenderer;
+    [SerializeField] public Vector2 RingsOffset;
+    [SerializeField] public Material OnRingMat;
+    [SerializeField] public Material OffRingMat;
     [SerializeField] public AudioCue OnSfx;
     [SerializeField] public AudioCue OffSfx;
 
@@ -57,6 +61,8 @@ public class MagneticPlate : ActivableBase
 
         _hitBox.size = new Vector3(Size.x - _hitBoxPadding.x, Size.y - _hitBoxPadding.y, _hitBoxPadding.z);
         _hitBox.center = new Vector3(0f, 0f, _hitBoxPadding.z * 0.5f);
+
+        RingsRenderer.transform.localScale = new Vector3(Size.x - RingsOffset.x, Size.y - RingsOffset.y, 1f);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -91,10 +97,10 @@ public class MagneticPlate : ActivableBase
     public void Magnetize(bool set)
     {
         _Trigger.enabled = set;
-
+        RingsRenderer.material = set ? OnRingMat : OffRingMat;
         foreach (MeshRenderer mesh in _meshes)
         {
-            mesh.material = set ? OnMat : OffMat;
+            mesh.material = set ? OnBaseMat : OffBaseMat;
         }
 
         //G_meshRenderer.material = set ? OnMat : OffMat;

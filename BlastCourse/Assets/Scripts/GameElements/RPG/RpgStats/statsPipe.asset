@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: statsPipe
   m_EditorClassIdentifier: 
   <FireMode>k__BackingField: 1
-  Unlocked: 0
+  Unlocked: 1
   <ClipSize>k__BackingField: 5
   <EnergyRecoveryMultiplier>k__BackingField: 1
   <ActiveRocketCap>k__BackingField: 5
@@ -29,7 +29,7 @@ MonoBehaviour:
     BlastForce: 8.5
     Damage: 10
     Source: 0
-    SourcePos: {x: -4.997232, y: 1.9356146, z: 1.401987}
+    SourcePos: {x: 27.292309, y: 53.4, z: 252.12805}
     ExplosionRules: {fileID: 11400000, guid: 308b691c5fa88a64eb9992c41bd7b454, type: 2}
     ExplosionSound:
       SfxClip:

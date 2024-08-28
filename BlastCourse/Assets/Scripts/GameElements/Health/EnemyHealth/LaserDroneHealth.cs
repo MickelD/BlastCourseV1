@@ -19,7 +19,7 @@ public class LaserDroneHealth : Health
         AudioManager.TryPlayCueAtPoint(takeDamageSound, transform.position);
     }
 
-    public override void Die()
+    public override void Die(bool n)
     {
         _explosion.Explode(transform.position, transform.up);
         AudioManager.TryPlayCueAtPoint(laserDeathSound, transform.position);

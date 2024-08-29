@@ -17,7 +17,6 @@ public class UraniumConsumer : ActivableBase
 
     [Space(5), Header("Audio"), Space(3)]
     public AudioCue _consumeSfx;
-    public Animation _anim;
 
     
     bool _fed = false;
@@ -55,7 +54,7 @@ public class UraniumConsumer : ActivableBase
     public void MarkAsFed()
     {
         _fed = true;
-        _FinalFan.FeedFan();
+        _FinalFan.FeedFan(true);
         if (gameObject.activeInHierarchy) _Animator.Play("anFeeder", 0, 1f);
     }
 

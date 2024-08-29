@@ -10,6 +10,7 @@ public class CameraMovementEffects : MonoBehaviour
     [SerializeField] private Rigidbody g_playerRB;
     [SerializeField] private CinemachineVirtualCamera _camera;
     [SerializeField] private CinemachineCameraOffset _camOffset;
+    [HideInInspector] public CinemachineBasicMultiChannelPerlin _noise;
 
     [Space(5), Header("FOV change on speed"), Space(3)]
     [SerializeField] private bool _changeFovWithSpeed;
@@ -34,6 +35,8 @@ public class CameraMovementEffects : MonoBehaviour
         {
             EventManager.OnPlayerLanded += CameraLandingAnimation;
         }
+
+        if (_noise == null) _noise = _camera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
 
     private void OnDisable()

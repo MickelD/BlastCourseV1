@@ -79,11 +79,11 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
     [Space(5), Header("Sounds"), Space(3)]
     [SerializeField] AudioCue landingSound;
     private AudioSource _landingSource;
-    [SerializeField] AudioCue walkSound;
+    [SerializeField] AudioCue _stepsSfx;
     [SerializeField] AudioCue jumpSound;
     private AudioSource _jumpSource;
-    [SerializeField] private float timeBetweenSteps;
-    private float _stepsTimer;
+    [SerializeField] float _timeBetweenSteps;
+    private WaitForSeconds _stepsTimer;
 
     #endregion
 
@@ -147,6 +147,9 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
         c_rb.freezeRotation = true;
         _ladderCooldown = new WaitForSeconds(0.2f);
         _coyoteCooldown = new WaitForSeconds(_coyoteTime);
+        _stepsTimer = new WaitForSeconds(_timeBetweenSteps);
+
+        StartCoroutine(StepsCoroutine());
 
         yield return null;
 
@@ -172,8 +175,6 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
         ReadMovementInput();
         JumpInput();
         SlideInput();
-
-        _stepsTimer += Time.deltaTime;
 
         if (Input.GetKeyDown(KeyCode.V)) _isNoclip = !_isNoclip;
         c_gravity.enabled = !_isNoclip;
@@ -308,12 +309,6 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
 
         if (_movementDirection != Vector3.zero)
         {
-            if (_isGrounded && _stepsTimer > timeBetweenSteps && !AudioManager.Instance.AudioPlaying(_jumpSource) && !AudioManager.Instance.AudioPlaying(_landingSource))
-            {
-                AudioManager.TryPlayCueAtPoint(walkSound, transform.position);
-                _stepsTimer = 0;
-            }
-
             
             //Detect Surface We are moving towards
             if (Physics.Raycast(transform.position + transform.up * _stepHeight * 0.5f, _movementDirection, out RaycastHit hitWall, _playerRadius + _surfaceCheckDistance, _wallLayerMask))
@@ -612,6 +607,16 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
         _canGetOnLadders = false;
         yield return _ladderCooldown;
         _canGetOnLadders = true;
+    }
+
+    private IEnumerator StepsCoroutine()
+    {
+        while (gameObject.activeInHierarchy) 
+        { 
+            yield return _stepsTimer;
+            if (_isGrounded && (Mathf.Abs(c_rb.velocity.x) + Mathf.Abs(c_rb.velocity.z)) >= 5f) AudioManager.TryPlayCueAtPoint(_stepsSfx, transform.position);
+        }
+
     }
 
     #endregion

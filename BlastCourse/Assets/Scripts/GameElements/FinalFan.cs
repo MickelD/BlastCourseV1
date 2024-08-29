@@ -5,6 +5,7 @@ using UnityEngine.Events;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
+using Cinemachine;
 
 public class FinalFan : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class FinalFan : MonoBehaviour
     [SerializeField] UnityEvent _OnSecondCharge;
     [SerializeField] UnityEvent _OnThirdCharge;
     [SerializeField] UnityEvent _OnFourCharge;
+    [SerializeField] CinemachineImpulseSource _camShake;
+    [SerializeField] Vector4 _shakeForces;
     private int _charges;
     private float _power;
 
@@ -39,7 +42,7 @@ public class FinalFan : MonoBehaviour
         _animator.SetFloat("Charge", _charges / 4f);
     }
 
-    public void FeedFan()
+    public void FeedFan(bool _alreadyFed = false)
     {
         _charges++;
         _animator.SetFloat("Charge", _charges / 4f);
@@ -49,15 +52,19 @@ public class FinalFan : MonoBehaviour
         {
             case 1:
                 _OnFirstCharge.Invoke();
+                if (!_alreadyFed) _camShake.GenerateImpulse(_shakeForces.x * (OptionsLoader.Instance ? OptionsLoader.Instance.CameraShake : 1f));
                 break;
             case 2:
                 _OnSecondCharge.Invoke();
+                if (!_alreadyFed) _camShake.GenerateImpulse(_shakeForces.y * (OptionsLoader.Instance ? OptionsLoader.Instance.CameraShake : 1f));
                 break;
             case 3:
                 _OnThirdCharge.Invoke();
+                if (!_alreadyFed) _camShake.GenerateImpulse(_shakeForces.z * (OptionsLoader.Instance ? OptionsLoader.Instance.CameraShake : 1f));
                 break;
             case 4:
                 _OnFourCharge.Invoke();
+                if (!_alreadyFed) _camShake.GenerateImpulse(_shakeForces.w * (OptionsLoader.Instance ? OptionsLoader.Instance.CameraShake : 1f));
                 break;
             default:
                 break;

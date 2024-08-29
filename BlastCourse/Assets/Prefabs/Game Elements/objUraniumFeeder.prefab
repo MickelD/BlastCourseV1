@@ -121,7 +121,7 @@ MonoBehaviour:
   _consumeSfx:
     SfxClip:
     - {fileID: 8300000, guid: bfc37348703e15741a7351bdc9dda941, type: 3}
-    Volume: 0.1
+    Volume: 1
     Pitch: 1
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,

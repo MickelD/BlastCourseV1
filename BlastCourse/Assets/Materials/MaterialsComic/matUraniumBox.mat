@@ -204,7 +204,7 @@ Material:
     - _Stripes_Offset: 0
     - _Stripes_Opacity: 0.5
     - _Stripes_Rotation: 90
-    - _Stripes_Tiling: 30
+    - _Stripes_Tiling: 0.2
     - _Stripes_Width: 0.5
     - _SubsurfaceIndirect: 0.25
     - _SubsurfaceKwToggle: 0

@@ -34,6 +34,11 @@ public class UraniumBox : PhysicsObject
 
     public void Consume(Transform feeder)
     {
+        foreach (RocketRemoteExplosion rem in transform.GetComponentsInChildren<RocketRemoteExplosion>())
+        {
+            Destroy(rem.gameObject);
+        }
+
         if (_Grabbed && _CurrentInteractor != null) 
         {
             _CurrentInteractor.CancelCurrentInteraction();

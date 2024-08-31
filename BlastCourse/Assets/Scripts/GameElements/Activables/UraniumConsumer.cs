@@ -14,6 +14,7 @@ public class UraniumConsumer : ActivableBase
     public FinalFan _FinalFan;
     public Transform _BoxPos;
     public Animator _Animator;
+    public Transform _SpawnPos;
 
     [Space(5), Header("Audio"), Space(3)]
     public AudioCue _consumeSfx;
@@ -46,6 +47,7 @@ public class UraniumConsumer : ActivableBase
             AudioManager.TryPlayCueAtPoint(_consumeSfx, transform.position);
             box.Consume(_BoxPos);
             _Animator.speed = 1f;
+            SaveLoader.Instance.SetSpawn(_SpawnPos.transform.position);
             _FinalFan.FeedFan();
             SendAllActivations(true);
         }

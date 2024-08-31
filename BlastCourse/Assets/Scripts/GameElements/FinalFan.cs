@@ -11,9 +11,9 @@ public class FinalFan : MonoBehaviour
 {
     [SerializeField] Animator _animator;
     [SerializeField] MeshRenderer _meshRenderer;
-    [SerializeField] float _startPow;
     [SerializeField] Material _offMat;
     [SerializeField] Material _onMat;
+    [SerializeField] UnityEvent _onZeroCharges;
     [SerializeField] UnityEvent _OnFirstCharge;
     [SerializeField] UnityEvent _OnSecondCharge;
     [SerializeField] UnityEvent _OnThirdCharge;
@@ -30,9 +30,10 @@ public class FinalFan : MonoBehaviour
 
     private void Start()
     {
-        _power = _startPow;
         for (int i = 1; i < _meshRenderer.materials.Length; i++)
             _meshRenderer.materials[i].CopyPropertiesFromMaterial(_offMat);
+
+        _onZeroCharges.Invoke();
     }
 
     public void SetPowerTo(float p) => _power = p;

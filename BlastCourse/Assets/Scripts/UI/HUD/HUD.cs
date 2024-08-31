@@ -137,9 +137,14 @@ public class HUD : MonoBehaviour
         }
         if (OptionsLoader.TryGetKeyUp(InputActions.Weapon_Wheel, _weaponWheelValues._weaponSelectButtonName))
         {
-            _weaponWheelValues._onCloseWeaponWheel?.Invoke();
-            EventManager.OnCloseWeaponWheel?.Invoke();
+            CloseWW();
         }
+    }
+
+    public void CloseWW()
+    {
+        _weaponWheelValues._onCloseWeaponWheel?.Invoke();
+        EventManager.OnCloseWeaponWheel?.Invoke();
     }
 
     #endregion

@@ -43,5 +43,5 @@ Material:
     - _ZTest: 5
     m_Colors:
     - _AlphaRemap: {r: 1, g: 0, b: 0, a: 0}
-    - _Color: {r: 0.066037714, g: 0.04385901, b: 0.04385901, a: 0.88235295}
+    - _Color: {r: 1, g: 1, b: 1, a: 0.88235295}
   m_BuildTextureStacks: []

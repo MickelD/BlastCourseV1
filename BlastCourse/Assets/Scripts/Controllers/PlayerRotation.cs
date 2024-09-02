@@ -15,6 +15,7 @@ public class PlayerRotation : MonoBehaviour
 
     float _xRot;
     float _yRot;
+    int _mult = 1;
 
     private bool _enableRot;
 
@@ -42,9 +43,9 @@ public class PlayerRotation : MonoBehaviour
         float mouseX = Input.GetAxisRaw("Mouse X") * _horSensitivity * Time.deltaTime * configSens * _enableRot.GetHashCode();
         float mouseY = Input.GetAxisRaw("Mouse Y") * _verVensitivity * Time.deltaTime * configSens * _enableRot.GetHashCode();
 
-        _yRot = Mathf.Repeat(mouseX, 360f);
+        _yRot = Mathf.Repeat(mouseX, 360f) * _mult;
 
-        _xRot = Mathf.Clamp(_xRot + mouseY, -90f, 90f);
+        _xRot = Mathf.Clamp(_xRot + mouseY, -90f, 90f) * _mult;
     }
 
     private void ApplyRotation()
@@ -53,8 +54,20 @@ public class PlayerRotation : MonoBehaviour
         _targetCamera.eulerAngles = (Vector3.right * -_xRot) + (Vector3.up * _playerOrientation.localEulerAngles.y);
     }
 
+    public void ResetRot(float x, float y)
+    {
+        _yRot = _xRot = 0f;
+        _playerOrientation.localEulerAngles = new Vector3(0f, x, 0f);
+        _targetCamera.eulerAngles = new Vector3(y, 0f, 0f);
+    }
+
     public float GetxRot()
     {
         return _xRot;
+    }
+
+    public void LockRot(bool lck)
+    {
+        _mult = lck ? 0 : 1;
     }
 }

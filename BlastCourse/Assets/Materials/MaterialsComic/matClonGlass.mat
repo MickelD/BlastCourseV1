@@ -178,7 +178,7 @@ Material:
     - _Normals_Sensitivity: 10
     - _OcclusionStrength: 1
     - _OldHueVarBehavior: 0
-    - _Opacity: 0.231
+    - _Opacity: 0.214
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
@@ -217,7 +217,7 @@ Material:
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
     - _Stripes_Offset: 0
-    - _Stripes_Opacity: 1
+    - _Stripes_Opacity: 0.464
     - _Stripes_Rotation: 90
     - _Stripes_Tiling: 30
     - _Stripes_Width: 0.5

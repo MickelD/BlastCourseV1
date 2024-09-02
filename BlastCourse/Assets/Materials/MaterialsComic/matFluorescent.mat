@@ -114,7 +114,7 @@ Material:
     - _Interior_Outline_Thickness: 2
     - _K_Rotation: 0
     - _Light_Color: 0
-    - _Lighting_Cutoff: 0.5
+    - _Lighting_Cutoff: -1
     - _M_Rotation: 0
     - _Metallic: 0
     - _Normals_Sensitivity: 1

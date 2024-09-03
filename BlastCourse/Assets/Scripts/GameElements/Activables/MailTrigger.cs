@@ -14,6 +14,8 @@ public class MailTrigger : ActivableBase
     [SerializeField] public Transform _shaderPlane;
     [SerializeField] public float _maxShaderSize;
     [SerializeField] public AudioCue _interactSfx;
+    [SerializeField] public GameObject boxModel;
+    [SerializeField] public GameObject shader;
 
     #endregion
 
@@ -50,6 +52,8 @@ public class MailTrigger : ActivableBase
         if (!_used && other.GetComponent<PlayerMovement>())
         {
             SendAllActivations(true);
+            boxModel.SetActive(true);
+            RPGAnimator.Instance.TakeBox();
         }
     }
 
@@ -63,7 +67,7 @@ public class MailTrigger : ActivableBase
         _used = isActive;
         base.SendAllActivations(isActive);
 
-        gameObject.SetActive(false);
+        shader.SetActive(false);
     }
 
     #endregion

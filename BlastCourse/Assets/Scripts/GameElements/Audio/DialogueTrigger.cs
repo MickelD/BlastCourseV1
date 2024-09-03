@@ -31,8 +31,10 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Hey");
         if (other.GetComponent<PlayerMovement>())
         {
+            Debug.Log("2");
             triggerCount++;
 
             foreach(AudioCueLogic a in AudioCues)

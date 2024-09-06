@@ -32,6 +32,8 @@ public class HUD : MonoBehaviour
 
     [Space(5), Header("SpeedMeter"), Space(2)]
     [SerializeField] SpeedMeterValues _speedMeterValues;
+    [SerializeField] ParticleSystem _speedParticles;
+    [SerializeField] ParticleSystem _speedBackParticles;
     [Serializable] public class SpeedMeterValues
     {
         public SpeedMeterType _speedMeterType;
@@ -96,6 +98,8 @@ public class HUD : MonoBehaviour
         EventManager.OnSaveGame += NotifySave;
         EventManager.OnUpdateHealth += UpdateTint;
         EventManager.OnPlayerDeath += PlayerFuckingDies;
+        EventManager.OnUpdatePlayerLocalVelocity += UpdateSpeedParticles;
+        Debug.Log("SubscribedHUD");
     }
 
     private void OnDisable()
@@ -106,6 +110,7 @@ public class HUD : MonoBehaviour
         EventManager.OnSaveGame -= NotifySave;
         EventManager.OnUpdateHealth -= UpdateTint;
         EventManager.OnPlayerDeath -= PlayerFuckingDies;
+        EventManager.OnUpdatePlayerLocalVelocity -= UpdateSpeedParticles;
         UnsusbsribeAllSpeedMeterUpdates();
     }
 
@@ -253,6 +258,28 @@ public class HUD : MonoBehaviour
                 _speedMeterValues._complexSpeedMeterValues.g_complexSpeedMeter.SetActive(false);
 
                 break;
+        }
+    }
+
+    private void UpdateSpeedParticles(Vector3 speed)
+    {
+        ParticleSystem.EmissionModule m1 = _speedParticles.emission;
+        ParticleSystem.EmissionModule m2 = _speedBackParticles.emission;
+        
+        if(speed.y > 9)
+        {
+            m1.rateOverTime = 125 * Mathf.Abs(speed.y) / 9;
+            m2.rateOverTime = 0;
+        }
+        else if(speed.y < -9)
+        {
+            m1.rateOverTime = 0;
+            m2.rateOverTime = 125 * Mathf.Abs(speed.y) / 9;
+        }
+        else
+        {
+            m1.rateOverTime = 0;
+            m2.rateOverTime = 0;
         }
     }
 

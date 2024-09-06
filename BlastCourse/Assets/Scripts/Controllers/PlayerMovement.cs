@@ -702,6 +702,8 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
             EventManager.OnUpdatePlayerSpeedY?.Invoke(_playerVerticalVelocity);
             EventManager.OnUpdatePlayerVelocity?.Invoke(c_rb.velocity);
 
+            EventManager.OnUpdatePlayerLocalVelocity?.Invoke(Vector3.Cross(c_rb.velocity,g_orientation.transform.right));
+
             yield return _speedNotifyDelay;
         }
     }

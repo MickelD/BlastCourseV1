@@ -10,6 +10,7 @@ public class RPGAnimator : MonoBehaviour
     #region Fields
 
     public Animator AnimController;
+    [SerializeField] ParticleSystem _plop;
 
     public SkinnedMeshRenderer RpgMesh;
 
@@ -74,6 +75,7 @@ public class RPGAnimator : MonoBehaviour
     #endregion
 
     #region Methods
+    
 
     //RPG Animations
     public void SetHidden(bool isHidden)
@@ -85,6 +87,7 @@ public class RPGAnimator : MonoBehaviour
     public void Shoot()
     {
         AnimController.SetTrigger("Shoot");
+        _plop.Play();
     }
     public void SetRocket(FiringMode firingMode)
     {

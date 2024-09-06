@@ -14,6 +14,7 @@ public static class EventManager
     public static Action<float> OnUpdatePlayerSpeedY;
     public static Action<float> OnUpdatePlayerSpeedX;
     public static Action<Vector3> OnUpdatePlayerVelocity;
+    public static Action<Vector3> OnUpdatePlayerLocalVelocity;
     public static Action<float> OnPlayerLanded;
 
     //game events

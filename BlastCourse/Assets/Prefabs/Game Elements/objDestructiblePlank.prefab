@@ -60,8 +60,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExplosionCount: 1
-  InstantiatedParticles: {fileID: 0}
-  ParticlesLifeTime: 0
+  InstantiatedParticles: {fileID: 8167398156161193160, guid: b1b113817a3b8624db8469721ff59d3a,
+    type: 3}
+  ParticlesLifeTime: 1
   UseAnimator: 0
   AnimatorParameters:
     DestructionAnimator: {fileID: 0}

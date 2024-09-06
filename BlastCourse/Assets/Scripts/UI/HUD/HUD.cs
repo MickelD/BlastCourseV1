@@ -99,7 +99,6 @@ public class HUD : MonoBehaviour
         EventManager.OnUpdateHealth += UpdateTint;
         EventManager.OnPlayerDeath += PlayerFuckingDies;
         EventManager.OnUpdatePlayerLocalVelocity += UpdateSpeedParticles;
-        Debug.Log("SubscribedHUD");
     }
 
     private void OnDisable()

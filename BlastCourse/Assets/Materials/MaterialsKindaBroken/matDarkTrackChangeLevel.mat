@@ -198,7 +198,7 @@ Material:
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _CoatMask: 0
-    - _Contrast: 2.32
+    - _Contrast: 3
     - _Cull: 2
     - _CullMode: 2
     - _CullModeForward: 2
@@ -218,7 +218,7 @@ Material:
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 1
     - _DstBlend: 0
-    - _Edge: 0.28
+    - _Edge: 0.4
     - _EmissiveColorMode: 1
     - _EmissiveExposureWeight: 1
     - _EmissiveIntensity: 1

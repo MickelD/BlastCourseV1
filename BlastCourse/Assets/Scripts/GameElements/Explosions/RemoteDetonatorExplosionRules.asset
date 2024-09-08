@@ -23,7 +23,7 @@ MonoBehaviour:
     m_Bits: 4297
   <DeffuserMaterials>k__BackingField:
   - {fileID: 2100000, guid: 135e6d17f4ec7ee40ab1a07aef12bfe5, type: 2}
-  - {fileID: 2100000, guid: 2dbb7cf2424acb641a3b57706d96cbe0, type: 2}
-  - {fileID: 2100000, guid: 5675140b7e65a934f96d2e5e76c91909, type: 2}
   - {fileID: 2100000, guid: 158d89162c0a73741b771f63d3251794, type: 2}
   - {fileID: 2100000, guid: 18856b7465f310e4280a89413ae909e2, type: 2}
+  - {fileID: 2100000, guid: 49923e291190a904b8ea61eade3bd98c, type: 2}
+  - {fileID: 2100000, guid: 3fad832b5b3a4cb48999c68cf6238d3c, type: 2}

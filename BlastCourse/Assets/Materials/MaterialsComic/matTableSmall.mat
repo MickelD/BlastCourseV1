@@ -147,9 +147,9 @@ Material:
     - _Specular_Softness: 0
     - _SrcBlend: 1
     - _Stripes_Offset: 0
-    - _Stripes_Opacity: 0.75
+    - _Stripes_Opacity: 0.5
     - _Stripes_Rotation: 45
-    - _Stripes_Tiling: 0.5
+    - _Stripes_Tiling: 0.2
     - _Stripes_Width: 0.554
     - _Surface: 0
     - _Use_Diffuse_Texture: 1

@@ -89,7 +89,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _Blend: 0
-    - _Brightness: 1
+    - _Brightness: 0.5
     - _BumpScale: 1
     - _C_Rotation: 0
     - _ClearCoatMask: 0
@@ -97,7 +97,7 @@ Material:
     - _Comic_Dot_Size: 1.2
     - _Comic_Dots_Scale: 128
     - _Comic_Opacity: 0.005
-    - _Contrast: 1
+    - _Contrast: 0.8
     - _Cull: 2
     - _Cutoff: 0.5
     - _Depth_Sensitivity: 0.05
@@ -136,7 +136,7 @@ Material:
     - _Stripes_Offset: 0
     - _Stripes_Opacity: 0.5
     - _Stripes_Rotation: 0
-    - _Stripes_Tiling: 0.12
+    - _Stripes_Tiling: 0.1
     - _Stripes_Width: 0.5
     - _Surface: 0
     - _Use_Diffuse_Texture: 1

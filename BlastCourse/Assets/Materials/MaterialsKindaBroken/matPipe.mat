@@ -324,9 +324,9 @@ Material:
     - _StencilWriteMaskGBuffer: 14
     - _StencilWriteMaskMV: 40
     - _Stripes_Offset: 0
-    - _Stripes_Opacity: 0.75
+    - _Stripes_Opacity: 0.5
     - _Stripes_Rotation: 180
-    - _Stripes_Tiling: 0.2
+    - _Stripes_Tiling: 0.25
     - _Stripes_Width: 0.607
     - _SubsurfaceMask: 1
     - _SupportDecals: 1

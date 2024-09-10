@@ -164,7 +164,6 @@ public class LaserDrone : MonoBehaviour
             Health hp = hit.transform.GetComponent<Health>();
             if (hp != null)
             {
-                Debug.Log("hit");
                 hp.SufferDamage(_laserDamage, _damageType);
             }
             Rigidbody rb = hit.transform.GetComponent<Rigidbody>();

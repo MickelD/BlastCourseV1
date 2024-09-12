@@ -16,6 +16,7 @@ public class ActivableDIalogue : ActivableBase
     #region AntiSave
 
     bool firstFrame = true;
+    bool hasTriggered = false;
     private IEnumerator DontStart()
     {
         yield return new WaitForFixedUpdate();
@@ -36,7 +37,8 @@ public class ActivableDIalogue : ActivableBase
     [ActivableAction]
     public void Sound(bool shouldTrigger)
     {
-        if (Audio.SfxClip != null && shouldTrigger && !firstFrame) DialogueManager.Instance.TryPlayCueAtPoint(Audio, transform.position);
+        if (Audio.SfxClip != null && shouldTrigger && !firstFrame && !hasTriggered) DialogueManager.Instance.TryPlayCueAtPoint(Audio, transform.position);
+        hasTriggered = shouldTrigger;
     }
 
     #endregion

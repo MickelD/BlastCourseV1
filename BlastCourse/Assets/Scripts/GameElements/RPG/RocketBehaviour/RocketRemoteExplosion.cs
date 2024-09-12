@@ -5,7 +5,9 @@ using UnityEngine;
 public class RocketRemoteExplosion : RocketBase
 {
     [Space(5), Header("Specific Components"), Space(3)]
-    [SerializeField] private Collider c_col;
+    [SerializeField] GameObject _tail;
+    [SerializeField] float _stuckHeight;
+    [SerializeField] ParticleSystem _stuckParticles;
 
     private bool _armed = true;
     private Vector3 _localPos;
@@ -37,14 +39,20 @@ public class RocketRemoteExplosion : RocketBase
 
     private void Stick(Collision col)
     {
-        //c_col.enabled = false;
         gameObject.layer = LayerMask.NameToLayer("StickedRockets");
-        Destroy(c_rocketParticles.gameObject);
+        c_rocketParticles.Stop();
+        _stuckParticles.Emit(1);
         c_rocketParticles.gameObject.transform.parent = null;
 
         Body.isKinematic = true;
-        if(Mathf.Abs(Vector3.Angle(-col.contacts[0].normal, transform.forward)) > 75)transform.forward = -col.contacts[0].normal;
-        transform.position = col.contacts[0].point + col.contacts[0].normal * 0.1f + transform.forward * (Mathf.Abs(Vector3.Angle(-col.contacts[0].normal, transform.forward)/420) + 0.1f);
+
+
+        transform.forward = col.contacts[0].normal;
+        transform.position = col.contacts[0].point + transform.forward * _stuckHeight;
+        _tail.SetActive(false);
+
+        //if(Mathf.Abs(Vector3.Angle(-col.contacts[0].normal, transform.forward)) > 75)transform.forward = -col.contacts[0].normal;
+        //transform.position = col.contacts[0].point + col.contacts[0].normal * 0.1f + transform.forward * (Mathf.Abs(Vector3.Angle(-col.contacts[0].normal, transform.forward)/420) + 0.1f);
 
         transform.parent = col.transform;
         _localPos = transform.localPosition;
@@ -64,6 +72,8 @@ public class RocketRemoteExplosion : RocketBase
 
     protected override void OnDestroy()
     {
+        _stuckParticles.transform.parent = null;
+        Destroy(_stuckParticles.gameObject, 1f);
         base.OnDestroy();
         EventManager.OnFireOrDetonateRemote?.Invoke(false);
     }

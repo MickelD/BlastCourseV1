@@ -74,10 +74,10 @@ public class WeaponHUD : MonoBehaviour
     {
         if (newRemote) //SPAWNED NEW REMOTE ROCKET
         {
-            _remoteCount = Mathf.Clamp(_remoteCount + 1, 0, remoteStats.ActiveRocketCap-1);
+            _remoteCount = Mathf.Clamp(_remoteCount + 1, 0, remoteStats.ActiveRocketCap);
             if (_remoteCount > 0 && _remoteCount <= remoteStats.ActiveRocketCap-1) SetRemoteIcon(gRemoteIcons[_remoteCount - 1], newRemote);
         }
-        else //DETONATED OR DIFFUSED NEW REMOTE ROCKET
+        else //DETONATED OR DEFUSED
         {
             if (_remoteCount > 0 && _remoteCount <= remoteStats.ActiveRocketCap-1) SetRemoteIcon(gRemoteIcons[_remoteCount - 1], newRemote);
             _remoteCount = Mathf.Clamp(_remoteCount - 1, 0, remoteStats.ActiveRocketCap-1);

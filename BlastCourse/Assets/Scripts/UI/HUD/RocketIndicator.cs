@@ -207,10 +207,8 @@ public class RocketIndicator : MonoBehaviour
     {
         foreach (Image sprite in _indicatorComponents.FlashGroup)
         {
-            sprite.color = Color.Lerp(_closestRocket.rpg._stats.AssociatedVisuals.LightColor, _indicatorComponents.FlashColor, Mathf.PingPong(Time.time * _indicatorComponents.DangerCurve.Evaluate(Vector3.Distance(_closestRocket.transform.position, transform.position)), 1));
+            sprite.color = Vector3.Distance(_closestRocket.transform.position, transform.position) <= _closestRocket.rpg._stats.Explosion.BlastRadius ? _indicatorComponents.FlashColor : _closestRocket.rpg._stats.AssociatedVisuals.LightColor;
         }
-
-        //_indicatorComponents.IndicatorArrow.color = Color.Lerp(_closestRocket.rpg._stats.AssociatedVisuals.LightColor, _flashColor, Mathf.PingPong(Time.time * _dangerCurve.Evaluate(Vector3.Distance(_closestRocket.transform.position, transform.position)), 1));
     }
 
     private void FadeInFadeOut(bool fadeIn, Image[] sprites)
@@ -230,7 +228,6 @@ public class RocketIndicator : MonoBehaviour
     {
         [Space(5)]
         [SerializeField] public Color FlashColor;
-        [Tooltip("X is distance and Y is flash frequency"), SerializeField] public AnimationCurve DangerCurve;
 
         [Space(5), Header("Image Groups"), Space(3)]
         [Tooltip("Change this sprite to be the rocket's icon")] public Image Icon;

@@ -51,7 +51,7 @@ public class DialogueStart : MonoBehaviour
     public IEnumerator Play()
     {
         yield return wait;
-        AudioManager.TryPlayCueAtPoint(dialogue, transform.position);
+        DialogueManager.Instance.TryPlayCueAtPoint(dialogue, transform.position);
     }
 
     #endregion

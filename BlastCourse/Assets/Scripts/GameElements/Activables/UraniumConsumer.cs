@@ -33,7 +33,7 @@ public class UraniumConsumer : ActivableBase
     {
         base.Start();
 
-        _Animator.speed = 0f;
+        if(_Animator != null)_Animator.speed = 0f;
     }
 
     #region Collisions && Triggers

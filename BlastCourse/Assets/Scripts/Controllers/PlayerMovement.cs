@@ -121,6 +121,7 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
     private float _playerAbsoluteSpeed;
     private float _playerHorizontalSpeed;
     private float _playerVerticalVelocity;
+    private float _lastRecordedFallSpeed;
 
     //VECTORS
     private Vector2 _inputVec;
@@ -433,7 +434,8 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
                 {
                     _landingSource = AudioManager.TryPlayCueAtPoint(landingSound, transform.position);
                     _statJumpsCount = 0;
-                    EventManager.OnPlayerLanded?.Invoke(c_rb.velocity.y);
+                    EventManager.OnPlayerLanded?.Invoke(_lastRecordedFallSpeed);
+                    _lastRecordedFallSpeed = 0;
                 }
 
                 _isGrounded = true;
@@ -474,6 +476,7 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
         _previousSurfaceAngle = 0f;
         _isGrounded = false;
         c_gravity.EnableGravity = true;
+        if (c_rb.velocity.y != 0)_lastRecordedFallSpeed = c_rb.velocity.y;
         //StartCoroutine(SetCapsuleCollider(false));
     }
 

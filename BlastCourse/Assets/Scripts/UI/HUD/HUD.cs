@@ -32,8 +32,18 @@ public class HUD : MonoBehaviour
 
     [Space(5), Header("SpeedMeter"), Space(2)]
     [SerializeField] SpeedMeterValues _speedMeterValues;
+
+    [Space(5), Header("SpeedParticles"), Space(2)]
     [SerializeField] ParticleSystem _speedParticles;
     [SerializeField] ParticleSystem _speedBackParticles;
+    [SerializeField] float _particleDecayRate;
+    [SerializeField] float _particleMinThreshold;
+    [SerializeField] float _particleMaxThreshold;
+    [SerializeField] int _particleMaxCount;
+    [SerializeField] float _backParticleMinThreshold;
+    [SerializeField] float _backParticleMaxThreshold;
+    [SerializeField] int _backParticleMaxCount;
+    
     [Serializable] public class SpeedMeterValues
     {
         public SpeedMeterType _speedMeterType;
@@ -260,26 +270,36 @@ public class HUD : MonoBehaviour
         }
     }
 
+    float em1 = 0;
+    float em2 = 0;
     private void UpdateSpeedParticles(Vector3 speed)
     {
         ParticleSystem.EmissionModule m1 = _speedParticles.emission;
         ParticleSystem.EmissionModule m2 = _speedBackParticles.emission;
         
-        if(speed.y > 9)
+        
+        if(speed.y > _particleMinThreshold)
         {
-            m1.rateOverTime = 125 * Mathf.Abs(speed.y) / 9;
-            m2.rateOverTime = 0;
+            Debug.Log("Forward" + speed.y);
+            em1 = Mathf.Clamp01((Mathf.Abs(speed.y) - _particleMinThreshold) / (_particleMaxThreshold - _particleMinThreshold)) * _particleMaxCount;
+            em2 = 0;
         }
-        else if(speed.y < -9)
+        else if(speed.y < -_backParticleMinThreshold)
         {
-            m1.rateOverTime = 0;
-            m2.rateOverTime = 125 * Mathf.Abs(speed.y) / 9;
+            Debug.Log("Back");
+            em1 = 0;
+            em2 = Mathf.Clamp01((Mathf.Abs(speed.y) - _backParticleMinThreshold) / (_backParticleMaxThreshold - _backParticleMinThreshold)) * _backParticleMaxCount;
         }
         else
         {
-            m1.rateOverTime = 0;
-            m2.rateOverTime = 0;
+            em1 = Mathf.Lerp(em1, 0,Time.deltaTime * _particleDecayRate);
+            if (em1 <= 1) em1 = 0;
+            em2 = Mathf.Lerp(em2, 0, Time.deltaTime * _particleDecayRate);
+            if (em2 <= 1) em2 = 0;
         }
+
+        m1.rateOverTime = em1;
+        m2.rateOverTime = em2;
     }
 
     private void UnsusbsribeAllSpeedMeterUpdates()

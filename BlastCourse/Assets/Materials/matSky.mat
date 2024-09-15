@@ -7,22 +7,22 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: matDiscWeaponRemote
+  m_Name: matSky
   m_Shader: {fileID: -6465566751694194690, guid: e27dde0ebb133d942a7d22a80ef62781,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2050
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 3b58d3e9998ce29419ed5660aca6855b, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -42,7 +42,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Diffuse_Texture:
-        m_Texture: {fileID: 2800000, guid: 0801c6ddc7eaad343aeb4dd30b00bbdf, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -54,7 +54,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 3b58d3e9998ce29419ed5660aca6855b, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -89,21 +89,21 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _Blend: 0
-    - _Brightness: 1
+    - _Brightness: 0.5
     - _BumpScale: 1
     - _C_Rotation: 0
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _Comic_Dot_Size: 1.2
-    - _Comic_Dots_Scale: 128
-    - _Comic_Opacity: 0.005
-    - _Contrast: 1
+    - _Comic_Dot_Size: 0.43
+    - _Comic_Dots_Scale: 10.67
+    - _Comic_Opacity: 0.1
+    - _Contrast: 0.3
     - _Cull: 2
     - _Cutoff: 0.5
-    - _Depth_Sensitivity: 0.05
+    - _Depth_Sensitivity: 0.1
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _Distance_Fade_Threshold: 250
+    - _Distance_Fade_Threshold: 500
     - _DstBlend: 0
     - _Emission_Intensity: 1
     - _EnvironmentReflections: 1
@@ -114,32 +114,32 @@ Material:
     - _Interior_Outline_Thickness: 2
     - _K_Rotation: 0
     - _Light_Color: 0
-    - _Lighting_Cutoff: 0.5
+    - _Lighting_Cutoff: 0
     - _M_Rotation: 0
     - _Metallic: 0
-    - _Normals_Sensitivity: 1
+    - _Normals_Sensitivity: 0.5
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
-    - _QueueOffset: 50
+    - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Shadow_Shape_Opacity: 0.5
-    - _Smoothness: 0
+    - _Shadow_Shape_Opacity: 0
+    - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _Specular_Dot_Rotation: 0
-    - _Specular_Dots_Tiling: 680
+    - _Specular_Dots_Tiling: 850
     - _Specular_Opacity: 0.5
-    - _Specular_Size: -1200
+    - _Specular_Size: -100
     - _Specular_Softness: 0
     - _SrcBlend: 1
-    - _Stripes_Offset: 0
-    - _Stripes_Opacity: 0.75
-    - _Stripes_Rotation: 0
-    - _Stripes_Tiling: 1
-    - _Stripes_Width: 0.5
+    - _Stripes_Offset: 0.8
+    - _Stripes_Opacity: 0.5
+    - _Stripes_Rotation: 90
+    - _Stripes_Tiling: 20
+    - _Stripes_Width: 0
     - _Surface: 0
-    - _Use_Diffuse_Texture: 1
+    - _Use_Diffuse_Texture: 0
     - _Use_Emissive: 0
     - _WorkflowMode: 1
     - _Y_Rotation: 0
@@ -147,17 +147,17 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Diffuse_Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Emission_Color: {r: 1, g: 1, b: 1, a: 0}
+    - _Diffuse_Color: {r: 0.100000024, g: 0.69999987, b: 1, a: 1}
+    - _EmissionColor: {r: 0.08018869, g: 0.6609322, b: 1, a: 0}
+    - _Emission_Color: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 0}
     - _Offset: {r: 0, g: 0, b: 0, a: 0}
     - _Outline_Color: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Specular_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Specular_Color: {r: 1, g: 1, b: 1, a: 0}
     - _Stripes_Color: {r: 0, g: 0, b: 0, a: 0}
     - _Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &5032103624700786830
+--- !u!114 &1472260480423286818
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

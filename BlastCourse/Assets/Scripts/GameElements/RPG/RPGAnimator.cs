@@ -87,7 +87,7 @@ public class RPGAnimator : MonoBehaviour
     public void Shoot()
     {
         AnimController.SetTrigger("Shoot");
-        if(_plop) _plop.Play();
+        _plop.Emit(1);
     }
     public void SetRocket(FiringMode firingMode)
     {

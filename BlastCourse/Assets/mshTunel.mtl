@@ -1,0 +1,8 @@
+newmtl matGirder
+Kd 1.0 1.0 1.0
+d 1.0
+
+newmtl matLabMultiusosClaro
+Kd 1.0 1.0 1.0
+d 1.0
+

@@ -46,7 +46,6 @@ public class LandParticles : MonoBehaviour
 
     public void FallParticle(float fallSpeed)
     {
-        Debug.Log(fallSpeed);
 
         if (-fallSpeed >= _minFallSpeedThreshold)
         {

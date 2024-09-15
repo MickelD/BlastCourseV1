@@ -280,13 +280,11 @@ public class HUD : MonoBehaviour
         
         if(speed.y > _particleMinThreshold)
         {
-            Debug.Log("Forward" + speed.y);
             em1 = Mathf.Clamp01((Mathf.Abs(speed.y) - _particleMinThreshold) / (_particleMaxThreshold - _particleMinThreshold)) * _particleMaxCount;
             em2 = 0;
         }
         else if(speed.y < -_backParticleMinThreshold)
         {
-            Debug.Log("Back");
             em1 = 0;
             em2 = Mathf.Clamp01((Mathf.Abs(speed.y) - _backParticleMinThreshold) / (_backParticleMaxThreshold - _backParticleMinThreshold)) * _backParticleMaxCount;
         }

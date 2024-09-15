@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: matDiscWeaponPipe
+  m_Name: matPostOffice
   m_Shader: {fileID: -6465566751694194690, guid: e27dde0ebb133d942a7d22a80ef62781,
     type: 3}
   m_ValidKeywords: []
@@ -15,14 +15,14 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2050
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 3b58d3e9998ce29419ed5660aca6855b, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -42,7 +42,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Diffuse_Texture:
-        m_Texture: {fileID: 2800000, guid: 70f3e20cfc51548419939977a626e34f, type: 3}
+        m_Texture: {fileID: 2800000, guid: e28c73b9c6c44c549a71878ee1045793, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -54,7 +54,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 3b58d3e9998ce29419ed5660aca6855b, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -94,8 +94,8 @@ Material:
     - _C_Rotation: 0
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _Comic_Dot_Size: 1.2
-    - _Comic_Dots_Scale: 128
+    - _Comic_Dot_Size: 0.31
+    - _Comic_Dots_Scale: 126.62
     - _Comic_Opacity: 0.005
     - _Contrast: 1
     - _Cull: 2
@@ -105,7 +105,6 @@ Material:
     - _DetailNormalMapScale: 1
     - _Distance_Fade_Threshold: 250
     - _DstBlend: 0
-    - _Emission_Intensity: 1
     - _EnvironmentReflections: 1
     - _Exterior_Outline_Thickness: 2
     - _GlossMapScale: 0
@@ -121,22 +120,22 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
-    - _QueueOffset: 50
+    - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Shadow_Shape_Opacity: 0.3
-    - _Smoothness: 0
+    - _Shadow_Shape_Opacity: 0.5
+    - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _Specular_Dot_Rotation: 0
-    - _Specular_Dots_Tiling: 680
+    - _Specular_Dots_Tiling: 850
     - _Specular_Opacity: 0.5
-    - _Specular_Size: -1200
-    - _Specular_Softness: 0
+    - _Specular_Size: 2
+    - _Specular_Softness: 0.4
     - _SrcBlend: 1
     - _Stripes_Offset: 0
     - _Stripes_Opacity: 0.5
-    - _Stripes_Rotation: 90
-    - _Stripes_Tiling: 30
+    - _Stripes_Rotation: 45
+    - _Stripes_Tiling: 10
     - _Stripes_Width: 0.5
     - _Surface: 0
     - _Use_Diffuse_Texture: 1
@@ -147,17 +146,16 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Diffuse_Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Emission_Color: {r: 1, g: 1, b: 1, a: 0}
+    - _Diffuse_Color: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 0}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Offset: {r: 0, g: 0, b: 0, a: 0}
     - _Outline_Color: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Specular_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Specular_Color: {r: 1, g: 1, b: 1, a: 0}
     - _Stripes_Color: {r: 0, g: 0, b: 0, a: 0}
     - _Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &5032103624700786830
+--- !u!114 &600255656523448225
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

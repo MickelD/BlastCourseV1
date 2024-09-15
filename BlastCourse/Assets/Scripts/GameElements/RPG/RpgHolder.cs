@@ -56,6 +56,7 @@ public class RpgHolder : MonoBehaviour
     [Space(5), Header("Audio"), Space(3)]
     public AudioCue failSound;
     public AudioCue rechargeSound;
+    public ParticleSystem FailVFX;
 
 
     #endregion
@@ -231,6 +232,7 @@ public class RpgHolder : MonoBehaviour
     public void FailShoot()
     {
         AudioManager.TryPlayCueAtPoint(failSound, Vector3.zero);
+        FailVFX.Emit(Random.Range(3, 5));
     }
 
     public void EnergyRecharge()

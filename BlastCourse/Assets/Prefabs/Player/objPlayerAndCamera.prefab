@@ -6902,6 +6902,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5672612738058750139, guid: 149d23b9881ed8a43b5cc596a9b5a8ee,
         type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5672612738058750139, guid: 149d23b9881ed8a43b5cc596a9b5a8ee,
+        type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.b
       value: 0
       objectReference: {fileID: 0}

@@ -22,7 +22,6 @@ public class ActivableDIalogue : ActivableBase
         yield return new WaitForFixedUpdate();
         yield return new WaitForEndOfFrame();
         firstFrame = false;
-        Debug.Log("CanActivate");
     }
     private new void Start() 
     {

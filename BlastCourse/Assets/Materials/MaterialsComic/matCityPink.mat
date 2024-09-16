@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: matBlanco
+  m_Name: matCityPink
   m_Shader: {fileID: -6465566751694194690, guid: e27dde0ebb133d942a7d22a80ef62781,
     type: 3}
   m_ValidKeywords: []
@@ -116,17 +116,17 @@ Material:
     - _Depth_Sensitivity: 0.02
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _Distance_Fade_Threshold: 6
+    - _Distance_Fade_Threshold: 100
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _Exterior_Outline_Thickness: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Interior_Outline_Thickness: 3
+    - _Interior_Outline_Thickness: 1
     - _K_Rotation: 0
     - _Light_Color: 0
-    - _Lighting_Cutoff: 0
+    - _Lighting_Cutoff: 0.25
     - _M_Rotation: 0
     - _Metallic: 0
     - _Normals_Sensitivity: 1
@@ -146,9 +146,9 @@ Material:
     - _Specular_Softness: 0.4
     - _SrcBlend: 1
     - _Stripes_Offset: 0
-    - _Stripes_Opacity: 0.75
-    - _Stripes_Rotation: 1
-    - _Stripes_Tiling: 1
+    - _Stripes_Opacity: 0.25
+    - _Stripes_Rotation: 45
+    - _Stripes_Tiling: 8
     - _Stripes_Width: 0.5
     - _Surface: 0
     - _Use_Diffuse_Texture: 0
@@ -157,9 +157,9 @@ Material:
     - _Y_Rotation: 0
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Diffuse_Color: {r: 1, g: 1, b: 1, a: 0}
+    - _BaseColor: {r: 1, g: 0.6627451, b: 0.6313726, a: 1}
+    - _Color: {r: 1, g: 0.6627451, b: 0.6313726, a: 1}
+    - _Diffuse_Color: {r: 1, g: 0.6627451, b: 0.6320754, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Offset: {r: 0, g: 0, b: 0, a: 0}
     - _Outline_Color: {r: 0, g: 0, b: 0, a: 0}

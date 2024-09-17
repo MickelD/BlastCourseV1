@@ -16,6 +16,7 @@ public class MailTrigger : ActivableBase
     [SerializeField] public AudioCue _interactSfx;
     [SerializeField] public GameObject boxModel;
     [SerializeField] public GameObject shader;
+    [SerializeField] public ParticleSystem _particle;
 
     #endregion
 
@@ -52,6 +53,7 @@ public class MailTrigger : ActivableBase
         if (!_used && other.GetComponent<PlayerMovement>())
         {
             SendAllActivations(true);
+            _particle.Play();
             boxModel.SetActive(true);
             RPGAnimator.Instance.TakeBox();
         }

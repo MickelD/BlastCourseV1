@@ -109,7 +109,8 @@ MonoBehaviour:
     Volume: 0.2
     Pitch: 1
     Loop: 0
-    Group: {fileID: 0}
+    Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
+      type: 2}
     SpatialBlend: 0
   _zapVFX: {fileID: 2163578974269314323, guid: 9c480619e7f5545428c60112526bba4a, type: 3}
 --- !u!135 &4531377264277656796
@@ -177,7 +178,7 @@ LineRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9b88171ce6078ae4c8662b12e85825aa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -208,8 +209,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.0031852722
-        value: 0.051100917
+        time: 0
+        value: 0.14
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -263,6 +264,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4531377264277656795}
     m_Modifications:
+    - target: {fileID: 563047813945637734, guid: d74d562c63998284cae1f32b62873048,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.213
+      objectReference: {fileID: 0}
     - target: {fileID: 8555894431604884345, guid: d74d562c63998284cae1f32b62873048,
         type: 3}
       propertyPath: m_RootOrder

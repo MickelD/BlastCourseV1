@@ -157,7 +157,6 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
         if (SaveLoader.Instance != null && SaveLoader.Instance.SpawnPos?.Length > 0) transform.position = SaveLoader.Instance.GetSpawn();
         else SaveLoader.Instance.SetSpawn(transform.position);
         //SaveLoader.Instance.SetSpawn(transform.position);
-
         //stick To Ground
         if (Physics.Raycast(transform.position + Vector3.up * 0.25f, Vector3.down, out RaycastHit hit, 5f, _groundLayerMask, QueryTriggerInteraction.Ignore))
         {

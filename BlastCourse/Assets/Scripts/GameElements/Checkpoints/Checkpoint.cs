@@ -36,7 +36,7 @@ public class Checkpoint : BoxVisualizer
 
         if (SaveLoader.Instance != null)
         {
-            SaveLoader.Instance.SetSpawn(transform.position);
+            SaveLoader.Instance.SetSpawn(transform.position, transform.localEulerAngles.y);
         }
     }
 }

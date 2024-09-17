@@ -86,10 +86,8 @@ public class DecalAutoTurn : MonoBehaviour
     private void MoveCloud(GameObject go)
     {
         Vector3 k = Random.insideUnitSphere.normalized;
-        Debug.Log(k.magnitude);
         go.transform.position = transform.position + new Vector3(k.x,Mathf.Abs(k.y),k.z).normalized * sphereRadius;
         go.transform.forward = (go.transform.position - transform.position).normalized;
-        Debug.Log((go.transform.position - transform.position).magnitude);
     }
     private void ResizeCloud(GameObject go)
     {

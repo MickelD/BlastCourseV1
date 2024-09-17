@@ -22,9 +22,8 @@ public class PlayerRotation : MonoBehaviour
     private IEnumerator Start()
     {
         _enableRot = false;
-
-        _playerOrientation.rotation = Quaternion.identity;
-        _targetCamera.eulerAngles = Vector3.zero;
+        if (SaveLoader.Instance != null && SaveLoader.Instance.SpawnPos.Length >= 4) ResetRot(SaveLoader.Instance.SpawnPos[3], 0f);
+        else ResetRot(0f, 0f);
 
         yield return new WaitForSecondsRealtime(0.5f);
 

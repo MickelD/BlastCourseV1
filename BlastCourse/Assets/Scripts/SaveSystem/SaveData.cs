@@ -35,10 +35,11 @@ public class SaveData
     public SaveData(int scn, float[] spP, List<string> clAq, List<string> kObj, bool[] rpg, List<string> b, List<float> bx, List<float> by, List<float> bz, List<string> ub)
     {
         _scene = scn;
-        _spawnPosition = new float[3];
+        _spawnPosition = new float[4];
         _spawnPosition[0] = spP[0];
         _spawnPosition[1] = spP[1];
         _spawnPosition[2] = spP[2];
+        _spawnPosition[3] = spP[3];
 
         _collectiblesAquired = new List<string>();
         if(clAq.Count > 0) for (int i = 0; i < clAq.Count; i++) _collectiblesAquired.Add(clAq[i]);

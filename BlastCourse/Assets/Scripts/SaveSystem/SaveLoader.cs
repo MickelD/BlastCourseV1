@@ -12,7 +12,7 @@ public class SaveLoader : MonoBehaviour
     public bool startWithAllUnlocks;
 
     [HideInInspector] public int SceneIndex;
-    [HideInInspector] public float[] SpawnPos;
+    public float[] SpawnPos;
     [HideInInspector] public List<string> CollectiblesFound;
     [HideInInspector] public List<string> KeysReached;
     [HideInInspector] public bool[] UnlockedRpgs;
@@ -43,13 +43,13 @@ public class SaveLoader : MonoBehaviour
 
     #region Methods
 
-    public void SetSpawn(Vector3 spawn)
+    public void SetSpawn(Vector3 spawn, float rot = 0f)
     {
-        SpawnPos = new float[3];
-
+        SpawnPos = new float[4];
         SpawnPos[0] = spawn.x;
         SpawnPos[1] = spawn.y;
         SpawnPos[2] = spawn.z;
+        SpawnPos[3] = rot;
         if (LoadingScreenManager.instance != null) SceneIndex = LoadingScreenManager.instance.currentSceneIndex;
         else SceneIndex = SceneManager.GetActiveScene().buildIndex;
 
@@ -127,7 +127,7 @@ public class SaveLoader : MonoBehaviour
         {
             SceneIndex = data._scene;
 
-            SpawnPos = new float[3];
+            SpawnPos = new float[4];
             if (data._spawnPosition.Length > 0)
                 for (int i = 0; i < data._spawnPosition.Length; i++)
                     SpawnPos[i] = data._spawnPosition[i];

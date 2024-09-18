@@ -128,9 +128,9 @@ Material:
     - _SpecularHighlights: 1
     - _Specular_Dot_Rotation: 0
     - _Specular_Dots_Tiling: 850
-    - _Specular_Opacity: 0.5
-    - _Specular_Size: 2
-    - _Specular_Softness: 0.4
+    - _Specular_Opacity: 0
+    - _Specular_Size: 0.82
+    - _Specular_Softness: 4
     - _SrcBlend: 1
     - _Stripes_Offset: 0
     - _Stripes_Opacity: 0.25

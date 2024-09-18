@@ -26,9 +26,9 @@ Material:
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2100
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -56,25 +56,25 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Corners_Opacity: 1
+    - _Corners_Opacity: 0.5
     - _Dot_Offset: 1.52
     - _Dot_Tiling: 2.5
     - _Dots_Brightness: 0.75
     - _General_Opacity: 1
-    - _Horizontal_Corner_Length: 0.4
+    - _Horizontal_Corner_Length: 1
     - _Lines_Opacity: 0.17
     - _Lines_Pattern_Size: 0.4
     - _Lines_Thickness: 0.03
-    - _Low_Opacity_Limit: 0.1
-    - _Opacity_Pulse_Speed: 6
-    - _Overall_Corner_Width: 0.2
-    - _QueueControl: 0
+    - _Low_Opacity_Limit: 0.75
+    - _Opacity_Pulse_Speed: 5
+    - _Overall_Corner_Width: 0.5
+    - _QueueControl: 1
     - _QueueOffset: 0
-    - _Vertical_Corner_Length: 0.4
+    - _Vertical_Corner_Length: 1
     - _Width: -3.61
-    - _Width_Pulse_Multiplier: 1
-    - _Width_Pulse_Speed: 6
+    - _Width_Pulse_Multiplier: 1.1
+    - _Width_Pulse_Speed: 5
     m_Colors:
-    - _Corners_Color: {r: 1, g: 0, b: 0, a: 1}
-    - _Outlines_Color: {r: 0.5660378, g: 0, b: 0, a: 1}
+    - _Corners_Color: {r: 1, g: 0.73688364, b: 0.3537736, a: 1}
+    - _Outlines_Color: {r: 0.8584906, g: 0.4410026, b: 0.08503916, a: 1}
   m_BuildTextureStacks: []

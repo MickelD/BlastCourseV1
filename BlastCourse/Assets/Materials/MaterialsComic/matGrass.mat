@@ -119,7 +119,7 @@ Material:
     - _Comic_Dot_Size: 1.15
     - _Comic_Dots_Scale: 15
     - _Comic_Opacity: 0.0005
-    - _Contrast: 0.75
+    - _Contrast: 1
     - _Cull: 2
     - _Cutoff: 0.5
     - _Depth_Sensitivity: 0.05

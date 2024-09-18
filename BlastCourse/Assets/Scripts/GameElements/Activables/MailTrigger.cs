@@ -5,57 +5,26 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-public class MailTrigger : ActivableBase
+public class MailTrigger : ActivableBase, IInteractable
 {
     #region Fields
-
-    [SerializeField] public BoxCollider _trigger;
-    [SerializeField] public Vector3 _areaSize = Vector3.one;
-    [SerializeField] public Transform _shaderPlane;
-    [SerializeField] public float _maxShaderSize;
     [SerializeField] public AudioCue _interactSfx;
-    [SerializeField] public GameObject boxModel;
-    [SerializeField] public GameObject shader;
-    [SerializeField] public ParticleSystem _particle;
-
-    #endregion
-
-    #region Vars
-
-    private bool _used = false;
+    [SerializeField] public Animator _animator;
+    [SerializeField] public ParticleSystem _particles; 
+    public bool Locked { get; set; }
 
     #endregion
 
     #region UnityFunctions
 
-    private void OnEnable()
-    {
-        if (_trigger == null)
-        {
-            _trigger = gameObject.AddComponent<BoxCollider>();
-            _trigger.size = _areaSize;
-            _trigger.isTrigger = true;
-        }
-    }
-    private void OnValidate()
-    {
-        if(_trigger != null)_trigger.size = _areaSize;
-        if(_shaderPlane != null)
-        {
-            _shaderPlane.localPosition = -transform.up * ((_areaSize.y) / 2) + transform.up * 0.01f;
-            if(_maxShaderSize <= _areaSize.x && _maxShaderSize <= _areaSize.z) _shaderPlane.localScale = new Vector3(_areaSize.x, _maxShaderSize, _areaSize.z) / 10;
-            else _shaderPlane.localScale = new Vector3(_areaSize.x, _areaSize.x <= _areaSize.z ? _areaSize.x : _areaSize.z, _areaSize.z) / 10;
-        }
-    }
 
-    private void OnTriggerEnter(Collider other)
+    public virtual void SetInteraction(bool set, PlayerInteract interactor)
     {
-        if (!_used && other.GetComponent<PlayerMovement>())
+        if (set)
         {
-            SendAllActivations(true);
-            _particle.Play();
-            boxModel.SetActive(true);
+            if (interactor != null) interactor.CancelCurrentInteraction();
             RPGAnimator.Instance.TakeBox();
+            SendAllActivations(true);
         }
     }
 
@@ -65,24 +34,14 @@ public class MailTrigger : ActivableBase
 
     public override void SendAllActivations(bool isActive)
     {
+        Locked = true;
+        _animator.SetTrigger("Deliver");
+        _particles.Emit(20);
         AudioManager.TryPlayCueAtPoint(_interactSfx, transform.position);
-        _used = isActive;
         base.SendAllActivations(isActive);
-
-        shader.SetActive(false);
     }
 
     #endregion
-
-#if UNITY_EDITOR
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = new Vector4(0, 0, 1, 0.4f);
-        if (_trigger != null) Gizmos.DrawCube(_trigger.center + transform.position, _trigger.size);
-    }
-
-#endif
 }
 
 

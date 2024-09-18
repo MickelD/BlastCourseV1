@@ -117,7 +117,7 @@ Material:
     - _Lighting_Cutoff: 0.5
     - _M_Rotation: 0
     - _Metallic: 0
-    - _Normals_Sensitivity: 10
+    - _Normals_Sensitivity: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0

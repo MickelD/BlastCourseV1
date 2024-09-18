@@ -53,14 +53,14 @@ Material:
     m_Ints: []
     m_Floats:
     - _Dither_Tiling: 1
-    - _Fresnel_Intensity: 15
+    - _Fresnel_Intensity: 50
     - _Line_Rotation: 90
     - _Line_Speed: 0.15
     - _Line_Tiling: 0.4
     - _Line_Width: 0.35
     - _Opacity: 0.2
-    - _Pattern_Speed: 0.2
-    - _Pattern_Tiling: 1.4
+    - _Pattern_Speed: 0.02
+    - _Pattern_Tiling: 1.5
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:

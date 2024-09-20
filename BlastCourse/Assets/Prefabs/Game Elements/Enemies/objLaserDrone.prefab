@@ -5386,6 +5386,7 @@ MonoBehaviour:
     Damage: 10
     Source: 1
     SourcePos: {x: 0, y: 0, z: 0}
+    Parent: {fileID: 0}
     ExplosionRules: {fileID: 11400000, guid: 308b691c5fa88a64eb9992c41bd7b454, type: 2}
     ExplosionSound:
       SfxClip: []
@@ -5536,7 +5537,7 @@ LineRenderer:
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
-    numCapVertices: 0
+    numCapVertices: 8
     alignment: 0
     textureMode: 0
     shadowBias: 0.5

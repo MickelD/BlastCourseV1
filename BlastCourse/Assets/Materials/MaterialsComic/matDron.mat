@@ -114,7 +114,7 @@ Material:
     - _DstBlend: 0
     - _Emission_Intensity: 1
     - _EnvironmentReflections: 1
-    - _Exterior_Outline_Thickness: 2
+    - _Exterior_Outline_Thickness: 5
     - _Exterior_Plane_Outline: 0
     - _Exterior_Plane_Outline_Thickness: 0.025
     - _GlossMapScale: 0
@@ -124,10 +124,10 @@ Material:
     - _Invert_Mask: 0
     - _K_Rotation: 0
     - _Light_Color: 0
-    - _Lighting_Cutoff: 0.5
+    - _Lighting_Cutoff: 0.01
     - _M_Rotation: 0
     - _Metallic: 0
-    - _Normals_Sensitivity: 1
+    - _Normals_Sensitivity: 2
     - _OcclusionStrength: 1
     - _Opacity: 0
     - _Outline_Alpha_Mask: 0

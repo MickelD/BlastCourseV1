@@ -948,7 +948,130 @@ AnimationClip:
     path: objCloudFinal
     classID: 198
     script: {fileID: 0}
-  m_PPtrCurves: []
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 4.9333334
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 4.95
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 5.25
+        value: 0.6
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: EmissionModule.m_Bursts.Array.data[0].probability
+    path: objTunelBroken/mshTunelObj2:shrdA/lightFakeHall/vfxSparksLight
+    classID: 198
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1.25
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 4.9333334
+        value: 0.01
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 4.95
+        value: 0.25
+        inSlope: 3.0315795
+        outSlope: 3.0315795
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 5.25
+        value: 1.5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: EmissionModule.m_Bursts.Array.data[0].repeatInterval
+    path: objTunelBroken/mshTunelObj2:shrdA/lightFakeHall/vfxSparksLight
+    classID: 198
+    script: {fileID: 0}
+  m_PPtrCurves:
+  - curve:
+    - time: 0
+      value: {fileID: 2100000, guid: 5baa0ee96fa63d849a3a51876ba9eced, type: 2}
+    - time: 4.95
+      value: {fileID: 2100000, guid: 978bbcf5050244f1b95128c04103f628, type: 2}
+    attribute: m_Materials.Array.data[0]
+    path: objTunelBroken/mshTunelObj2:shrdA/lightFakeHall
+    classID: 23
+    script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 2100000, guid: 5baa0ee96fa63d849a3a51876ba9eced, type: 2}
+    - time: 4.9166665
+      value: {fileID: 2100000, guid: b75973cd1bc3c474596d1d2e35100515, type: 2}
+    - time: 5.1666665
+      value: {fileID: 2100000, guid: 5baa0ee96fa63d849a3a51876ba9eced, type: 2}
+    - time: 5.3333335
+      value: {fileID: 2100000, guid: b75973cd1bc3c474596d1d2e35100515, type: 2}
+    attribute: m_Materials.Array.data[0]
+    path: objTunelBroken/mshTunelObj2:shrdA/lightFakeManor
+    classID: 23
+    script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 2100000, guid: 5baa0ee96fa63d849a3a51876ba9eced, type: 2}
+    - time: 4.9333334
+      value: {fileID: 2100000, guid: b75973cd1bc3c474596d1d2e35100515, type: 2}
+    attribute: m_Materials.Array.data[0]
+    path: objTunelBroken/mshTunelObj2:shrdD/lightFakeMall
+    classID: 23
+    script: {fileID: 0}
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -1110,7 +1233,50 @@ AnimationClip:
       typeID: 198
       customType: 27
       isPPtrCurve: 0
-    pptrCurveMapping: []
+    - serializedVersion: 2
+      path: 3643377899
+      attribute: 1929272546
+      script: {fileID: 0}
+      typeID: 198
+      customType: 27
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 3643377899
+      attribute: 2330267721
+      script: {fileID: 0}
+      typeID: 198
+      customType: 27
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 4221103754
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 23
+      customType: 21
+      isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 2178286992
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 23
+      customType: 21
+      isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 4290879539
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 23
+      customType: 21
+      isPPtrCurve: 1
+    pptrCurveMapping:
+    - {fileID: 2100000, guid: 5baa0ee96fa63d849a3a51876ba9eced, type: 2}
+    - {fileID: 2100000, guid: 978bbcf5050244f1b95128c04103f628, type: 2}
+    - {fileID: 2100000, guid: 5baa0ee96fa63d849a3a51876ba9eced, type: 2}
+    - {fileID: 2100000, guid: b75973cd1bc3c474596d1d2e35100515, type: 2}
+    - {fileID: 2100000, guid: 5baa0ee96fa63d849a3a51876ba9eced, type: 2}
+    - {fileID: 2100000, guid: b75973cd1bc3c474596d1d2e35100515, type: 2}
+    - {fileID: 2100000, guid: 5baa0ee96fa63d849a3a51876ba9eced, type: 2}
+    - {fileID: 2100000, guid: b75973cd1bc3c474596d1d2e35100515, type: 2}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -4012,6 +4178,98 @@ AnimationClip:
     attribute: localEulerAnglesRaw.z
     path: mshSkyPanel
     classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 4.9333334
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 4.95
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 5.25
+        value: 0.6
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: EmissionModule.m_Bursts.Array.data[0].probability
+    path: objTunelBroken/mshTunelObj2:shrdA/lightFakeHall/vfxSparksLight
+    classID: 198
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1.25
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 4.9333334
+        value: 0.01
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 4.95
+        value: 0.25
+        inSlope: 3.0315795
+        outSlope: 3.0315795
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 5.25
+        value: 1.5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: EmissionModule.m_Bursts.Array.data[0].repeatInterval
+    path: objTunelBroken/mshTunelObj2:shrdA/lightFakeHall/vfxSparksLight
+    classID: 198
     script: {fileID: 0}
   m_EulerEditorCurves:
   - curve:

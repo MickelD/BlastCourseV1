@@ -126,7 +126,8 @@ public class RocketBase : ScaledTimeMonoBehaviour, IBounceable
     {
         if (!_alreadyExplodedOrDiffused)
         {
-            rpg._stats.Explosion.Explode(center, direction, rpg._rpgHolder.g_camera.transform.position);
+            if (this is RocketRemoteExplosion && Body.isKinematic) rpg._stats.Explosion.Explode(center, direction, rpg._rpgHolder.g_camera.transform.position, transform.parent);
+            else rpg._stats.Explosion.Explode(center, direction, rpg._rpgHolder.g_camera.transform.position);
 
             AudioManager.TryPlayCueAtPoint(_explodeSfx, transform.position);
 

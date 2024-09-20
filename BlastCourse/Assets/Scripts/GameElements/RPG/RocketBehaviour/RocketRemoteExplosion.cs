@@ -46,7 +46,6 @@ public class RocketRemoteExplosion : RocketBase
 
         Body.isKinematic = true;
 
-
         transform.forward = col.contacts[0].normal;
         transform.position = col.contacts[0].point + transform.forward * _stuckHeight;
         _tail.SetActive(false);
@@ -64,7 +63,7 @@ public class RocketRemoteExplosion : RocketBase
         {
             if (_armed) 
             {
-                base.Explode(center, direction); 
+                base.Explode(center, direction);
             }
             else Defuse();
         }

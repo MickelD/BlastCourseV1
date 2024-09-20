@@ -371,9 +371,9 @@ public class PhysicsObject : ScaledTimeMonoBehaviour, IBounceable, IExplodable, 
         if (_magnetized || _Grabbed) return;
 
         //we need to check if the explosion originated on the surface of this object
-        Vector3 xzDir = C_collider.bounds.Contains(origin) ? 
-                            ExtendedMathUtility.HorizontalDirection(exp.SourcePos, transform.position).normalized : 
-                            ExtendedMathUtility.HorizontalDirection(origin, transform.position).normalized;
+        Vector3 xzDir = exp.Parent != null && exp.Parent == transform ?
+                        ExtendedMathUtility.HorizontalDirection(exp.SourcePos, transform.position).normalized :
+                        ExtendedMathUtility.HorizontalDirection(origin, transform.position).normalized;
 
         c_rb.velocity *= 0.5f;
 

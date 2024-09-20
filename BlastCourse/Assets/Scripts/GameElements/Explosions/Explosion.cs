@@ -19,8 +19,8 @@ public class Explosion
     [field: SerializeField] public float BlastForce;
     [field: SerializeField] public float Damage;
     [field: SerializeField] public Health.Source Source;
-    public Vector3 SourcePos;
-
+    [HideInInspector] public Vector3 SourcePos;
+    [HideInInspector] public Transform Parent;
     [Space(5), Header("Utility"), Space(3)]
     [field: SerializeField] public ExplosionRules ExplosionRules;
 
@@ -38,8 +38,8 @@ public class Explosion
 
     public void Explode(Vector3 origin, Vector3 normal)
     {
-        SourcePos = origin;
-
+        SourcePos = Vector3.zero;
+        Parent = null;
         GameObject _instantiatedExplosion = Object.Instantiate(g_explosionPrefab, origin + normal * 0.5f, Quaternion.identity, AudioManager.Instance.transform);
         Object.Destroy(_instantiatedExplosion, ExplosionRules.ExplosionLifetime);
         GameObject _instantiatedTextExplosion = Object.Instantiate(g_boomTextPrefab[Random.Range(0, g_boomTextPrefab.Length)], origin + normal, Quaternion.identity, AudioManager.Instance.transform);
@@ -53,10 +53,10 @@ public class Explosion
         RepeatedCollisionChecks(origin, normal);
     }
 
-    public void Explode(Vector3 origin, Vector3 normal, Vector3 sourcePos)
+    public void Explode(Vector3 origin, Vector3 normal, Vector3 sourcePos, Transform parent = null)
     {
         SourcePos = sourcePos;
-
+        Parent = parent;
         GameObject _instantiatedExplosion = Object.Instantiate(g_explosionPrefab, origin + normal*0.5f, Quaternion.identity, AudioManager.Instance.transform);
         Object.Destroy(_instantiatedExplosion, ExplosionRules.ExplosionLifetime);
         GameObject _instantiatedTextExplosion = Object.Instantiate(g_boomTextPrefab[Random.Range(0,g_boomTextPrefab.Length)], origin + normal, Quaternion.identity, AudioManager.Instance.transform);

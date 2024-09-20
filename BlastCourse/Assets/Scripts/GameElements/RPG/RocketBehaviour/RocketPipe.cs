@@ -23,8 +23,8 @@ public class RocketPipe : RocketBase
         if (!_lock) 
         {
             _bounces++; 
-            _lock = true;
-            this.Invoke(() =>  _lock = false, _bounceCooldown);
+            //_lock = true;
+            //this.Invoke(() =>  _lock = false, _bounceCooldown);
         }
 
         if (_bounces >= _grenadeLauncher.BounceCount || collision.transform.GetComponent<DestructibleObject>())

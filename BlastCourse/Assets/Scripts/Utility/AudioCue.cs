@@ -14,4 +14,5 @@ public struct AudioCue
     public bool Loop;
     public AudioMixerGroup Group;
     [Range(0f, 1f)] public float SpatialBlend;
+    public float MaxDistance;
 }

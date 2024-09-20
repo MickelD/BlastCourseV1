@@ -75,6 +75,7 @@ public class AudioManager : MonoBehaviour
         selectedAudioSource.pitch = audioCue.Pitch;
 
         selectedAudioSource.spatialBlend = audioCue.SpatialBlend;
+        selectedAudioSource.maxDistance = audioCue.MaxDistance;
 
         selectedAudioSource.outputAudioMixerGroup = audioCue.Group;
 

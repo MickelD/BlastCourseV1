@@ -17,7 +17,7 @@ public class LevelLoader : MonoBehaviour
     [DrawIf(nameof(Load), LoadStyle.ByIncrement)] public int Increment;
 
     public Vector3 SpawnPosition;
-
+    [SerializeField] float _rot;
     private bool _loadinitiated;
 
     private void OnTriggerEnter(Collider other)
@@ -33,13 +33,13 @@ public class LevelLoader : MonoBehaviour
         {
             case LoadStyle.ByName:
                 int i = SceneManager.GetSceneByName(Name).buildIndex;
-                if (SaveLoader.Instance != null) SaveLoader.Instance.NextScene(SpawnPosition, i);
+                if (SaveLoader.Instance != null) SaveLoader.Instance.NextScene(SpawnPosition, i, _rot);
                 else if (LoadingScreenManager.instance != null) LoadingScreenManager.instance.LoadScene(i);
                 else SceneManager.LoadScene(i);
                 break;
 
             case LoadStyle.ByIndex:
-                if (SaveLoader.Instance != null) SaveLoader.Instance.NextScene(SpawnPosition, Index);
+                if (SaveLoader.Instance != null) SaveLoader.Instance.NextScene(SpawnPosition, Index, _rot);
                 else if (LoadingScreenManager.instance != null) LoadingScreenManager.instance.LoadScene(Index);
                 else SceneManager.LoadScene(Index);
                 break;
@@ -49,7 +49,7 @@ public class LevelLoader : MonoBehaviour
                 int j = 0;
                 if (LoadingScreenManager.instance != null) j = LoadingScreenManager.instance.currentSceneIndex + Increment;
                 else j = SceneManager.GetActiveScene().buildIndex + 1;
-                if (SaveLoader.Instance != null) SaveLoader.Instance.NextScene(SpawnPosition, j);
+                if (SaveLoader.Instance != null) SaveLoader.Instance.NextScene(SpawnPosition, j, _rot);
                 else if (LoadingScreenManager.instance != null) LoadingScreenManager.instance.LoadScene(j);
                 else SceneManager.LoadScene(j);
                 break;

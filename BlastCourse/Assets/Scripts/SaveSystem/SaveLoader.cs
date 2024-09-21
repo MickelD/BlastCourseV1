@@ -100,9 +100,9 @@ public class SaveLoader : MonoBehaviour
 
     public int GetScene() { return SceneIndex; }
 
-    public void NextScene(Vector3 spawnPosition, int sceneIndex)
+    public void NextScene(Vector3 spawnPosition, int sceneIndex, float rot = 0f)
     {
-        SetSpawn(spawnPosition);
+        SetSpawn(spawnPosition, rot);
         SceneIndex = sceneIndex;
         Save();
         Load();

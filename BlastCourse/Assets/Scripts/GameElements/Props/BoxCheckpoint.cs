@@ -10,7 +10,7 @@ public class BoxCheckpoint : BoxVisualizer
     [SerializeField] bool _onlyOnce;
     [SerializeField] bool _alsoSetSpawn;
     [SerializeField, DrawIf(nameof(_alsoSetSpawn), true)] Vector3 _spawn;
-
+    [SerializeField, DrawIf(nameof(_alsoSetSpawn), true)] float _rot;
     [SerializeField] List<string> _ignoreIds = new();
 
     #region UnityFunctions
@@ -22,7 +22,7 @@ public class BoxCheckpoint : BoxVisualizer
             if (_onlyOnce) _ignoreIds.Add(b.id);
 
             if (SaveLoader.Instance.SetBoxPos(b, transform.position) && _alsoSetSpawn) 
-                SaveLoader.Instance.SetSpawn(_spawn);
+                SaveLoader.Instance.SetSpawn(_spawn, _rot);
         }
     }
 

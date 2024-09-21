@@ -171,7 +171,7 @@ public class HUD : MonoBehaviour
         if(rpgData != null)
         {
             _currentRpg = rpgData;
-            _energyBarValues._energyBar.material.SetFloat("_segmentCount", Mathf.Round(1 / rpgData._rpgBehaviour.Cost));
+            _energyBarValues?._energyBar?.material.SetFloat("_segmentCount", Mathf.Round(1 / rpgData._rpgBehaviour.Cost));
         }
     }
 

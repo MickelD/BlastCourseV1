@@ -22,11 +22,21 @@ public class PlayerRotation : MonoBehaviour
     private IEnumerator Start()
     {
         _enableRot = false;
-        if (SaveLoader.Instance != null && SaveLoader.Instance.SpawnPos.Length >= 4) ResetRot(SaveLoader.Instance.SpawnPos[3], 0f);
-        else ResetRot(0f, 0f);
-
+        Debug.Log("a");
+        if (SaveLoader.Instance != null && SaveLoader.Instance.SpawnPos?.Length >= 4)
+        {
+            ResetRot(SaveLoader.Instance.SpawnPos[3], 0f);
+            Debug.Log("z");
+        }
+        else
+        {
+            Debug.Log("c");
+            ResetRot(0f, 0f);
+        }
+        Debug.Log("a2");
         yield return new WaitForSecondsRealtime(0.5f);
 
+        Debug.Log("b");
         _enableRot = true;
     }
 

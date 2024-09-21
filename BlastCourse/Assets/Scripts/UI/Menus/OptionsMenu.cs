@@ -31,6 +31,12 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private Slider _shakeSlider;
     [SerializeField] private TextMeshProUGUI _shakeValue;
 
+    [Space(3), Header("Field Of View"), Space(3)]
+    [SerializeField] private float _minFov = 50;
+    [SerializeField] private float _maxFov = 120;
+    [SerializeField] private Slider _fovSlider;
+    [SerializeField] private TextMeshProUGUI _fovValue;
+
     [Space(3), Header("Master"), Space(3)]
     [SerializeField] private float _minMasterVolume = 0;
     [SerializeField] private float _maxMasterVolume = 100;
@@ -168,6 +174,16 @@ public class OptionsMenu : MonoBehaviour
         }
     }
 
+    public void FieldOfView()
+    {
+        if (_fovSlider != null
+            && _fovValue != null)
+        {
+            _fovValue.text = ((int)_fovSlider.value).ToString();
+            if (OptionsLoader.Instance != null) OptionsLoader.Instance.FieldOfView = _fovSlider.value;
+        }
+    }
+
     public void Fullscreen()
     {
         if (OptionsLoader.Instance != null) OptionsLoader.Instance.Fullscreen = _fullscreen.isOn;
@@ -250,6 +266,8 @@ public class OptionsMenu : MonoBehaviour
             if (_dialogueValue != null) _dialogueValue.text = ((int)_dialogueSlider.value).ToString() + "%";
             if (_shakeSlider != null) _shakeSlider.value = OptionsLoader.Instance.CameraShake * 100;
             if (_shakeValue != null) _shakeValue.text = ((int)_shakeSlider.value).ToString() + "%";
+            if (_fovSlider != null) _fovSlider.value = OptionsLoader.Instance.FieldOfView;
+            if (_fovValue != null) _fovValue.text = ((int)_fovSlider.value).ToString();
 
             if (_fullscreen != null) _fullscreen.isOn = OptionsLoader.Instance.Fullscreen;
 

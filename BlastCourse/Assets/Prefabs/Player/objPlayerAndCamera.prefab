@@ -142,6 +142,7 @@ MonoBehaviour:
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
     SpatialBlend: 0
+    MaxDistance: 0
   rechargeSound:
     SfxClip:
     - {fileID: 8300000, guid: dad070caf832c0644baf089c2d1238cd, type: 3}
@@ -151,6 +152,7 @@ MonoBehaviour:
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
     SpatialBlend: 0
+    MaxDistance: 0
   FailVFX: {fileID: 8941352474407595478}
   _canDetonate: 1
 --- !u!1 &1531428103
@@ -396,6 +398,53 @@ Transform:
   m_Father: {fileID: 8610808884281464390}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7050760182745155928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8346337356047997986}
+  - component: {fileID: 592011613075445882}
+  m_Layer: 0
+  m_Name: FOVController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8346337356047997986
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7050760182745155928}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8610808884281464390}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &592011613075445882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7050760182745155928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f2a571ddb2b72f4493e1cbcdc92f820, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fov: 70
+  _rpgCam: {fileID: 965279324636772983}
+  _mainCam: {fileID: 8610808883230334203}
 --- !u!1 &8610808882919677172
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,6 +915,7 @@ MonoBehaviour:
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
     SpatialBlend: 0.25
+    MaxDistance: 0
   _stepsSfx:
     SfxClip:
     - {fileID: 8300000, guid: 7689b5c0b7538404590effd80f94aceb, type: 3}
@@ -890,6 +940,7 @@ MonoBehaviour:
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
     SpatialBlend: 0.25
+    MaxDistance: 0
   jumpSound:
     SfxClip:
     - {fileID: 8300000, guid: 444c71be077f83346881dbf421c1cf19, type: 3}
@@ -899,6 +950,7 @@ MonoBehaviour:
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
     SpatialBlend: 0.25
+    MaxDistance: 0
   _timeBetweenSteps: 0.5
 --- !u!114 &8610808883349483069
 MonoBehaviour:
@@ -986,6 +1038,7 @@ MonoBehaviour:
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
     SpatialBlend: 1
+    MaxDistance: 0
   sfxDeathSound:
     SfxClip: []
     Volume: 0
@@ -994,6 +1047,7 @@ MonoBehaviour:
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
     SpatialBlend: 1
+    MaxDistance: 0
   _camShake: {fileID: 2896192993473509781}
   _shakeForce: 4
   _timeUntilHeal: 2.5
@@ -1289,6 +1343,7 @@ Transform:
   m_Children:
   - {fileID: 2175776598692019947}
   - {fileID: 8771242406825022797}
+  - {fileID: 8346337356047997986}
   m_Father: {fileID: 8610808883277436658}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 10.54, z: 0}

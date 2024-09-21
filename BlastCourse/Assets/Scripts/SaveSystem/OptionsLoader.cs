@@ -85,6 +85,17 @@ public class OptionsLoader : MonoBehaviour
     }
     private float _camShake;
 
+    [HideInInspector]
+    public float FieldOfView
+    {
+        get { return _fieldOfView; }
+        set
+        {
+            _fieldOfView = Mathf.Clamp(value, 50, 120);
+        }
+    }
+    private float _fieldOfView;
+
     [HideInInspector] public bool Fullscreen;
     [HideInInspector] public bool HoldGrab;
 
@@ -122,12 +133,14 @@ public class OptionsLoader : MonoBehaviour
         if (_audioMixer != null) _audioMixer.SetFloat("VolumeEffects", Mathf.Log10(_sfxVolume) * 20);
         if (_audioMixer != null) _audioMixer.SetFloat("VolumeMusic", Mathf.Log10(_musicVolume) * 20);
         if (_audioMixer != null) _audioMixer.SetFloat("VolumeDialogue", Mathf.Log10(_dialogueVolume) * 20);
+
+        if (FovController.instance != null) FovController.instance.SetFov(FieldOfView);
     }
 
     [ContextMenu("Save")]
     public void Save()
     {
-        SaveSystem.OptionsSave(Sensitivity,MasterVolume,SfxVolume,MusicVolume,DialogueVolume,Fullscreen,Keys,HoldGrab,CameraShake);
+        SaveSystem.OptionsSave(Sensitivity,MasterVolume,SfxVolume,MusicVolume,DialogueVolume,Fullscreen,Keys,HoldGrab,CameraShake,FieldOfView);
         UpdateConfig();
     }
 
@@ -147,6 +160,7 @@ public class OptionsLoader : MonoBehaviour
             Fullscreen = data._fullscreen;
             HoldGrab = data._holdGrab;
             CameraShake = data._camShake;
+            FieldOfView = data._fieldOfView;
 
 
             Keys = new KeyCode[Enum.GetValues(typeof(InputActions)).Length];
@@ -182,6 +196,7 @@ public class OptionsLoader : MonoBehaviour
             Fullscreen = _defaultOptions.Fullscreen;
             HoldGrab = _defaultOptions.HoldToGrab;
             CameraShake = _defaultOptions.CameraShake;
+            FieldOfView = _defaultOptions.Fov;
 
 
             Keys = new KeyCode[Enum.GetValues(typeof(InputActions)).Length];

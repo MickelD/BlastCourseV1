@@ -164,6 +164,7 @@ MonoBehaviour:
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
     SpatialBlend: 1
+    MaxDistance: 0
   OffSfx:
     SfxClip:
     - {fileID: 8300000, guid: 6c304566675e15747a7fadfce7ca786e, type: 3}
@@ -173,6 +174,7 @@ MonoBehaviour:
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
     SpatialBlend: 1
+    MaxDistance: 0
 --- !u!1 &4778442001878817175
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: matBoomSprite
-  m_Shader: {fileID: -6465566751694194690, guid: f210f9914b3311440884fe4dc399b295,
+  m_Shader: {fileID: -6465566751694194690, guid: dee50fdfef39dd24aa1b450a7fb70108,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []

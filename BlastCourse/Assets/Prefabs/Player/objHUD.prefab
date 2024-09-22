@@ -889,7 +889,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 02,29
+  m_text: 00,00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
@@ -2605,7 +2605,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 02,29
+  m_text: 00,00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
@@ -6116,7 +6116,7 @@ MonoBehaviour:
     iconRotation: {x: 0, y: 0, z: 0}
     fireMode: 1
     WeaponName: Grenade Launcher
-    weaponDescription: Affected by gravity. 3 bounces.
+    weaponDescription: Affected by gravity. but not by turrets. 1 bounce.
     idleColor: {r: 0.63599145, g: 0.7988986, b: 0.8490566, a: 0.2509804}
     hoverColor: {r: 0.55313724, g: 0.78058106, b: 0.8509804, a: 1}
   - menuArc: {fileID: 4121975814748046439}
@@ -6132,7 +6132,7 @@ MonoBehaviour:
     iconRotation: {x: 0, y: 0, z: 0}
     fireMode: 2
     WeaponName: Remote Detonation
-    weaponDescription: Right click to detonate selected bomb.
+    weaponDescription: Place up to 4. Right click to detonate selected bomb.
     idleColor: {r: 0.6933962, g: 0.9245283, b: 0.70191324, a: 0.2509804}
     hoverColor: {r: 0.60156864, g: 0.9254902, b: 0.61254907, a: 1}
   - menuArc: {fileID: 1369373436090953888}

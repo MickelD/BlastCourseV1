@@ -68,12 +68,13 @@ MonoBehaviour:
   _interactSfx:
     SfxClip:
     - {fileID: 8300000, guid: 7cb348d5ba285bd4eab5595d118a2d31, type: 3}
-    Volume: 0.2
+    Volume: 0.7
     Pitch: 1
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
     SpatialBlend: 1
+    MaxDistance: 10
   ClickVFX: {fileID: 7097633798198175331}
   LockAfterFirstPress: 0
   Cooldown: 0.5

@@ -908,12 +908,12 @@ MonoBehaviour:
   landingSound:
     SfxClip:
     - {fileID: 8300000, guid: 75467b25ad5298a46acbf8c61ef3f877, type: 3}
-    Volume: 1
+    Volume: 0.1
     Pitch: 1
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
-    SpatialBlend: 0
+    SpatialBlend: 0.25
     MaxDistance: 0
   _stepsSfx:
     SfxClip:
@@ -938,19 +938,19 @@ MonoBehaviour:
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
-    SpatialBlend: 0
+    SpatialBlend: 0.25
     MaxDistance: 0
   jumpSound:
     SfxClip:
     - {fileID: 8300000, guid: 444c71be077f83346881dbf421c1cf19, type: 3}
-    Volume: 1
+    Volume: 0.1
     Pitch: 1
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
-    SpatialBlend: 0
+    SpatialBlend: 0.25
     MaxDistance: 0
-  _timeBetweenSteps: 0.35
+  _timeBetweenSteps: 0.5
 --- !u!114 &8610808883349483069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1336,7 +1336,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8610808884281464389}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -64.25, y: -3.1, z: -53}
+  m_LocalPosition: {x: -3, y: 2.4, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

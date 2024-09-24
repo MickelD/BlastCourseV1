@@ -940,6 +940,14 @@ MonoBehaviour:
       type: 2}
     SpatialBlend: 0.25
     MaxDistance: 0
+  _ladderStepsSfx:
+    SfxClip: []
+    Volume: 0
+    Pitch: 0
+    Loop: 0
+    Group: {fileID: 0}
+    SpatialBlend: 0
+    MaxDistance: 0
   jumpSound:
     SfxClip:
     - {fileID: 8300000, guid: 444c71be077f83346881dbf421c1cf19, type: 3}
@@ -1336,7 +1344,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8610808884281464389}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3, y: 2.4, z: -12}
+  m_LocalPosition: {x: 0, y: 1.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

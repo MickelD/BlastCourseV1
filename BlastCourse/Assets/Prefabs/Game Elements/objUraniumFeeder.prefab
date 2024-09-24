@@ -118,6 +118,7 @@ MonoBehaviour:
   _FinalFan: {fileID: 0}
   _BoxPos: {fileID: 7839686772545066918}
   _Animator: {fileID: 4430875103229591126}
+  _SpawnPos: {fileID: 0}
   _consumeSfx:
     SfxClip:
     - {fileID: 8300000, guid: bfc37348703e15741a7351bdc9dda941, type: 3}
@@ -127,6 +128,7 @@ MonoBehaviour:
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
     SpatialBlend: 1
+    MaxDistance: 30
 --- !u!114 &1106453823673027150
 MonoBehaviour:
   m_ObjectHideFlags: 0

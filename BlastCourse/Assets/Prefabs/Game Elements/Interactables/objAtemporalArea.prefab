@@ -475,21 +475,23 @@ MonoBehaviour:
   OnSound:
     SfxClip:
     - {fileID: 8300000, guid: 23d4bc012071e174dbab8c8a4d360292, type: 3}
-    Volume: 0.2
+    Volume: 20
     Pitch: 1
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
-    SpatialBlend: 1
+    SpatialBlend: 0.5
+    MaxDistance: 10
   OffSound:
     SfxClip:
     - {fileID: 8300000, guid: 874a8c03102246f4b98289d175e2e1c7, type: 3}
-    Volume: 0.2
+    Volume: 20
     Pitch: 1
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
-    SpatialBlend: 1
+    SpatialBlend: 0.5
+    MaxDistance: 10
 --- !u!95 &7861058226817146996
 Animator:
   serializedVersion: 5

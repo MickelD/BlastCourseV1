@@ -358,23 +358,23 @@ MonoBehaviour:
   OnSfx:
     SfxClip:
     - {fileID: 8300000, guid: 28e7650a6e96d13408269241411a799b, type: 3}
-    Volume: 20
+    Volume: 10
     Pitch: 1
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
     SpatialBlend: 1
-    MaxDistance: 20
+    MaxDistance: 10
   OffSfx:
     SfxClip:
     - {fileID: 8300000, guid: 9faec1dd068f9ff4f9c09acfeb43c052, type: 3}
-    Volume: 20
+    Volume: 10
     Pitch: 1
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
     SpatialBlend: 1
-    MaxDistance: 20
+    MaxDistance: 10
 --- !u!114 &3666057236762258542
 MonoBehaviour:
   m_ObjectHideFlags: 0

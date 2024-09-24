@@ -4924,13 +4924,12 @@ MonoBehaviour:
   shootSound:
     SfxClip:
     - {fileID: 8300000, guid: 7f296b3872bfa324aaec68a7645c4eec, type: 3}
-    Volume: 0.6
+    Volume: 0.2
     Pitch: 1
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
-    SpatialBlend: 0.7
-    MaxDistance: 12
+    SpatialBlend: 1
   _deactivationAnimDuration: 0.3
   _angleDown: 36
   c_bullet: {fileID: 1935281083}

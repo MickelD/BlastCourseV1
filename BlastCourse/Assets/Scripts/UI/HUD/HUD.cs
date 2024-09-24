@@ -81,7 +81,6 @@ public class HUD : MonoBehaviour
     [Space(5), Header("Save Icon"), Space(2)]
     [SerializeField] Animator _saveIcon;
 
-
     #endregion
 
     #region Vars

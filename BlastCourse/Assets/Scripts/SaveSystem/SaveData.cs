@@ -30,9 +30,11 @@ public class SaveData
     public List<float> BoxesY;
     public List<float> BoxesZ;
     public List<string> UsedBoxes;
+    public List<int> DialoguesCount;
+    public List<string> DialoguesIds;
     //Strings that hold a pointer to the reference
 
-    public SaveData(int scn, float[] spP, List<string> clAq, List<string> kObj, bool[] rpg, List<string> b, List<float> bx, List<float> by, List<float> bz, List<string> ub)
+    public SaveData(int scn, float[] spP, List<string> clAq, List<string> kObj, bool[] rpg, List<string> b, List<float> bx, List<float> by, List<float> bz, List<string> ub, List<string> dialoguesId, List<int> dialogueCount)
     {
         _scene = scn;
         _spawnPosition = new float[4];
@@ -42,7 +44,7 @@ public class SaveData
         _spawnPosition[3] = spP[3];
 
         _collectiblesAquired = new List<string>();
-        if(clAq.Count > 0) for (int i = 0; i < clAq.Count; i++) _collectiblesAquired.Add(clAq[i]);
+        if (clAq.Count > 0) for (int i = 0; i < clAq.Count; i++) _collectiblesAquired.Add(clAq[i]);
 
         _keyObjects = new List<string>();
         if (kObj.Count > 0) for (int i = 0; i < kObj.Count; i++) _keyObjects.Add(kObj[i]);
@@ -66,5 +68,9 @@ public class SaveData
         if (bz.Count > 0) for (int i = 0; i < bz.Count; i++) BoxesZ.Add(bz[i]);
         UsedBoxes = new List<string>();
         if (ub.Count > 0) for (int i = 0; i < ub.Count; i++) UsedBoxes.Add(ub[i]);
+
+
+        DialoguesCount = dialogueCount;
+        DialoguesIds = dialoguesId;
     }
 }

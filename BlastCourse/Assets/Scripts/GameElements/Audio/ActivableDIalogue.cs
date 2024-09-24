@@ -10,6 +10,7 @@ public class ActivableDIalogue : ActivableBase
     #region Fields
 
     public AudioCue Audio;
+    public string Id;
 
     #endregion
 
@@ -26,6 +27,11 @@ public class ActivableDIalogue : ActivableBase
     private new void Start() 
     {
         base.Start();
+        if (SaveLoader.Instance != null)
+        {
+            int c = SaveLoader.Instance.GetDialogueCount(Id);
+            if (c > 0) hasTriggered = true;
+        }
         StartCoroutine(DontStart()); 
     }
 

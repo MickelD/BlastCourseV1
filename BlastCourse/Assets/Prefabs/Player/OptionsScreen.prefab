@@ -1564,8 +1564,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2955682651908914089}
   m_HandleRect: {fileID: 3980943420093293962}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1.0000002
+  m_Size: 0.499655
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1746,6 +1746,26 @@ MonoBehaviour:
   - {fileID: 8393672821673938188}
   - {fileID: 8393672821338045281}
   - {fileID: 8393672822695614964}
+  ButtonSound:
+    SfxClip:
+    - {fileID: 8300000, guid: 9e1e21ececa50a441b3a923f6be8a3ee, type: 3}
+    Volume: 0.3
+    Pitch: 1
+    Loop: 0
+    Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
+      type: 2}
+    SpatialBlend: 0
+    MaxDistance: 0
+  SliderSound:
+    SfxClip:
+    - {fileID: 8300000, guid: 9e1e21ececa50a441b3a923f6be8a3ee, type: 3}
+    Volume: 0.05
+    Pitch: 1
+    Loop: 0
+    Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
+      type: 2}
+    SpatialBlend: 0
+    MaxDistance: 0
 --- !u!1 &1645968269157581051
 GameObject:
   m_ObjectHideFlags: 0
@@ -3823,7 +3843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Content: {fileID: 0}
+  m_Content: {fileID: 502992122526617278}
   m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 2
@@ -4172,7 +4192,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7149,8 +7169,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6933122471513205439}
   m_HandleRect: {fileID: 5926128180412653385}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 1
+  m_Value: 0.000052095736
+  m_Size: 0.99572456
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

@@ -19,6 +19,8 @@ public class DialogueTrigger : MonoBehaviour
 
     public List<AudioCueLogic> AudioCues;
 
+    public string Id;
+
     #endregion
 
     #region Vars
@@ -29,11 +31,21 @@ public class DialogueTrigger : MonoBehaviour
 
     #region UnityFunctions
 
+    public void Start()
+    {
+        if(SaveLoader.Instance != null)
+        {
+            int c = SaveLoader.Instance.GetDialogueCount(Id);
+            if(c > 0) triggerCount = c;
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<PlayerMovement>())
         {
             triggerCount++;
+            SaveLoader.Instance.SetDialogueCount(Id, triggerCount);
 
             foreach(AudioCueLogic a in AudioCues)
             {

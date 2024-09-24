@@ -69,6 +69,10 @@ public class OptionsMenu : MonoBehaviour
 
     [HideInInspector] public TextMeshProUGUI[] _keyNames;
 
+    [Space(3), Header("MenuSFX"), Space(3)]
+    [SerializeField] private AudioCue ButtonSound;
+    [SerializeField] private AudioCue SliderSound;
+
     #endregion
 
     #region Variables
@@ -116,6 +120,11 @@ public class OptionsMenu : MonoBehaviour
 
     public void Sensitivity()
     {
+        if (SliderSound.SfxClip != null && SliderSound.SfxClip.Length > 0)
+        {
+            AudioSource source = AudioManager.TryPlayCueAtPoint(SliderSound, Vector3.zero);
+        }
+
         if (_senseSlider != null
             && _senseValue != null)
         {
@@ -126,6 +135,11 @@ public class OptionsMenu : MonoBehaviour
 
     public void SFX()
     {
+        if (SliderSound.SfxClip != null && SliderSound.SfxClip.Length > 0)
+        {
+            AudioSource source = AudioManager.TryPlayCueAtPoint(SliderSound, Vector3.zero);
+        }
+
         if (_sfxSlider != null
             && _sfxValue != null)
         {
@@ -136,6 +150,11 @@ public class OptionsMenu : MonoBehaviour
 
     public void Music()
     {
+        if (SliderSound.SfxClip != null && SliderSound.SfxClip.Length > 0)
+        {
+            AudioSource source = AudioManager.TryPlayCueAtPoint(SliderSound, Vector3.zero);
+        }
+
         if (_musicSlider != null
             && _musicValue != null)
         {
@@ -146,6 +165,11 @@ public class OptionsMenu : MonoBehaviour
 
     public void Master()
     {
+        if (SliderSound.SfxClip != null && SliderSound.SfxClip.Length > 0)
+        {
+            AudioSource source = AudioManager.TryPlayCueAtPoint(SliderSound, Vector3.zero);
+        }
+
         if (_masterSlider != null
             && _masterValue != null)
         {
@@ -156,6 +180,11 @@ public class OptionsMenu : MonoBehaviour
 
     public void Dialogue()
     {
+        if (SliderSound.SfxClip != null && SliderSound.SfxClip.Length > 0)
+        {
+            AudioSource source = AudioManager.TryPlayCueAtPoint(SliderSound, Vector3.zero);
+        }
+
         if (_dialogueSlider != null
             && _dialogueValue != null)
         {
@@ -166,6 +195,11 @@ public class OptionsMenu : MonoBehaviour
 
     public void Shake()
     {
+        if (SliderSound.SfxClip != null && SliderSound.SfxClip.Length > 0)
+        {
+            AudioSource source = AudioManager.TryPlayCueAtPoint(SliderSound, Vector3.zero);
+        }
+
         if (_shakeSlider != null
             && _shakeValue != null)
         {
@@ -176,6 +210,11 @@ public class OptionsMenu : MonoBehaviour
 
     public void FieldOfView()
     {
+        if (SliderSound.SfxClip != null && SliderSound.SfxClip.Length > 0)
+        {
+            AudioSource source = AudioManager.TryPlayCueAtPoint(SliderSound, Vector3.zero);
+        }
+
         if (_fovSlider != null
             && _fovValue != null)
         {
@@ -186,25 +225,50 @@ public class OptionsMenu : MonoBehaviour
 
     public void Fullscreen()
     {
+        if (ButtonSound.SfxClip != null && ButtonSound.SfxClip.Length > 0)
+        {
+            AudioSource source = AudioManager.TryPlayCueAtPoint(ButtonSound, Vector3.zero);
+        }
+
         if (OptionsLoader.Instance != null) OptionsLoader.Instance.Fullscreen = _fullscreen.isOn;
         Screen.fullScreen = _fullscreen.isOn;
     }
 
     public void HoldGrab()
     {
+        if (ButtonSound.SfxClip != null && ButtonSound.SfxClip.Length > 0)
+        {
+            AudioSource source = AudioManager.TryPlayCueAtPoint(ButtonSound, Vector3.zero);
+        }
+
         if (OptionsLoader.Instance != null) OptionsLoader.Instance.HoldGrab = _holdGrab.isOn;
     }
 
     public void ResetOptions()
     {
-        if(OptionsLoader.Instance != null)
+        if (OptionsLoader.Instance != null)
         {
             OptionsLoader.Instance.ResetOptions();
             UpdateSliders();
         }
     }
 
-    public void Back()
+    public void Back() { StartCoroutine(BackC()); }
+
+    public IEnumerator BackC()
+    {
+        if (ButtonSound.SfxClip != null && ButtonSound.SfxClip.Length > 0)
+        {
+            AudioSource source = AudioManager.TryPlayCueAtPoint(ButtonSound, Vector3.zero);
+            yield return new WaitForSecondsRealtime(source.clip.length);
+        }
+        else yield return null;
+
+        _optionsHolder.SetActive(false);
+        if (OptionsLoader.Instance != null) OptionsLoader.Instance.Load();
+    }
+
+    public void MenuBack()
     {
         _optionsHolder.SetActive(false);
         if (OptionsLoader.Instance != null) OptionsLoader.Instance.Load();
@@ -213,7 +277,6 @@ public class OptionsMenu : MonoBehaviour
     public void Apply()
     {
         if (OptionsLoader.Instance != null) OptionsLoader.Instance.Save();
-        Debug.Log("Apply");
     }
 
     //public void ChangeScreen(MenuScreen screen)

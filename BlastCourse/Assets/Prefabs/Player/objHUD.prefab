@@ -798,7 +798,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8757268104626944160
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4889,6 +4889,17 @@ MonoBehaviour:
   _options: {fileID: 5386346247876158887}
   g_background: {fileID: 7003259717112768332}
   g_side: {fileID: 6962705073066495724}
+  _eventSystem: {fileID: 2982565082755577906}
+  ButtonSound:
+    SfxClip:
+    - {fileID: 8300000, guid: 9e1e21ececa50a441b3a923f6be8a3ee, type: 3}
+    Volume: 0.3
+    Pitch: 1
+    Loop: 0
+    Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
+      type: 2}
+    SpatialBlend: 0
+    MaxDistance: 0
 --- !u!1 &6224952894140227448
 GameObject:
   m_ObjectHideFlags: 0

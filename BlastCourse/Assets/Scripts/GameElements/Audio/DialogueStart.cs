@@ -27,6 +27,7 @@ public class DialogueStart : MonoBehaviour
 
     public AudioCue dialogue;
     public float waitTime;
+    public string Id;
 
     #endregion
 
@@ -40,8 +41,17 @@ public class DialogueStart : MonoBehaviour
 
     public void Start()
     {
-        wait = new WaitForSeconds(waitTime);
-        StartCoroutine(Play());
+        if(SaveLoader.Instance != null)
+        {
+            int c = SaveLoader.Instance.GetDialogueCount(Id);
+            if(c > 0)
+            {
+                wait = new WaitForSeconds(waitTime);
+                StartCoroutine(Play());
+            }
+            
+        }
+        
     }
 
     #endregion
@@ -52,6 +62,7 @@ public class DialogueStart : MonoBehaviour
     {
         yield return wait;
         DialogueManager.Instance.TryPlayCueAtPoint(dialogue, transform.position);
+        SaveLoader.Instance.SetDialogueCount(Id, 1);
     }
 
     #endregion

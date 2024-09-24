@@ -27,6 +27,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Button g_continue;
     [SerializeField] private TextMeshProUGUI _continueText;
     [SerializeField] private Color _disabledColor;
+    [SerializeField] private AudioCue ButtonSound;
 
     [Space(3), Header("StartScreen"), Space(5)]
     [SerializeField] private RectTransform _title;
@@ -145,40 +146,116 @@ public class MainMenu : MonoBehaviour
     #region Buttons
     public void ContinueButton()
     {
+        StartCoroutine(ContinueButtonC());
+    }
+    public IEnumerator ContinueButtonC()
+    {
+        if (ButtonSound.SfxClip != null && ButtonSound.SfxClip.Length > 0)
+        {
+            AudioSource source = AudioManager.TryPlayCueAtPoint(ButtonSound, Vector3.zero);
+            yield return new WaitForSecondsRealtime(source.clip.length);
+        }
+        else yield return null;
+
         SaveLoader.Instance.Load();
     }
+
     public void NewGameButton(int sceneLoad)
     {
+        StartCoroutine (NewGameButtonC(sceneLoad));
+    }
+    public IEnumerator NewGameButtonC(int sceneLoad)
+    {
+        if (ButtonSound.SfxClip != null && ButtonSound.SfxClip.Length > 0)
+        {
+            AudioSource source = AudioManager.TryPlayCueAtPoint(ButtonSound, Vector3.zero);
+            yield return new WaitForSecondsRealtime(source.clip.length);
+        }
+        else yield return null;
+
         if (!SaveSystem.DataCheck())
         {
             //SaveLoader.Instance.Load();
             if (LoadingScreenManager.instance != null) LoadingScreenManager.instance.LoadScene(sceneLoad);
             else SceneManager.LoadScene(sceneLoad);
         }
-        else WarningMenu(true);
+        else OpenWarningMenu();
     }
+
     public void ExitButton()
     {
+        StartCoroutine(ExitButtonC());
+    }
+    public IEnumerator ExitButtonC()
+    {
+        if (ButtonSound.SfxClip != null && ButtonSound.SfxClip.Length > 0)
+        {
+            AudioSource source = AudioManager.TryPlayCueAtPoint(ButtonSound, Vector3.zero);
+            yield return new WaitForSecondsRealtime(source.clip.length);
+        }
+        else yield return null;
+
         Application.Quit();
     }
     public void ConfirmNewGameButton(int sceneLoad)
     {
+        StartCoroutine(ConfirmNewGameButtonC(sceneLoad));
+    }
+    public IEnumerator ConfirmNewGameButtonC(int sceneLoad)
+    {
+        if (ButtonSound.SfxClip != null && ButtonSound.SfxClip.Length > 0)
+        {
+            AudioSource source = AudioManager.TryPlayCueAtPoint(ButtonSound, Vector3.zero);
+            yield return new WaitForSecondsRealtime(source.clip.length);
+        }
+        else yield return null;
+
         SaveLoader.Instance.Delete();
         //SaveLoader.Instance.Load();
         if (LoadingScreenManager.instance != null) LoadingScreenManager.instance.LoadScene(sceneLoad);
         else SceneManager.LoadScene(sceneLoad);
     }
+
     #endregion
 
     public void WarningMenu(bool open)
     {
+        StartCoroutine (WarningMenuC(open));
+    }
+    public IEnumerator WarningMenuC(bool open)
+    {
+        if (ButtonSound.SfxClip != null && ButtonSound.SfxClip.Length > 0)
+        {
+            AudioSource source = AudioManager.TryPlayCueAtPoint(ButtonSound, Vector3.zero);
+            yield return new WaitForSecondsRealtime(source.clip.length);
+        }
+        else yield return null;
+
         _isOpened = open;
 
         g_warningMenu.SetActive(open);
     }
 
+    public void OpenWarningMenu()
+    {
+        _isOpened = true;
+
+        g_warningMenu.SetActive(true);
+    }
+
     public void OptionsMenu(bool open)
     {
+        StartCoroutine(OptionsMenuC(open));
+    }
+    public IEnumerator OptionsMenuC(bool open)
+    {
+        if (ButtonSound.SfxClip != null && ButtonSound.SfxClip.Length > 0)
+        {
+            AudioSource source = AudioManager.TryPlayCueAtPoint(ButtonSound, Vector3.zero);
+            yield return new WaitForSecondsRealtime(source.clip.length);
+        }
+        else yield return null;
+
         g_optionsMenu.SetActive(true);
         if (open) _options.UpdateSliders();
         else _options.Back();

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -36,8 +38,13 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject g_background;
     [SerializeField] private GameObject g_side;
 
+    [Space(5), Header("OnlyClick Buttons"), Space(2)]
+    [SerializeField] EventSystem _eventSystem;
+
     public delegate void PauseDelegate(bool isPaused);
     public PauseDelegate OnPause;
+
+    [SerializeField] private AudioCue ButtonSound;
 
     #endregion
 
@@ -50,7 +57,7 @@ public class PauseMenu : MonoBehaviour
     #region Unity Functions
     private void Start()
     {
-        OpenMenu(false);
+        OpenMenuNoSFX(false);
     }
 
 
@@ -58,15 +65,39 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !EventManager.IsDead)
         {
-            OpenMenu(!_opened);
+            StartCoroutine(OpenMenu(!_opened));
         }
+        if (_eventSystem.currentSelectedGameObject != null) _eventSystem.SetSelectedGameObject(null);
     }
 
     #endregion
 
     #region Methods
 
-    public void OpenMenu(bool open)
+    public IEnumerator OpenMenu(bool open)
+    {
+        if (ButtonSound.SfxClip != null && ButtonSound.SfxClip.Length > 0)
+        {
+            AudioSource source = AudioManager.TryPlayCueAtPoint(ButtonSound, Vector3.zero);
+            yield return new WaitForSecondsRealtime(source.clip.length);
+        }
+        else yield return null;
+
+        _opened = open;
+        Cursor.lockState = open ? CursorLockMode.None : CursorLockMode.Locked;
+        Cursor.visible = open;
+
+        g_pauseMenu.SetActive(open);
+        if (!open)
+        {
+            g_confirmMenu.SetActive(false);
+            if(g_optionsMenu.activeSelf) OptionsClose();
+        }
+        Time.timeScale = open ? 0f : 1f;
+        OnPause?.Invoke(open);
+    }
+
+    public void OpenMenuNoSFX(bool open)
     {
         _opened = open;
         Cursor.lockState = open ? CursorLockMode.None : CursorLockMode.Locked;
@@ -76,7 +107,7 @@ public class PauseMenu : MonoBehaviour
         if (!open)
         {
             g_confirmMenu.SetActive(false);
-            if(g_optionsMenu.activeSelf)Options(false);
+            if (g_optionsMenu.activeSelf) OptionsClose();
         }
         Time.timeScale = open ? 0f : 1f;
         OnPause?.Invoke(open);
@@ -84,42 +115,83 @@ public class PauseMenu : MonoBehaviour
 
     public void ContinueButton()
     {
-        OpenMenu(false);
+        StartCoroutine(OpenMenu(false));
     }
 
-    public void ExitButton(bool openConfirm)
+    public void ExitButton(bool openConfirm) { StartCoroutine(ExitButtonC(openConfirm)); }
+    public IEnumerator ExitButtonC(bool openConfirm)
     {
+        if (ButtonSound.SfxClip != null && ButtonSound.SfxClip.Length > 0)
+        {
+            AudioSource source = AudioManager.TryPlayCueAtPoint(ButtonSound, Vector3.zero);
+            yield return new WaitForSecondsRealtime(source.clip.length);
+        }
+        else yield return null;
+
         g_confirmMenu.SetActive(openConfirm);
         g_side.SetActive(!openConfirm);
     }
 
-    public void Restart()
+    public void Restart() { StartCoroutine(RestartC()); }
+    public IEnumerator RestartC()
     {
+        if (ButtonSound.SfxClip != null && ButtonSound.SfxClip.Length > 0)
+        {
+            AudioSource source = AudioManager.TryPlayCueAtPoint(ButtonSound, Vector3.zero);
+            yield return new WaitForSecondsRealtime(source.clip.length);
+        }
+        else yield return null;
+
         SaveLoader.Instance.Load();
     }
 
-    public void ConfirmExit()
+    public void ConfirmExit() { StartCoroutine(ConfirmExitC()); }
+    public IEnumerator ConfirmExitC()
     {
+        if (ButtonSound.SfxClip != null && ButtonSound.SfxClip.Length > 0)
+        {
+            AudioSource source = AudioManager.TryPlayCueAtPoint(ButtonSound, Vector3.zero);
+            yield return new WaitForSecondsRealtime(source.clip.length);
+        }
+        else yield return null;
+
         Time.timeScale = 1f;
-        SceneManager.LoadScene(0);
+        if (LoadingScreenManager.instance != null) LoadingScreenManager.instance.LoadScene(1);
+        else SceneManager.LoadScene(1);
     }
 
-    public void Options(bool open)
+    public void Options(bool open) { StartCoroutine(OptionsC(open)); }
+    public IEnumerator OptionsC(bool open)
     {
+        if (ButtonSound.SfxClip != null && ButtonSound.SfxClip.Length > 0)
+        {
+            AudioSource source = AudioManager.TryPlayCueAtPoint(ButtonSound, Vector3.zero);
+            yield return new WaitForSecondsRealtime(source.clip.length);
+        }
+        else yield return null;
+
+
         g_optionsMenu.SetActive(true);
-        g_background.SetActive(!open);
         if (open) _options.UpdateSliders();
-        else _options.Back();
+        else _options.MenuBack();
+        g_background.SetActive(!open);
+
+    }
+
+    public void OptionsClose()
+    {
+        _options.MenuBack();
+        g_background.SetActive(true);
 
     }
 
     #endregion
 
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
 
-    
 
-    #endif
+
+#endif
 }
 
 

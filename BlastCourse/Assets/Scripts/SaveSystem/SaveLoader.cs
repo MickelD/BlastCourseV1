@@ -21,6 +21,8 @@ public class SaveLoader : MonoBehaviour
     [HideInInspector] public List<float> BoxesY;
     [HideInInspector] public List<float> BoxesZ;
     [HideInInspector] public List<string> UsedBoxes;
+    [HideInInspector] public List<string> DialoguesIds;
+    [HideInInspector] public List<int> DialoguesCount;
     public int DefaultPlaySceneIndex;
 
     [HideInInspector] public bool _loading;
@@ -43,6 +45,7 @@ public class SaveLoader : MonoBehaviour
 
     #region Methods
 
+    //Spawn
     public void SetSpawn(Vector3 spawn, float rot = 0f)
     {
         SpawnPos = new float[4];
@@ -62,6 +65,8 @@ public class SaveLoader : MonoBehaviour
         return spawn;
     }
 
+
+    //Boxes
     public Vector3 GetBoxPos(int i)
     {
         return new Vector3(BoxesX[i], BoxesY[i], BoxesZ[i]);
@@ -98,8 +103,9 @@ public class SaveLoader : MonoBehaviour
         }
     }
 
-    public int GetScene() { return SceneIndex; }
 
+    //Scenes
+    public int GetScene() { return SceneIndex; }
     public void NextScene(Vector3 spawnPosition, int sceneIndex, float rot = 0f)
     {
         SetSpawn(spawnPosition, rot);
@@ -109,11 +115,38 @@ public class SaveLoader : MonoBehaviour
     }
 
 
+    //Dialogues
+    public int GetDialogueCount(string id)
+    {
+        if (DialoguesIds != null && DialoguesCount != null
+            && DialoguesIds.Contains(id)) 
+            for (int i = 0; i < DialoguesIds.Count; i++)
+            {
+                if (DialoguesIds[i] == id) return DialoguesCount[i];
+            }
+        Debug.LogWarning("Id not contained, may be new or bug");
+        return -1;
+    }
+    public void SetDialogueCount(string id, int count)
+    {
+        if (DialoguesIds.Contains(id))
+            for (int i = 0; i < DialoguesIds.Count; i++)
+            {
+                if (DialoguesIds[i] == id) DialoguesCount[i] = count;
+            }
+        else
+        {
+            DialoguesIds.Add(id);
+            DialoguesCount.Add(count);
+        }
+        if (DialoguesCount.Count != DialoguesIds.Count) Debug.LogWarning("Dialogues IDs and Counters are not equal.");
+    }
+
     [ContextMenu("Save")]
     public void Save()
     {
         EventManager.OnSaveGame?.Invoke();
-        SaveSystem.DataSave(SceneIndex, SpawnPos, CollectiblesFound, KeysReached, UnlockedRpgs, Boxes, BoxesX, BoxesY, BoxesZ, UsedBoxes);
+        SaveSystem.DataSave(SceneIndex, SpawnPos, CollectiblesFound, KeysReached, UnlockedRpgs, Boxes, BoxesX, BoxesY, BoxesZ, UsedBoxes, DialoguesIds, DialoguesCount);
     }
     [ContextMenu("Load")]
     public void Load()
@@ -172,6 +205,16 @@ public class SaveLoader : MonoBehaviour
                 for (int i = 0; i < data.UsedBoxes.Count; i++)
                     UsedBoxes.Add(data.UsedBoxes[i]);
 
+            DialoguesIds = new List<string>();
+            if (data.DialoguesIds.Count > 0)
+                for (int i = 0; i < data.DialoguesIds.Count; i++)
+                    DialoguesIds.Add(data.DialoguesIds[i]);
+
+            DialoguesCount = new List<int>();
+            if (data.DialoguesCount.Count > 0)
+                for (int i = 0; i < data.DialoguesCount.Count; i++)
+                    DialoguesCount.Add(data.DialoguesCount[i]);
+
             if (LoadingScreenManager.instance != null) LoadingScreenManager.instance.LoadScene(SceneIndex);
             else SceneManager.LoadScene(SceneIndex);
         }
@@ -189,6 +232,8 @@ public class SaveLoader : MonoBehaviour
             BoxesY = new List<float>();
             BoxesZ = new List<float>();
             UsedBoxes = new List<string>();
+            DialoguesIds = new List<string>();
+            DialoguesCount = new List<int>();
 
             if (LoadingScreenManager.instance != null) LoadingScreenManager.instance.LoadScene(SceneIndex);
             else SceneManager.LoadScene(SceneIndex);
@@ -207,6 +252,8 @@ public class SaveLoader : MonoBehaviour
         BoxesY = new List<float>();
         BoxesZ = new List<float>();
         UsedBoxes = new List<string>();
+        DialoguesIds = new List<string>();
+        DialoguesCount = new List<int>();
 
 
         SaveSystem.DataDelete(); 

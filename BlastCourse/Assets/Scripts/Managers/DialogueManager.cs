@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+using UnityEngine.SceneManagement;
+
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -187,6 +191,34 @@ public class DialogueManager : MonoBehaviour
     {
         if (pause) Source.Pause();
         else Source.Play();
+    }
+
+    [ContextMenu("Give IDs")]
+    private void SearchForDialogues()
+    {
+        int a = 0;
+
+        ActivableDIalogue[] aDial = GameObject.FindObjectsOfType<ActivableDIalogue>();
+        if(aDial != null && aDial.Length > 0)
+            for(int i = 0; i < aDial.Length; i++)
+            {
+                a= i;
+                aDial[i].Id = "s" + SceneManager.GetActiveScene().buildIndex + "d" + a;
+            }
+        DialogueTrigger[] tDial = GameObject.FindObjectsOfType<DialogueTrigger>();
+        if (tDial != null && tDial.Length > 0)
+            for (int i = 0; i < tDial.Length; i++)
+            {
+                a = i;
+                tDial[i].Id = "s" + SceneManager.GetActiveScene().buildIndex + "d" + a;
+            }
+        DialogueStart[] sDial = GameObject.FindObjectsOfType<DialogueStart>();
+        if (sDial != null && sDial.Length > 0)
+            for (int i = 0; i < sDial.Length; i++)
+            {
+                a = i;
+                sDial[i].Id = "s" + SceneManager.GetActiveScene().buildIndex + "d" + a;
+            }
     }
 
     #endregion

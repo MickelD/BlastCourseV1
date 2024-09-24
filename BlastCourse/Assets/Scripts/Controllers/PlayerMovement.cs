@@ -80,6 +80,7 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
     [SerializeField] AudioCue landingSound;
     private AudioSource _landingSource;
     [SerializeField] AudioCue _stepsSfx;
+    [SerializeField] AudioCue _ladderStepsSfx;
     [SerializeField] AudioCue jumpSound;
     private AudioSource _jumpSource;
     [SerializeField] float _timeBetweenSteps;
@@ -151,6 +152,7 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
         _stepsTimer = new WaitForSeconds(_timeBetweenSteps);
 
         StartCoroutine(StepsCoroutine());
+        StartCoroutine(LadderStepsCoroutine());
 
         yield return null;
 
@@ -617,6 +619,16 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
         { 
             yield return _stepsTimer;
             if (_isGrounded && (Mathf.Abs(c_rb.velocity.x) + Mathf.Abs(c_rb.velocity.z)) >= 5f) AudioManager.TryPlayCueAtPoint(_stepsSfx, transform.position);
+        }
+
+    }
+
+    private IEnumerator LadderStepsCoroutine()
+    {
+        while (gameObject.activeInHierarchy)
+        {
+            yield return _stepsTimer;
+            if (_isOnLadder && (Mathf.Abs(c_rb.velocity.y) >= 2f)) AudioManager.TryPlayCueAtPoint(_ladderStepsSfx, transform.position);
         }
 
     }

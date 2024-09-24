@@ -29,18 +29,20 @@ MonoBehaviour:
     BlastForce: 9
     Damage: 10
     Source: 0
-    SourcePos: {x: -25.418879, y: 3.250049, z: 71.10015}
+    SourcePos: {x: -24.05292, y: 1.9, z: 2.2178283}
+    Parent: {fileID: 0}
     ExplosionRules: {fileID: 11400000, guid: 308b691c5fa88a64eb9992c41bd7b454, type: 2}
     ExplosionSound:
       SfxClip:
       - {fileID: 8300000, guid: 82e5c4d8daab28f469e17d5878bc432d, type: 3}
       - {fileID: 8300000, guid: 5091dc9c540cc1d498a165d25bbaf157, type: 3}
-      Volume: 0.1
+      Volume: 1.15
       Pitch: 1
       Loop: 0
       Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
         type: 2}
-      SpatialBlend: 0
+      SpatialBlend: 1
+      MaxDistance: 70
   AssociatedVisuals:
     LightColor: {r: 0.8117647, g: 0.8862745, b: 0.8980392, a: 0.8}
     DarkColor: {r: 0.11764706, g: 0.14509805, b: 0.14901961, a: 1}
@@ -50,9 +52,10 @@ MonoBehaviour:
   ShootingSound:
     SfxClip:
     - {fileID: 8300000, guid: 305587d365d5d4a47bcb587df2893452, type: 3}
-    Volume: 0.3
+    Volume: 0.6
     Pitch: 1
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
     SpatialBlend: 0
+    MaxDistance: 0

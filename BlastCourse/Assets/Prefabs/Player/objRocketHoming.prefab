@@ -4925,15 +4925,17 @@ MonoBehaviour:
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
     SpatialBlend: 1
+    MaxDistance: 0
   _defuseSfx:
     SfxClip:
     - {fileID: 8300000, guid: e4d8fd8e1d3c0514a9dda88b5ef7c569, type: 3}
-    Volume: 0.1
+    Volume: 200
     Pitch: 1
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
     SpatialBlend: 1
+    MaxDistance: 70
   rpg: {fileID: 0}
 --- !u!54 &2108025725407396182
 Rigidbody:

@@ -87,6 +87,7 @@ MonoBehaviour:
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
     SpatialBlend: 1
+    MaxDistance: 10
   _Grabbed: 0
   _CurrentInteractor: {fileID: 0}
   _stuckDrag: 20

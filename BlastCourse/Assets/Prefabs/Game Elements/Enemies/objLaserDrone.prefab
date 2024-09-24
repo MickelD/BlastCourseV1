@@ -5328,12 +5328,13 @@ MonoBehaviour:
   shootSound:
     SfxClip:
     - {fileID: 8300000, guid: 66700f44fdfdbba48b0180da8b147635, type: 3}
-    Volume: 0.2
+    Volume: 5
     Pitch: 1
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
     SpatialBlend: 1
+    MaxDistance: 15
 --- !u!114 &6072421821851196952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5365,6 +5366,7 @@ MonoBehaviour:
     Loop: 0
     Group: {fileID: 0}
     SpatialBlend: 0
+    MaxDistance: 0
   sfxDeathSound:
     SfxClip:
     - {fileID: 0}
@@ -5373,6 +5375,7 @@ MonoBehaviour:
     Loop: 0
     Group: {fileID: 0}
     SpatialBlend: 0
+    MaxDistance: 0
   _camShake: {fileID: 0}
   _shakeForce: 0
   _timeUntilHeal: 0
@@ -5395,6 +5398,7 @@ MonoBehaviour:
       Loop: 0
       Group: {fileID: 0}
       SpatialBlend: 0
+      MaxDistance: 0
   laserDeathSound:
     SfxClip:
     - {fileID: 0}
@@ -5405,6 +5409,7 @@ MonoBehaviour:
     Loop: 0
     Group: {fileID: 0}
     SpatialBlend: 0
+    MaxDistance: 0
   takeDamageSound:
     SfxClip:
     - {fileID: 0}
@@ -5415,6 +5420,7 @@ MonoBehaviour:
     Loop: 0
     Group: {fileID: 0}
     SpatialBlend: 1
+    MaxDistance: 0
 --- !u!136 &6072421821851196958
 CapsuleCollider:
   m_ObjectHideFlags: 0

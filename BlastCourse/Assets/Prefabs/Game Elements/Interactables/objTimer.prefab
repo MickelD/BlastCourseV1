@@ -68,13 +68,13 @@ MonoBehaviour:
   CountdownSound:
     SfxClip:
     - {fileID: 8300000, guid: 5a0dce4d25017f44b81751daacfee62c, type: 3}
-    Volume: 0.45
+    Volume: 1
     Pitch: 1
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
-    SpatialBlend: 0
-    MaxDistance: 0
+    SpatialBlend: 1
+    MaxDistance: 17
 --- !u!1 &8555204562765241505
 GameObject:
   m_ObjectHideFlags: 0

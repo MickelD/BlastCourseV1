@@ -1732,8 +1732,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0, b: 0, a: 1}
-      key1: {r: 1, g: 0, b: 0, a: 1}
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -5723,6 +5723,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4531377264277656794, guid: 962c001abf2da5a4e9d81cde09f24b03,
         type: 3}
+      propertyPath: shootSound.Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531377264277656794, guid: 962c001abf2da5a4e9d81cde09f24b03,
+        type: 3}
       propertyPath: _backRotationSpeed
       value: 10
       objectReference: {fileID: 0}
@@ -5736,6 +5741,11 @@ PrefabInstance:
       propertyPath: StartingAction._sender
       value: 
       objectReference: {fileID: 1173485848}
+    - target: {fileID: 4531377264277656794, guid: 962c001abf2da5a4e9d81cde09f24b03,
+        type: 3}
+      propertyPath: shootSound.MaxDistance
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4531377264277656794, guid: 962c001abf2da5a4e9d81cde09f24b03,
         type: 3}
       propertyPath: StartingAction._receiver

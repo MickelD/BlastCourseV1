@@ -47,6 +47,8 @@ public class LoadingScreenManager : MonoBehaviour
     #region Methods
     public void LoadScene(int nextScene)
     {
+        SaveLoader.Instance._loading = true;
+
         g_LoadingScreen.SetActive(true);
         loaders.Add(SceneManager.UnloadSceneAsync(currentSceneIndex));
         currentSceneIndex = nextScene;

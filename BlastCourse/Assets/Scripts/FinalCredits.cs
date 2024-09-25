@@ -59,7 +59,8 @@ public class FinalCredits : MonoBehaviour
 
     public void EndGame()
     {
-        SceneManager.LoadScene(0);
+        if (LoadingScreenManager.instance != null) LoadingScreenManager.instance.LoadScene(1);
+        else SceneManager.LoadScene(1);
     }
 }
 

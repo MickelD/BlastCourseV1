@@ -501,6 +501,16 @@ MonoBehaviour:
   _laserDecrease: 5
   _laserChargeTimer: 3
   c_chargeParticles: {fileID: 7139709927991416108}
+  _chargeSound:
+    SfxClip:
+    - {fileID: 8300000, guid: ae59af2100dd332489be40f1b4777be4, type: 3}
+    Volume: 6
+    Pitch: 1
+    Loop: 0
+    Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
+      type: 2}
+    SpatialBlend: 1
+    MaxDistance: 20
   _laserRecoil: 60
   _laserDelay: 4
   _laserAngle: 10
@@ -515,13 +525,13 @@ MonoBehaviour:
   shootSound:
     SfxClip:
     - {fileID: 8300000, guid: 66700f44fdfdbba48b0180da8b147635, type: 3}
-    Volume: 5
+    Volume: 10
     Pitch: 1
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
     SpatialBlend: 1
-    MaxDistance: 15
+    MaxDistance: 20
 --- !u!114 &6072421821851196952
 MonoBehaviour:
   m_ObjectHideFlags: 0

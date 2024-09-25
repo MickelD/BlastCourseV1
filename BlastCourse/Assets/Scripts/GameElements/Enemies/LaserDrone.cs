@@ -28,6 +28,7 @@ public class LaserDrone : MonoBehaviour
     [Space(5), Header("Laser Charge"), Space(3)]
     [SerializeField] float _laserChargeTimer;
     [SerializeField] ParticleSystem c_chargeParticles;
+    [SerializeField] AudioCue _chargeSound;
 
     [Space(5), Header("Laser Attack"), Space(3)]
     [SerializeField] float _laserRecoil;
@@ -127,6 +128,7 @@ public class LaserDrone : MonoBehaviour
             _lTimer = _laserDelay;
             _cTimer = _laserChargeTimer;
             c_chargeParticles.Play();
+            if(_chargeSound.SfxClip != null)AudioManager.TryPlayCueAtPoint(_chargeSound, transform.position);
         }
         if(c_lr.widthMultiplier > 0)
         {

@@ -29,6 +29,8 @@ public class Barrier : ActivableBase
     public AudioCue OnSfx;
     public AudioCue OffSfx;
 
+    private bool _firstFrame = false;
+
     #endregion
 
     #region Methods
@@ -37,6 +39,7 @@ public class Barrier : ActivableBase
     {
         gHitbox.gameObject.layer = LayerMask.NameToLayer(ExtendedDataUtility.Select(BlockingType == BarrierType.Player, BlockPlayerLayer, BlockObjectsLayer));
         base.Start();
+        _firstFrame = true;
     }
 
     private void OnValidate()
@@ -62,7 +65,7 @@ public class Barrier : ActivableBase
     private void SetBlocking(bool set)
     {
         gHitbox.enabled = set;
-        AudioManager.TryPlayCueAtPoint(set ? OnSfx : OffSfx, transform.position);
+        if(_firstFrame)AudioManager.TryPlayCueAtPoint(set ? OnSfx : OffSfx, transform.position);
 
         gRenderer.material.DOFloat(ExtendedDataUtility.Select(set, -0.1f, 1f), "_Dissipation", 0.5f);
     }

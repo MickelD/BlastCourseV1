@@ -9,6 +9,7 @@ public class RocketBase : ScaledTimeMonoBehaviour, IBounceable
     [Space(5), Header("Components"), Space(3)]
     [SerializeField] protected ParticleSystem c_rocketParticles;
     [SerializeField] protected GameObject g_defuseParticles;
+    [SerializeField] protected GameObject g_zappedParticles;
     [SerializeField] protected Collider c_playerTrigger;
     [SerializeField] protected AudioCue _explodeSfx;
     [SerializeField] protected AudioCue _defuseSfx;
@@ -52,7 +53,7 @@ public class RocketBase : ScaledTimeMonoBehaviour, IBounceable
     {
         //SHOULD ROCKET EXPLOTE ON CONTACT WITH THIS SURFACE
         if (ShouldExplodeOnThisSurface(collision)) Explode(collision.contacts[0].point, collision.GetContact(0).normal);
-        else Defuse();
+        else Defuse(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -101,11 +102,11 @@ public class RocketBase : ScaledTimeMonoBehaviour, IBounceable
         }  
     }
 
-    public virtual void Defuse()
+    public virtual void Defuse(bool zapped)
     {
         if (!_alreadyExplodedOrDiffused)
         {
-            Destroy(Instantiate(g_defuseParticles, transform.position, Quaternion.identity, AudioManager.Instance.transform), 4f);
+            Destroy(Instantiate(zapped ? g_zappedParticles : g_defuseParticles, transform.position, Quaternion.identity, AudioManager.Instance.transform), 4f);
 
             AudioManager.TryPlayCueAtPoint(_defuseSfx, transform.position);
 

@@ -7443,7 +7443,7 @@ PrefabInstance:
     - target: {fileID: 2902057590647023530, guid: 544a959aedde34345af1a9ffb7889a52,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 324
+      value: 144
       objectReference: {fileID: 0}
     - target: {fileID: 2946320071722449920, guid: 544a959aedde34345af1a9ffb7889a52,
         type: 3}
@@ -7578,7 +7578,7 @@ PrefabInstance:
     - target: {fileID: 3783336980634722514, guid: 544a959aedde34345af1a9ffb7889a52,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 324
+      value: 144
       objectReference: {fileID: 0}
     - target: {fileID: 3863901798651612648, guid: 544a959aedde34345af1a9ffb7889a52,
         type: 3}
@@ -7623,7 +7623,7 @@ PrefabInstance:
     - target: {fileID: 4552338195050290977, guid: 544a959aedde34345af1a9ffb7889a52,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 324
+      value: 144
       objectReference: {fileID: 0}
     - target: {fileID: 4730029083360336146, guid: 544a959aedde34345af1a9ffb7889a52,
         type: 3}
@@ -7679,6 +7679,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5386346247876158887, guid: 544a959aedde34345af1a9ffb7889a52,
+        type: 3}
+      propertyPath: _sliderTick
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 5386346247876158887, guid: 544a959aedde34345af1a9ffb7889a52,
+        type: 3}
+      propertyPath: SliderSound.Volume
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5578448524038516151, guid: 544a959aedde34345af1a9ffb7889a52,
         type: 3}
@@ -7934,7 +7944,7 @@ PrefabInstance:
     - target: {fileID: 6789743326768701081, guid: 544a959aedde34345af1a9ffb7889a52,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 324
+      value: 144
       objectReference: {fileID: 0}
     - target: {fileID: 6885179561139560322, guid: 544a959aedde34345af1a9ffb7889a52,
         type: 3}
@@ -8040,7 +8050,7 @@ PrefabInstance:
     - target: {fileID: 7651925550818949061, guid: 544a959aedde34345af1a9ffb7889a52,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 324
+      value: 144
       objectReference: {fileID: 0}
     - target: {fileID: 7857834538388743761, guid: 544a959aedde34345af1a9ffb7889a52,
         type: 3}
@@ -11364,7 +11374,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -13560,6 +13570,8 @@ MonoBehaviour:
   BoxesY: []
   BoxesZ: []
   UsedBoxes: []
+  DialoguesIds: []
+  DialoguesCount: 
   DefaultPlaySceneIndex: 1
   _loading: 0
 --- !u!4 &1787275657
@@ -16820,6 +16832,7 @@ MonoBehaviour:
     Group: {fileID: 9095247019528409046, guid: 9d4ff596c434beb4f9c85a5059f4d52a, type: 2}
     SpatialBlend: 0
     MaxDistance: 0
+  Id: 
 --- !u!4 &2055049154
 Transform:
   m_ObjectHideFlags: 0

@@ -14,9 +14,6 @@ public class MissileDeffuserTurret : GenericTurret
     [SerializeField] public float _pushForce;
     [SerializeField] public AudioCue destroyRockectSound;
 
-    [Space(5), Header("VFX"), Space(3)]
-    [SerializeField] public GameObject _zapVFX;
-
     #endregion
 
     #region Variables
@@ -83,8 +80,7 @@ public class MissileDeffuserTurret : GenericTurret
 
             SetLaser();
             _posibleTargets.Remove(_target);
-            Destroy(Instantiate(_zapVFX, _target.transform.position ,Quaternion.identity), 5);
-            if (_target != null && _target.GetComponent<RocketBase>() != null) _target.GetComponent<RocketBase>().Defuse();
+            if (_target != null && _target.GetComponent<RocketBase>() != null) _target.GetComponent<RocketBase>().Defuse(true);
             _target = null;
         }
     }

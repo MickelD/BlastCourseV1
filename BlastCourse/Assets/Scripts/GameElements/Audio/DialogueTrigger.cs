@@ -10,13 +10,6 @@ public class DialogueTrigger : MonoBehaviour
 {
     #region Fields
 
-    [Serializable]
-    public class AudioCueLogic
-    {
-        public int triggerNumber;
-        public AudioCue audioCue;
-    }
-
     public List<AudioCueLogic> AudioCues;
 
     public string Id;
@@ -60,6 +53,13 @@ public class DialogueTrigger : MonoBehaviour
     }
 
     #endregion
+}
+
+[Serializable]
+public class AudioCueLogic
+{
+    public int triggerNumber;
+    public AudioCue audioCue;
 }
 
 

@@ -76,7 +76,7 @@ public class UraniumBox : PhysicsObject
 
         foreach (RocketRemoteExplosion rem in transform.GetComponentsInChildren<RocketRemoteExplosion>())
         {
-            rem.Defuse();
+            rem.Defuse(false);
         }
     }
 

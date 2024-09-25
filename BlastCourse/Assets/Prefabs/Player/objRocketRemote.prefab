@@ -4969,7 +4969,9 @@ MonoBehaviour:
   Body: {fileID: 5705535953715931384}
   GravityController: {fileID: 0}
   c_rocketParticles: {fileID: 549184236647754649}
-  g_defuseParticles: {fileID: 3215386160078462545, guid: 683079c6720f8c948957e5624d1ec8ff,
+  g_defuseParticles: {fileID: 7847443002828412319, guid: a433ae05249adbf488cd86b696d63ce0,
+    type: 3}
+  g_zappedParticles: {fileID: 2163578974269314323, guid: 9c480619e7f5545428c60112526bba4a,
     type: 3}
   c_playerTrigger: {fileID: 5362936422528938794}
   _explodeSfx:

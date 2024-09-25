@@ -126,7 +126,7 @@ public class LaserDrone : MonoBehaviour
             _charging = true;
             _lTimer = _laserDelay;
             _cTimer = _laserChargeTimer;
-            c_chargeParticles.gameObject.SetActive(true);
+            c_chargeParticles.Play();
         }
         if(c_lr.widthMultiplier > 0)
         {
@@ -137,13 +137,11 @@ public class LaserDrone : MonoBehaviour
         {
             _cTimer -= Time.deltaTime;
             _cTimer = Mathf.Clamp(_cTimer, 0.1f, _laserChargeTimer);
-            ParticleSystem.EmissionModule emmision = c_chargeParticles.emission;
-            emmision.rateOverTime = 4.5f / _cTimer;
             if(_cTimer == 0.1f)
             {
                 _charging = false;
                 Shoot();
-                c_chargeParticles.gameObject.SetActive(false);
+                c_chargeParticles.Stop();
             }
         }
     }

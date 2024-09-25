@@ -72,6 +72,9 @@ public class OptionsMenu : MonoBehaviour
     [Space(3), Header("MenuSFX"), Space(3)]
     [SerializeField] private AudioCue ButtonSound;
     [SerializeField] private AudioCue SliderSound;
+    [SerializeField] private float _sliderTick;
+    private WaitForSecondsRealtime _tickWait;
+    bool _tickSound = true;
 
     #endregion
 
@@ -88,6 +91,11 @@ public class OptionsMenu : MonoBehaviour
 
     #region UnityFunctions
 
+    private void Awake()
+    {
+        _tickWait = new WaitForSecondsRealtime(_sliderTick);
+        _tickSound = true;
+    }
     private void OnValidate()
     {
         _maxSensitivity = _maxSensitivity > 100 ? _maxSensitivity : 100;
@@ -120,9 +128,10 @@ public class OptionsMenu : MonoBehaviour
 
     public void Sensitivity()
     {
-        if (SliderSound.SfxClip != null && SliderSound.SfxClip.Length > 0)
+        if (_tickSound && SliderSound.SfxClip != null && SliderSound.SfxClip.Length > 0)
         {
             AudioSource source = AudioManager.TryPlayCueAtPoint(SliderSound, Vector3.zero);
+            StartCoroutine(TickSliderSound());
         }
 
         if (_senseSlider != null
@@ -135,9 +144,10 @@ public class OptionsMenu : MonoBehaviour
 
     public void SFX()
     {
-        if (SliderSound.SfxClip != null && SliderSound.SfxClip.Length > 0)
+        if (_tickSound && SliderSound.SfxClip != null && SliderSound.SfxClip.Length > 0)
         {
             AudioSource source = AudioManager.TryPlayCueAtPoint(SliderSound, Vector3.zero);
+            StartCoroutine(TickSliderSound());
         }
 
         if (_sfxSlider != null
@@ -150,9 +160,10 @@ public class OptionsMenu : MonoBehaviour
 
     public void Music()
     {
-        if (SliderSound.SfxClip != null && SliderSound.SfxClip.Length > 0)
+        if (_tickSound && SliderSound.SfxClip != null && SliderSound.SfxClip.Length > 0)
         {
             AudioSource source = AudioManager.TryPlayCueAtPoint(SliderSound, Vector3.zero);
+            StartCoroutine(TickSliderSound());
         }
 
         if (_musicSlider != null
@@ -165,9 +176,10 @@ public class OptionsMenu : MonoBehaviour
 
     public void Master()
     {
-        if (SliderSound.SfxClip != null && SliderSound.SfxClip.Length > 0)
+        if (_tickSound && SliderSound.SfxClip != null && SliderSound.SfxClip.Length > 0)
         {
             AudioSource source = AudioManager.TryPlayCueAtPoint(SliderSound, Vector3.zero);
+            StartCoroutine(TickSliderSound());
         }
 
         if (_masterSlider != null
@@ -180,9 +192,10 @@ public class OptionsMenu : MonoBehaviour
 
     public void Dialogue()
     {
-        if (SliderSound.SfxClip != null && SliderSound.SfxClip.Length > 0)
+        if (_tickSound && SliderSound.SfxClip != null && SliderSound.SfxClip.Length > 0)
         {
             AudioSource source = AudioManager.TryPlayCueAtPoint(SliderSound, Vector3.zero);
+            StartCoroutine(TickSliderSound());
         }
 
         if (_dialogueSlider != null
@@ -195,9 +208,10 @@ public class OptionsMenu : MonoBehaviour
 
     public void Shake()
     {
-        if (SliderSound.SfxClip != null && SliderSound.SfxClip.Length > 0)
+        if (_tickSound && SliderSound.SfxClip != null && SliderSound.SfxClip.Length > 0)
         {
             AudioSource source = AudioManager.TryPlayCueAtPoint(SliderSound, Vector3.zero);
+            StartCoroutine(TickSliderSound());
         }
 
         if (_shakeSlider != null
@@ -210,9 +224,10 @@ public class OptionsMenu : MonoBehaviour
 
     public void FieldOfView()
     {
-        if (SliderSound.SfxClip != null && SliderSound.SfxClip.Length > 0)
+        if (_tickSound && SliderSound.SfxClip != null && SliderSound.SfxClip.Length > 0)
         {
             AudioSource source = AudioManager.TryPlayCueAtPoint(SliderSound, Vector3.zero);
+            StartCoroutine(TickSliderSound());
         }
 
         if (_fovSlider != null
@@ -345,6 +360,13 @@ public class OptionsMenu : MonoBehaviour
                     else _keyNames[i].text = OptionsLoader.Instance.Keys[i].ToString();
                 }
         }
+    }
+
+    public IEnumerator TickSliderSound()
+    {
+        _tickSound = false;
+        yield return _tickWait;
+        _tickSound = true;
     }
 
     #endregion

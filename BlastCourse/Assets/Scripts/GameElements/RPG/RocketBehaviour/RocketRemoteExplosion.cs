@@ -33,7 +33,7 @@ public class RocketRemoteExplosion : RocketBase
         }
         else
         {
-            Defuse();
+            Defuse(false);
         }
     }
 
@@ -65,7 +65,7 @@ public class RocketRemoteExplosion : RocketBase
             {
                 base.Explode(center, direction);
             }
-            else Defuse();
+            else Defuse(false);
         }
     }
 

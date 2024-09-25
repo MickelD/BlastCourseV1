@@ -219,6 +219,13 @@ public class DialogueManager : MonoBehaviour
                 a = i;
                 sDial[i].Id = "s" + SceneManager.GetActiveScene().buildIndex + "d" + a;
             }
+        ActivableCounter[] cDial = GameObject.FindObjectsOfType<ActivableCounter>();
+        if (cDial != null && cDial.Length > 0)
+            for (int i = 0; i < cDial.Length; i++)
+            {
+                a = i;
+                cDial[i].Id = "s" + SceneManager.GetActiveScene().buildIndex + "d" + a;
+            }
     }
 
     #endregion

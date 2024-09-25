@@ -70,6 +70,11 @@ public class PauseMenu : MonoBehaviour
         if (_eventSystem.currentSelectedGameObject != null) _eventSystem.SetSelectedGameObject(null);
     }
 
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
     #endregion
 
     #region Methods

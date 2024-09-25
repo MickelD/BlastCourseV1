@@ -142888,6 +142888,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DroneChargeVFX
       objectReference: {fileID: 0}
+    - target: {fileID: 1801255989237512645, guid: 770f34d1707fdf6479b166d9f0ba0c66,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: c42cff3bfa6f790468cae540703493be, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 770f34d1707fdf6479b166d9f0ba0c66, type: 3}
 --- !u!4 &2059413699780195805
@@ -144211,7 +144216,7 @@ PrefabInstance:
     - target: {fileID: 8644265026644406720, guid: f99b33f5e961c6342a5333308af9f98e,
         type: 3}
       propertyPath: m_Name
-      value: EnemyShotVFX
+      value: EnemyShotDontUseVFX
       objectReference: {fileID: 0}
     - target: {fileID: 8644265026644406723, guid: f99b33f5e961c6342a5333308af9f98e,
         type: 3}

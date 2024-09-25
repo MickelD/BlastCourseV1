@@ -154,12 +154,12 @@ public class LaserDrone : MonoBehaviour
 
     private void Shoot()
     {
+        AudioManager.TryPlayCueAtPoint(shootSound, Vector3.zero);
         c_lr.widthMultiplier = _laserWidth;
         RaycastHit hit;
         Vector3 point;
         if(Physics.Raycast(_laserOrigin.position, _laserOrigin.transform.forward, out hit, _laserRange, _laserMask))
         {
-            AudioManager.TryPlayCueAtPoint(shootSound, Vector3.zero);
             point = hit.point;
             Health hp = hit.transform.GetComponent<Health>();
             if (hp != null)

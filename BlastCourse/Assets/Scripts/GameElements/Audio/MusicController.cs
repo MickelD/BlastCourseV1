@@ -30,8 +30,8 @@ public class MusicController : MonoBehaviour
 
     public void Start()
     {
-        PauseMenu.Instance.OnPause += LowerVolume;
-        DialogueManager.Instance.ActivateSpeakers += Talking;
+        if (PauseMenu.Instance != null) PauseMenu.Instance.OnPause += LowerVolume;
+        if (DialogueManager.Instance != null) DialogueManager.Instance.ActivateSpeakers += Talking;
 
         LowerVolume(false);
         if (introSource != null) introSource.Play();
@@ -46,8 +46,8 @@ public class MusicController : MonoBehaviour
 
     public void OnDestroy()
     {
-        PauseMenu.Instance.OnPause -= LowerVolume;
-        DialogueManager.Instance.ActivateSpeakers -= Talking;
+        if(PauseMenu.Instance != null)PauseMenu.Instance.OnPause -= LowerVolume;
+        if (DialogueManager.Instance != null) DialogueManager.Instance.ActivateSpeakers -= Talking;
     }
 
     IEnumerator Loop()

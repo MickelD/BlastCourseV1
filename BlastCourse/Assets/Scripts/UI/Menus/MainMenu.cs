@@ -90,8 +90,11 @@ public class MainMenu : MonoBehaviour
             {
                 if (Input.GetKey(k))
                 {
-                    _pressToStartText.gameObject.SetActive(false);
-                    _toMenu = true;
+                    PressAnyToStart();
+                }
+                if (!(!_menuActive && !_toMenu && !_toStart))
+                {
+                    return;
                 }
             }
         }
@@ -114,7 +117,6 @@ public class MainMenu : MonoBehaviour
 
             if (_menuScreenTimer >= _transitionToMenuDuration)
             {
-                Debug.Log(_menuScreenTimer);
                 _title.anchoredPosition = _desiredMenuPosition;
                 _toMenu = false;
                 _menuActive = true;
@@ -126,6 +128,18 @@ public class MainMenu : MonoBehaviour
     #endregion
 
     #region Methods
+
+    public void PressAnyToStart()
+    {
+        _toMenu = true;
+
+        if (ButtonSound.SfxClip != null && ButtonSound.SfxClip.Length > 0)
+        {
+            AudioSource source = AudioManager.TryPlayCueAtPoint(ButtonSound, Vector3.zero);
+        }
+
+        _pressToStartText.gameObject.SetActive(false);
+    }
 
     public void LoadMainMenu(bool load)
     {

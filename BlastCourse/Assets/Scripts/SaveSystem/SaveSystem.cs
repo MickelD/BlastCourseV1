@@ -10,7 +10,7 @@ public static class SaveSystem
     public static void DataSave(int scene, float[] spawnPoint, List<string> collectibles, List<string> keys, bool[] rpg, List<string> boxes, List<float> boxesX, List<float> boxesY, List<float> boxesZ, List<string> usedBoxes, List<string> dialoguesId, List<int> dialoguesCount)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/save.data";
+        string path = Application.persistentDataPath + "/saveV1_0_0.data";
         FileStream stream = new FileStream(path, FileMode.Create);
         //Debug.Log("xDataOpenS");
         SaveData data = new SaveData(scene, spawnPoint, collectibles, keys, rpg, boxes, boxesX, boxesY, boxesZ, usedBoxes, dialoguesId, dialoguesCount);
@@ -22,7 +22,7 @@ public static class SaveSystem
 
     public static SaveData DataLoad()
     {
-        string path = Application.persistentDataPath + "/save.data";
+        string path = Application.persistentDataPath + "/saveV1_0_0.data";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -43,7 +43,7 @@ public static class SaveSystem
 
     public static void DataDelete()
     {
-        string path = Application.persistentDataPath + "/save.data";
+        string path = Application.persistentDataPath + "/saveV1_0_0.data";
         if (File.Exists(path))
         {
             Debug.Log("Data deleted from " + path);
@@ -53,7 +53,7 @@ public static class SaveSystem
 
     public static bool DataCheck()
     {
-        string path = Application.persistentDataPath + "/save.data";
+        string path = Application.persistentDataPath + "/saveV1_0_0.data";
         return File.Exists(path);
     }
 
@@ -66,7 +66,7 @@ public static class SaveSystem
     public static void OptionsSave(float sense, float mstr, float sfx, float music, float dial, bool fs, KeyCode[] iK, bool hG, float cS, float fov)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/options.data";
+        string path = Application.persistentDataPath + "/optionsV1_0_0.data";
         FileStream stream = new FileStream(path, FileMode.Create);
         //Debug.Log("xOptionsOpenS");
         OptionsData data = new OptionsData(sense, mstr, sfx, music, dial, fs, iK, hG, cS, fov);;
@@ -80,7 +80,7 @@ public static class SaveSystem
 
     public static OptionsData OptionsLoad()
     {
-        string path = Application.persistentDataPath + "/options.data";
+        string path = Application.persistentDataPath + "/optionsV1_0_0.data";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -103,7 +103,7 @@ public static class SaveSystem
 
     public static bool OptionsCheck()
     {
-        string path = Application.persistentDataPath + "/options.data";
+        string path = Application.persistentDataPath + "/optionsV1_0_0.data";
         return File.Exists(path);
     }
 

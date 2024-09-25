@@ -428,6 +428,8 @@ MonoBehaviour:
   BoxesY: []
   BoxesZ: []
   UsedBoxes: []
+  DialoguesIds: []
+  DialoguesCount: 
   DefaultPlaySceneIndex: 1
   _loading: 0
 --- !u!4 &95707472
@@ -567,7 +569,7 @@ MonoBehaviour:
   _disabledColor: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 0.78431374}
   ButtonSound:
     SfxClip:
-    - {fileID: 8300000, guid: 9e1e21ececa50a441b3a923f6be8a3ee, type: 3}
+    - {fileID: 8300000, guid: 15358dfe8ffe3eb44bccf7df8107accb, type: 3}
     Volume: 0.3
     Pitch: 1
     Loop: 0

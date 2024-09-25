@@ -23,7 +23,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/scnLevel3.unity
     guid: 6da98147f92743244ad83e85283e26bc
-  - enabled: 0
-    path: Assets/Debug/DebugScenes/DavidTest/InteractableTest.unity
-    guid: b6aa0d7d450439a4fbf17b2722d02d4f
   m_configObjects: {}

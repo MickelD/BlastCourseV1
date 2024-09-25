@@ -48,7 +48,7 @@ public class InteractablePickUpRPG : MonoBehaviour, IInteractable
             interactor.SetInteractWith(this, false);
 
             if(SaveLoader.Instance != null) SaveLoader.Instance.Save();
-            if (Audio.SfxClip != null && DialogueManager.Instance != null) DialogueManager.Instance.TryPlayCueAtPoint(Audio, transform.position);
+            if (Audio.SfxClip != null && DialogueManager.Instance != null && Audio.SfxClip.Length > 0) DialogueManager.Instance.TryPlayCueAtPoint(Audio, transform.position);
 
             Destroy(gameObject);
         }

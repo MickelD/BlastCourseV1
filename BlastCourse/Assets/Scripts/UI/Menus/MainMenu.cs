@@ -72,6 +72,7 @@ public class MainMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
         _menuActive = false;
         _toMenu = false;

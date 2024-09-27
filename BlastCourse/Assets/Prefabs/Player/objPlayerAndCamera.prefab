@@ -146,7 +146,7 @@ MonoBehaviour:
   rechargeSound:
     SfxClip:
     - {fileID: 8300000, guid: dad070caf832c0644baf089c2d1238cd, type: 3}
-    Volume: 0.35
+    Volume: 0
     Pitch: 1.25
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,

@@ -27,7 +27,7 @@ public class ActivableCounter : ActivableBase
         base.Start();
         if (SaveLoader.Instance != null)
         {
-            count = SaveLoader.Instance.GetDialogueCount(Id);
+            count = Mathf.Clamp(SaveLoader.Instance.GetDialogueCount(Id),0,5);
         }
     }
 

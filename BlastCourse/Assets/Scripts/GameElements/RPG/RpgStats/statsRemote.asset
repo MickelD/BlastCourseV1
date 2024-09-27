@@ -29,7 +29,7 @@ MonoBehaviour:
     BlastForce: 5
     Damage: 10
     Source: 0
-    SourcePos: {x: 14.796149, y: 1.9049894, z: 25.38969}
+    SourcePos: {x: 33.91896, y: 1.9, z: 7.183916}
     Parent: {fileID: 0}
     ExplosionRules: {fileID: 11400000, guid: ebbb9765dbe27334580907ccb9a3a951, type: 2}
     ExplosionSound:
@@ -52,10 +52,10 @@ MonoBehaviour:
   ShootingSound:
     SfxClip:
     - {fileID: 8300000, guid: 8ce27157920aa1744b9b8e2c1d9aae4e, type: 3}
-    Volume: 0.8
+    Volume: 0.7
     Pitch: 1
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}
-    SpatialBlend: 1
+    SpatialBlend: 0
     MaxDistance: 70

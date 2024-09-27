@@ -142,7 +142,7 @@ Material:
     - _DstBlend: 0
     - _Emission_Intensity: 1
     - _EnvironmentReflections: 1
-    - _Exterior_Outline_Thickness: 2
+    - _Exterior_Outline_Thickness: 4
     - _FaceDilate: 0
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
@@ -155,11 +155,11 @@ Material:
     - _GlowPower: 0.75
     - _GradientScale: 5
     - _HueVariationKwToggle: 1
-    - _Interior_Outline_Thickness: 2
+    - _Interior_Outline_Thickness: 4
     - _K_Rotation: 0
     - _LightAngle: 3.1416
     - _Light_Color: 0
-    - _Lighting_Cutoff: 0.5
+    - _Lighting_Cutoff: -1
     - _M_Rotation: 0
     - _MaskSoftnessX: 0
     - _MaskSoftnessY: 0

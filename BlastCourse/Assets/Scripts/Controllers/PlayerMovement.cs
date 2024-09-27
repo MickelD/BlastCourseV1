@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
     [SerializeField] float _magnetizedDrag;
     [SerializeField] float _magnetDeadAngle;
     [SerializeField, Tooltip("X is multiplied to up direction, Y is multiplied to Magnet's Forward")] Vector2 _magnetizedJumpDivision;
+    [SerializeField] AudioSource _magnetAudio;
     [SerializeField] private float _magnetizedGravityReduction;
 
     [Space(4), SerializeField] float _bouncePlayerSpeedMultiplier;
@@ -150,6 +151,7 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
         _ladderCooldown = new WaitForSeconds(0.2f);
         _coyoteCooldown = new WaitForSeconds(_coyoteTime);
         _stepsTimer = new WaitForSeconds(_timeBetweenSteps);
+        _magnetAudio.volume = 0f;
 
         StartCoroutine(StepsCoroutine());
         StartCoroutine(LadderStepsCoroutine());
@@ -664,6 +666,8 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
         if (set) c_rb.velocity = new Vector3(c_rb.velocity.x, 0f, c_rb.velocity.z);
         _currentMagnet = magnet;
         _isMagnetized = set;
+
+        _magnetAudio.volume = set ? 1f : 0f;
     }
 
     public Vector3 GetSSSPosition()

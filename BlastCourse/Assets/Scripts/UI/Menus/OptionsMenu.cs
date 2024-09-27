@@ -18,6 +18,8 @@ public class OptionsMenu : MonoBehaviour
     //[SerializeField] private GameObject _controlMenu;
     [SerializeField] private GameObject _optionsHolder;
     [SerializeField] private ChangeControlPopup _changeControlPopUp;
+    [SerializeField] private GameObject _applyPopUp;
+    [SerializeField] private PauseMenu _pause;
 
     [Space(3), Header("Sensitivity"), Space(3)]
     [SerializeField] private float _minSensitivity = 40;
@@ -279,12 +281,22 @@ public class OptionsMenu : MonoBehaviour
         }
         else yield return null;
 
-        _optionsHolder.SetActive(false);
-        if (OptionsLoader.Instance != null) OptionsLoader.Instance.Load();
+        if (OptionsLoader.Instance.ChangesFromSave() && !_applyPopUp.activeSelf)
+        {
+            OpenApplyPopUp(true);
+        }
+        else
+        {
+            if (_pause != null) _pause.Options(false);
+            else _optionsHolder.SetActive(false);
+            if (_applyPopUp.activeSelf) _applyPopUp.SetActive(false);
+            if (OptionsLoader.Instance != null) OptionsLoader.Instance.Load();
+        }
     }
 
     public void MenuBack()
     {
+        if (_applyPopUp.activeSelf) _applyPopUp.SetActive(false);
         _optionsHolder.SetActive(false);
         if (OptionsLoader.Instance != null) OptionsLoader.Instance.Load();
     }
@@ -325,6 +337,11 @@ public class OptionsMenu : MonoBehaviour
     {
         _changeControlPopUp.gameObject.SetActive(true);
         _changeControlPopUp.currentInput = changeControl;
+    }
+
+    public void OpenApplyPopUp(bool apply)
+    {
+        _applyPopUp.SetActive(apply);
     }
 
     public void UpdateSliders()

@@ -9,7 +9,7 @@ public class ActivableButton : ActivableBase
 {
     #region Variables
 
-    private Animator _animator;
+    protected Animator _animator;
 
     public bool InverseSignal;
     public bool ResetOnUnpress;

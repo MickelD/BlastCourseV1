@@ -7,22 +7,27 @@ using UnityEditor;
 
 public class PickUpBox : PushButton
 {
+    [SerializeField] public ParticleSystem _vfx;
+
     public override void SendAllActivations(bool isActive)
     {
+        _vfx.Emit(10);
+        Locked = true;
+
         base.SendAllActivations(isActive);
+        Locked = true;
 
-        if (isActive)
-        {
-            Locked = true;
-            SetActiveAnim(isActive);
+        gameObject.GetComponent<Collider>().enabled = false;
 
-            if (!ResetOnUnpress)
-            {
-                Invoke(nameof(ResetButton), 0.5f);
-            }
-        }
+        //if (isActive)
+        //{
+        //    //SetActiveAnim(isActive);
 
-        gameObject.SetActive(false);
+        //    if (!ResetOnUnpress)
+        //    {
+        //        Invoke(nameof(ResetButton), 0.5f);
+        //    }
+        //}
     }
 }
 

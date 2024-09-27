@@ -15,6 +15,7 @@ public class UraniumConsumer : ActivableBase
     public Transform _BoxPos;
     public Animator _Animator;
     public Transform _SpawnPos;
+    public ActivableCounter _Dialogue;
 
     [Space(5), Header("Audio"), Space(3)]
     public AudioCue _consumeSfx;
@@ -49,6 +50,7 @@ public class UraniumConsumer : ActivableBase
             _Animator.speed = 1f;
             SaveLoader.Instance.SetSpawn(_SpawnPos.transform.position);
             _FinalFan.FeedFan();
+            _Dialogue.Count(true);
             SendAllActivations(true);
         }
     }

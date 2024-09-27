@@ -210,6 +210,66 @@ public class OptionsLoader : MonoBehaviour
         else Debug.LogError("Missing Default Options");
     }
 
+    public bool ChangesFromSave()
+    {
+        OptionsData data = SaveSystem.OptionsLoad();
+
+        if (data != null
+            && Sensitivity == data._sensitivity
+            && MasterVolume == data._masterVolume
+            && SfxVolume == data._sfxVolume
+            && MusicVolume == data._musicVolume
+            && DialogueVolume == data._dialogueVolume
+            && Fullscreen == data._fullscreen
+            && HoldGrab == data._holdGrab
+            && CameraShake == data._camShake
+            && FieldOfView == data._fieldOfView
+            && !AreControlsChanged(data))
+        {
+            return false;
+        }
+        else if (data == null
+            && Sensitivity == _defaultOptions.Sensitivity
+            && MasterVolume == _defaultOptions.MasterVolume
+            && SfxVolume == _defaultOptions.SfxVolume
+            && MusicVolume == _defaultOptions.MusicVolume
+            && DialogueVolume == _defaultOptions.DialogueVolume
+            && Fullscreen == _defaultOptions.Fullscreen
+            && HoldGrab == _defaultOptions.HoldToGrab
+            && CameraShake == _defaultOptions.CameraShake
+            && FieldOfView == _defaultOptions.Fov
+            && !AreControlsChanged(null))
+        {
+            return false;
+        }
+        else return true;
+    }
+
+    private bool AreControlsChanged(OptionsData data)
+    {
+        bool equal = true;
+        if (data._inputKeys != null)
+            for (int i = 0; i < data._inputKeys.Length; i++)
+            {
+                if (Keys[i] == data._inputKeys[i])
+                {
+                    equal = false;
+                    return equal;
+                }
+            }
+        else if (_defaultOptions.Keys != null)
+            for (int i = 0; i < _defaultOptions.Keys.Length; i++)
+            {
+                if (Keys[i] == _defaultOptions.Keys[i])
+                {
+                    equal = false;
+                    return equal;
+                }
+            }
+
+        return equal;
+    }
+
 
     /// <summary>
     /// Returns the value of the given name held in the current OptionsLoader Instance. This method does not guarantee the Instance exists, returns compilation default in that case.

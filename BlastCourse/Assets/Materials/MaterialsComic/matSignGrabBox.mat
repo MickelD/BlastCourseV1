@@ -119,7 +119,7 @@ Material:
     - _BevelRoundness: 0
     - _BevelWidth: 0
     - _Blend: 0
-    - _Brightness: 1
+    - _Brightness: 2
     - _BumpFace: 0
     - _BumpOutline: 0
     - _BumpScale: 1

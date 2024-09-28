@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: statsClassic
   m_EditorClassIdentifier: 
   <FireMode>k__BackingField: 0
-  Unlocked: 1
+  Unlocked: 0
   <ClipSize>k__BackingField: 6
   <EnergyRecoveryMultiplier>k__BackingField: 1
   <ActiveRocketCap>k__BackingField: 5
@@ -25,7 +25,7 @@ MonoBehaviour:
       type: 3}
     g_boomTextPrefab:
     - {fileID: 8790979009465212854, guid: e41ea4ed30c55e14da49c30df8ab7ed1, type: 3}
-    BlastRadius: 4
+    BlastRadius: 3
     BlastForce: 7
     Damage: 10
     Source: 0

@@ -143,7 +143,6 @@ public class DialogueManager : MonoBehaviour
 
         //Return to original location
         Source.transform.position = new Vector3(0, 0, 0);
-        Source.gameObject.SetActive(false);
         _dialoguePlaying = false;
         ActivateSpeakers.Invoke(false);
     }
@@ -182,7 +181,6 @@ public class DialogueManager : MonoBehaviour
     {
         StopAllCoroutines();
         Source.transform.position = new Vector3(0, 0, 0);
-        Source.gameObject.SetActive(false);
         _dialoguePlaying = false;
         ActivateSpeakers.Invoke(false);
     }

@@ -25,7 +25,7 @@ MonoBehaviour:
       type: 3}
     g_boomTextPrefab:
     - {fileID: 8790979009465212854, guid: e41ea4ed30c55e14da49c30df8ab7ed1, type: 3}
-    BlastRadius: 3
+    BlastRadius: 4
     BlastForce: 9
     Damage: 10
     Source: 0

@@ -294,11 +294,23 @@ public class OptionsMenu : MonoBehaviour
         }
     }
 
-    public void MenuBack()
+    public bool MenuBack()
     {
-        if (_applyPopUp.activeSelf) _applyPopUp.SetActive(false);
-        _optionsHolder.SetActive(false);
-        if (OptionsLoader.Instance != null) OptionsLoader.Instance.Load();
+        bool close = true;
+
+        if (OptionsLoader.Instance.ChangesFromSave() && !_applyPopUp.activeSelf)
+        {
+            close = false;
+            OpenApplyPopUp(true);
+        }
+        else
+        {
+            if (_applyPopUp.activeSelf) _applyPopUp.SetActive(false);
+            _optionsHolder.SetActive(false);
+            if (OptionsLoader.Instance != null) OptionsLoader.Instance.Load();
+        }
+
+        return close;
     }
 
     public void Apply()

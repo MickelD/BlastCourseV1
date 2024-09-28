@@ -37,10 +37,10 @@ public class ActivableCounter : MonoBehaviour
     public void Count(bool up)
     {
         count += up ? 1 : -1;
-        foreach(AudioCueLogic d in _dialogues) if(d.triggerNumber == count)
+        SaveLoader.Instance.SetDialogueCount(Id, count);
+        foreach (AudioCueLogic d in _dialogues) if(d.triggerNumber == count)
             {
                 DialogueManager.Instance.TryPlayCueAtPoint(d.audioCue, transform.position);
-                SaveLoader.Instance.SetDialogueCount(Id, count);
                 return;
             }
         

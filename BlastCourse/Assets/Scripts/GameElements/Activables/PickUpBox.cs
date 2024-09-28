@@ -16,8 +16,8 @@ public class PickUpBox : PushButton
 
         base.SendAllActivations(isActive);
         Locked = true;
-
         gameObject.GetComponent<Collider>().enabled = false;
+        _animator.SetTrigger("Press");
 
         //if (isActive)
         //{

@@ -88,18 +88,26 @@ public class PauseMenu : MonoBehaviour
         }
         else yield return null;
 
-        _opened = open;
-        Cursor.lockState = open ? CursorLockMode.None : CursorLockMode.Locked;
-        Cursor.visible = open;
+        bool close = true;
 
-        g_pauseMenu.SetActive(open);
         if (!open)
         {
             g_confirmMenu.SetActive(false);
-            if(g_optionsMenu.activeSelf) OptionsClose();
+            if (g_optionsMenu.activeSelf) close = OptionsClose();
         }
-        Time.timeScale = open ? 0f : 1f;
-        OnPause?.Invoke(open);
+
+        if(close || open)
+        {
+            _opened = open;
+            Cursor.lockState = open ? CursorLockMode.None : CursorLockMode.Locked;
+            Cursor.visible = open;
+
+            g_pauseMenu.SetActive(open);
+
+            Time.timeScale = open ? 0f : 1f;
+            OnPause?.Invoke(open);
+        }
+        
     }
 
     public void OpenMenuNoSFX(bool open)
@@ -183,10 +191,11 @@ public class PauseMenu : MonoBehaviour
 
     }
 
-    public void OptionsClose()
+    public bool OptionsClose()
     {
-        _options.MenuBack();
-        g_background.SetActive(true);
+        bool close = _options.MenuBack();
+        if(close) g_background.SetActive(true);
+        return close;
 
     }
 

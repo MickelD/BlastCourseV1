@@ -25,11 +25,11 @@ MonoBehaviour:
       type: 3}
     g_boomTextPrefab:
     - {fileID: 8790979009465212854, guid: e41ea4ed30c55e14da49c30df8ab7ed1, type: 3}
-    BlastRadius: 6
+    BlastRadius: 4
     BlastForce: 5
     Damage: 10
     Source: 0
-    SourcePos: {x: 33.91896, y: 1.9, z: 7.183916}
+    SourcePos: {x: 16.471867, y: 1.9, z: 21.816113}
     Parent: {fileID: 0}
     ExplosionRules: {fileID: 11400000, guid: ebbb9765dbe27334580907ccb9a3a951, type: 2}
     ExplosionSound:

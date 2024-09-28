@@ -75,15 +75,13 @@ public class RocketBase : ScaledTimeMonoBehaviour, IBounceable
     protected bool ShouldExplodeOnThisSurface(Collision col)
     {
         //check material of collided Surface
-
-        if(col.collider.gameObject.CompareTag("Defuse"))
+        if (col.collider.gameObject.CompareTag("Defuse"))
         {
             return false;
         }
         else if (col.collider.TryGetComponent(out MeshRenderer meshRenderer))
         {
             MeshCollider meshCollider = col.collider as MeshCollider;
-
             int submesh = 0;
 
             //Mesh Collider, check material of hit face
@@ -99,7 +97,7 @@ public class RocketBase : ScaledTimeMonoBehaviour, IBounceable
         else
         {
             return true;
-        }  
+        }
     }
 
     public virtual void Defuse(bool zapped)

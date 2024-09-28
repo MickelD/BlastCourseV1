@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: matJumpSign
+  m_Name: matSignRemote
   m_Shader: {fileID: -6465566751694194690, guid: e27dde0ebb133d942a7d22a80ef62781,
     type: 3}
   m_ValidKeywords: []
@@ -46,7 +46,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Diffuse_Texture:
-        m_Texture: {fileID: 2800000, guid: e6749df8fb4fc444db075a5b123077bb, type: 3}
+        m_Texture: {fileID: 2800000, guid: bddf23c6eca7a034ab94bfdb962dfe41, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -119,7 +119,7 @@ Material:
     - _BevelRoundness: 0
     - _BevelWidth: 0
     - _Blend: 0
-    - _Brightness: 1
+    - _Brightness: 2
     - _BumpFace: 0
     - _BumpOutline: 0
     - _BumpScale: 1
@@ -204,7 +204,7 @@ Material:
     - _Stripes_Offset: 0
     - _Stripes_Opacity: 0.25
     - _Stripes_Rotation: 90
-    - _Stripes_Tiling: 30
+    - _Stripes_Tiling: 0.75
     - _Stripes_Width: 0.5
     - _SubsurfaceIndirect: 0.25
     - _SubsurfaceKwToggle: 0

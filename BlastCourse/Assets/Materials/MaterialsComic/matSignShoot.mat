@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: matAimSupportSign
+  m_Name: matSignShoot
   m_Shader: {fileID: -6465566751694194690, guid: e27dde0ebb133d942a7d22a80ef62781,
     type: 3}
   m_ValidKeywords: []
@@ -46,7 +46,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Diffuse_Texture:
-        m_Texture: {fileID: 2800000, guid: f996c0e91bda19b4c9381d9e07dbd468, type: 3}
+        m_Texture: {fileID: 2800000, guid: 769f5429ed1c51540b1f86001efa814b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -119,7 +119,7 @@ Material:
     - _BevelRoundness: 0
     - _BevelWidth: 0
     - _Blend: 0
-    - _Brightness: 1
+    - _Brightness: 2
     - _BumpFace: 0
     - _BumpOutline: 0
     - _BumpScale: 1

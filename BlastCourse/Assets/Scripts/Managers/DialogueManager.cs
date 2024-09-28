@@ -143,6 +143,7 @@ public class DialogueManager : MonoBehaviour
 
         //Return to original location
         Source.transform.position = new Vector3(0, 0, 0);
+        Source.clip = null;
         _dialoguePlaying = false;
         ActivateSpeakers.Invoke(false);
     }
@@ -182,6 +183,7 @@ public class DialogueManager : MonoBehaviour
         StopAllCoroutines();
         Source.transform.position = new Vector3(0, 0, 0);
         _dialoguePlaying = false;
+        Source.clip = null;
         ActivateSpeakers.Invoke(false);
     }
 

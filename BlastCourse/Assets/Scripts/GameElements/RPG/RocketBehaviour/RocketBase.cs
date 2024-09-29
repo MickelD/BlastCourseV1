@@ -83,6 +83,7 @@ public class RocketBase : ScaledTimeMonoBehaviour, IBounceable
         {
             MeshCollider meshCollider = col.collider as MeshCollider;
             int submesh = 0;
+            bool hit = false;
 
             //Mesh Collider, check material of hit face
             if (meshCollider != null && 
@@ -90,9 +91,11 @@ public class RocketBase : ScaledTimeMonoBehaviour, IBounceable
                 meshCollider.Raycast(new Ray(transform.position, col.GetContact(0).point - transform.position), out RaycastHit hitInfo, 1f)) 
             {
                 submesh = ExtendedDataUtility.GetSubmeshFromTriangle(hitInfo.triangleIndex, meshCollider.sharedMesh);
+                hit = true;
             }
 
-            return !rpg._stats.Explosion.ExplosionRules.DeffuserMaterials.Contains(meshRenderer.sharedMaterials[submesh]);
+            if (hit) return !rpg._stats.Explosion.ExplosionRules.DeffuserMaterials.Contains(meshRenderer.sharedMaterials[submesh]);
+            else return true;
         }
         else
         {

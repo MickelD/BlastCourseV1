@@ -260,11 +260,9 @@ public class Activation
                 //changing from current receiver to new Value
                 if (value != _receiver)
                 {
-                    //Debug.Log("Sender " + Sender.name + " changed receiver from " + _receiver + " to " + value);
                     //try remove from old list
                     if (_receiver != null && _receiver.RegisteredTriggers.Contains(this))
                     {
-                        //Debug.Log("Removed " + this + " from Receiver " + _receiver + "큦 triggers");
                         _receiver.RegisteredTriggers.Remove(this);
                     }
 
@@ -273,7 +271,6 @@ public class Activation
                     {
                         if (!value.RegisteredTriggers.Contains(this))
                         {
-                            //Debug.Log("Added " + this + " to Receiver " + value + "큦 triggers");
                             value.RegisteredTriggers.Add(this);
                         }
                     }
@@ -300,11 +297,9 @@ public class Activation
                 //changing from targetObject to new Value
                 if (value != _sender)
                 {
-                    //Debug.Log("Receiver " + Receiver.name + " changed sender from " + _receiver + " to " + value);
                     //try remove from old list
                     if (_sender != null && _sender.RegisteredActions.Contains(this))
                     {
-                        //Debug.Log("Removed " + this + " from Sender " + _sender + "큦 actions");
                         _sender.RegisteredActions.Remove(this);
                     }
 
@@ -313,7 +308,6 @@ public class Activation
                     {
                         if (!value.RegisteredActions.Contains(this))
                         {
-                            //Debug.Log("Added " + this + " to Sender " + value + "큦 actions");
                             value.RegisteredActions.Add(this);
                         }
                     }
@@ -628,91 +622,6 @@ public class ActivableEditor : Editor
                     //iterate through all Registered Actions
                     for (int i = 0; i < act.RegisteredActions.Count; i++) DrawActivationField(act, i, true);
 
-                    #region DUMP
-                    /*
-                    //Iterate through all activable actions
-                    for (int i = 0; i < act.RegisteredActions.Count; i++)
-                    {
-                        #region Format
-                        Color darkTint = new(0, 0, 0, 0.05f);
-                        Color lightTint = new(1, 1, 1, 0.05f);
-                        GUI.backgroundColor = i % 2 == 0 ? darkTint : lightTint;
-                        GUIStyle style = new() { normal = { background = Texture2D.whiteTexture } };
-                        #endregion
-
-                        GUILayout.BeginVertical(style);
-                        EditorGUILayout.Space(3);
-                        GUILayout.BeginHorizontal();
-
-                        EditorGUILayout.LabelField((i + 1) + ". ", GUILayout.Width(15f));
-
-                        ActivableBase selection = EditorGUILayout.ObjectField(act.RegisteredActions[i].Receiver, typeof(ActivableBase), true) as ActivableBase;
-
-                        act.RegisteredActions[i].Receiver = selection;
-
-                        //If there is an assigned object, check its methods and type
-                        if (selection != null)
-                        {
-                            //Prevent assining triggers to activate other triggers, as that makes no fucking sense
-                            if (act.RegisteredActions[i].Receiver.Type == ActivableType.Trigger)
-                            {
-                                act.RegisteredActions[i].Receiver = null;
-                                Debug.LogWarning("Activable Triggers should not try to activate other Triggers. Reference was removed." +
-                                                 "\nTry changing your target큦 Type to " + ActivableType.Action + " or " + ActivableType.Both);
-                                continue;
-                            }
-
-                            //Only include the methods with the activable action attribute, that have either no parameters or take one boolean input
-                            MethodInfo[] methods = act.RegisteredActions[i].ReceiverMethods;
-
-                            //Notify designers when object has no selectable methods
-                            if (methods.Length == 0)
-                            {
-                                Debug.LogWarning("No suitable methods were found in " + act.RegisteredActions[i].Receiver +
-                                                 "\nRemember that all selectable methods must use the " + nameof(ActivableAction) + " attribute and take 1 bool parameter");
-                            }
-                            else
-                            {
-                                #region Draw Method Name
-                                string[] methodNames = new string[methods.Length];
-                                for (int n = 0; n < methods.Length; n++)
-                                {
-                                    string paramNames = "";
-                                    foreach (ParameterInfo parameter in methods[n].GetParameters())
-                                    {
-                                        paramNames += parameter.ParameterType.Name;
-                                    }
-
-                                    methodNames[n] = methods[n].Name + "()";
-                                }
-                                #endregion
-
-                                //Assign method to call
-                                act.RegisteredActions[i].SelectedIndex = EditorGUILayout.Popup(act.RegisteredActions[i].SelectedIndex, methodNames, GUILayout.MaxWidth(100f));
-                                act.RegisteredActions[i].CallingMethod = methods[act.RegisteredActions[i].SelectedIndex];
-
-                                act.RegisteredActions[i].Style = (ActivationStyle)EditorGUILayout.EnumPopup(act.RegisteredActions[i].Style, GUILayout.MaxWidth(100f));
-
-                                act.RegisteredActions[i].Delay = EditorGUILayout.FloatField(act.RegisteredActions[i].Delay, GUILayout.MaxWidth(35f));
-                            }
-                        }
-
-                        if (GUILayout.Button("x", EditorStyles.miniButtonRight, GUILayout.Width(20f)))
-                        {
-                            if (act.RegisteredActions[i].Receiver != null &&
-                                act.RegisteredActions[i].Receiver.RegisteredTriggers.Contains(act.RegisteredActions[i]))
-                                act.RegisteredActions[i].Receiver.RegisteredTriggers.Remove(act.RegisteredActions[i]);
-                            act.RegisteredActions.RemoveAt(i);
-                        }
-
-                        GUILayout.EndHorizontal();
-                        EditorGUILayout.Space(3);
-                        GUILayout.EndVertical();
-                    }
-                    */
-
-                    #endregion
-
                     EditorGUILayout.Space(3);
                 }
                 ////LIST OF REGISTERED TRIGGERS
@@ -747,92 +656,6 @@ public class ActivableEditor : Editor
 
                     //iterate through all Registered Trigger's
                     for (int i = 0; i < act.RegisteredTriggers.Count; i++) DrawActivationField(act, i, false);
-
-                    #region DUMP
-                    /*
-                    //Iterate through all activator triggers
-                    for (int i = 0; i < act.RegisteredTriggers.Count; i++)
-                    {
-                        #region Format
-                        Color darkTint = new(0, 0, 0, 0.05f);
-                        Color lightTint = new(1, 1, 1, 0.05f);
-                        GUI.backgroundColor = i % 2 == 0 ? darkTint : lightTint;
-                        GUIStyle style = new() { normal = { background = Texture2D.whiteTexture } };
-                        #endregion
-
-                        GUILayout.BeginVertical(style);
-                        EditorGUILayout.Space(3);
-                        GUILayout.BeginHorizontal();
-
-                        EditorGUILayout.LabelField((i + 1) + ". ", GUILayout.Width(15f));
-
-                        ActivableBase selection = EditorGUILayout.ObjectField(act.RegisteredTriggers[i].Sender, typeof(ActivableBase), true) as ActivableBase;
-                        act.RegisteredTriggers[i].Sender = selection;
-
-                        //If there is an assigned object, check our methods and type
-                        if (selection != null)
-                        {
-                            //Prevent assining actions to be activated from other actions, as that makes no fucking sense
-                            if (act.RegisteredTriggers[i].Sender.Type == ActivableType.Action)
-                            {
-                                act.RegisteredTriggers[i] = null;
-                                Debug.LogWarning("Activable Actions should not be activated by other Actions. Reference was removed." +
-                                                 "\nTry changing your target큦 Type to " + ActivableType.Trigger + " or " + ActivableType.Both);
-                                continue;
-                            }
-
-                            //Only include the methods with the activable action attribute, that have either no parameters or take one boolean input
-                            MethodInfo[] methods = act.RegisteredTriggers[i].ReceiverMethods;
-
-                            //Notify designers when object has no selectable methods
-                            if (methods.Length == 0)
-                            {
-                                Debug.LogWarning("No suitable methods were found in " + act.RegisteredTriggers[i].Receiver +
-                                                 "\nRemember that all selectable methods must use the " + nameof(ActivableAction) + " attribute" +
-                                                 "\nand take 1 bool parameter");
-                            }
-                            else
-                            {
-                                #region Draw Method Name
-                                string[] methodNames = new string[methods.Length];
-                                for (int n = 0; n < methods.Length; n++)
-                                {
-                                    string paramNames = "";
-                                    foreach (ParameterInfo parameter in methods[n].GetParameters())
-                                    {
-                                        paramNames += parameter.ParameterType.Name;
-                                    }
-
-                                    methodNames[n] = methods[n].Name + "()";
-                                }
-                                #endregion
-
-                                //Assign method to call
-                                act.RegisteredTriggers[i].SelectedIndex = EditorGUILayout.Popup(act.RegisteredTriggers[i].SelectedIndex, methodNames, GUILayout.MaxWidth(100f));
-                                act.RegisteredTriggers[i].CallingMethod = methods[act.RegisteredTriggers[i].SelectedIndex];
-
-                                act.RegisteredTriggers[i].Style = (ActivationStyle)EditorGUILayout.EnumPopup(act.RegisteredTriggers[i].Style, GUILayout.MaxWidth(100f));
-
-                                act.RegisteredTriggers[i].Delay = EditorGUILayout.FloatField(act.RegisteredTriggers[i].Delay, GUILayout.MaxWidth(35f));
-                            }
-
-                            //EditorUtility.SetDirty(act.RegisteredTriggers[i].Sender);
-                        }
-
-                        if (GUILayout.Button("x", EditorStyles.miniButtonRight, GUILayout.Width(20f)))
-                        {
-                            if (act.RegisteredTriggers[i].Sender != null &&
-                                act.RegisteredTriggers[i].Sender.RegisteredActions.Contains(act.RegisteredTriggers[i]))
-                                act.RegisteredTriggers[i].Sender.RegisteredActions.Remove(act.RegisteredTriggers[i]);
-                            act.RegisteredTriggers.RemoveAt(i);
-                        }
-
-                        GUILayout.EndHorizontal();
-                        EditorGUILayout.Space(3);
-                        GUILayout.EndVertical();
-                    }
-                    */
-                    #endregion
                 }
                 else //DRAW DEFAULT FIELD
                 {

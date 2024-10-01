@@ -77,17 +77,4 @@ public class RocketRemoteExplosion : RocketBase
         EventManager.OnFireOrDetonateRemote?.Invoke(false);
     }
 
-    private void OnDisable()
-    {
-        //Debug.Log(transform.parent);
-        //Debug.Log(transform.parent.gameObject.activeInHierarchy);
-
-        //if (transform.parent != null && !transform.parent.gameObject.activeInHierarchy)
-        //{
-        //    return;
-        //}
-
-        //EventManager.OnFireOrDetonateRemote?.Invoke(false);
-    }
-
 }

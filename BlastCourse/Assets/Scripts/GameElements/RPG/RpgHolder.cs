@@ -127,8 +127,6 @@ public class RpgHolder : MonoBehaviour
 
                 for (int i = 0; i < 4; i++)
                 {
-                    //Debug.Log(_rpgCollection[(FiringMode)i]._rpgStats.Unlocked);
-                    //Debug.Log(SaveLoader.Instance._rpgs[i]);
                     SaveLoader.Instance.UnlockedRpgs[i] = _rpgCollection[(FiringMode)i]._rpgStats.Unlocked;
                 }
             }

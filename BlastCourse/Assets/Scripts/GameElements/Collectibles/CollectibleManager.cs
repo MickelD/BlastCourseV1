@@ -15,14 +15,11 @@ public class CollectibleManager : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log(_collectibles.Count);
         _collectibleList = new Dictionary<string, Collectibles>();
 
         if (_collectibles?.Count > 0)
             for (int i = 0; i < _collectibles?.Count; i++)
                 _collectibleList?.Add(_collectibles?[i]?._index, _collectibles?[i]);
-
-        Debug.Log(_collectibles + "," + _collectibleList + "," + _collectibleList.Count);
     }
 
     public void Start()

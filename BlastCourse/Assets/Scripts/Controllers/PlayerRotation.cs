@@ -30,7 +30,7 @@ public class PlayerRotation : MonoBehaviour
         {
             ResetRot(0f, 0f);
         }
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSecondsRealtime(0.25f);
         _enableRot = true;
     }
 

@@ -39,7 +39,6 @@ public class GroundCheck : MonoBehaviour
             {
                 if (Physics.Raycast(pos, Vector3.down, out GroundRaycastHit, length, lm, QueryTriggerInteraction.Ignore))
                 {
-                    //Debug.Log("Detected from 0");
                     _checking = false;
                     return GroundRaycastHit;
                 }
@@ -55,7 +54,6 @@ public class GroundCheck : MonoBehaviour
                 rotation %= (rotation + 360);
                 if (Physics.Raycast(pos + (Quaternion.Euler(rotation * Vector3.up)  * (- transform.forward) * _radius), Vector3.down, out GroundRaycastHit, length, lm, QueryTriggerInteraction.Ignore))
                 {
-                    //Debug.Log("Detected from " + _rayCount);
                     _checking = false;
                     return GroundRaycastHit;
                 }
@@ -82,7 +80,6 @@ public class GroundCheck : MonoBehaviour
             rotation /= (_numberOfRays / 2);
             rotation *= 180;
             rotation %= (rotation + 360);
-            Debug.Log(rotation + " : " + i);
         }
     }
 

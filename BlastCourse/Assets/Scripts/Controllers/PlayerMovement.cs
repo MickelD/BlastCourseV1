@@ -45,6 +45,12 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
     [DrawIf(nameof(_restrictVerticalSpam), false, DrawIfAttribute.DisablingType.ReadOnly)] public int _statJumpsCount;
     [SerializeField] float _minHorSpeed;
 
+    [Space(5), Header("Land effects"), Space(3)]
+    [SerializeField] ParticleSystem _landVFX;
+    [SerializeField] Vector2 _landMinMaxSpeed;
+    [SerializeField] Vector2 _landMinMaxParticles;
+
+
     [Space(5), Header("Input"), Space(3)]
     [SerializeField] string _horAxisName;
     [SerializeField] string _verAxisName;
@@ -178,7 +184,6 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
         GroundCheck();
         ReadMovementInput();
         JumpInput();
-        SlideInput();
     }
 
     private void FixedUpdate()
@@ -284,8 +289,6 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
     //Move
     private void HorizontalMovement()
     {
-        //_movementDirection = (g_orientation.forward * _inputVec.y + g_orientation.right * _inputVec.x).normalized;
-        //Debug.Log(g_orientation.forward * _inputVec.y + g_orientation.right * _inputVec.x);
         if(_isNoclip)
         {
             c_rb.drag = _groundFriction;
@@ -297,9 +300,6 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
                                          (g_orientation.forward * _inputVec.y + g_orientation.right * _inputVec.x).normalized, 
                                          Time.deltaTime * ExtendedDataUtility.Select(_isGrounded, _groundTraction, ExtendedDataUtility.Select(_isRocketJumping, _rocketJumpTraction, _airTraction)));
 
-        Debug.DrawRay(g_orientation.transform.position, _movementDirection * 10f, Color.green);
-        Debug.DrawRay(g_orientation.transform.position, g_orientation.transform.forward * 10f, Color.blue);
-        Debug.DrawRay(g_orientation.transform.position, new Vector3(c_rb.velocity.x, 0f, c_rb.velocity.z), Color.yellow);
 
         if (_movementDirection != Vector3.zero)
         {
@@ -425,6 +425,7 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
             {
                 if (!_isGrounded)
                 {
+                    if (Mathf.Abs(_lastRecordedFallSpeed) >= _landMinMaxSpeed.x) _landVFX.Emit((int)(Mathf.Lerp(_landMinMaxParticles.x, _landMinMaxParticles.y, Mathf.Clamp01((Mathf.Abs(_lastRecordedFallSpeed) - _landMinMaxSpeed.x)) / ((_landMinMaxSpeed.y - _landMinMaxSpeed.x)))));
                     _landingSource = AudioManager.TryPlayCueAtPoint(landingSound, transform.position);
                     _statJumpsCount = 0;
                     EventManager.OnPlayerLanded?.Invoke(_lastRecordedFallSpeed);
@@ -475,19 +476,10 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
 
     private void ReorientUpVector(Vector3 newUp, bool onAir)
     {
-        //Calcular el plano interseccion de la direccion y la rampa
         Vector3 directionNormal = Vector3.Cross(g_orientation.forward, Vector3.up);
 
         Vector3 newForward = Vector3.Cross(newUp, directionNormal);
-        //newForward = Quaternion.AngleAxis(-90, Vector3.Cross(newForward,newUp)) * newUp;
 
-        //if (Physics.Raycast(g_orientation.position + g_orientation.forward * 0.8f + Vector3.up, Vector3.down, out hitRamp, 2, _groundLayerMask))
-        //{
-        //    newForward = (hitRamp.point - g_orientation.forward * 0.5f) - g_orientation.position;
-        //    
-        //}
-        //(g_orientation.forward - (Vector3.Dot(g_orientation.forward, newUp) / Mathf.Abs(Vector3.Dot(newUp, newUp)) * newUp)).normalized
-        //Debug.DrawRay(g_orientation.position, newForward.normalized, Color.magenta, 1f);
         g_orientation.rotation = Quaternion.LookRotation(onAir ? new Vector3(newForward.x, 0, newForward.z).normalized : newForward.normalized, newUp.normalized);
     }
 

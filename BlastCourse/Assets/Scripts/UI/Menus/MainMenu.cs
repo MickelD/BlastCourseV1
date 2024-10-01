@@ -151,8 +151,6 @@ public class MainMenu : MonoBehaviour
 
             if (!SaveSystem.DataCheck())
             {
-                Debug.Log("No Save");
-
                 g_continue.interactable = false;
                 _continueText.color = _disabledColor;
             }

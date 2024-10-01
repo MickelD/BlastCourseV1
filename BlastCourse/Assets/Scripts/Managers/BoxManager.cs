@@ -95,26 +95,19 @@ public class BoxManager : MonoBehaviour
 
             if (GUILayout.Button("Search for Key Interactables"))
             {
-                Debug.Log("Phase 1");
 
                 m.Boxes = new List<UraniumBox>();
 
                 UraniumBox[] coll = (UraniumBox[])FindObjectsOfType(typeof(UraniumBox));
-                Debug.Log("Phase 2");
                 if (coll.Length > 0)
                 {
-                    Debug.Log("Phase 3");
                     for (int i = 0; i < coll.Length; i++)
                     {
                         m.Boxes.Add(coll[i]);
                         coll[i].SetIndex(SceneManager.GetActiveScene().buildIndex + "s" + (i + 1) + "k");
                         EditorUtility.SetDirty(coll[i]);
                     }
-                    Debug.Log("Phase 4");
                 }
-                Debug.Log("Phase End");
-
-                Debug.Log(m.Boxes.Count);
             }
 
             EditorUtility.SetDirty(m);

@@ -12,12 +12,10 @@ public static class SaveSystem
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/saveV1_0_0.data";
         FileStream stream = new FileStream(path, FileMode.Create);
-        //Debug.Log("xDataOpenS");
         SaveData data = new SaveData(scene, spawnPoint, collectibles, keys, rpg, boxes, boxesX, boxesY, boxesZ, usedBoxes, dialoguesId, dialoguesCount);
 
         formatter.Serialize(stream, data);
         stream.Close();
-        //Debug.Log("xDataCloseS");
     }
 
     public static SaveData DataLoad()
@@ -27,10 +25,8 @@ public static class SaveSystem
         {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
-            //Debug.Log("xDataOpenL");
             SaveData data = formatter.Deserialize(stream) as SaveData;
             stream.Close();
-            //Debug.Log("xDataCloseL");
 
             return data;
         }
@@ -46,7 +42,6 @@ public static class SaveSystem
         string path = Application.persistentDataPath + "/saveV1_0_0.data";
         if (File.Exists(path))
         {
-            Debug.Log("Data deleted from " + path);
             File.Delete(path);
         }
     }
@@ -68,14 +63,9 @@ public static class SaveSystem
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/optionsV1_0_0.data";
         FileStream stream = new FileStream(path, FileMode.Create);
-        //Debug.Log("xOptionsOpenS");
         OptionsData data = new OptionsData(sense, mstr, sfx, music, dial, fs, iK, hG, cS, fov, extraHud);
-
-        Debug.Log("Saving data to " + path);
-
         formatter.Serialize(stream, data);
         stream.Close();
-        //Debug.Log("xOptionsCloseS");
     }
 
     public static OptionsData OptionsLoad()
@@ -85,13 +75,11 @@ public static class SaveSystem
         {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
-            //Debug.Log("xOptionsOpenL");
 
 
             OptionsData data = formatter.Deserialize(stream) as OptionsData;
 
             stream.Close();
-            //Debug.Log("xOptionsCloseL");
             return data;
         }
         else

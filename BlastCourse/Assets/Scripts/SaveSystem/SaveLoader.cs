@@ -124,7 +124,6 @@ public class SaveLoader : MonoBehaviour
             {
                 if (DialoguesIds[i] == id) return DialoguesCount[i];
             }
-        Debug.LogWarning("Id not contained, may be new or bug");
         return -1;
     }
     public void SetDialogueCount(string id, int count)
@@ -220,8 +219,6 @@ public class SaveLoader : MonoBehaviour
         }
         else
         {
-            Debug.Log("No Data Found");
-
             SceneIndex = DefaultPlaySceneIndex;
             SpawnPos = new float[0];
             CollectiblesFound = new List<string>();

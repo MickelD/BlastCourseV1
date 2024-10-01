@@ -124,7 +124,7 @@ public class OptionsLoader : MonoBehaviour
 
     private void Update()
     {
-        _timeTick += Time.deltaTime * (SceneManager.GetActiveScene().buildIndex > 1 || SceneManager.sceneCount == 1).GetHashCode();
+        _timeTick += Time.unscaledDeltaTime;
         if (ExtraHUD) EventManager.OnTimeTick?.Invoke(_timeTick);
     }
 
@@ -143,8 +143,9 @@ public class OptionsLoader : MonoBehaviour
         if (_audioMixer != null) _audioMixer.SetFloat("VolumeDialogue", Mathf.Log10(_dialogueVolume) * 20);
 
         EventManager.OnActivateExtraHUD?.Invoke(ExtraHUD);
+        EventManager.OnFovChanged?.Invoke(FieldOfView);
 
-        if (FovController.instance != null) FovController.instance.SetFov(FieldOfView);
+        //if (FovController.instance != null) FovController.instance.SetFov(FieldOfView);
     }
 
     [ContextMenu("Save")]

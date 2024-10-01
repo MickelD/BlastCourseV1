@@ -105,6 +105,7 @@ public class HUD : MonoBehaviour
         EventManager.OnPlayerDeath -= PlayerFuckingDies;
         EventManager.OnUpdatePlayerLocalVelocity -= UpdateSpeedParticles;
         EventManager.OnActivateExtraHUD -= SetExtraHUD;
+
         EventManager.OnUpdatePlayerVelocity -= UpdateSpeedMeter;
         EventManager.OnTimeTick -= UpdateTime;
     }

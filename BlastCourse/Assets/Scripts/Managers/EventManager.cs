@@ -21,6 +21,7 @@ public static class EventManager
     public static Action OnSaveGame;
     public static Action<bool> OnActivateExtraHUD;
     public static Action<float> OnTimeTick;
+    public static Action<float> OnFovChanged;
 
     //action events
     public static Action<IInteractable> OnSelectNewInteractable;

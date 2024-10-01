@@ -59,7 +59,6 @@ public class ActivableWindow : EditorWindow
                 ActivableData nData = ScriptableObject.CreateInstance<ActivableData>();
                 string nName = SceneManager.GetActiveScene().name;
                 nData.name = nName;
-                Debug.Log(nData + " " + nData.name);
                 data = nData;
 
                 AssetDatabase.CreateAsset(nData, "Assets/Scripts/Utility/ActivableWindow/" + nData.name + ".asset");

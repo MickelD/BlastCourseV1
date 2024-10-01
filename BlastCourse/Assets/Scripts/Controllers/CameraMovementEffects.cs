@@ -12,12 +12,6 @@ public class CameraMovementEffects : MonoBehaviour
     [SerializeField] private CinemachineCameraOffset _camOffset;
     [HideInInspector] public CinemachineBasicMultiChannelPerlin _noise;
 
-    [Space(5), Header("FOV change on speed"), Space(3)]
-    [SerializeField] private bool _changeFovWithSpeed;
-    [SerializeField] private AnimationCurve _speedAndFovCurve;
-    [SerializeField] private float _lerpFovDuration;
-    private float _desiredFov;
-
     [Space(5), Header("Landing Offset"), Space(3)]
     [SerializeField] private bool _displaceCameraOnLanding;
     [SerializeField] private AnimationCurve _YSpeedAndOffsetCurve;
@@ -26,44 +20,23 @@ public class CameraMovementEffects : MonoBehaviour
 
     private void OnEnable()
     {
-        if (_changeFovWithSpeed)
-        {
-            EventManager.OnUpdatePlayerSpeedXZ += UpdateDesiredFOV;
-        }
+        EventManager.OnFovChanged += UpdateDesiredFOV;
 
-        if (_displaceCameraOnLanding)
-        {
-            EventManager.OnPlayerLanded += CameraLandingAnimation;
-        }
+        if (_displaceCameraOnLanding)   EventManager.OnPlayerLanded += CameraLandingAnimation;
 
         if (_noise == null) _noise = _camera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
 
     private void OnDisable()
     {
+        EventManager.OnFovChanged -= UpdateDesiredFOV;
         EventManager.OnUpdatePlayerSpeedXZ -= UpdateDesiredFOV;
         EventManager.OnPlayerLanded -= CameraLandingAnimation;
     }
 
-    private void UpdateDesiredFOV(float spd)
+    private void UpdateDesiredFOV(float fov)
     {
-        float newFOV = _speedAndFovCurve.Evaluate(Mathf.Round(spd));
-
-        if (newFOV != _desiredFov)
-        {
-            //If we are going at a speed that means we should have a new FOV, Tween it to the new value;
-
-            _desiredFov = newFOV;
-
-            //float currentFOV = _camera.m_Lens.FieldOfView;
-
-            //DOVirtual.Float(currentFOV, _desiredFov, _lerpFovDuration, value =>
-            //{
-            //    _camera.m_Lens.FieldOfView = value;
-            //});
-
-            //_camera.m_Lens.FieldOfView =  _desiredFov;
-        }
+        _camera.m_Lens.FieldOfView = fov;
     }
 
     private void CameraLandingAnimation(float ySpeed)

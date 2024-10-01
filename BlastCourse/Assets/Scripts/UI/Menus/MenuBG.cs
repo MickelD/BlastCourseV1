@@ -37,7 +37,6 @@ public class MenuBG : MonoBehaviour
         if(_yDistance >= _maxMovement)
         {
             _rectTransform.anchoredPosition -= new Vector2((_jumpSize * _rectTransform.up).x, (_jumpSize * _rectTransform.up).y);
-            Debug.Log("Hey");
         }
     }
 

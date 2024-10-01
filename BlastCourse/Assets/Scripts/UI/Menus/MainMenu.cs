@@ -143,6 +143,11 @@ public class MainMenu : MonoBehaviour
         _pressToStartText.gameObject.SetActive(false);
     }
 
+    public void Discord()
+    {
+        Application.OpenURL("https://discord.gg/GeDQnjdpba");
+    }
+
     public void LoadMainMenu(bool load)
     {
         if (load)

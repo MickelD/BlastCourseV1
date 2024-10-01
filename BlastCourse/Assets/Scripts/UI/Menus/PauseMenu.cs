@@ -155,6 +155,7 @@ public class PauseMenu : MonoBehaviour
         }
         else yield return null;
 
+        SpeedLoader.Instance.Save();
         SaveLoader.Instance.Load();
     }
 

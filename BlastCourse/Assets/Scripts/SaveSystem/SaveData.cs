@@ -83,6 +83,47 @@ public class SaveData
             CompletedLevels[3] = cL[3];
         }
     }
+    public SaveData(int scn, float[] spP, List<string> clAq, List<string> kObj, bool[] rpg, List<string> b, List<float> bx, List<float> by, List<float> bz, List<string> ub, List<string> dialoguesId, List<int> dialogueCount)
+    {
+        _scene = scn;
+        _spawnPosition = new float[4];
+        _spawnPosition[0] = spP[0];
+        _spawnPosition[1] = spP[1];
+        _spawnPosition[2] = spP[2];
+        _spawnPosition[3] = spP[3];
+
+        _collectiblesAquired = new List<string>();
+        if (clAq.Count > 0) for (int i = 0; i < clAq.Count; i++) _collectiblesAquired.Add(clAq[i]);
+
+        _keyObjects = new List<string>();
+        if (kObj.Count > 0) for (int i = 0; i < kObj.Count; i++) _keyObjects.Add(kObj[i]);
+
+        _rpgs = new bool[4];
+        if (rpg.Length >= 4)
+        {
+            _rpgs[0] = rpg[0];
+            _rpgs[1] = rpg[1];
+            _rpgs[2] = rpg[2];
+            _rpgs[3] = rpg[3];
+        }
+
+        Boxes = new List<string>();
+        if (b.Count > 0) for (int i = 0; i < b.Count; i++) Boxes.Add(b[i]);
+        BoxesX = new List<float>();
+        if (bx.Count > 0) for (int i = 0; i < bx.Count; i++) BoxesX.Add(bx[i]);
+        BoxesY = new List<float>();
+        if (by.Count > 0) for (int i = 0; i < by.Count; i++) BoxesY.Add(by[i]);
+        BoxesZ = new List<float>();
+        if (bz.Count > 0) for (int i = 0; i < bz.Count; i++) BoxesZ.Add(bz[i]);
+        UsedBoxes = new List<string>();
+        if (ub.Count > 0) for (int i = 0; i < ub.Count; i++) UsedBoxes.Add(ub[i]);
+
+
+        DialoguesCount = dialogueCount;
+        DialoguesIds = dialoguesId;
+
+        CompletedLevels = new bool[4];
+    }
 }
 
 [System.Serializable]

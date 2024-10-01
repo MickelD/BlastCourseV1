@@ -10,7 +10,7 @@ public static class SaveSystem
     public static void DataSave(int scene, float[] spawnPoint, List<string> collectibles, List<string> keys, bool[] rpg, List<string> boxes, List<float> boxesX, List<float> boxesY, List<float> boxesZ, List<string> usedBoxes, List<string> dialoguesId, List<int> dialoguesCount, bool[] cL)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/saveV1_0_1.data";
+        string path = Application.persistentDataPath + "/saveV1_0_0.data";
         FileStream stream = new FileStream(path, FileMode.Create);
         SaveData data = new SaveData(scene, spawnPoint, collectibles, keys, rpg, boxes, boxesX, boxesY, boxesZ, usedBoxes, dialoguesId, dialoguesCount, cL);
 
@@ -20,7 +20,7 @@ public static class SaveSystem
 
     public static SaveData DataLoad()
     {
-        string path = Application.persistentDataPath + "/saveV1_0_1.data";
+        string path = Application.persistentDataPath + "/saveV1_0_0.data";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -39,7 +39,7 @@ public static class SaveSystem
 
     public static void DataDelete()
     {
-        string path = Application.persistentDataPath + "/saveV1_0_1.data";
+        string path = Application.persistentDataPath + "/saveV1_0_0.data";
         if (File.Exists(path))
         {
             File.Delete(path);
@@ -48,7 +48,7 @@ public static class SaveSystem
 
     public static bool DataCheck()
     {
-        string path = Application.persistentDataPath + "/saveV1_0_1.data";
+        string path = Application.persistentDataPath + "/saveV1_0_0.data";
         return File.Exists(path);
     }
 
@@ -61,7 +61,7 @@ public static class SaveSystem
     public static void OptionsSave(float sense, float mstr, float sfx, float music, float dial, bool fs, KeyCode[] iK, bool hG, float cS, float fov, bool extraHud)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/optionsV1_0_1.data";
+        string path = Application.persistentDataPath + "/optionsV1_0_0.data";
         FileStream stream = new FileStream(path, FileMode.Create);
         OptionsData data = new OptionsData(sense, mstr, sfx, music, dial, fs, iK, hG, cS, fov, extraHud);
         formatter.Serialize(stream, data);
@@ -70,7 +70,7 @@ public static class SaveSystem
 
     public static OptionsData OptionsLoad()
     {
-        string path = Application.persistentDataPath + "/optionsV1_0_1.data";
+        string path = Application.persistentDataPath + "/optionsV1_0_0.data";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -91,7 +91,7 @@ public static class SaveSystem
 
     public static bool OptionsCheck()
     {
-        string path = Application.persistentDataPath + "/optionsV1_0_1.data";
+        string path = Application.persistentDataPath + "/optionsV1_0_0.data";
         return File.Exists(path);
     }
 
@@ -102,7 +102,7 @@ public static class SaveSystem
     public static void SpeedrunSave(float all, float tuto, float ware, float city, float lab, float previous)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/timeV1_0_1.data";
+        string path = Application.persistentDataPath + "/timeV1_0_0.data";
         FileStream stream = new FileStream(path, FileMode.Create);
         SpeedrunData data = new SpeedrunData(all,tuto,ware,city,lab, previous);
 
@@ -112,7 +112,7 @@ public static class SaveSystem
 
     public static SpeedrunData SpeedrunLoad()
     {
-        string path = Application.persistentDataPath + "/timeV1_0_1.data";
+        string path = Application.persistentDataPath + "/timeV1_0_0.data";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -131,7 +131,7 @@ public static class SaveSystem
 
     public static void SpeedrunDelete()
     {
-        string path = Application.persistentDataPath + "/timeV1_0_1.data";
+        string path = Application.persistentDataPath + "/timeV1_0_0.data";
         if (File.Exists(path))
         {
             File.Delete(path);
@@ -140,7 +140,7 @@ public static class SaveSystem
 
     public static bool SpeedrunCheck()
     {
-        string path = Application.persistentDataPath + "/timeV1_0_1.data";
+        string path = Application.persistentDataPath + "/timeV1_0_0.data";
         return File.Exists(path);
     }
 

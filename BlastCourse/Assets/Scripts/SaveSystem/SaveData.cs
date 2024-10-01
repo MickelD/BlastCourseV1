@@ -32,9 +32,10 @@ public class SaveData
     public List<string> UsedBoxes;
     public List<int> DialoguesCount;
     public List<string> DialoguesIds;
+    public bool[] CompletedLevels;
     //Strings that hold a pointer to the reference
 
-    public SaveData(int scn, float[] spP, List<string> clAq, List<string> kObj, bool[] rpg, List<string> b, List<float> bx, List<float> by, List<float> bz, List<string> ub, List<string> dialoguesId, List<int> dialogueCount)
+    public SaveData(int scn, float[] spP, List<string> clAq, List<string> kObj, bool[] rpg, List<string> b, List<float> bx, List<float> by, List<float> bz, List<string> ub, List<string> dialoguesId, List<int> dialogueCount, bool[] cL)
     {
         _scene = scn;
         _spawnPosition = new float[4];
@@ -72,5 +73,37 @@ public class SaveData
 
         DialoguesCount = dialogueCount;
         DialoguesIds = dialoguesId;
+
+        CompletedLevels = new bool[4];
+        if (cL.Length >= 4)
+        {
+            CompletedLevels[0] = cL[0];
+            CompletedLevels[1] = cL[1];
+            CompletedLevels[2] = cL[2];
+            CompletedLevels[3] = cL[3];
+        }
+    }
+}
+
+[System.Serializable]
+public class SpeedrunData
+{
+    public float SavedTime;
+
+    public float TutoTimer;
+    public float WareTimer;
+    public float CityTimer;
+    public float LabTimer;
+    public float previousTimer;
+
+    public SpeedrunData(float sT,float tT, float wT, float cT, float lT, float pT)
+    {
+        SavedTime = sT;
+        previousTimer = pT;
+
+        TutoTimer = tT;
+        WareTimer = wT;
+        CityTimer = cT;
+        LabTimer = lT;
     }
 }

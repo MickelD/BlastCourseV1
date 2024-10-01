@@ -192,7 +192,7 @@ public class MainMenu : MonoBehaviour
             //SaveLoader.Instance.Load();
             if (OptionsLoader.Instance != null) 
             {
-                OptionsLoader.Instance._timeTick = OptionsLoader.Instance._timeSegment = 0f;
+                SpeedLoader.Instance.allTimer = SpeedLoader.Instance.prevTimer = 0f;
             }
 
             if (LoadingScreenManager.instance != null) LoadingScreenManager.instance.LoadScene(sceneLoad);
@@ -233,7 +233,7 @@ public class MainMenu : MonoBehaviour
 
         if (OptionsLoader.Instance != null)
         {
-            OptionsLoader.Instance._timeTick = OptionsLoader.Instance._timeSegment = 0f;
+            SpeedLoader.Instance.allTimer = SpeedLoader.Instance.prevTimer = 0f;
         }
 
         //SaveLoader.Instance.Load();

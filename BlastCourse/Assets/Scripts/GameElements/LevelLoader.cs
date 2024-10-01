@@ -27,7 +27,7 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadLevel()
     {
-        OptionsLoader.Instance._timeSegment = OptionsLoader.Instance._timeTick;
+        SpeedLoader.Instance.SetPrevTimer();
 
         if (_loadinitiated) return;
         _loadinitiated = true;

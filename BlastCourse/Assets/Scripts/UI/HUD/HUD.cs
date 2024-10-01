@@ -113,7 +113,7 @@ public class HUD : MonoBehaviour
     private void Start()
     {
         OptionsLoader.Instance.UpdateConfig();
-        UpdateLastTime(OptionsLoader.Instance._timeSegment);
+        UpdateLastTime(SpeedLoader.Instance.prevTimer);
 
         _actionIconBaseAlpha = _actionIconValues._actionIcon.color.a;
         SetInteractable(null);

@@ -23,6 +23,7 @@ public class SaveLoader : MonoBehaviour
     [HideInInspector] public List<string> UsedBoxes;
     [HideInInspector] public List<string> DialoguesIds;
     [HideInInspector] public List<int> DialoguesCount;
+    [HideInInspector] public bool[] CompletedLevels;
     public int DefaultPlaySceneIndex;
 
     [HideInInspector] public bool _loading;
@@ -109,6 +110,7 @@ public class SaveLoader : MonoBehaviour
     public void NextScene(Vector3 spawnPosition, int sceneIndex, float rot = 0f)
     {
         SetSpawn(spawnPosition, rot);
+        if(CompletedLevels != null && CompletedLevels.Length == 4) CompletedLevels[SceneIndex-2] = true;
         SceneIndex = sceneIndex;
         Save();
         Load();
@@ -145,7 +147,8 @@ public class SaveLoader : MonoBehaviour
     public void Save()
     {
         EventManager.OnSaveGame?.Invoke();
-        SaveSystem.DataSave(SceneIndex, SpawnPos, CollectiblesFound, KeysReached, UnlockedRpgs, Boxes, BoxesX, BoxesY, BoxesZ, UsedBoxes, DialoguesIds, DialoguesCount);
+        SaveSystem.DataSave(SceneIndex, SpawnPos, CollectiblesFound, KeysReached, UnlockedRpgs, Boxes, BoxesX, BoxesY, BoxesZ, UsedBoxes, DialoguesIds, DialoguesCount, CompletedLevels);
+        SpeedLoader.Instance.Save();
     }
     [ContextMenu("Load")]
     public void Load()
@@ -214,6 +217,11 @@ public class SaveLoader : MonoBehaviour
                 for (int i = 0; i < data.DialoguesCount.Count; i++)
                     DialoguesCount.Add(data.DialoguesCount[i]);
 
+            CompletedLevels = new bool[4];
+            if(data.CompletedLevels.Length > 0)
+                for(int i = 0; i < data.CompletedLevels.Length; i++)
+                    CompletedLevels[i] = data.CompletedLevels[i];
+
             if (LoadingScreenManager.instance != null) LoadingScreenManager.instance.LoadScene(SceneIndex);
             else SceneManager.LoadScene(SceneIndex);
         }
@@ -231,10 +239,13 @@ public class SaveLoader : MonoBehaviour
             UsedBoxes = new List<string>();
             DialoguesIds = new List<string>();
             DialoguesCount = new List<int>();
+            CompletedLevels = new bool[4];
 
             if (LoadingScreenManager.instance != null) LoadingScreenManager.instance.LoadScene(SceneIndex);
             else SceneManager.LoadScene(SceneIndex);
         }
+
+        if (SpeedLoader.Instance != null) SpeedLoader.Instance.Load();
     }
     [ContextMenu("Delete")]
     public void Delete() 

@@ -75,8 +75,7 @@ public class OptionsLoader : MonoBehaviour
     }
     private float _dialogueVolume;
 
-    [HideInInspector]
-    public float CameraShake
+    [HideInInspector] public float CameraShake
     {
         get { return _camShake; }
         set
@@ -86,8 +85,7 @@ public class OptionsLoader : MonoBehaviour
     }
     private float _camShake;
 
-    [HideInInspector]
-    public float FieldOfView
+    [HideInInspector] public float FieldOfView
     {
         get { return _fieldOfView; }
         set
@@ -104,8 +102,6 @@ public class OptionsLoader : MonoBehaviour
     [SerializeField] private OptionsSO _defaultOptions;
     [SerializeField] private AudioMixer _audioMixer;
 
-    public float _timeTick;
-    public float _timeSegment;
     #endregion
 
     #region UnityFunctions
@@ -122,11 +118,7 @@ public class OptionsLoader : MonoBehaviour
         Load();
     }
 
-    private void Update()
-    {
-        _timeTick += Time.deltaTime;
-        if (ExtraHUD) EventManager.OnTimeTick?.Invoke(_timeTick);
-    }
+    
 
     #endregion
 

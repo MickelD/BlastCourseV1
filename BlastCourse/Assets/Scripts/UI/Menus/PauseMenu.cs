@@ -169,6 +169,7 @@ public class PauseMenu : MonoBehaviour
         else yield return null;
 
         Time.timeScale = 1f;
+
         if (LoadingScreenManager.instance != null) LoadingScreenManager.instance.LoadScene(1);
         else SceneManager.LoadScene(1);
     }

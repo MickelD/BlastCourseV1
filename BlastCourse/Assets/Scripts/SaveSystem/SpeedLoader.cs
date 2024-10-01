@@ -38,11 +38,8 @@ public class SpeedLoader : MonoBehaviour
 
     private void Update()
     {
-        if(SaveLoader.Instance.SceneIndex > 1)
-        {
-            allTimer += Time.deltaTime;
-            if (OptionsLoader.Instance.ExtraHUD) EventManager.OnTimeTick?.Invoke(allTimer);
-        }
+        allTimer += Time.deltaTime * (SaveLoader.Instance.SceneIndex > 1).GetHashCode();
+        if (OptionsLoader.Instance.ExtraHUD) EventManager.OnTimeTick?.Invoke(allTimer);
     }
 
     public void Load()

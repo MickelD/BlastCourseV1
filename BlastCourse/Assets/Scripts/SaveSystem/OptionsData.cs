@@ -28,10 +28,11 @@ public class OptionsData
 
     public bool _fullscreen;
     public bool _holdGrab;
+    public bool _extraHUD;
     public float _camShake;
     public float _fieldOfView;
 
-    public OptionsData(float sense, float mstr, float sfx, float music, float dial, bool fs, KeyCode[] iK, bool hG, float cS, float fieldOfView)
+    public OptionsData(float sense, float mstr, float sfx, float music, float dial, bool fs, KeyCode[] iK, bool hG, float cS, float fieldOfView, bool extraHUD)
     {
         _sensitivity = sense;
         _masterVolume = mstr;
@@ -50,6 +51,7 @@ public class OptionsData
             }
 
         _fieldOfView = fieldOfView;
+        _extraHUD = extraHUD;
     }
 }
 

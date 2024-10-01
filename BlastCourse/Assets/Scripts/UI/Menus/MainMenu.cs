@@ -192,6 +192,11 @@ public class MainMenu : MonoBehaviour
         if (!SaveSystem.DataCheck())
         {
             //SaveLoader.Instance.Load();
+            if (OptionsLoader.Instance != null) 
+            {
+                OptionsLoader.Instance._timeTick = OptionsLoader.Instance._timeSegment = 0f;
+            }
+
             if (LoadingScreenManager.instance != null) LoadingScreenManager.instance.LoadScene(sceneLoad);
             else SceneManager.LoadScene(sceneLoad);
         }
@@ -227,6 +232,12 @@ public class MainMenu : MonoBehaviour
         else yield return null;
 
         SaveLoader.Instance.Delete();
+
+        if (OptionsLoader.Instance != null)
+        {
+            OptionsLoader.Instance._timeTick = OptionsLoader.Instance._timeSegment = 0f;
+        }
+
         //SaveLoader.Instance.Load();
         if (LoadingScreenManager.instance != null) LoadingScreenManager.instance.LoadScene(sceneLoad);
         else SceneManager.LoadScene(sceneLoad);

@@ -21,7 +21,7 @@ public class RpgTargeted : RpgBase
     {
         if (_isPositionMarked)
         {
-            FireRocketAtPosition(_target, false);
+            FireRocketAtPosition(_target);
         }
     }
 }

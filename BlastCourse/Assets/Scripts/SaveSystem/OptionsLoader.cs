@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public enum InputActions
 {
@@ -98,12 +99,13 @@ public class OptionsLoader : MonoBehaviour
 
     [HideInInspector] public bool Fullscreen;
     [HideInInspector] public bool HoldGrab;
+    [HideInInspector] public bool ExtraHUD;
 
     [SerializeField] private OptionsSO _defaultOptions;
     [SerializeField] private AudioMixer _audioMixer;
 
-    
-
+    public float _timeTick;
+    public float _timeSegment;
     #endregion
 
     #region UnityFunctions
@@ -120,11 +122,17 @@ public class OptionsLoader : MonoBehaviour
         Load();
     }
 
+    private void Update()
+    {
+        _timeTick += Time.deltaTime * (SceneManager.GetActiveScene().buildIndex > 1 || SceneManager.sceneCount == 1).GetHashCode();
+        if (ExtraHUD) EventManager.OnTimeTick?.Invoke(_timeTick);
+    }
+
     #endregion
 
     #region Methods
 
-    private void UpdateConfig()
+    public void UpdateConfig()
     {
         Screen.fullScreen = Fullscreen;
 
@@ -134,13 +142,15 @@ public class OptionsLoader : MonoBehaviour
         if (_audioMixer != null) _audioMixer.SetFloat("VolumeMusic", Mathf.Log10(_musicVolume) * 20);
         if (_audioMixer != null) _audioMixer.SetFloat("VolumeDialogue", Mathf.Log10(_dialogueVolume) * 20);
 
+        EventManager.OnActivateExtraHUD?.Invoke(ExtraHUD);
+
         if (FovController.instance != null) FovController.instance.SetFov(FieldOfView);
     }
 
     [ContextMenu("Save")]
     public void Save()
     {
-        SaveSystem.OptionsSave(Sensitivity,MasterVolume,SfxVolume,MusicVolume,DialogueVolume,Fullscreen,Keys,HoldGrab,CameraShake,FieldOfView);
+        SaveSystem.OptionsSave(Sensitivity,MasterVolume,SfxVolume,MusicVolume,DialogueVolume,Fullscreen,Keys,HoldGrab,CameraShake,FieldOfView, ExtraHUD);
         UpdateConfig();
     }
 
@@ -159,6 +169,7 @@ public class OptionsLoader : MonoBehaviour
             DialogueVolume = data._dialogueVolume;
             Fullscreen = data._fullscreen;
             HoldGrab = data._holdGrab;
+            ExtraHUD = data._extraHUD;
             CameraShake = data._camShake;
             FieldOfView = data._fieldOfView;
 
@@ -197,6 +208,7 @@ public class OptionsLoader : MonoBehaviour
             HoldGrab = _defaultOptions.HoldToGrab;
             CameraShake = _defaultOptions.CameraShake;
             FieldOfView = _defaultOptions.Fov;
+            ExtraHUD = _defaultOptions.ExtraHUD;
 
 
             Keys = new KeyCode[Enum.GetValues(typeof(InputActions)).Length];
@@ -222,6 +234,7 @@ public class OptionsLoader : MonoBehaviour
             && DialogueVolume == data._dialogueVolume
             && Fullscreen == data._fullscreen
             && HoldGrab == data._holdGrab
+            && ExtraHUD == data._extraHUD
             && CameraShake == data._camShake
             && FieldOfView == data._fieldOfView
             && !AreControlsChanged(data))
@@ -236,6 +249,7 @@ public class OptionsLoader : MonoBehaviour
             && DialogueVolume == _defaultOptions.DialogueVolume
             && Fullscreen == _defaultOptions.Fullscreen
             && HoldGrab == _defaultOptions.HoldToGrab
+            && ExtraHUD == _defaultOptions.ExtraHUD
             && CameraShake == _defaultOptions.CameraShake
             && FieldOfView == _defaultOptions.Fov
             && !AreControlsChanged(null))

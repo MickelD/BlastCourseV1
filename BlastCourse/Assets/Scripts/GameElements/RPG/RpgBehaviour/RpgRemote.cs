@@ -76,13 +76,13 @@ public class RpgRemote : RpgBase
         }
     }
 
-    public override void FireRocketAtPosition(Vector3 target, bool startIntangible)
+    public override void FireRocketAtPosition(Vector3 target)
     {
         if(Input.GetButton(_rpgHolder._secondaryFireButtonName) && _rpgHolder._canDetonate)
         {
             _stats.Explosion.Explode(_rpgHolder._player.transform.position, Vector3.up);
         }
-        else base.FireRocketAtPosition(target, startIntangible);
+        else base.FireRocketAtPosition(target);
     }
 
     #endregion

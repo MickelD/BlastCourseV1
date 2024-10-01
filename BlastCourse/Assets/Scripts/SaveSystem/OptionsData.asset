@@ -17,7 +17,7 @@ MonoBehaviour:
   SfxVolume: 1
   MusicVolume: 1
   DialogueVolume: 1
-  HoldToGrab: 1
+  HoldToGrab: 0
   Fullscreen: 1
   CameraShake: 1
   Fov: 70

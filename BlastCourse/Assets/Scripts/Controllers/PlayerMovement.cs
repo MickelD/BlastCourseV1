@@ -705,9 +705,6 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
             _playerVerticalVelocity = c_rb.velocity.y; //Y
             _playerHorizontalSpeed = ExtendedMathUtility.VectorXZMagnitude(c_rb.velocity); //XZ
 
-            EventManager.OnUpdatePlayerSpeedXYZ?.Invoke(_playerAbsoluteSpeed);
-            EventManager.OnUpdatePlayerSpeedXZ?.Invoke(_playerHorizontalSpeed);
-            EventManager.OnUpdatePlayerSpeedY?.Invoke(_playerVerticalVelocity);
             EventManager.OnUpdatePlayerVelocity?.Invoke(c_rb.velocity);
 
             EventManager.OnUpdatePlayerLocalVelocity?.Invoke(Vector3.Cross(c_rb.velocity,g_orientation.transform.right));

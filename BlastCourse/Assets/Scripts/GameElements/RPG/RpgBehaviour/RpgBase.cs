@@ -108,7 +108,6 @@ public abstract class RpgBase : ScriptableObject
         _timeSinceLastRocketFired = 0f;
 
         Vector3 targetPoint;
-        bool becomeIntangible = false;
 
         if (_rpgHolder.IsAimingDown())
         {
@@ -125,17 +124,9 @@ public abstract class RpgBase : ScriptableObject
             {
                 targetPoint = _camera.transform.position + _camera.transform.forward * _maxAimDistance;
             }
-
-            //check if there is clear room in the space immediatley in front of the rocket
-
-            bool clearView = !Physics.SphereCast(new Ray(_camera.transform.position, _camera.transform.forward), 0.1f, _rpgHolder.IntangibleDistance, _rpgHolder.IntangibleMask, QueryTriggerInteraction.Ignore);
-            bool somethingInWay = Physics.SphereCast(new Ray(_fireOrigin.position, (targetPoint - _fireOrigin.position).normalized), 0.16f, _rpgHolder.IntangibleDistance, _rpgHolder.IntangibleMask, QueryTriggerInteraction.Ignore);
-
-
-            becomeIntangible = clearView && somethingInWay;
         }
 
-        FireRocketAtPosition(targetPoint, becomeIntangible);
+        FireRocketAtPosition(targetPoint);
     }
 
     public virtual void SecondaryFire()
@@ -143,19 +134,11 @@ public abstract class RpgBase : ScriptableObject
 
     }
 
-    public virtual void FireRocketAtPosition(Vector3 target, bool intangibleAtStart)
+    public virtual void FireRocketAtPosition(Vector3 target)
     {
         Vector3 _targetDirection = (target - _fireOrigin.position).normalized;
 
         RocketBase instantiatedRocket = Instantiate(_stats.RocketPrefab, _fireOrigin.transform.position, _rpgHolder.transform.rotation, AudioManager.Instance.transform).GetComponent<RocketBase>();
-
-        if (intangibleAtStart && instantiatedRocket.TryGetComponent(out Collider collider))
-        {
-            collider.isTrigger = true;
-
-            instantiatedRocket.Invoke(() => { if (collider != null) collider.isTrigger = false; }, (_rpgHolder.IntangibleDistance) / _stats.RocketSpeed);
-        }
-
         instantiatedRocket.rpg = this;
         instantiatedRocket.SetVelocity(_targetDirection * _stats.RocketSpeed);
     }

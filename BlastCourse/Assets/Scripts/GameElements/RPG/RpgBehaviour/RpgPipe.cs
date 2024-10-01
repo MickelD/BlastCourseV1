@@ -31,18 +31,11 @@ public class RpgPipe : RpgBase
 
     #region Methods
 
-    public override void FireRocketAtPosition(Vector3 target, bool intangibleAtStart)
+    public override void FireRocketAtPosition(Vector3 target)
     {
         Vector3 _targetDirection = (target - _fireOrigin.position).normalized;
 
         RocketBase instantiatedRocket = Instantiate(_stats.RocketPrefab, _fireOrigin.transform.position, _rpgHolder.transform.rotation).GetComponent<RocketBase>();
-
-        if (intangibleAtStart && instantiatedRocket.TryGetComponent(out Collider collider))
-        {
-            collider.enabled = false;
-
-            instantiatedRocket.Invoke(() => { if (collider != null) collider.enabled = true; }, _rpgHolder.IntangibleDistance / _stats.RocketSpeed);
-        }
 
         instantiatedRocket.rpg = this;
         instantiatedRocket.SetVelocity(_targetDirection * (_stats.RocketSpeed + _playerInertiaVector.x) 

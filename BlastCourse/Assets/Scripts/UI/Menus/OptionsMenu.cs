@@ -69,6 +69,9 @@ public class OptionsMenu : MonoBehaviour
     [Space(3), Header("Hold To Grab"), Space(3)]
     [SerializeField] private Toggle _holdGrab;
 
+    [Space(3), Header("Hold To Grab"), Space(3)]
+    [SerializeField] private Toggle _extraHUD;
+
     [HideInInspector] public TextMeshProUGUI[] _keyNames;
 
     [Space(3), Header("MenuSFX"), Space(3)]
@@ -251,6 +254,16 @@ public class OptionsMenu : MonoBehaviour
         Screen.fullScreen = _fullscreen.isOn;
     }
 
+    public void ExtendedHUD()
+    {
+        if (ButtonSound.SfxClip != null && ButtonSound.SfxClip.Length > 0)
+        {
+            AudioSource source = AudioManager.TryPlayCueAtPoint(ButtonSound, Vector3.zero);
+        }
+
+        if (OptionsLoader.Instance != null) OptionsLoader.Instance.ExtraHUD = _extraHUD.isOn;
+    }
+
     public void HoldGrab()
     {
         if (ButtonSound.SfxClip != null && ButtonSound.SfxClip.Length > 0)
@@ -377,7 +390,7 @@ public class OptionsMenu : MonoBehaviour
             if (_fovValue != null) _fovValue.text = ((int)_fovSlider.value).ToString();
 
             if (_fullscreen != null) _fullscreen.isOn = OptionsLoader.Instance.Fullscreen;
-
+            if (_extraHUD != null) _extraHUD.isOn = OptionsLoader.Instance.ExtraHUD;
             if (_holdGrab != null) _holdGrab.isOn = OptionsLoader.Instance.HoldGrab;
 
             if (_keyNames != null)

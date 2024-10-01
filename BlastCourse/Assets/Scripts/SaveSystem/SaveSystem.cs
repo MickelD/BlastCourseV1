@@ -63,13 +63,13 @@ public static class SaveSystem
 
     #region Options
 
-    public static void OptionsSave(float sense, float mstr, float sfx, float music, float dial, bool fs, KeyCode[] iK, bool hG, float cS, float fov)
+    public static void OptionsSave(float sense, float mstr, float sfx, float music, float dial, bool fs, KeyCode[] iK, bool hG, float cS, float fov, bool extraHud)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/optionsV1_0_0.data";
         FileStream stream = new FileStream(path, FileMode.Create);
         //Debug.Log("xOptionsOpenS");
-        OptionsData data = new OptionsData(sense, mstr, sfx, music, dial, fs, iK, hG, cS, fov);;
+        OptionsData data = new OptionsData(sense, mstr, sfx, music, dial, fs, iK, hG, cS, fov, extraHud);
 
         Debug.Log("Saving data to " + path);
 

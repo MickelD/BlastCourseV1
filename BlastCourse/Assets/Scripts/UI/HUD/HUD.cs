@@ -31,7 +31,15 @@ public class HUD : MonoBehaviour
     }
 
     [Space(5), Header("SpeedMeter"), Space(2)]
-    [SerializeField] SpeedMeterValues _speedMeterValues;
+    public GameObject g_speedMeter;
+    public TextMeshProUGUI _speedTextXYZ;
+    public TextMeshProUGUI _speedTextXZ;
+    public TextMeshProUGUI _speedTextY;
+
+    [Space(5), Header("Timer"), Space(2)]
+    public GameObject g_timer;
+    public TextMeshProUGUI _timerText;
+    public TextMeshProUGUI _segmentText;
 
     [Space(5), Header("SpeedParticles"), Space(2)]
     [SerializeField] ParticleSystem _speedParticles;
@@ -43,30 +51,6 @@ public class HUD : MonoBehaviour
     [SerializeField] float _backParticleMinThreshold;
     [SerializeField] float _backParticleMaxThreshold;
     [SerializeField] int _backParticleMaxCount;
-    
-    [Serializable] public class SpeedMeterValues
-    {
-        public SpeedMeterType _speedMeterType;
-
-        [Space(3), Header("Simple SpeedMeter"), Space(2)]
-        public SimpleSpeedMeterValues _simpleSpeedMeterValues;
-
-        [Space(3), Header("Complex SpeedMeter"), Space(2)]
-        public ComplexSpeedMeterValues _complexSpeedMeterValues;
-
-        [Serializable] public class SimpleSpeedMeterValues
-        {
-            public GameObject g_simpleSpeedMeter;
-            public TextMeshProUGUI _simpleSpeedText;
-        }
-        [Serializable] public class ComplexSpeedMeterValues
-        {
-            public GameObject g_complexSpeedMeter;
-            public TextMeshProUGUI _complexSpeedTextXYZ;
-            public TextMeshProUGUI _complexSpeedTextXZ;
-            public TextMeshProUGUI _complexSpeedTextY;
-        }
-    }
 
     [Space(5), Header("Weapon Wheel"), Space(2)]
     [SerializeField] WeaponWheelValues _weaponWheelValues;
@@ -108,6 +92,7 @@ public class HUD : MonoBehaviour
         EventManager.OnUpdateHealth += UpdateTint;
         EventManager.OnPlayerDeath += PlayerFuckingDies;
         EventManager.OnUpdatePlayerLocalVelocity += UpdateSpeedParticles;
+        EventManager.OnActivateExtraHUD += SetExtraHUD;
     }
 
     private void OnDisable()
@@ -119,17 +104,15 @@ public class HUD : MonoBehaviour
         EventManager.OnUpdateHealth -= UpdateTint;
         EventManager.OnPlayerDeath -= PlayerFuckingDies;
         EventManager.OnUpdatePlayerLocalVelocity -= UpdateSpeedParticles;
-        UnsusbsribeAllSpeedMeterUpdates();
-    }
-
-    private void OnValidate()
-    {
-        ValidateSpeedmeterType();
+        EventManager.OnActivateExtraHUD -= SetExtraHUD;
+        EventManager.OnUpdatePlayerVelocity -= UpdateSpeedMeter;
+        EventManager.OnTimeTick -= UpdateTime;
     }
 
     private void Start()
     {
-        ValidateSpeedmeterType();
+        OptionsLoader.Instance.UpdateConfig();
+        UpdateLastTime(OptionsLoader.Instance._timeSegment);
 
         _actionIconBaseAlpha = _actionIconValues._actionIcon.color.a;
         SetInteractable(null);
@@ -209,63 +192,48 @@ public class HUD : MonoBehaviour
     #endregion
 
     #region SpeedMeter
-    private void UpdateSpeedXZ(float spdXZ)
-    {
-        _speedMeterValues._complexSpeedMeterValues._complexSpeedTextXZ.text = spdXZ.ToString("00.00");
-    }
 
-    private void UpdateSpeedY(float spdY)
+    private void SetExtraHUD(bool set)
     {
-        _speedMeterValues._complexSpeedMeterValues._complexSpeedTextY.text = Mathf.Abs(spdY).ToString("00.00");
-    }
+        g_speedMeter.SetActive(set);
+        g_timer.SetActive(set);
 
-    private void ValidateSpeedmeterType()
-    {
-        UnsusbsribeAllSpeedMeterUpdates();
-
-        switch (_speedMeterValues._speedMeterType)
+        if (set)
         {
-            case SpeedMeterType.Simple:
-            default:
-                //SIMPLE SPEED METER, DEACTIVATE BROKEN UP VECTOR AND ACTIVATE SIMPLE DISPLAY
-                _speedMeterValues._simpleSpeedMeterValues.g_simpleSpeedMeter.SetActive(true);
-                _speedMeterValues._complexSpeedMeterValues.g_complexSpeedMeter.SetActive(false);
+            EventManager.OnUpdatePlayerVelocity += UpdateSpeedMeter;
+            EventManager.OnTimeTick += UpdateTime;
+        }
+        else
+        {
+            EventManager.OnUpdatePlayerVelocity -= UpdateSpeedMeter;
+            EventManager.OnTimeTick -= UpdateTime;
+        }
 
-                //Asign functionaly to event
-                UpdateSpeedXYZ = (float spdXYZ) =>
-                {
-                    _speedMeterValues._simpleSpeedMeterValues._simpleSpeedText.text = spdXYZ.ToString("00.00");
-                };
+    }
 
-                //subscribe update methods
-                EventManager.OnUpdatePlayerSpeedXYZ += UpdateSpeedXYZ;
+    private void UpdateLastTime(float t)
+    {
+        int mm = Mathf.FloorToInt(t / 60);
+        int ss = Mathf.FloorToInt(t % 60);
+        int ms = Mathf.FloorToInt((t * 100) % 100);
+        _segmentText.text = string.Format("{0:00}:{1:00},{2:00}", mm, ss, ms);
+    }
 
-                break;
+    private void UpdateTime(float t)
+    {
+        int mm = Mathf.FloorToInt(t / 60);
+        int ss = Mathf.FloorToInt(t % 60);
+        int ms = Mathf.FloorToInt((t * 100) % 100);
+        _timerText.text = string.Format("{0:00}:{1:00},{2:00}", mm, ss, ms);
+    }
 
-            case SpeedMeterType.Complex:
-                //SIMPLE SPEED METER, DEACTIVATE BROKEN UP VECTOR AND ACTIVATE SIMPLE DISPLAY
-                _speedMeterValues._simpleSpeedMeterValues.g_simpleSpeedMeter.SetActive(false);
-                _speedMeterValues._complexSpeedMeterValues.g_complexSpeedMeter.SetActive(true);
-
-                //Asign functionaly to event
-                UpdateSpeedXYZ = (float spdXYZ) =>
-                {
-                    _speedMeterValues._complexSpeedMeterValues._complexSpeedTextXYZ.text = spdXYZ.ToString("00.00");
-                };
-
-                //subscribe update methods
-                EventManager.OnUpdatePlayerSpeedXYZ += UpdateSpeedXYZ;
-                EventManager.OnUpdatePlayerSpeedXZ += UpdateSpeedXZ;
-                EventManager.OnUpdatePlayerSpeedY += UpdateSpeedY;
-
-                break;
-
-            case SpeedMeterType.Hidden:
-
-                _speedMeterValues._simpleSpeedMeterValues.g_simpleSpeedMeter.SetActive(false);
-                _speedMeterValues._complexSpeedMeterValues.g_complexSpeedMeter.SetActive(false);
-
-                break;
+    private void UpdateSpeedMeter(Vector3 speed)
+    {
+        if (g_speedMeter != null && g_speedMeter.activeInHierarchy)
+        {
+            _speedTextXYZ.text = speed.magnitude.ToString("00.00");
+            _speedTextXZ.text = ExtendedMathUtility.VectorXZMagnitude(speed).ToString("00.00");
+            _speedTextY.text = MathF.Abs(speed.y).ToString("00.00");
         }
     }
 
@@ -275,7 +243,6 @@ public class HUD : MonoBehaviour
     {
         ParticleSystem.EmissionModule m1 = _speedParticles.emission;
         ParticleSystem.EmissionModule m2 = _speedBackParticles.emission;
-        
         
         if(speed.y > _particleMinThreshold)
         {
@@ -297,13 +264,6 @@ public class HUD : MonoBehaviour
 
         m1.rateOverTime = em1;
         m2.rateOverTime = em2;
-    }
-
-    private void UnsusbsribeAllSpeedMeterUpdates()
-    {
-        EventManager.OnUpdatePlayerSpeedXYZ -= UpdateSpeedXYZ;
-        EventManager.OnUpdatePlayerSpeedXZ -= UpdateSpeedXZ;
-        EventManager.OnUpdatePlayerSpeedY -= UpdateSpeedY;
     }
     #endregion
 

@@ -18,6 +18,7 @@ public class OptionsSO : ScriptableObject
     public float DialogueVolume;
     public bool HoldToGrab;
     public bool Fullscreen;
+    public bool ExtraHUD;
     public float CameraShake;
     public float Fov;
     [HideInInspector] public KeyCode[] Keys;

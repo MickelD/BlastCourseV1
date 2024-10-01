@@ -2220,7 +2220,7 @@ MonoBehaviour:
   _changeControlPopUp: {fileID: 8393672822229870898}
   _applyPopUp: {fileID: 5103280937024723206}
   _pause: {fileID: 0}
-  _minSensitivity: 40
+  _minSensitivity: 10
   _maxSensitivity: 300
   _senseSlider: {fileID: 2122564327357100768}
   _senseValue: {fileID: 2050015759961862146}
@@ -3054,7 +3054,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 6096138193721753330}
   m_HandleRect: {fileID: 483590714708548168}
   m_Direction: 0
-  m_MinValue: 40
+  m_MinValue: 10
   m_MaxValue: 300
   m_WholeNumbers: 0
   m_Value: 100

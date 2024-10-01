@@ -22,7 +22,7 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private PauseMenu _pause;
 
     [Space(3), Header("Sensitivity"), Space(3)]
-    [SerializeField] private float _minSensitivity = 40;
+    [SerializeField] private float _minSensitivity = 10;
     [SerializeField] private float _maxSensitivity = 300;
     [SerializeField] private Slider _senseSlider;
     [SerializeField] private TextMeshProUGUI _senseValue;

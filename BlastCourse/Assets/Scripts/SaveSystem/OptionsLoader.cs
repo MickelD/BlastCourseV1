@@ -124,7 +124,7 @@ public class OptionsLoader : MonoBehaviour
 
     private void Update()
     {
-        _timeTick += Time.unscaledDeltaTime;
+        _timeTick += Time.deltaTime;
         if (ExtraHUD) EventManager.OnTimeTick?.Invoke(_timeTick);
     }
 

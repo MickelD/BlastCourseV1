@@ -13,6 +13,7 @@ public class CityDestruction : ActivableBase
     public UnityEvent _OnSecondDelivery;
     public UnityEvent _OnThirdDelivery;
     private bool _entered;
+    public float _CollapseDelay;
     public UnityEvent _OnCollapse;
 
     [ActivableAction]
@@ -28,7 +29,7 @@ public class CityDestruction : ActivableBase
         if (_entered) return;
         _Director.Play();
         _entered = true;
-        _OnCollapse.Invoke();
+        this.Invoke(() => _OnCollapse.Invoke(), _CollapseDelay);
     }
 }
 

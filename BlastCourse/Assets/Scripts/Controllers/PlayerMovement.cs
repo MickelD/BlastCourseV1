@@ -72,7 +72,6 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
     [SerializeField] private Collider c_cilinderHitbox;
     [SerializeField] private Transform g_orientation;
     [SerializeField] private Transform g_centerOfGravity;
-    [SerializeField] private Transform g_cam;
     [SerializeField] private GroundCheck g_groundCheck;
 
     [Space(5), Header("QoL"), Space(3)]
@@ -102,7 +101,6 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
     private bool _isOnLadder;
     private bool _canJumpFromLadder = false;
     private bool _canGetOnLadders = true;
-    private bool _isNoclip;
     private WaitForSeconds _ladderCooldown;
     private WaitForSeconds _coyoteCooldown;
 
@@ -222,8 +220,6 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
     }
     private void JumpInput()
     {
-        if (_isNoclip) return;
-
         //handle jump buffering (we will still jump for a short time after letting go of the key)
         _jumpBufferTimer = Mathf.Clamp(_jumpBufferTimer + Time.deltaTime, 0f, _inputBufferTime * 2);
 
@@ -289,13 +285,6 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
     //Move
     private void HorizontalMovement()
     {
-        if(_isNoclip)
-        {
-            c_rb.drag = _groundFriction;
-            c_rb.AddForce((g_cam.forward * _inputVec.y + g_cam.right * _inputVec.x).normalized * 100f, ForceMode.Acceleration);
-            return;
-        }
-
         _movementDirection = Vector3.Lerp(_movementDirection, 
                                          (g_orientation.forward * _inputVec.y + g_orientation.right * _inputVec.x).normalized, 
                                          Time.deltaTime * ExtendedDataUtility.Select(_isGrounded, _groundTraction, ExtendedDataUtility.Select(_isRocketJumping, _rocketJumpTraction, _airTraction)));
@@ -408,10 +397,6 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
 
     private void GroundCheck()
     {
-        if (_isNoclip) return;
-        //Physics.SphereCast(g_centerOfGravity.position, _groundcheckRadius, Vector3.down, out hitGround, g_centerOfGravity.localPosition.y + _surfaceCheckDistance, _groundLayerMask)
-        //Physics.Raycast(g_centerOfGravity.position, Vector3.down, out hitGround, g_centerOfGravity.localPosition.y + _surfaceCheckDistance, _groundLayerMask)
-
         hitGround = g_groundCheck.CheckGround(g_centerOfGravity.position, g_centerOfGravity.localPosition.y + _surfaceCheckDistance, _groundLayerMask);
 
         if (hitGround.transform != null)

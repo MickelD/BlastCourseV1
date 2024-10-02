@@ -74,6 +74,8 @@ public class MainMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
+        OptionsLoader.Instance.UpdateConfig();
+
         _menuActive = false;
         _toMenu = false;
         g_warningMenu.SetActive(false);

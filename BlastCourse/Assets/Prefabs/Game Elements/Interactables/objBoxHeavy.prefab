@@ -165,8 +165,8 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 7693abae8ffeb2d4c9b003bc80c7d03e, type: 3}
     - {fileID: 8300000, guid: 999d5c593782efe4da90dee083e64c3d, type: 3}
     - {fileID: 8300000, guid: fab07e3904af05b4ba80309635f346dd, type: 3}
-    Volume: 1
-    Pitch: 1
+    Volume: 1.25
+    Pitch: 0.75
     Loop: 0
     Group: {fileID: -8016728683198448275, guid: 9d4ff596c434beb4f9c85a5059f4d52a,
       type: 2}

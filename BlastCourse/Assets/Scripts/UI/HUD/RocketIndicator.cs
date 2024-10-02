@@ -166,8 +166,8 @@ public class RocketIndicator : MonoBehaviour
 
             
         }
-
-        _markerComponents.ChaseOnScreenRocket.anchoredPosition = _cam.WorldToScreenPoint(_selectedRemote.transform.position) - new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0f);
+        _markerComponents.ChaseOnScreenRocket.anchoredPosition = Vector3.Scale(_cam.WorldToViewportPoint(_selectedRemote.transform.position), new Vector3(1920f, 1080f, 0f));
+        //_markerComponents.ChaseOnScreenRocket.anchoredPosition = _cam.WorldToScreenPoint(_selectedRemote.transform.position) - new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0f);
         AimTowardsOffScreenPoint(_selectedRemote.transform.position, _markerComponents.TransformGroup.SmoothlyRotate, _markerComponents.TransformGroup.InstantlyRotate, _markerComponents.TransformGroup.RotatedTransform, _markerComponents.TransformGroup.FollowerTransforms);
     }
 

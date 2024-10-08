@@ -237,6 +237,11 @@ public class MainMenu : MonoBehaviour
         else yield return null;
 
         SaveLoader.Instance.Delete();
+        if(SpeedLoader.Instance != null)
+        {
+            SpeedLoader.Instance.allTimer = 0;
+            SpeedLoader.Instance.prevTimer = 0;
+        } 
 
         if (OptionsLoader.Instance != null)
         {

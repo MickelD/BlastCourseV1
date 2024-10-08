@@ -155,6 +155,7 @@ public class PauseMenu : MonoBehaviour
         }
         else yield return null;
 
+        if (SaveLoader.Instance._speedrunMode) SpeedLoader.Instance.ResetLevelTimers();
         SpeedLoader.Instance.Save();
         SaveLoader.Instance.Load();
     }
@@ -170,6 +171,7 @@ public class PauseMenu : MonoBehaviour
         else yield return null;
 
         Time.timeScale = 1f;
+        if (!SaveLoader.Instance._speedrunMode) SpeedLoader.Instance.Save();
 
         if (LoadingScreenManager.instance != null) LoadingScreenManager.instance.LoadScene(1);
         else SceneManager.LoadScene(1);

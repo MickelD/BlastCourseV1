@@ -11,7 +11,7 @@ public class SaveLoader : MonoBehaviour
 
     public bool startWithAllUnlocks;
 
-    [HideInInspector] public int SceneIndex;
+    public int SceneIndex;
     public float[] SpawnPos;
     [HideInInspector] public List<string> CollectiblesFound;
     [HideInInspector] public List<string> KeysReached;
@@ -27,6 +27,9 @@ public class SaveLoader : MonoBehaviour
     public int DefaultPlaySceneIndex;
 
     [HideInInspector] public bool _loading;
+
+    [HideInInspector] public bool _levelSelect = false;
+    [HideInInspector] public bool _speedrunMode = false;
 
     #endregion
 
@@ -110,7 +113,9 @@ public class SaveLoader : MonoBehaviour
     public void NextScene(Vector3 spawnPosition, int sceneIndex, float rot = 0f)
     {
         SetSpawn(spawnPosition, rot);
-        if(CompletedLevels != null && CompletedLevels.Length == 4) CompletedLevels[SceneIndex-2] = true;
+        if (CompletedLevels == null || CompletedLevels.Length != 4) CompletedLevels = new bool[4];
+        CompletedLevels[SceneIndex-2] = true;
+        Debug.Log((SceneIndex - 2) + CompletedLevels[SceneIndex - 2].ToString());
         SceneIndex = sceneIndex;
         Save();
         Load();
@@ -147,8 +152,10 @@ public class SaveLoader : MonoBehaviour
     public void Save()
     {
         EventManager.OnSaveGame?.Invoke();
-        SaveSystem.DataSave(SceneIndex, SpawnPos, CollectiblesFound, KeysReached, UnlockedRpgs, Boxes, BoxesX, BoxesY, BoxesZ, UsedBoxes, DialoguesIds, DialoguesCount, CompletedLevels);
-        SpeedLoader.Instance.Save();
+        if (!_levelSelect) SaveSystem.DataSave(SceneIndex, SpawnPos, CollectiblesFound, KeysReached, UnlockedRpgs, Boxes, BoxesX, BoxesY, BoxesZ, UsedBoxes, DialoguesIds, DialoguesCount, CompletedLevels);
+        else if (!_speedrunMode) SaveSystem.LevelDataSave(SceneIndex, SpawnPos, CollectiblesFound, KeysReached, UnlockedRpgs, Boxes, BoxesX, BoxesY, BoxesZ, UsedBoxes, DialoguesIds, DialoguesCount, CompletedLevels);
+        if (!_speedrunMode) SpeedLoader.Instance.Save();
+        Debug.Log("Save");
     }
     [ContextMenu("Load")]
     public void Load()
@@ -156,9 +163,11 @@ public class SaveLoader : MonoBehaviour
         _loading = true;
 
         //Get Data
-        SaveData data = SaveSystem.DataLoad();
+        SaveData data = null;
+        if (!_levelSelect) data = SaveSystem.DataLoad();
+        else data = SaveSystem.LevelDataLoad();
 
-        if(data != null)
+        if (data != null)
         {
             SceneIndex = data._scene;
 
@@ -227,19 +236,7 @@ public class SaveLoader : MonoBehaviour
         }
         else
         {
-            SceneIndex = DefaultPlaySceneIndex;
-            SpawnPos = new float[0];
-            CollectiblesFound = new List<string>();
-            KeysReached = new List<string>();
-            UnlockedRpgs = new bool[4];
-            Boxes = new List<string>();
-            BoxesX = new List<float>();
-            BoxesY = new List<float>();
-            BoxesZ = new List<float>();
-            UsedBoxes = new List<string>();
-            DialoguesIds = new List<string>();
-            DialoguesCount = new List<int>();
-            CompletedLevels = new bool[4];
+            CreateEmptySave();
 
             if (LoadingScreenManager.instance != null) LoadingScreenManager.instance.LoadScene(SceneIndex);
             else SceneManager.LoadScene(SceneIndex);
@@ -247,6 +244,96 @@ public class SaveLoader : MonoBehaviour
 
         if (SpeedLoader.Instance != null) SpeedLoader.Instance.Load();
     }
+    public void LoadDataWithoutSceneChange()
+    {
+        SaveData data = SaveSystem.DataLoad();
+        Debug.Log("Data Loaded");
+        if (data != null)
+        {
+            SceneIndex = 1;
+
+            SpawnPos = new float[4];
+            if (data._spawnPosition.Length > 0)
+                for (int i = 0; i < data._spawnPosition.Length; i++)
+                    SpawnPos[i] = data._spawnPosition[i];
+
+            CollectiblesFound = new List<string>();
+            if (data._collectiblesAquired.Count > 0)
+                for (int i = 0; i < data._collectiblesAquired.Count; i++)
+                    CollectiblesFound.Add(data._collectiblesAquired[i]);
+
+            KeysReached = new List<string>();
+            if (data._keyObjects.Count > 0)
+                for (int i = 0; i < data._keyObjects.Count; i++)
+                    KeysReached.Add(data._keyObjects[i]);
+
+            UnlockedRpgs = new bool[4];
+            if (data._rpgs.Length > 0)
+                for (int i = 0; i < data._rpgs.Length; i++)
+                    UnlockedRpgs[i] = data._rpgs[i];
+
+            Boxes = new List<string>();
+            if (data.Boxes.Count > 0)
+                for (int i = 0; i < data.Boxes.Count; i++)
+                    Boxes.Add(data.Boxes[i]);
+
+            BoxesX = new List<float>();
+            if (data.BoxesX.Count > 0)
+                for (int i = 0; i < data.BoxesX.Count; i++)
+                    BoxesX.Add(data.BoxesX[i]);
+
+            BoxesY = new List<float>();
+            if (data.BoxesY.Count > 0)
+                for (int i = 0; i < data.BoxesY.Count; i++)
+                    BoxesY.Add(data.BoxesY[i]);
+
+            BoxesZ = new List<float>();
+            if (data.BoxesZ.Count > 0)
+                for (int i = 0; i < data.BoxesZ.Count; i++)
+                    BoxesZ.Add(data.BoxesZ[i]);
+
+            UsedBoxes = new List<string>();
+            if (data.UsedBoxes.Count > 0)
+                for (int i = 0; i < data.UsedBoxes.Count; i++)
+                    UsedBoxes.Add(data.UsedBoxes[i]);
+
+            DialoguesIds = new List<string>();
+            if (data.DialoguesIds.Count > 0)
+                for (int i = 0; i < data.DialoguesIds.Count; i++)
+                    DialoguesIds.Add(data.DialoguesIds[i]);
+
+            DialoguesCount = new List<int>();
+            if (data.DialoguesCount.Count > 0)
+                for (int i = 0; i < data.DialoguesCount.Count; i++)
+                    DialoguesCount.Add(data.DialoguesCount[i]);
+
+            CompletedLevels = new bool[4];
+            if (data.CompletedLevels.Length > 0)
+                for (int i = 0; i < data.CompletedLevels.Length; i++)
+                    CompletedLevels[i] = data.CompletedLevels[i];
+        }
+        else
+        {
+            CreateEmptySave();
+        }
+    }
+    public void CreateEmptySave()
+    {
+        SceneIndex = DefaultPlaySceneIndex;
+        SpawnPos = new float[0];
+        CollectiblesFound = new List<string>();
+        KeysReached = new List<string>();
+        UnlockedRpgs = new bool[4];
+        Boxes = new List<string>();
+        BoxesX = new List<float>();
+        BoxesY = new List<float>();
+        BoxesZ = new List<float>();
+        UsedBoxes = new List<string>();
+        DialoguesIds = new List<string>();
+        DialoguesCount = new List<int>();
+        CompletedLevels = new bool[4];
+    }
+
     [ContextMenu("Delete")]
     public void Delete() 
     {
@@ -265,6 +352,11 @@ public class SaveLoader : MonoBehaviour
 
 
         SaveSystem.DataDelete(); 
+    }
+
+    public void DeleteLevelData()
+    {
+        SaveSystem.LevelDataDelete();
     }
 
     #endregion

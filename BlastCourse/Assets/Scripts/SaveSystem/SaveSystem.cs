@@ -54,7 +54,54 @@ public static class SaveSystem
 
     #endregion
 
+    #region DataSelect
 
+    public static void LevelDataSave(int scene, float[] spawnPoint, List<string> collectibles, List<string> keys, bool[] rpg, List<string> boxes, List<float> boxesX, List<float> boxesY, List<float> boxesZ, List<string> usedBoxes, List<string> dialoguesId, List<int> dialoguesCount, bool[] cL)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/levelsaveV1_0_0.data";
+        FileStream stream = new FileStream(path, FileMode.Create);
+        SaveData data = new SaveData(scene, spawnPoint, collectibles, keys, rpg, boxes, boxesX, boxesY, boxesZ, usedBoxes, dialoguesId, dialoguesCount, cL);
+
+        formatter.Serialize(stream, data);
+        stream.Close();
+    }
+
+    public static SaveData LevelDataLoad()
+    {
+        string path = Application.persistentDataPath + "/levelsaveV1_0_0.data";
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+            SaveData data = formatter.Deserialize(stream) as SaveData;
+            stream.Close();
+
+            return data;
+        }
+        else
+        {
+            Debug.LogWarning("Saved Data not found at " + path);
+            return null;
+        }
+    }
+
+    public static void LevelDataDelete()
+    {
+        string path = Application.persistentDataPath + "/levelsaveV1_0_0.data";
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+        }
+    }
+
+    public static bool LevelDataCheck()
+    {
+        string path = Application.persistentDataPath + "/levelsaveV1_0_0.data";
+        return File.Exists(path);
+    }
+
+    #endregion
 
     #region Options
 

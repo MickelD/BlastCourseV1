@@ -109,7 +109,7 @@ public class Timer : ActivableBase
                 _nextCountDownFlag -= CountdownInterval;
             }
 
-            if (gameObject == null) return;
+            if (this == null || gameObject == null) return;
 
             await Task.Yield();
         }

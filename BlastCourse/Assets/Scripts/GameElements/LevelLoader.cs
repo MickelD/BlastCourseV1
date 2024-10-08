@@ -22,7 +22,36 @@ public class LevelLoader : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        LoadLevel();
+        switch (SaveLoader.Instance.SceneIndex)
+        {
+            case 2:
+                if (!SaveLoader.Instance._levelSelect) SpeedLoader.Instance.tutoTimer = SpeedLoader.Instance.allTimer - SpeedLoader.Instance.prevTimer;
+                SpeedLoader.Instance.SaveTuto();
+                break;
+            case 3:
+                if (!SaveLoader.Instance._levelSelect) SpeedLoader.Instance.wareTimer = SpeedLoader.Instance.allTimer - SpeedLoader.Instance.prevTimer;
+                SpeedLoader.Instance.SaveWare();
+                break;
+            case 4:
+                if (!SaveLoader.Instance._levelSelect) SpeedLoader.Instance.cityTimer = SpeedLoader.Instance.allTimer - SpeedLoader.Instance.prevTimer;
+                SpeedLoader.Instance.SaveCity();
+                break;
+            case 5:
+                if (!SaveLoader.Instance._levelSelect) SpeedLoader.Instance.labTimer = SpeedLoader.Instance.allTimer - SpeedLoader.Instance.prevTimer;
+                SpeedLoader.Instance.SaveLab();
+                break;
+        }
+
+        if (SaveLoader.Instance._levelSelect)
+        {
+            if (LoadingScreenManager.instance != null) LoadingScreenManager.instance.LoadScene(1);
+            else SceneManager.LoadScene(1);
+        }
+        else
+        {
+            LoadLevel();
+        }
+        
     }
 
     public void LoadLevel()

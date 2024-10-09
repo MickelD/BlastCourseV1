@@ -11,6 +11,7 @@ public class LevelLoader : MonoBehaviour
     }
 
     public LoadStyle Load;
+    public bool lastLevel;
 
     [DrawIf(nameof(Load), LoadStyle.ByName)] public string Name;
     [DrawIf(nameof(Load), LoadStyle.ByIndex)] public int Index;
@@ -39,6 +40,8 @@ public class LevelLoader : MonoBehaviour
             case 5:
                 if (!SaveLoader.Instance._levelSelect) SpeedLoader.Instance.labTimer = SpeedLoader.Instance.allTimer - SpeedLoader.Instance.prevTimer;
                 SpeedLoader.Instance.SaveLab();
+                SaveLoader.Instance.CompletedLevels[3] = true;
+                SaveLoader.Instance.Save();
                 break;
         }
 
@@ -47,7 +50,7 @@ public class LevelLoader : MonoBehaviour
             if (LoadingScreenManager.instance != null) LoadingScreenManager.instance.LoadScene(1);
             else SceneManager.LoadScene(1);
         }
-        else
+        else if (!lastLevel)
         {
             LoadLevel();
         }

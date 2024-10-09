@@ -196,34 +196,34 @@ public class DialogueManager : MonoBehaviour
     [ContextMenu("Give IDs")]
     private void SearchForDialogues()
     {
-        int a = 0;
+        int a = -1;
 
         ActivableDIalogue[] aDial = GameObject.FindObjectsOfType<ActivableDIalogue>();
         if(aDial != null && aDial.Length > 0)
             for(int i = 0; i < aDial.Length; i++)
             {
-                a= i;
+                a++;
                 aDial[i].Id = "s" + SceneManager.GetActiveScene().buildIndex + "d" + a;
             }
         DialogueTrigger[] tDial = GameObject.FindObjectsOfType<DialogueTrigger>();
         if (tDial != null && tDial.Length > 0)
             for (int i = 0; i < tDial.Length; i++)
             {
-                a = i;
+                a++;
                 tDial[i].Id = "s" + SceneManager.GetActiveScene().buildIndex + "d" + a;
             }
         DialogueStart[] sDial = GameObject.FindObjectsOfType<DialogueStart>();
         if (sDial != null && sDial.Length > 0)
             for (int i = 0; i < sDial.Length; i++)
             {
-                a = i;
+                a++;
                 sDial[i].Id = "s" + SceneManager.GetActiveScene().buildIndex + "d" + a;
             }
         ActivableCounter[] cDial = GameObject.FindObjectsOfType<ActivableCounter>();
         if (cDial != null && cDial.Length > 0)
             for (int i = 0; i < cDial.Length; i++)
             {
-                a = i;
+                a++;
                 cDial[i].Id = "s" + SceneManager.GetActiveScene().buildIndex + "d" + a;
             }
     }

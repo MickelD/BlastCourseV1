@@ -18,8 +18,8 @@ EditorBuildSettings:
     path: Assets/Scenes/scnLevel1.unity
     guid: 871c015527d2ae54a82c774483d379a0
   - enabled: 1
-    path: Assets/Scenes/scnLevel2.unity
-    guid: dc3dc7a7b0d81ac4abcf1129d5f1be99
+    path: Assets/Scenes/scnLevel2NEW.unity
+    guid: 5ee6d3b878e9f6044b0c179da6f86c28
   - enabled: 1
     path: Assets/Scenes/scnLevel3.unity
     guid: 6da98147f92743244ad83e85283e26bc

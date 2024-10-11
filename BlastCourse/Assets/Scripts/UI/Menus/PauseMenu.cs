@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using TMPro;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -46,6 +47,10 @@ public class PauseMenu : MonoBehaviour
 
     [SerializeField] private AudioCue ButtonSound;
 
+    [Space(5), SerializeField] TextMeshProUGUI _retryText;
+    [SerializeField] Color _resetColor;
+    [SerializeField] Color _restartColor;
+
     #endregion
 
     #region Variables
@@ -58,6 +63,17 @@ public class PauseMenu : MonoBehaviour
     private void Start()
     {
         OpenMenuNoSFX(false);
+
+        if (SaveLoader.Instance._speedrunMode)
+        {
+            _retryText.text = "Restart";
+            _retryText.color = _restartColor;
+        }
+        else
+        {
+            _retryText.text = "Reset";
+            _retryText.color = _resetColor;
+        }
     }
 
 
@@ -205,11 +221,6 @@ public class PauseMenu : MonoBehaviour
 
     #endregion
 
-#if UNITY_EDITOR
-
-
-
-#endif
 }
 
 

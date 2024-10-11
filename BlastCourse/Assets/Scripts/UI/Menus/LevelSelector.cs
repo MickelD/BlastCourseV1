@@ -138,7 +138,7 @@ public class LevelSelector : MonoBehaviour
 
         //Show Confirm Screen
         OpenConfirm(true);
-        SelLevText.text = "Selected Level: Reception";
+        SelLevText.text = "Reception";
     }
     public void PlayWare() 
     { 
@@ -147,7 +147,7 @@ public class LevelSelector : MonoBehaviour
 
         //Show Confirm Screen
         OpenConfirm(true);
-        SelLevText.text = "Selected Level: Warehouse";
+        SelLevText.text = "Warehouse";
     }
     public void PlayCity() 
     { 
@@ -156,7 +156,7 @@ public class LevelSelector : MonoBehaviour
 
         //Show Confirm Screen
         OpenConfirm(true);
-        SelLevText.text = "Selected Level: Sulfur Valley";
+        SelLevText.text = "Sulfur Valley";
     }
     public void PlayLab() 
     { 
@@ -165,7 +165,7 @@ public class LevelSelector : MonoBehaviour
 
         //Show Confirm Screen
         OpenConfirm(true);
-        SelLevText.text = "Selected Level: Laboratory";
+        SelLevText.text = "The Lab";
     }
 
 

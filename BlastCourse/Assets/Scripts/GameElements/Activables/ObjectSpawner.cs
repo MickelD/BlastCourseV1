@@ -58,6 +58,7 @@ public class ObjectSpawner : ActivableBase
 
     [ActivableAction]
 
+    
     public void TrySpawn(bool spawn)
     {
         if (spawn && ObjectPrefab != null)
@@ -77,7 +78,7 @@ public class ObjectSpawner : ActivableBase
 
     private void Spawn()
     {
-        SpawnedObject = Instantiate(ObjectPrefab, transform.position + SpawnPos, Quaternion.identity, transform).GetComponent<PhysicsObject>();
+        if(!destroyed) SpawnedObject = Instantiate(ObjectPrefab, transform.position + SpawnPos, Quaternion.identity, transform).GetComponent<PhysicsObject>();
         if (SpawnedObject != null)
         {
             SpawnedObject.gameObject.SetActive(true);
@@ -86,10 +87,6 @@ public class ObjectSpawner : ActivableBase
             SpawnedObject.Spawner = this;
             SpawnedObject.transform.parent = transform.parent;
         }
-        else
-        {
-            Debug.LogWarning(nameof(ObjectSpawner) + " is meant to spawn " + nameof(PhysicsObject) + "but the object you chose is not one.");
-        }
     }
 
     private IEnumerator SpawnDelayed()
@@ -97,6 +94,12 @@ public class ObjectSpawner : ActivableBase
         yield return _spawnTime;
 
         Spawn();
+    }
+
+    private bool destroyed;
+    private void OnDestroy()
+    {
+        destroyed = true;
     }
 
     #endregion

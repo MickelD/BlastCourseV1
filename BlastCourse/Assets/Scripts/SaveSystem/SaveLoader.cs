@@ -155,7 +155,6 @@ public class SaveLoader : MonoBehaviour
         if (!_levelSelect) SaveSystem.DataSave(SceneIndex, SpawnPos, CollectiblesFound, KeysReached, UnlockedRpgs, Boxes, BoxesX, BoxesY, BoxesZ, UsedBoxes, DialoguesIds, DialoguesCount, CompletedLevels);
         else if (!_speedrunMode) SaveSystem.LevelDataSave(SceneIndex, SpawnPos, CollectiblesFound, KeysReached, UnlockedRpgs, Boxes, BoxesX, BoxesY, BoxesZ, UsedBoxes, DialoguesIds, DialoguesCount, CompletedLevels);
         if (!_speedrunMode) SpeedLoader.Instance.Save();
-        Debug.Log("Save");
     }
     [ContextMenu("Load")]
     public void Load()

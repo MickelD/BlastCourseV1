@@ -118,8 +118,8 @@ public class HUD : MonoBehaviour
         _actionIconBaseAlpha = _actionIconValues._actionIcon.color.a;
         SetInteractable(null);
 
-        _weaponWheelValues._onCloseWeaponWheel?.Invoke();
-        EventManager.OnCloseWeaponWheel?.Invoke();
+        //_weaponWheelValues._onCloseWeaponWheel?.Invoke();
+        //EventManager.OnCloseWeaponWheel?.Invoke();
     }
 
     private void Update()

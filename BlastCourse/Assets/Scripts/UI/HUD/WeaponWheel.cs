@@ -47,8 +47,8 @@ public class WeaponWheel : MonoBehaviour
 
     private void Start()
     {
-        UpdateRealItems();
-        UpdateVisuals(true);
+        //UpdateRealItems();
+        //UpdateVisuals(true);
     }
 
     private void OnEnable()

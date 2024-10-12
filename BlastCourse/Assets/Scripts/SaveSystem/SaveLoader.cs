@@ -115,7 +115,6 @@ public class SaveLoader : MonoBehaviour
         SetSpawn(spawnPosition, rot);
         if (CompletedLevels == null || CompletedLevels.Length != 4) CompletedLevels = new bool[4];
         CompletedLevels[SceneIndex-2] = true;
-        Debug.Log((SceneIndex - 2) + CompletedLevels[SceneIndex - 2].ToString());
         SceneIndex = sceneIndex;
         Save();
         Load();
@@ -155,7 +154,6 @@ public class SaveLoader : MonoBehaviour
         if (!_levelSelect) SaveSystem.DataSave(SceneIndex, SpawnPos, CollectiblesFound, KeysReached, UnlockedRpgs, Boxes, BoxesX, BoxesY, BoxesZ, UsedBoxes, DialoguesIds, DialoguesCount, CompletedLevels);
         else if (!_speedrunMode) SaveSystem.LevelDataSave(SceneIndex, SpawnPos, CollectiblesFound, KeysReached, UnlockedRpgs, Boxes, BoxesX, BoxesY, BoxesZ, UsedBoxes, DialoguesIds, DialoguesCount, CompletedLevels);
         if (!_speedrunMode) SpeedLoader.Instance.Save();
-        Debug.Log("Save");
     }
     [ContextMenu("Load")]
     public void Load()
@@ -247,7 +245,6 @@ public class SaveLoader : MonoBehaviour
     public void LoadDataWithoutSceneChange()
     {
         SaveData data = SaveSystem.DataLoad();
-        Debug.Log("Data Loaded");
         if (data != null)
         {
             SceneIndex = 1;

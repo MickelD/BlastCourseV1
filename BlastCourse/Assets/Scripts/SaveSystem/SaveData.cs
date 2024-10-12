@@ -148,3 +148,29 @@ public class SpeedrunData
         LabTimer = lT;
     }
 }
+
+[System.Serializable]
+public class AchievementData
+{
+    public bool canBeatNodeaths = true;
+
+    public bool canColYellow = true;
+    public bool canColGreen = true;
+    public bool canColBlue = true;
+
+    public AchievementData(bool canBeatNodeaths, bool canColYellow, bool canColGreen, bool canColBlue)
+    {
+        this.canBeatNodeaths = canBeatNodeaths;
+        this.canColYellow = canColYellow;
+        this.canColGreen = canColGreen;
+        this.canColBlue = canColBlue;
+    }
+}
+
+public enum AchStatus
+{
+    canBeatNodeaths,
+    canColYellow,
+    canColGreen,
+    canColBlue
+}

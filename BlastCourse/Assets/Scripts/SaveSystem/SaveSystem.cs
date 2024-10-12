@@ -193,4 +193,61 @@ public static class SaveSystem
 
     #endregion
 
+    #region Achievements
+
+    public static void AchievementsSave(bool canBNodeath, bool canCYellow, bool canCGreen, bool CanCBlue)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/ach.data";
+        FileStream stream = new FileStream(path, FileMode.Create);
+        AchievementData data = new AchievementData(canBNodeath, canCYellow, canCGreen, CanCBlue);
+
+        formatter.Serialize(stream, data);
+        stream.Close();
+    }
+    public static void AchievementsSave(AchievementData data)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/ach.data";
+        FileStream stream = new FileStream(path, FileMode.Create);
+        formatter.Serialize(stream, data);
+        stream.Close();
+    }
+
+
+    public static AchievementData AchievementsLoad()
+    {
+        string path = Application.persistentDataPath + "/ach.data";
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+            AchievementData data = formatter.Deserialize(stream) as AchievementData;
+            stream.Close();
+            return data;
+        }
+        else
+        {
+            Debug.LogWarning("Achievement Data not found at " + path);
+            return null;
+        }
+    }
+
+    public static void AchievementsDelete()
+    {
+        string path = Application.persistentDataPath + "/ach.data";
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+        }
+    }
+
+    public static bool AchievementsCheck()
+    {
+        string path = Application.persistentDataPath + "/ach.data";
+        return File.Exists(path);
+    }
+
+    #endregion
+
 }

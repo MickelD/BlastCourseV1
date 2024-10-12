@@ -117,22 +117,23 @@ public class SpeedLoader : MonoBehaviour
     }
     public void SaveTuto()
     {
-        tutoT = tutoTimer < tutoT && tutoTimer > 0 ? tutoTimer : tutoT;
+        tutoT = (tutoTimer < tutoT || tutoT == 0) && tutoTimer > 0 ? tutoTimer : tutoT;
+
         Save();
     }
     public void SaveWare()
     {
-        wareT = wareTimer < wareT && wareTimer > 0 ? wareTimer : wareT;
+        wareT = (wareTimer < wareT || wareT == 0) && wareTimer > 0 ? wareTimer : wareT;
         Save();
     }
     public void SaveCity()
     {
-        cityT = cityTimer < cityT && cityTimer > 0 ? cityTimer : cityT;
+        cityT = (cityTimer < cityT || cityT == 0) && cityTimer > 0 ? cityTimer : cityT;
         Save(); 
     }
     public void SaveLab()
     {
-        labT = labTimer < labT && labTimer > 0 ? labTimer : labT;
+        labT = (labTimer < labT || labT == 0) && labTimer > 0 ? labTimer : labT;
         Save();
     }
 

@@ -150,6 +150,16 @@ public class MainMenu : MonoBehaviour
         Application.OpenURL("https://discord.gg/GeDQnjdpba");
     }
 
+    public void Instagram()
+    {
+        Application.OpenURL("https://www.instagram.com/amiguitoStudios/");
+    }
+
+    public void Twitter()
+    {
+        Application.OpenURL("https://x.com/amiguitoStudios");
+    }
+
     public void LoadMainMenu(bool load)
     {
         if (load)

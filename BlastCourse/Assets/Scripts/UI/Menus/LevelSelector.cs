@@ -134,7 +134,7 @@ public class LevelSelector : MonoBehaviour
     public void PlayTuto() 
     {
         //Create Level Save
-        CreateLevelSave(2,new float[4] {-3,0.5f,-12,0}, new bool[4] {false, false, false, false});
+        CreateLevelSave(2,new float[4] {-3f, 0.5f, -12f, 0f}, new bool[4] {false, false, false, false});
 
         //Show Confirm Screen
         OpenConfirm(true);
@@ -143,7 +143,7 @@ public class LevelSelector : MonoBehaviour
     public void PlayWare() 
     { 
         //Create Level Save
-        CreateLevelSave(3, new float[4] { -15, 0.5f, -2, 0 }, new bool[4] { true, false, false, false });
+        CreateLevelSave(3, new float[4] { -15f, 0f, -4f, 0f}, new bool[4] { true, false, false, false });
 
         //Show Confirm Screen
         OpenConfirm(true);
@@ -152,7 +152,7 @@ public class LevelSelector : MonoBehaviour
     public void PlayCity() 
     { 
         //Create Level Save
-        CreateLevelSave(4, new float[4] { -64.25f, -5f, -53, 0 }, new bool[4] { true, true, false, false });
+        CreateLevelSave(4, new float[4] { -64f, -5f, -54f, 0f}, new bool[4] { true, false, true, false });
 
         //Show Confirm Screen
         OpenConfirm(true);
@@ -161,7 +161,7 @@ public class LevelSelector : MonoBehaviour
     public void PlayLab() 
     { 
         //Create Level Save
-        CreateLevelSave(5, new float[4] { -21, -13.5f, -11.5f, 0 }, new bool[4] { true, true, true, false });
+        CreateLevelSave(5, new float[4] { -21f, -13.5f, 11.5f, 90f}, new bool[4] { true, true, true, false });
 
         //Show Confirm Screen
         OpenConfirm(true);

@@ -27,18 +27,22 @@ public class LevelLoader : MonoBehaviour
         {
             case 2:
                 if (!SaveLoader.Instance._levelSelect) SpeedLoader.Instance.tutoTimer = SpeedLoader.Instance.allTimer - SpeedLoader.Instance.prevTimer;
+                if (SteamIntegrator.Instance != null) SteamIntegrator.Instance.BeatLevel(AchStatus.canColYellow);
                 SpeedLoader.Instance.SaveTuto();
                 break;
             case 3:
                 if (!SaveLoader.Instance._levelSelect) SpeedLoader.Instance.wareTimer = SpeedLoader.Instance.allTimer - SpeedLoader.Instance.prevTimer;
+                if (SteamIntegrator.Instance != null) SteamIntegrator.Instance.BeatLevel(AchStatus.canColGreen);
                 SpeedLoader.Instance.SaveWare();
                 break;
             case 4:
                 if (!SaveLoader.Instance._levelSelect) SpeedLoader.Instance.cityTimer = SpeedLoader.Instance.allTimer - SpeedLoader.Instance.prevTimer;
+                if (SteamIntegrator.Instance != null) SteamIntegrator.Instance.BeatLevel(AchStatus.canColBlue);
                 SpeedLoader.Instance.SaveCity();
                 break;
             case 5:
                 if (!SaveLoader.Instance._levelSelect) SpeedLoader.Instance.labTimer = SpeedLoader.Instance.allTimer - SpeedLoader.Instance.prevTimer;
+                if (SteamIntegrator.Instance != null) SteamIntegrator.Instance.BeatGame();
                 SpeedLoader.Instance.SaveLab();
                 SaveLoader.Instance.CompletedLevels[3] = true;
                 SaveLoader.Instance.Save();

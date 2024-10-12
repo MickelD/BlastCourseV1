@@ -43,6 +43,27 @@ public class InteractablePickUpRPG : MonoBehaviour, IInteractable
     {
         if (set)
         {
+            if(SteamIntegrator.Instance != null)
+            {
+                switch (RpgUnlocked)
+                {
+                    case FiringMode.Classic:
+                        SteamIntegrator.Instance.UnlockAchievement("achUnlockClassic");
+                        break;
+                    case FiringMode.Pipe:
+                        SteamIntegrator.Instance.UnlockAchievement("achUnlockGrenade");
+                        break;
+                    case FiringMode.Remote:
+                        SteamIntegrator.Instance.UnlockAchievement("achUnlockRemote");
+                        break;
+                    case FiringMode.Homing:
+                        SteamIntegrator.Instance.UnlockAchievement("achUnlockHoming");
+                        break;
+                    default:
+                        break;
+                }
+            }
+
             Rpgs.AcquireRpg(RpgUnlocked);
 
             interactor.SetInteractWith(this, false);

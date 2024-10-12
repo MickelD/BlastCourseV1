@@ -115,7 +115,6 @@ public class SaveLoader : MonoBehaviour
         SetSpawn(spawnPosition, rot);
         if (CompletedLevels == null || CompletedLevels.Length != 4) CompletedLevels = new bool[4];
         CompletedLevels[SceneIndex-2] = true;
-        Debug.Log((SceneIndex - 2) + CompletedLevels[SceneIndex - 2].ToString());
         SceneIndex = sceneIndex;
         Save();
         Load();
@@ -246,7 +245,6 @@ public class SaveLoader : MonoBehaviour
     public void LoadDataWithoutSceneChange()
     {
         SaveData data = SaveSystem.DataLoad();
-        Debug.Log("Data Loaded");
         if (data != null)
         {
             SceneIndex = 1;

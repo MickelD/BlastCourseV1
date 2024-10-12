@@ -49,5 +49,5 @@ Material:
     - _speedY: 0
     m_Colors:
     - _speed: {r: -0.02, g: 0.05, b: 0, a: 0}
-    - _tiling: {r: 1, g: 0.75, b: 0, a: 0}
+    - _tiling: {r: 0.9375, g: 0.5625, b: 0, a: 0}
   m_BuildTextureStacks: []

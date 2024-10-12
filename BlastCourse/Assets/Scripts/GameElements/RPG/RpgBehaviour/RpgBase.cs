@@ -101,6 +101,7 @@ public abstract class RpgBase : ScriptableObject
         _rpgHolder.PrimaryFireAnimation();
         _allowPrimaryFire = false;
         ResetPrimaryFire();
+        if (SteamIntegrator.Instance != null) SteamIntegrator.Instance.FireRocket(_stats.FireMode);
         EventManager.OnFireRocketNotifyFireSpeed?.Invoke(_rpgHolder._fireSpeed);
 
         _energy -= Cost;

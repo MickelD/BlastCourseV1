@@ -489,7 +489,7 @@ MonoBehaviour:
   _amplitudeHeight: 0
   _amplitudeSpeed: 1
   _detectionDistance: 15
-  _detectionAngle: 200
+  _detectionAngle: 360
   _detectionMask:
     serializedVersion: 2
     m_Bits: 4425
@@ -519,7 +519,7 @@ MonoBehaviour:
   _laserMask:
     serializedVersion: 2
     m_Bits: 4425
-  _playerHeight: 1.2
+  _playerHeight: 1.9
   g_bodyMiddle: {fileID: 4702131426033781838}
   c_rb: {fileID: 6072421821851196957}
   shootSound:

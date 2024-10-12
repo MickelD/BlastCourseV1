@@ -103,6 +103,7 @@ public class PauseMenu : MonoBehaviour
             Cursor.visible = open;
 
             g_pauseMenu.SetActive(open);
+            g_side.SetActive(open);
 
             Time.timeScale = open ? 0f : 1f;
             OnPause?.Invoke(open);

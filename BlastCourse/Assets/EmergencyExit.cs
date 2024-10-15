@@ -6,6 +6,7 @@ using UnityEngine;
 public class EmergencyExit : MonoBehaviour, IInteractable
 {
     [SerializeField] Animator _animator;
+    public AudioCue _sfxEmergencyDoor;
     public bool Locked { get; set; }
 
     
@@ -14,6 +15,7 @@ public class EmergencyExit : MonoBehaviour, IInteractable
     {
         if (set)
         {
+            AudioManager.TryPlayCueAtPoint(_sfxEmergencyDoor, gameObject.transform.position);
             _animator.SetTrigger("Open");
             Locked = true;
             if (interactor != null) interactor.CancelCurrentInteraction();

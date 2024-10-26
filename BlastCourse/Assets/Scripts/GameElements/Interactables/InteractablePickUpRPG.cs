@@ -68,8 +68,19 @@ public class InteractablePickUpRPG : MonoBehaviour, IInteractable
 
             interactor.SetInteractWith(this, false);
 
+
             if(SaveLoader.Instance != null) SaveLoader.Instance.Save();
-            if (Audio.SfxClip != null && DialogueManager.Instance != null && Audio.SfxClip.Length > 0) DialogueManager.Instance.TryPlayCueAtPoint(Audio, transform.position);
+            if (Audio.SfxClip != null && Audio.SfxClip.Length > 0)
+            {
+                if (RpgUnlocked == FiringMode.Classic && DialogueManager.Instance != null) //this is a dialogue
+                {
+                    DialogueManager.Instance.TryPlayCueAtPoint(Audio, transform.position);
+                }
+                else if (AudioManager.Instance != null) //this is a sound effect
+                {
+                    AudioManager.TryPlayCueAtPoint(Audio, transform.position);
+                }
+            }
 
             Destroy(gameObject);
         }

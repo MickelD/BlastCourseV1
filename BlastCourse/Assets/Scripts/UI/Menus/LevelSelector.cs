@@ -202,16 +202,18 @@ public class LevelSelector : MonoBehaviour
 
     private void CreateLevelSave(int index, float[] posRot, bool[] unlocks)
     {
-        if(AllRockets.isOn) unlocks = new bool[4] {true, true, true, true};
+        if(AllRockets.isOn) unlocks = new bool[4] { true,
+                                                    SaveLoader.Instance.CompletedLevels[1],
+                                                    SaveLoader.Instance.CompletedLevels[0],
+                                                    SaveLoader.Instance.CompletedLevels[2]};
+
+
         SaveSystem.LevelDataSave(index //Level Index
             , posRot //Position & Rotation
-            #region Unused
             , new List<string>(), new List<string>(),
-        #endregion
             unlocks //RPG Unlocked
-            #region Unused
             , new List<string>(), new List<float>(), new List<float>(), new List<float>(), new List<string>(), new List<string>(), new List<int>(), new bool[4]);
-        #endregion
+
     }
 
     public void AllRpgsToggle()

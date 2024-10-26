@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Steamworks;
+//using Steamworks;
 using UnityEngine.SceneManagement;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -10,9 +10,10 @@ using UnityEditor;
 public class SteamIntegrator : MonoBehaviour
 {
     public static SteamIntegrator Instance;
-    private AchievementData _AchievementData;
+    public AchievementData _AchievementData;
     private int _levelIndex;
     private bool _connected;
+
     public void Awake()
     {
         if (Instance == null)
@@ -25,16 +26,16 @@ public class SteamIntegrator : MonoBehaviour
 
     private void Start()
     {
-        try
-        {
-            SteamClient.Init(2655220);
-            _connected = true;
-        }
-        catch
-        {
-            Debug.Log("Steam Client not found, achievements disabled");
-            _connected = false;
-        }
+        //try
+        //{
+        //    SteamClient.Init(2655220);
+        //    _connected = true;
+        //}
+        //catch
+        //{
+        //    Debug.Log("Steam Client not found, achievements disabled");
+        //    _connected = false;
+        //}
 
         if(!SaveSystem.AchievementsCheck()) SaveSystem.AchievementsSave(true, true, true, true);
 
@@ -68,6 +69,7 @@ public class SteamIntegrator : MonoBehaviour
         }
     }
 
+
     public void AllowAchievement(AchStatus id)
     {
         switch (id)
@@ -91,7 +93,7 @@ public class SteamIntegrator : MonoBehaviour
         SaveSystem.AchievementsSave(_AchievementData);
     }
 
-    public void DisllowAchievement(AchStatus id)
+    public void DisallowAchievement(AchStatus id)
     {
         switch (id)
         {
@@ -172,36 +174,46 @@ public class SteamIntegrator : MonoBehaviour
     {
         //Firing a normal rocket on the Reception blocks the Banana achievement
         if (_AchievementData.canColYellow && _levelIndex == 0 && fireMode == FiringMode.Classic)
-            DisllowAchievement(AchStatus.canColYellow);
+            DisallowAchievement(AchStatus.canColYellow);
 
         //Firing anything that is not a remote on the Warehouse blocks the Avocado achievement
         if (_AchievementData.canColGreen && _levelIndex == 1 && fireMode != FiringMode.Remote)
-            DisllowAchievement(AchStatus.canColGreen);
+            DisallowAchievement(AchStatus.canColGreen);
 
         //Firing anything that is not a grenade on Sulfur Valley blocks the Blueberry achievement
         if (_AchievementData.canColBlue && _levelIndex == 2 && fireMode != FiringMode.Pipe)
-            DisllowAchievement(AchStatus.canColBlue);
+            DisallowAchievement(AchStatus.canColBlue);
     }
 
     private void OnApplicationQuit()
     {
         ClearAchievement("achRegret");
-        SteamClient.Shutdown();
+        //SteamUserStats.StoreStats();
+        //SteamClient.Shutdown();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha9)) UnlockAchievement("achUnlockClassic");
+        else if (Input.GetKeyDown(KeyCode.Alpha0)) ClearAchievement("achUnlockClassic");
+
+        //SteamClient.RunCallbacks();
     }
 
     public void UnlockAchievement(string id)
     {
         if (!_connected) return;
 
-        var ach = new Steamworks.Data.Achievement(id);
-        if (ach.State == false) ach.Trigger();
+        //var ach = new Steamworks.Data.Achievement(id);
+
+        //if (ach.State == false) ach.Trigger();
     }
     public void ClearAchievement(string id)
     {
         if (!_connected) return;
 
-        var ach = new Steamworks.Data.Achievement(id);
-        if (ach.State == true) ach.Clear();
+        //var ach = new Steamworks.Data.Achievement(id);
+        //if (ach.State == true) ach.Clear();
     }
 
     [ContextMenu("Reset")]
@@ -215,10 +227,12 @@ public class SteamIntegrator : MonoBehaviour
     {
         if (!_connected) return;
 
-        foreach (var ach in Steamworks.SteamUserStats.Achievements)
-        {
-            ach.Clear();
-        }
+        //foreach (var ach in Steamworks.SteamUserStats.Achievements)
+        //{
+        //    ach.Clear();
+        //}
+
+        //SteamUserStats.StoreStats();
     }
 }
 

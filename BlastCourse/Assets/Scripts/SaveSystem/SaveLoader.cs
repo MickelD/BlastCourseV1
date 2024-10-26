@@ -15,7 +15,7 @@ public class SaveLoader : MonoBehaviour
     public float[] SpawnPos;
     [HideInInspector] public List<string> CollectiblesFound;
     [HideInInspector] public List<string> KeysReached;
-    [HideInInspector] public bool[] UnlockedRpgs;
+    public bool[] UnlockedRpgs;
     [HideInInspector] public List<string> Boxes;
     [HideInInspector] public List<float> BoxesX;
     [HideInInspector] public List<float> BoxesY;

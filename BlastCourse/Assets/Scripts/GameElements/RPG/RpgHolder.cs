@@ -184,13 +184,13 @@ public class RpgHolder : MonoBehaviour
 
         if (_canShoot && Time.timeScale != 0) AimDown(OptionsLoader.TryGetKey(InputActions.Aim_Down, _downaimButton));
 
-        if (OptionsLoader.TryGetKeyDown(InputActions.Classic, _classicButtonName) && _rpgCollection[FiringMode.Classic]._rpgStats.Unlocked && _canQuickSwap)
+        if (OptionsLoader.TryGetKeyDown(InputActions.Weapon1, _classicButtonName) && _rpgCollection[FiringMode.Classic]._rpgStats.Unlocked && _canQuickSwap)
             QuickSwap(FiringMode.Classic);
-        else if (OptionsLoader.TryGetKeyDown(InputActions.Remote, _remoteButtonName) && _rpgCollection[FiringMode.Remote]._rpgStats.Unlocked && _canQuickSwap)
+        else if (OptionsLoader.TryGetKeyDown(InputActions.Weapon2, _remoteButtonName) && _rpgCollection[FiringMode.Remote]._rpgStats.Unlocked && _canQuickSwap)
             QuickSwap(FiringMode.Remote);
-        else if (OptionsLoader.TryGetKeyDown(InputActions.Pipe, _pipeButtonName) && _rpgCollection[FiringMode.Pipe]._rpgStats.Unlocked && _canQuickSwap)
+        else if (OptionsLoader.TryGetKeyDown(InputActions.Weapon3, _pipeButtonName) && _rpgCollection[FiringMode.Pipe]._rpgStats.Unlocked && _canQuickSwap)
             QuickSwap(FiringMode.Pipe);
-        else if (OptionsLoader.TryGetKeyDown(InputActions.Homing, _homingButtonName) && _rpgCollection[FiringMode.Homing]._rpgStats.Unlocked && _canQuickSwap)
+        else if (OptionsLoader.TryGetKeyDown(InputActions.Weapon4, _homingButtonName) && _rpgCollection[FiringMode.Homing]._rpgStats.Unlocked && _canQuickSwap)
             QuickSwap(FiringMode.Homing);
     }
 

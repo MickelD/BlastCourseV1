@@ -34,6 +34,8 @@ public class AnimatorTrigger : MonoBehaviour
         if (_blocked) return;
         if (_sendOnce) _blocked = true;
 
+
+        AudioManager.TryPlayCueAtPoint(_sfxBreak, gameObject.transform.position);
         if (_sendBoolEvent) _animator.SetBool(_animatorBoolEvent, true);
         if (_sendTriggerEvent) _animator.SetTrigger(_animatorTriggerName); 
         if (_sendIntEvent)
@@ -55,7 +57,6 @@ public class AnimatorTrigger : MonoBehaviour
             _intCounter--;
             _animator.SetInteger(_animatorIntName, _intCounter);
         }
-        AudioManager.TryPlayCueAtPoint(_sfxBreak, gameObject.transform.position);
         _onTriggerExit?.Invoke();
     }
 }

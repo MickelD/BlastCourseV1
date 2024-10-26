@@ -134,7 +134,7 @@ public class Health : MonoBehaviour
         EventManager.OnPlayerDeath?.Invoke();
         EventManager.IsDead = true;
 
-        if (SteamIntegrator.Instance != null) SteamIntegrator.Instance.DisllowAchievement(AchStatus.canBeatNodeaths);
+        if (SteamIntegrator.Instance != null) SteamIntegrator.Instance.DisallowAchievement(AchStatus.canBeatNodeaths);
 
         if (!noAnim)
         {

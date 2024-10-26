@@ -165,6 +165,14 @@ public class AchievementData
         this.canColGreen = canColGreen;
         this.canColBlue = canColBlue;
     }
+
+    public override string ToString()
+    {
+        return "No Deaths: " + canBeatNodeaths +
+                "\nCan Yellow: " + canColYellow +
+                "\nCan Green: " + canColGreen +
+                "\nCan Blue: " + canColBlue;
+    }
 }
 
 public enum AchStatus

@@ -55,6 +55,7 @@ public class WeaponWheel : MonoBehaviour
     {
         if (EventManager.IsDead) return;
 
+        _previousSelection = -1;
         UpdateRealItems();
         UpdateVisuals(true);
 
@@ -70,6 +71,7 @@ public class WeaponWheel : MonoBehaviour
     {
         if (EventManager.IsDead) return;
 
+        //_currentSelection = -1;
         UpdateVisuals(false);
         RPGAnimator.Instance.SetRocket(_realItems[_currentSelection].fireMode);
 
@@ -95,15 +97,20 @@ public class WeaponWheel : MonoBehaviour
 
     private void SelectWeapon(int selection)
     {
+        if (selection < 0) return;
+
         _realItems[selection].menuArc.color = _realItems[selection].hoverColor;
         _realItems[selection].menuArc.rectTransform.sizeDelta = _idleSize * _selectedItemSizeScale * Vector2.one;
         _realItems[selection].menuIcon.gameObject.GetComponent<RectTransform>().localPosition = _realItems[selection].iconRotation * _selectedItemSizeScale;
         _realItems[selection].menuIcon.gameObject.GetComponent<RectTransform>().localScale = Vector2.one * _selectedItemSizeScale;
 
-        _realItems[_previousSelection].menuArc.color = _realItems[_previousSelection].idleColor;
-        _realItems[_previousSelection].menuArc.rectTransform.sizeDelta = _idleSize * Vector2.one;
-        _realItems[_previousSelection].menuIcon.gameObject.GetComponent<RectTransform>().localPosition = _realItems[_previousSelection].iconRotation;
-        _realItems[_previousSelection].menuIcon.gameObject.GetComponent<RectTransform>().localScale = Vector2.one;
+        if (_previousSelection >= 0)
+        {
+            _realItems[_previousSelection].menuArc.color = _realItems[_previousSelection].idleColor;
+            _realItems[_previousSelection].menuArc.rectTransform.sizeDelta = _idleSize * Vector2.one;
+            _realItems[_previousSelection].menuIcon.gameObject.GetComponent<RectTransform>().localPosition = _realItems[_previousSelection].iconRotation;
+            _realItems[_previousSelection].menuIcon.gameObject.GetComponent<RectTransform>().localScale = Vector2.one;
+        }
 
         _weaponTitle.text = _realItems[selection].WeaponName;
         _weaponDesc.text = _realItems[selection].weaponDescription;

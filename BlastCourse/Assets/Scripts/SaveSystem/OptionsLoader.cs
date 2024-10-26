@@ -17,10 +17,10 @@ public enum InputActions
     Secondary_Fire = 7,
     Weapon_Wheel = 8,
     Interact = 9,
-    Classic = 10,
-    Remote = 11,
-    Pipe = 12,
-    Homing = 13
+    Weapon1 = 10,
+    Weapon2 = 11,
+    Weapon3 = 12,
+    Weapon4 = 13
 }
 
 [Serializable]

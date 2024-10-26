@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 
 public class TrailerCheats : MonoBehaviour
 {
-    [SerializeField] UnityEvent OnEntry;
-    [SerializeField] UnityEvent OnExit;
-
     GameObject _hud;
     GameObject _rpg;
     PlayerMovement _player;
@@ -18,19 +16,10 @@ public class TrailerCheats : MonoBehaviour
     Rigidbody _playerRb;
     PlayerRotation _playerRotation;
     Camera _cam;
+    TextMeshProUGUI _achText;
 
     Vector3 _pos;
     Vector2 _rot;
-
-    private void OnTriggerEnter(Collider other)
-    {
-        OnEntry?.Invoke();
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        OnExit?.Invoke();
-    }
 
 
     private void Start()
@@ -44,6 +33,9 @@ public class TrailerCheats : MonoBehaviour
         _playerRb = _player.GetComponent<Rigidbody>();
         _playerRotation = FindObjectOfType<PlayerRotation>();
         _cam = Camera.main;
+
+        _achText = transform.GetChild(0).GetComponentInChildren<TextMeshProUGUI>();
+        _achText.raycastTarget = false;
     }
 
     private void Update()
@@ -84,6 +76,21 @@ public class TrailerCheats : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F5) && Physics.Raycast(_cam.transform.position, _cam.transform.forward, out RaycastHit hitInfo, 100f))
         {
             hitInfo.collider.gameObject.SetActive(false);
+        }
+
+        if (SteamIntegrator.Instance != null)
+        {
+            _achText.text = SteamIntegrator.Instance._AchievementData.ToString();
+
+            if (Input.GetKeyDown(KeyCode.F7))
+            {
+                SteamIntegrator.Instance.ClearAll();
+            }
+
+            if (Input.GetKeyDown(KeyCode.F6))
+            {
+                SteamIntegrator.Instance.UnlockAchievement("achUnlockClassic");
+            }
         }
 
         if (_fly)

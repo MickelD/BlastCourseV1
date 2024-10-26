@@ -5492,7 +5492,7 @@ MonoBehaviour:
     menuIcon: {fileID: 5878978008096326355}
     iconRotation: {x: 0, y: 0, z: 0}
     fireMode: 0
-    WeaponName: Classic RPG
+    WeaponName: RPG
     weaponDescription: Fire at your feet to rocket jump.
     idleColor: {r: 0.8901961, g: 0.86057985, b: 0.70980394, a: 0.2509804}
     hoverColor: {r: 0.8901961, g: 0.8437511, b: 0.62313724, a: 1}

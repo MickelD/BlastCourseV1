@@ -173,6 +173,12 @@ public class Health : MonoBehaviour
     {
         if (quickRes) yield return null;
         else yield return _respawnTimer;
+        if (SaveLoader.Instance._speedrunMode)
+        {
+            SaveLoader.Instance.LoadSpeedrunBackup();
+            SpeedLoader.Instance.ResetLevelTimers();
+        }
+        SpeedLoader.Instance.Save();
         SaveLoader.Instance?.Load();
     }
 

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using Steamworks;
+using Steamworks;
 using UnityEngine.SceneManagement;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -11,7 +11,7 @@ public class SteamIntegrator : MonoBehaviour
 {
     public static SteamIntegrator Instance;
     public AchievementData _AchievementData;
-    private int _levelIndex;
+    public int _levelIndex;
     private bool _connected;
 
     public void Awake()
@@ -22,6 +22,8 @@ public class SteamIntegrator : MonoBehaviour
         }
         else Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
+
+        SteamAPI.Init();
     }
 
     private void Start()
@@ -37,6 +39,9 @@ public class SteamIntegrator : MonoBehaviour
         //    _connected = false;
         //}
 
+        _connected = SteamManager.Initialized;
+
+
         if(!SaveSystem.AchievementsCheck()) SaveSystem.AchievementsSave(true, true, true, true);
 
         _AchievementData = SaveSystem.AchievementsLoad();
@@ -44,25 +49,37 @@ public class SteamIntegrator : MonoBehaviour
 
     public void LevelLoad(int index)
     {
-        _levelIndex = index - 2;
+        _levelIndex = index;
 
         switch (_levelIndex)
         {
             case 0: //RECEPTION
                 if (!_AchievementData.canColYellow && IsFirstCheckpoint(0)) //reset banana achievement
                     AllowAchievement(AchStatus.canColYellow);
+
+                gameObject.name = IsFirstCheckpoint(0) ? "tutoFirst" : "tuto";
+
                 break;
             case 1: //WAREHOUSE
                 if (!_AchievementData.canColGreen && IsFirstCheckpoint(1)) //reset avocado achievement
                     AllowAchievement(AchStatus.canColGreen);
+
+                gameObject.name = IsFirstCheckpoint(1) ? "wareFirst" : "ware";
+
                 break;
             case 2: //SULFUR VALLEY
                 if (!_AchievementData.canColBlue && IsFirstCheckpoint(2)) //reset blueberry achievement
                     AllowAchievement(AchStatus.canColBlue);
+
+                gameObject.name = IsFirstCheckpoint(2) ? "cityFirst" : "city";
+
                 break;
             case 3:
                 if (!_AchievementData.canBeatNodeaths && IsFirstCheckpoint(3)) //reset no deaths achievement
                     AllowAchievement(AchStatus.canBeatNodeaths);
+
+                gameObject.name = IsFirstCheckpoint(3) ? "labFirst" : "lab";
+
                 break;
             default:
                 break;
@@ -129,7 +146,7 @@ public class SteamIntegrator : MonoBehaviour
                 _ => Vector3.zero
             };
 
-            return SaveLoader.Instance.GetSpawn() == startingPos;
+            return Vector3.Distance(SaveLoader.Instance.GetSpawn(), startingPos) <= 1f;
         }
         else return false;
     }
@@ -151,21 +168,23 @@ public class SteamIntegrator : MonoBehaviour
         }
     }
 
-    public void BeatLevel(AchStatus ach)
+    public void BeatLevel()
     {
-        switch (ach)
+        if (_levelIndex <= 0)
         {
-            case AchStatus.canColYellow:
-                if (_AchievementData.canColYellow) UnlockAchievement("achColYellow");
-                break;
-            case AchStatus.canColGreen:
-                if (_AchievementData.canColYellow) UnlockAchievement("achColGreen");
-                break;
-            case AchStatus.canColBlue:
-                if (_AchievementData.canColYellow) UnlockAchievement("achColBlue");
-                break;
-            default:
-                break;
+            if (_AchievementData.canColYellow) UnlockAchievement("achColYellow");
+        }
+        else if (_levelIndex == 1)
+        {
+            if (_AchievementData.canColGreen) UnlockAchievement("achColGreen");
+        }
+        else if (_levelIndex == 2)
+        {
+            if (_AchievementData.canColBlue) UnlockAchievement("achColBlue");
+        }
+        else if (_levelIndex == 3)
+        {
+            BeatGame();
         }
     }
 
@@ -185,32 +204,25 @@ public class SteamIntegrator : MonoBehaviour
             DisallowAchievement(AchStatus.canColBlue);
     }
 
+
     private void OnApplicationQuit()
     {
-        ClearAchievement("achRegret");
-        //SteamUserStats.StoreStats();
-        //SteamClient.Shutdown();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha9)) UnlockAchievement("achUnlockClassic");
-        else if (Input.GetKeyDown(KeyCode.Alpha0)) ClearAchievement("achUnlockClassic");
-
-        //SteamClient.RunCallbacks();
+        SteamAPI.Shutdown();
     }
 
     public void UnlockAchievement(string id)
     {
         if (!_connected) return;
 
-        //var ach = new Steamworks.Data.Achievement(id);
-
-        //if (ach.State == false) ach.Trigger();
+        SteamUserStats.SetAchievement(id);
+        SteamUserStats.StoreStats();
     }
     public void ClearAchievement(string id)
     {
         if (!_connected) return;
+
+        SteamUserStats.ClearAchievement(id);
+        SteamUserStats.StoreStats();
 
         //var ach = new Steamworks.Data.Achievement(id);
         //if (ach.State == true) ach.Clear();
@@ -227,12 +239,8 @@ public class SteamIntegrator : MonoBehaviour
     {
         if (!_connected) return;
 
-        //foreach (var ach in Steamworks.SteamUserStats.Achievements)
-        //{
-        //    ach.Clear();
-        //}
-
-        //SteamUserStats.StoreStats();
+        SteamUserStats.ResetAllStats(true);
+        SteamUserStats.StoreStats();
     }
 }
 

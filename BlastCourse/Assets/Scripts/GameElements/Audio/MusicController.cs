@@ -52,6 +52,7 @@ public class MusicController : MonoBehaviour
 
     IEnumerator Loop()
     {
+        //yield return startL;
         yield return endL;
 
         if (_evenLoop)

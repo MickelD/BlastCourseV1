@@ -80,6 +80,7 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
     [SerializeField] float _jumpCooldown;
 
     [Space(5), Header("Data"), Space(3)]
+    [SerializeField] int _levelIndex;
     [SerializeField] float _notifyVelocityInterval;
 
     [Space(5), Header("Sounds"), Space(3)]
@@ -165,7 +166,7 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
         if (SaveLoader.Instance != null && SaveLoader.Instance.SpawnPos?.Length > 0) transform.position = SaveLoader.Instance.GetSpawn();
         else SaveLoader.Instance.SetSpawn(transform.position);
 
-        if (SteamIntegrator.Instance != null) SteamIntegrator.Instance.LevelLoad(SceneManager.GetActiveScene().buildIndex);
+        if (SteamIntegrator.Instance != null) SteamIntegrator.Instance.LevelLoad(_levelIndex);
 
         //SaveLoader.Instance.SetSpawn(transform.position);
         //stick To Ground

@@ -28,6 +28,7 @@ public class LevelSelector : MonoBehaviour
     [Space(3), Header("Toggle"), Space(3)]
     public Toggle SpeedrunMode;
     public Toggle AllRockets;
+    public Toggle ContinuedPlay;
 
     [Space(3), Header("Screens"), Space(3)]
     public GameObject SelectScreen;
@@ -65,6 +66,7 @@ public class LevelSelector : MonoBehaviour
 
         SaveLoader.Instance._levelSelect = false;
         SaveLoader.Instance._speedrunMode = false;
+        SaveLoader.Instance._continuedPlay = false;
 
 
         SpeedLoader.Instance.ResetLevelTimers();
@@ -96,9 +98,11 @@ public class LevelSelector : MonoBehaviour
             ConfirmScreen.SetActive(false);
             SpeedrunMode.isOn = false;
             AllRockets.isOn = false;
+            ContinuedPlay.isOn = false;
 
             SaveLoader.Instance._levelSelect = false;
             SaveLoader.Instance._speedrunMode = false;
+            SaveLoader.Instance._continuedPlay = false;
         }
     }
 
@@ -231,6 +235,16 @@ public class LevelSelector : MonoBehaviour
         }
 
         SaveLoader.Instance._speedrunMode = SpeedrunMode.isOn;
+    }
+
+    public void ContinuedPlayToggle()
+    {
+        if (ButtonSound.SfxClip != null && ButtonSound.SfxClip.Length > 0)
+        {
+            AudioSource source = AudioManager.TryPlayCueAtPoint(ButtonSound, Vector3.zero);
+        }
+
+        SaveLoader.Instance._continuedPlay = ContinuedPlay.isOn;
     }
 
     #endregion

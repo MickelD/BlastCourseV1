@@ -30,6 +30,7 @@ public class SaveLoader : MonoBehaviour
 
     [HideInInspector] public bool _levelSelect = false;
     [HideInInspector] public bool _speedrunMode = false;
+    [HideInInspector] public bool _continuedPlay = false;
 
     #endregion
 

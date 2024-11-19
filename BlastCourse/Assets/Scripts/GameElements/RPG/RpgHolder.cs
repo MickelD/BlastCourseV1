@@ -160,10 +160,6 @@ public class RpgHolder : MonoBehaviour
 
         _currentRpg._rpgBehaviour.TickSelected();
         foreach (RpgData rpg in _rpgList) rpg._rpgBehaviour.TickUnselected();
-
-        //THIS CHECK IS ONLY RELEVANT ON VALUE CHANGE, SHOULD NOT BE DONE EVEYR FRAME
-        //if (_canShoot && ExtendedDataUtility.CheckForValues(SaveLoader.Instance.UnlockedRpgs, true) > 0) HideWeapon(false);
-        //else HideWeapon(true);
     }
 
     #endregion

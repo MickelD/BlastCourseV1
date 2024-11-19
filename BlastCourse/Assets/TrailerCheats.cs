@@ -6,24 +6,29 @@ using TMPro;
 
 public class TrailerCheats : MonoBehaviour
 {
-    GameObject _hud;
-    GameObject _rpg;
-    PlayerMovement _player;
-    GravityController _playerGravity;
-    GroundCheck _groundCheck;
+    public GameObject _hud;
+    public GameObject _rpg;
+    public PlayerMovement _player;
+    public GravityController _playerGravity;
+    public GroundCheck _groundCheck;
     bool _fly;
-    Collider _playerCol;
-    Rigidbody _playerRb;
-    PlayerRotation _playerRotation;
-    Camera _cam;
-    TextMeshProUGUI _achText;
+    public Collider _playerCol;
+    public Rigidbody _playerRb;
+    public PlayerRotation _playerRotation;
+    public Camera _cam;
+
+    public CityDestruction _cityDestruction;
+    public FinalFan _finalFan;
 
     Vector3 _pos;
     Vector2 _rot;
+    private bool _is;
 
-
-    private void Start()
+    private IEnumerator Start()
     {
+        yield return new WaitForSeconds(0.5f);
+
+
         _hud = FindObjectOfType<HUD>().gameObject;
         _rpg = FindObjectOfType<RPGAnimator>().gameObject;
         _player = FindObjectOfType<PlayerMovement>();
@@ -33,13 +38,15 @@ public class TrailerCheats : MonoBehaviour
         _playerRb = _player.GetComponent<Rigidbody>();
         _playerRotation = FindObjectOfType<PlayerRotation>();
         _cam = Camera.main;
+        _cityDestruction = FindObjectOfType<CityDestruction>();
 
-        _achText = transform.GetChild(0).GetComponentInChildren<TextMeshProUGUI>();
-        _achText.raycastTarget = false;
+        _is = true;
     }
 
     private void Update()
     {
+        if (!_is) return;
+
         if (Input.GetKeyDown(KeyCode.H))
         {
             _hud.SetActive(!_hud.activeInHierarchy);
@@ -53,6 +60,13 @@ public class TrailerCheats : MonoBehaviour
             _player.enabled = !_fly;
             _playerGravity.Scale = _fly ? 0f : 1f;
             _groundCheck.enabled = !_fly;
+        }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            if (_cityDestruction != null) _cityDestruction.Deliver(true);
+
+            if (_finalFan != null) _finalFan.FeedFan();
         }
 
         if (Input.GetKeyDown(KeyCode.F1))
@@ -80,16 +94,9 @@ public class TrailerCheats : MonoBehaviour
 
         if (SteamIntegrator.Instance != null)
         {
-            _achText.text = SteamIntegrator.Instance._AchievementData.ToString();
-
-            if (Input.GetKeyDown(KeyCode.F7))
-            {
-                SteamIntegrator.Instance.ClearAll();
-            }
-
             if (Input.GetKeyDown(KeyCode.F6))
             {
-                SteamIntegrator.Instance.UnlockAchievement("achUnlockClassic");
+                SteamIntegrator.Instance.ClearAll();
             }
         }
 

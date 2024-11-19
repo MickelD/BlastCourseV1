@@ -101,6 +101,47 @@ public static class SaveSystem
         return File.Exists(path);
     }
 
+    //BACKUP FOR SPEEDRUN MODE
+
+    public static void LevelBackupSave(int scene, float[] spawnPoint, List<string> collectibles, List<string> keys, bool[] rpg, List<string> boxes, List<float> boxesX, List<float> boxesY, List<float> boxesZ, List<string> usedBoxes, List<string> dialoguesId, List<int> dialoguesCount, bool[] cL)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/levelbackupV1_0_0.data";
+        FileStream stream = new FileStream(path, FileMode.Create);
+        SaveData data = new SaveData(scene, spawnPoint, collectibles, keys, rpg, boxes, boxesX, boxesY, boxesZ, usedBoxes, dialoguesId, dialoguesCount, cL);
+
+        formatter.Serialize(stream, data);
+        stream.Close();
+    }
+
+    public static SaveData LevelBackupLoad()
+    {
+        string path = Application.persistentDataPath + "/levelbackupV1_0_0.data";
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+            SaveData data = formatter.Deserialize(stream) as SaveData;
+            stream.Close();
+
+            return data;
+        }
+        else
+        {
+            Debug.LogWarning("Saved Data not found at " + path);
+            return null;
+        }
+    }
+
+    public static void LevelBackupDelete()
+    {
+        string path = Application.persistentDataPath + "/levelbackupV1_0_0.data";
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+        }
+    }
+
     #endregion
 
     #region Options

@@ -33,7 +33,7 @@ public class KeyInteractable : ActivableBase
             && SaveLoader.Instance.KeysReached != null
             && SaveLoader.Instance.KeysReached.Contains(_index)) SaveLoader.Instance.KeysReached.Remove(_index);
 
-        SaveLoader.Instance.Save();
+        if(!SaveLoader.Instance._speedrunMode) SaveLoader.Instance.Save();
     }
 
     public IEnumerator StartUpActivate()

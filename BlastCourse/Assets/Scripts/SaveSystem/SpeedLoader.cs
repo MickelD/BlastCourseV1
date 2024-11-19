@@ -28,6 +28,9 @@ public class SpeedLoader : MonoBehaviour
      public float allTimer;
      public float prevTimer;
 
+    public float continuedPlayTimer;
+    public float prevContinuedPlayTimer;
+
     public float tutoT = float.MaxValue/2;
     public float wareT = float.MaxValue/2;
     public float cityT = float.MaxValue/2;
@@ -44,9 +47,11 @@ public class SpeedLoader : MonoBehaviour
     private void Update()
     {
         if(!SaveLoader.Instance._levelSelect)allTimer += Time.deltaTime * (SaveLoader.Instance.SceneIndex > 1).GetHashCode();
+        else if(SaveLoader.Instance._continuedPlay) continuedPlayTimer += Time.deltaTime * (SaveLoader.Instance.SceneIndex > 1).GetHashCode();
+
         if (OptionsLoader.Instance.ExtraHUD)
         {
-            if (SaveLoader.Instance._levelSelect)
+            if (SaveLoader.Instance._levelSelect && !SaveLoader.Instance._continuedPlay)
             {
                 switch (SaveLoader.Instance.SceneIndex)
                 {
@@ -60,6 +65,7 @@ public class SpeedLoader : MonoBehaviour
                         EventManager.OnTimeTick?.Invoke(labTimer); break;
                 }
             }
+            else if(SaveLoader.Instance._continuedPlay) EventManager.OnTimeTick?.Invoke(continuedPlayTimer);
             else EventManager.OnTimeTick?.Invoke(allTimer);
         }
 
@@ -108,7 +114,8 @@ public class SpeedLoader : MonoBehaviour
 
     public void Save()
     {
-        SaveSystem.SpeedrunSave(allTimer,
+        SaveSystem.SpeedrunSave(
+            allTimer,
             tutoT,
             wareT,
             cityT,
@@ -140,6 +147,7 @@ public class SpeedLoader : MonoBehaviour
     public void SetPrevTimer()
     {
         prevTimer = allTimer;
+        prevContinuedPlayTimer = continuedPlayTimer;
     }
 
     public void ResetLevelTimers()
@@ -148,11 +156,14 @@ public class SpeedLoader : MonoBehaviour
         wareTimer = 0;
         cityTimer = 0;
         labTimer = 0;
+
+        prevContinuedPlayTimer = 0;
+        continuedPlayTimer = 0;
     }
 
     public float GetPrevTime()
     {
-        if (SaveLoader.Instance._levelSelect)
+        if (SaveLoader.Instance._levelSelect && !SaveLoader.Instance._continuedPlay)
         {
             switch (SaveLoader.Instance.SceneIndex)
             {
@@ -166,6 +177,7 @@ public class SpeedLoader : MonoBehaviour
                     return labT;
             }
         }
+        else if (SaveLoader.Instance._continuedPlay) return prevContinuedPlayTimer;
 
         return prevTimer;
     }

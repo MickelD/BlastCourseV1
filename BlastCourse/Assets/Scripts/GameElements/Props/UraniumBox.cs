@@ -61,7 +61,7 @@ public class UraniumBox : PhysicsObject
         if (!SaveLoader.Instance.UsedBoxes.Contains(id))
         {
             SaveLoader.Instance.UsedBoxes.Add(id);
-            SaveLoader.Instance.Save();
+            if(!SaveLoader.Instance._speedrunMode) SaveLoader.Instance.Save();
         }
     }
 

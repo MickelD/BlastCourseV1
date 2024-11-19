@@ -172,7 +172,11 @@ public class PauseMenu : MonoBehaviour
         }
         else yield return null;
 
-        if (SaveLoader.Instance._speedrunMode) SpeedLoader.Instance.ResetLevelTimers();
+        if (SaveLoader.Instance._speedrunMode)
+        {
+            SpeedLoader.Instance.ResetLevelTimers();
+            SaveLoader.Instance.LoadSpeedrunBackup();
+        }
         SpeedLoader.Instance.Save();
         SaveLoader.Instance.Load();
     }

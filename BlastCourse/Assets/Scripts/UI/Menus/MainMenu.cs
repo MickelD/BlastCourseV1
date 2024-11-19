@@ -83,6 +83,9 @@ public class MainMenu : MonoBehaviour
         _startDuration = _titleAnimation.keys[_titleAnimation.length - 1].time;
         g_buttons.SetActive(false);
         _toStart = true;
+
+        SaveSystem.LevelDataDelete();
+        SaveSystem.LevelBackupDelete();
     }
 
     private void Update()

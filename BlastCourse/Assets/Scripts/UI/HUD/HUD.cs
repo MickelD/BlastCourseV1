@@ -132,7 +132,8 @@ public class HUD : MonoBehaviour
             _weaponWheelValues?._onOpenWeaponWheel?.Invoke();
             EventManager.OnOpenWeaponWheel?.Invoke();
         }
-        if (OptionsLoader.TryGetKeyUp(InputActions.Weapon_Wheel, _weaponWheelValues._weaponSelectButtonName))
+        if (OptionsLoader.TryGetKeyUp(InputActions.Weapon_Wheel, _weaponWheelValues._weaponSelectButtonName) &&
+            ExtendedDataUtility.CheckForValues(SaveLoader.Instance.UnlockedRpgs.ToList(), true) >= 2)
         {
             CloseWW();
         }

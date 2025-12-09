@@ -71,6 +71,8 @@ public class RpgHolder : MonoBehaviour
 
     private RpgData _currentRpg;
 
+    private PlayerInteract _playerInteract;
+
     #endregion
 
     #region UnityFunctions
@@ -102,6 +104,8 @@ public class RpgHolder : MonoBehaviour
             if (!_rpgCollection.ContainsKey(_rpgFiringMode[i])) _rpgCollection.Add(_rpgFiringMode[i], _rpgList[i]);
         }
         _currentRpg = _rpgCollection[_fireMode];
+
+        _playerInteract = _player.gameObject.GetComponent<PlayerInteract>();
 
         InitializeAllRpgBehaviours();
 
@@ -168,9 +172,17 @@ public class RpgHolder : MonoBehaviour
 
     private void ReadRpgInput()
     {
-        if (OptionsLoader.TryGetKeyDown(InputActions.Primary_Fire,_primaryFireButtonName) && _currentRpg._rpgStats.Unlocked && _canShoot && Time.timeScale != 0)
+        if (OptionsLoader.TryGetKeyDown(InputActions.Primary_Fire,_primaryFireButtonName) && _currentRpg._rpgStats.Unlocked && Time.timeScale != 0)
         {
-            _currentRpg._rpgBehaviour.ReceivePrimaryInput();
+            if (_canShoot)
+            {
+                _currentRpg._rpgBehaviour.ReceivePrimaryInput();
+            }
+            else
+            {
+                _playerInteract.CancelCurrentInteraction();
+                _currentRpg._rpgBehaviour.ReceivePrimaryInput();
+            }
         }
 
         if (OptionsLoader.TryGetKeyDown(InputActions.Secondary_Fire, _secondaryFireButtonName) && _currentRpg._rpgStats.Unlocked && _canDetonate && Time.timeScale != 0)

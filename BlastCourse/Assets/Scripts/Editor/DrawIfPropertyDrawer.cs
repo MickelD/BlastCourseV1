@@ -79,8 +79,11 @@ public class DrawIfPropertyDrawer : PropertyDrawer
             case "Enum":
                 return comparedField.enumValueIndex.Equals((int)drawIf.comparedValue);
             default:
-                Debug.LogError("Error: " + comparedField.type + " is not supported of " + path);
-                return true;
+
+                return drawIf.comparedValue != null;
+
+                //Debug.LogError("Error: " + comparedField.type + " is not supported of " + path);
+                //return true;
         }
     }
 

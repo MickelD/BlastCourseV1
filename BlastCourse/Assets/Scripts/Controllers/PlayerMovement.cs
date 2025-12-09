@@ -494,7 +494,7 @@ public class PlayerMovement : MonoBehaviour, IBounceable, IExplodable, IMagnetab
             if (Mathf.Max(Mathf.Abs(c_rb.velocity.x), Mathf.Abs(c_rb.velocity.z)) < _minHorSpeed && _restrictVerticalSpam && !exp.ExplosionRules.IgnoreVerticalAttenuation) //We are not moving horizontally, and we are restricting vertical spam
             {
                 _statJumpsCount++;
-
+            
                 if(_statJumpsCount <= _stationaryJumps) velY = 0; 
                 else velY *= _verticalReflection; //We will keep some of our momentum to lessen the upwards velocity gain
             }

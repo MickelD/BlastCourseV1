@@ -99,3 +99,7 @@ MonoBehaviour:
   normalMat: {fileID: 2100000, guid: 24a7f00162a1d2248acf12e1857731fc, type: 2}
   transMat: {fileID: 2100000, guid: abeb8afa681ac3946a00c8ab5be280e2, type: 2}
   makeTrans: 0
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  goTo: {fileID: 0}
+  lineColor: {r: 0, g: 0, b: 0, a: 0}
+  lineThickness: 0

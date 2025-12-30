@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: matDefuse
+  m_Name: matMovable
   m_Shader: {fileID: -6465566751694194690, guid: e27dde0ebb133d942a7d22a80ef62781,
     type: 3}
   m_ValidKeywords: []
@@ -151,8 +151,8 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0.8773585, g: 0.8773585, b: 0.8773585, a: 1}
     - _Color: {r: 0.8773585, g: 0.8773585, b: 0.8773585, a: 1}
-    - _Diffuse_Color: {r: 0.9670261, g: 0.6494749, b: 0.990566, a: 1}
-    - _EmissionColor: {r: 1, g: 0.2971698, b: 0.70508677, a: 1}
+    - _Diffuse_Color: {r: 0.55335075, g: 0, b: 0.5943396, a: 1}
+    - _EmissionColor: {r: 0.1458357, g: 0.060074773, b: 0.2830189, a: 1}
     - _Emission_Color: {r: 1, g: 1, b: 1, a: 0}
     - _Offset: {r: 0, g: 0, b: 0, a: 0}
     - _Outline_Color: {r: 0, g: 0, b: 0, a: 0}
